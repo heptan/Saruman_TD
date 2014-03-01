@@ -25,7 +25,7 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">200</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">68</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">152</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">163</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">164</XPD:ATTR>
 <XPD:REF name="Model">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="DZE5gLHCL0qTdKdIqnUWkgAA">
@@ -62,12 +62,27 @@
 <XPD:REF name="Views[1]">uxbFTYspzEi3qPPa5+VXswAA</XPD:REF>
 <XPD:REF name="Views[2]">RC4byBarTEKllb2kZJJjYgAA</XPD:REF>
 <XPD:REF name="Views[3]">UpnhVsmbtkSGu5FnKN1bYgAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Hs2fzeKe7EuUiKLrMKJpRQAA">
-<XPD:ATTR name="Name" type="string">setInterval</XPD:ATTR>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="j5cAbqPoPU+C/Ge2ZQ504gAA">
+<XPD:ATTR name="Name" type="string">getInterval</XPD:ATTR>
 <XPD:REF name="Owner">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="imJRY2oU+EC121PS7N1rwgAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="XGa/ueBpC0K6ls96fSRH+wAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">j5cAbqPoPU+C/Ge2ZQ504gAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="Hs2fzeKe7EuUiKLrMKJpRQAA">
+<XPD:ATTR name="Name" type="string">setInterval</XPD:ATTR>
+<XPD:REF name="Owner">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Q0I2XssFQU2IEX/8YTsxOgAA">
+<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Hs2fzeKe7EuUiKLrMKJpRQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="pNynhpWILEaKa8BmHXPmcAAA">
 <XPD:ATTR name="Name" type="string">int interval</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">Hs2fzeKe7EuUiKLrMKJpRQAA</XPD:REF>
 </XPD:OBJ>
