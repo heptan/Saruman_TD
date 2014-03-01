@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="oSQedCTgM0Sm1nGslCDJ5QAA">
+<XPD:ATTR name="Title" type="string">Untitled</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLModel" guid="tBgCP1DAa02qioEgkYR4VQAA">
+<XPD:ATTR name="Name" type="string">SarumanTD</XPD:ATTR>
+<XPD:REF name="Namespace">oSQedCTgM0Sm1nGslCDJ5QAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="VAX5WZuGXkOXkRs6yp7W6AAA">
+<XPD:ATTR name="Name" type="string">Classes</XPD:ATTR>
+<XPD:REF name="DiagramOwner">tBgCP1DAa02qioEgkYR4VQAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="wPqd+JfO6UuM0FESH3Fd8QAA">
+<XPD:REF name="Diagram">VAX5WZuGXkOXkRs6yp7W6AAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="vsN02SwTzU+MGm0uXQ70UQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">200</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">152</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">164</XPD:ATTR>
+<XPD:REF name="Model">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="DZE5gLHCL0qTdKdIqnUWkgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="CR8v5t9akUai5iRSUb3+0wAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">MyTimer</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="bzr/n4cHA0CgL/MrvYXpNgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="TjmpJDc8mUCRVgLhihFjHAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="uxbFTYspzEi3qPPa5+VXswAA">
+<XPD:REF name="Model">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="RC4byBarTEKllb2kZJJjYgAA">
+<XPD:REF name="Model">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="UpnhVsmbtkSGu5FnKN1bYgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="NwJ4iMg0jky87+dEcy+/TAAA">
+<XPD:ATTR name="Name" type="string">MyTimer</XPD:ATTR>
+<XPD:REF name="Namespace">tBgCP1DAa02qioEgkYR4VQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">vsN02SwTzU+MGm0uXQ70UQAA</XPD:REF>
+<XPD:REF name="Views[1]">uxbFTYspzEi3qPPa5+VXswAA</XPD:REF>
+<XPD:REF name="Views[2]">RC4byBarTEKllb2kZJJjYgAA</XPD:REF>
+<XPD:REF name="Views[3]">UpnhVsmbtkSGu5FnKN1bYgAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Hs2fzeKe7EuUiKLrMKJpRQAA">
+<XPD:ATTR name="Name" type="string">setInterval</XPD:ATTR>
+<XPD:REF name="Owner">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="imJRY2oU+EC121PS7N1rwgAA">
+<XPD:ATTR name="Name" type="string">int interval</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">Hs2fzeKe7EuUiKLrMKJpRQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="E/UHCBY8NE6VLse/9lWOFgAA">
+<XPD:ATTR name="Name" type="string">interval</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
+<XPD:REF name="Owner">NwJ4iMg0jky87+dEcy+/TAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>
