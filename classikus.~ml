@@ -3821,14 +3821,15 @@
 <XPD:REF name="BehavioralFeature">+6JYuU2ciE6oJ59u2+gOPgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#TypedFeatures" type="integer">7</XPD:ATTR>
+<XPD:ATTR name="#TypedFeatures" type="integer">8</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">l3ucVKbUC0+fHIdRYbOZWQAA</XPD:REF>
 <XPD:REF name="TypedFeatures[1]">RRSxT5wsQECre56IWBxdwQAA</XPD:REF>
 <XPD:REF name="TypedFeatures[2]">lRu0DAh22kmtVXlvqsa81QAA</XPD:REF>
-<XPD:REF name="TypedFeatures[3]">MX2caz5vH0qLNQ0hvaFv5AAA</XPD:REF>
-<XPD:REF name="TypedFeatures[4]">NmF17kTCz0qohvBtcQtXgQAA</XPD:REF>
-<XPD:REF name="TypedFeatures[5]">SSDbRvGS0k6KioyIZF5rNAAA</XPD:REF>
-<XPD:REF name="TypedFeatures[6]">VeKyDeF2vUuFfLp4KtChOAAA</XPD:REF>
+<XPD:REF name="TypedFeatures[3]">S/Ss0ML1eEaPzMXuHS/gPQAA</XPD:REF>
+<XPD:REF name="TypedFeatures[4]">MX2caz5vH0qLNQ0hvaFv5AAA</XPD:REF>
+<XPD:REF name="TypedFeatures[5]">NmF17kTCz0qohvBtcQtXgQAA</XPD:REF>
+<XPD:REF name="TypedFeatures[6]">SSDbRvGS0k6KioyIZF5rNAAA</XPD:REF>
+<XPD:REF name="TypedFeatures[7]">VeKyDeF2vUuFfLp4KtChOAAA</XPD:REF>
 <XPD:ATTR name="#TypedParameters" type="integer">14</XPD:ATTR>
 <XPD:REF name="TypedParameters[0]">D5d0h1kickOp1wCrf76oTgAA</XPD:REF>
 <XPD:REF name="TypedParameters[1]">IbFCrM+0Y0yAjK3dMVOGlgAA</XPD:REF>
@@ -4046,7 +4047,7 @@
 </XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">XNCf3LA+6EaliVeiuKplzgAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="#Attributes" type="integer">6</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="JjvPMubP+02Bf6HkR0WxmwAA">
 <XPD:ATTR name="Name" type="string">target</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
@@ -4061,19 +4062,26 @@
 <XPD:REF name="Type_">F1/UDsSy0UmgpFkSDxIJzAAA</XPD:REF>
 <XPD:REF name="Owner">VMaxhRFSI0quD+b0lcYcbwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="J/zKZtDRQ02+M84Ooux4lgAA">
+<XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="S/Ss0ML1eEaPzMXuHS/gPQAA">
+<XPD:ATTR name="Name" type="string">direction</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Position</XPD:ATTR>
+<XPD:REF name="Type_">F1/UDsSy0UmgpFkSDxIJzAAA</XPD:REF>
+<XPD:REF name="Owner">VMaxhRFSI0quD+b0lcYcbwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="J/zKZtDRQ02+M84Ooux4lgAA">
 <XPD:ATTR name="Name" type="string">speed</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">double</XPD:ATTR>
 <XPD:REF name="Owner">VMaxhRFSI0quD+b0lcYcbwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[3]" type="UMLAttribute" guid="alSM9FaDtkCyoiQud1Dj1QAA">
+<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="alSM9FaDtkCyoiQud1Dj1QAA">
 <XPD:ATTR name="Name" type="string">damage</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">double</XPD:ATTR>
 <XPD:REF name="Owner">VMaxhRFSI0quD+b0lcYcbwAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Attributes[4]" type="UMLAttribute" guid="GMLBpqiSA0GnVE4s4AxQgQAA">
+<XPD:OBJ name="Attributes[5]" type="UMLAttribute" guid="GMLBpqiSA0GnVE4s4AxQgQAA">
 <XPD:ATTR name="Name" type="string">range</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">double</XPD:ATTR>
