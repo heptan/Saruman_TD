@@ -6324,7 +6324,7 @@
 <XPD:REF name="Views[3]">Y+7dOFFGb0i3uVTLkJskvwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">6</XPD:ATTR>
+<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="gw8kaSnS/Ueb4HOazGZv/wAA">
 <XPD:ATTR name="Name" type="string">Torony reg</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
@@ -8913,7 +8913,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="Hw4jXFlA10GQbUhQ7sFvggAA">
-<XPD:ATTR name="Name" type="string"> </XPD:ATTR>
 <XPD:REF name="InteractionInstanceSet">yOlVGoy9k0iN/nCzEPaqUgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -8953,6 +8952,90 @@ setTrap-et???
 <XPD:OBJ name="ParticipatingInstances[2]" type="UMLObject" guid="7t8hjpjFkkmAjLpMcAGuGQAA">
 <XPD:REF name="Classifier">0RNG+q2j5E2He3vDShBv6AAA</XPD:REF>
 <XPD:REF name="CollaborationInstanceSet">ti+gv7mdHE6iqVMOLOliKAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedCollaborationInstanceSets[6]" type="UMLCollaborationInstanceSet" guid="rL/Fr6/FvkajZ0/hhBXa6gAA">
+<XPD:ATTR name="Name" type="string">CollaborationInstanceSet1</XPD:ATTR>
+<XPD:REF name="RepresentedClassifier">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
+<XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="zCkkSn1uyEivYGxPys72jAAA">
+<XPD:ATTR name="Name" type="string">InteractionInstanceSet1</XPD:ATTR>
+<XPD:REF name="Context">rL/Fr6/FvkajZ0/hhBXa6gAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="vu4fPDotMkWGAA/iW/qhKwAA">
+<XPD:ATTR name="Name" type="string">NextStep</XPD:ATTR>
+<XPD:REF name="DiagramOwner">zCkkSn1uyEivYGxPys72jAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="0hVynLffBESocsX2uHz1kAAA">
+<XPD:REF name="Diagram">vu4fPDotMkWGAA/iW/qhKwAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLFrameView" guid="CKON//dpnkOCotPB0Zji9AAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">48</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">28</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">360</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">388</XPD:ATTR>
+<XPD:REF name="Model">BCOmXfEllUG85/9e3X69swAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="LabelView" guid="sTT9hwF6pUeHown25pwUmwAA">
+<XPD:ATTR name="Text" type="string">NextStep</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="FrameTypeLabel" type="LabelView" guid="E0JCqZ+vMEOLuTIlR28WZgAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">sd</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="BCOmXfEllUG85/9e3X69swAA">
+<XPD:ATTR name="Name" type="string">NextStep</XPD:ATTR>
+<XPD:ATTR name="FrameKind" type="string">sd</XPD:ATTR>
+<XPD:REF name="InteractionInstanceSet">zCkkSn1uyEivYGxPys72jAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+<XPD:REF name="Views[0]">CKON//dpnkOCotPB0Zji9AAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedCollaborationInstanceSets[7]" type="UMLCollaborationInstanceSet" guid="f+g2QqhKRkyf0Bwv4PWPzAAA">
+<XPD:ATTR name="Name" type="string">CollaborationInstanceSet2</XPD:ATTR>
+<XPD:REF name="RepresentedClassifier">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
+<XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="YtukiTbFkUmj5ntlimhbxAAA">
+<XPD:ATTR name="Name" type="string">InteractionInstanceSet1</XPD:ATTR>
+<XPD:REF name="Context">f+g2QqhKRkyf0Bwv4PWPzAAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="BQEUNMdWmEOqMvTfdseG6wAA">
+<XPD:ATTR name="Name" type="string">AddGemstone</XPD:ATTR>
+<XPD:REF name="DiagramOwner">YtukiTbFkUmj5ntlimhbxAAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="QlQxowF0RU26JZVljy92oAAA">
+<XPD:REF name="Diagram">BQEUNMdWmEOqMvTfdseG6wAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLFrameView" guid="TAYPBynF006cPoZRS3WfRgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">48</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">364</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">544</XPD:ATTR>
+<XPD:REF name="Model">Nkbq4f7Zj0a7ZuFJvPVjrQAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="LabelView" guid="dN/kY4ZxpEGf21xQuIvVXAAA">
+<XPD:ATTR name="Text" type="string">AddGemstone</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="FrameTypeLabel" type="LabelView" guid="Q9N4zp6Y4UWBHYbaQZD0+wAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">sd</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="Nkbq4f7Zj0a7ZuFJvPVjrQAA">
+<XPD:ATTR name="Name" type="string">AddGemstone</XPD:ATTR>
+<XPD:ATTR name="FrameKind" type="string">sd</XPD:ATTR>
+<XPD:REF name="InteractionInstanceSet">YtukiTbFkUmj5ntlimhbxAAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+<XPD:REF name="Views[0]">TAYPBynF006cPoZRS3WfRgAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
