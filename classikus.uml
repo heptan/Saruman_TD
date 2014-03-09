@@ -3036,7 +3036,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">77</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">78</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="ztYNg4Saxk6Axil8wc1jNwAA">
 <XPD:ATTR name="Name" type="string">Tower</XPD:ATTR>
 <XPD:REF name="Namespace">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
@@ -4279,6 +4279,8 @@
 <XPD:REF name="BehavioralFeature">F8pj8+baokqik85adaA5ZgAA</XPD:REF>
 <XPD:REF name="Type_">F1/UDsSy0UmgpFkSDxIJzAAA</XPD:REF>
 </XPD:OBJ>
+<XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
+<XPD:REF name="CallActions[0]">kee1doBX+Uuf006EMX4JqQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[11]" type="UMLOperation" guid="O2WJsFR0WkmPzu7y3b8gewAA">
 <XPD:ATTR name="Name" type="string">addTrap</XPD:ATTR>
@@ -4294,6 +4296,8 @@
 <XPD:REF name="BehavioralFeature">O2WJsFR0WkmPzu7y3b8gewAA</XPD:REF>
 <XPD:REF name="Type_">F1/UDsSy0UmgpFkSDxIJzAAA</XPD:REF>
 </XPD:OBJ>
+<XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
+<XPD:REF name="CallActions[0]">+1bcgGe5tkSNJq3Lsm3HWQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#TypedFeatures" type="integer">4</XPD:ATTR>
 <XPD:REF name="TypedFeatures[0]">CE77fkh2hka+n79gdjDvNAAA</XPD:REF>
@@ -4307,12 +4311,13 @@
 <XPD:REF name="TypedParameters[3]">E0UEDxxjrUmJlOo5yOq/IQAA</XPD:REF>
 <XPD:REF name="TypedParameters[4]">lWs1N8dNdkeI5TniLWlUJwAA</XPD:REF>
 <XPD:REF name="TypedParameters[5]">iMj2vLCBI06lVUlPOoEwDwAA</XPD:REF>
-<XPD:ATTR name="#Associations" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="#Associations" type="integer">6</XPD:ATTR>
 <XPD:REF name="Associations[0]">0B/67lmrI02SF8hAvbauYgAA</XPD:REF>
 <XPD:REF name="Associations[1]">etzb0wkm1kWiR2HNRpuu8AAA</XPD:REF>
 <XPD:REF name="Associations[2]">ZelpM1E8+UWfeafbmneMFQAA</XPD:REF>
 <XPD:REF name="Associations[3]">pWgiVa/KXEOfO5Od1EdhgwAA</XPD:REF>
 <XPD:REF name="Associations[4]">rX6N0b5vA0Gxw2pkJefpzAAA</XPD:REF>
+<XPD:REF name="Associations[5]">38YnRxzY3UaNSiTyzSegHQAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="y2+XaCvN2kqebTb7QlZftQAA">
 <XPD:ATTR name="Name" type="string">tileList</XPD:ATTR>
@@ -4430,13 +4435,14 @@
 <XPD:REF name="TypedParameters[15]">pC8ndDF/90GZCORgCrYm0gAA</XPD:REF>
 <XPD:REF name="TypedParameters[16]">2r/beyK+h0GkBaVJgWPx9AAA</XPD:REF>
 <XPD:REF name="TypedParameters[17]">2O8ViZFKsEWJWh+Ou1FryAAA</XPD:REF>
-<XPD:ATTR name="#Associations" type="integer">6</XPD:ATTR>
+<XPD:ATTR name="#Associations" type="integer">7</XPD:ATTR>
 <XPD:REF name="Associations[0]">HMmuTbcaXUaYu0pNDUnIOQAA</XPD:REF>
 <XPD:REF name="Associations[1]">UEtLTD74S0qoBJmZ6w/0DAAA</XPD:REF>
 <XPD:REF name="Associations[2]">KfyaFDhJ6kKH+as//w6jtAAA</XPD:REF>
 <XPD:REF name="Associations[3]">xv83QEWgJkOmgvMCfZ0/7AAA</XPD:REF>
 <XPD:REF name="Associations[4]">89nUk21Yu0Gjw4zkR9xdNwAA</XPD:REF>
 <XPD:REF name="Associations[5]">TJYqtqjwSkyjn4HTq1RK8gAA</XPD:REF>
+<XPD:REF name="Associations[6]">K03wU3W8YEmROv+d1gNnWAAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="UsIQImTEIkK1t6j7yopweAAA">
 <XPD:ATTR name="Name" type="string">x</XPD:ATTR>
@@ -6532,6 +6538,19 @@
 <XPD:REF name="Namespace">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
 <XPD:ATTR name="#Instances" type="integer">1</XPD:ATTR>
 <XPD:REF name="Instances[0]">L5VZEhE1DUCJIkqv20cWKwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[77]" type="UMLAssociation" guid="PJ3bEeKbH0OwGy8I7XrekAAA">
+<XPD:REF name="Namespace">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
+<XPD:ATTR name="#Connections" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Connections[0]" type="UMLAssociationEnd" guid="38YnRxzY3UaNSiTyzSegHQAA">
+<XPD:ATTR name="IsNavigable" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Association">PJ3bEeKbH0OwGy8I7XrekAAA</XPD:REF>
+<XPD:REF name="Participant">2lEhpfPDrEiYSxm7T2+25wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="K03wU3W8YEmROv+d1gNnWAAA">
+<XPD:REF name="Association">PJ3bEeKbH0OwGy8I7XrekAAA</XPD:REF>
+<XPD:REF name="Participant">F1/UDsSy0UmgpFkSDxIJzAAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">10</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="gw8kaSnS/Ueb4HOazGZv/wAA">
@@ -11223,7 +11242,7 @@ setTrap-et???
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="yDYsx+wr70GeFgyK5YbDnQAA">
 <XPD:ATTR name="Alpha" type="real">1,10714791779441</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">11,1803398874989</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">addTower(x, y)</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">addTower(pos)</XPD:ATTR>
 <XPD:REF name="Model">u0/r9no8kUS5VYv7/3cvrQAA</XPD:REF>
 <XPD:REF name="HostEdge">ltz20bcb4kW2Xxs0fRwfOAAA</XPD:REF>
 </XPD:OBJ>
@@ -11332,7 +11351,7 @@ setTrap-et???
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="lZzyIMRMv0asil6Pdd1jAAAA">
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">setTower(tower)</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">setTower()</XPD:ATTR>
 <XPD:REF name="Model">gGP9AKvyd0qQV0XUbYNKWwAA</XPD:REF>
 <XPD:REF name="HostEdge">RUf3cfsExEGPl059toS30wAA</XPD:REF>
 </XPD:OBJ>
@@ -11399,11 +11418,12 @@ setTrap-et???
 <XPD:ATTR name="#ParticipatingStimuli" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="ParticipatingStimuli[0]" type="UMLStimulus" guid="u0/r9no8kUS5VYv7/3cvrQAA">
 <XPD:ATTR name="Name" type="string">addTower</XPD:ATTR>
-<XPD:ATTR name="Arguments" type="string">x, y</XPD:ATTR>
+<XPD:ATTR name="Arguments" type="string">pos</XPD:ATTR>
 <XPD:REF name="Sender">OgrRw0PbA0abCXLsttvl8gAA</XPD:REF>
 <XPD:REF name="Receiver">YJ4bLeBdNk6jaYPbz6sGiwAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLCallAction" guid="kee1doBX+Uuf006EMX4JqQAA">
 <XPD:REF name="Stimulus">u0/r9no8kUS5VYv7/3cvrQAA</XPD:REF>
+<XPD:REF name="Operation">F8pj8+baokqik85adaA5ZgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:REF name="InteractionInstanceSet">caR+TTXG80Gk1Xhb8vzpEgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -11663,7 +11683,7 @@ setTrap-et???
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="niId0SC2l0K+2bsGK32RmgAA">
 <XPD:ATTR name="Alpha" type="real">1,10714791779441</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">11,1803398874989</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">addTrap(x, y)</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">addTrap(pos)</XPD:ATTR>
 <XPD:REF name="Model">3gqbZepAM0e7uP2swiVR/AAA</XPD:REF>
 <XPD:REF name="HostEdge">/wCTniz5iU6qI69HhFJKhAAA</XPD:REF>
 </XPD:OBJ>
@@ -11839,11 +11859,12 @@ setTrap-et???
 <XPD:ATTR name="#ParticipatingStimuli" type="integer">5</XPD:ATTR>
 <XPD:OBJ name="ParticipatingStimuli[0]" type="UMLStimulus" guid="3gqbZepAM0e7uP2swiVR/AAA">
 <XPD:ATTR name="Name" type="string">addTrap</XPD:ATTR>
-<XPD:ATTR name="Arguments" type="string">x, y</XPD:ATTR>
+<XPD:ATTR name="Arguments" type="string">pos</XPD:ATTR>
 <XPD:REF name="Sender">8LdkSrYFekaKZat7bVlidQAA</XPD:REF>
 <XPD:REF name="Receiver">jMVlKCaZuEW7zL5WbJzcVQAA</XPD:REF>
 <XPD:OBJ name="Action" type="UMLCallAction" guid="+1bcgGe5tkSNJq3Lsm3HWQAA">
 <XPD:REF name="Stimulus">3gqbZepAM0e7uP2swiVR/AAA</XPD:REF>
+<XPD:REF name="Operation">O2WJsFR0WkmPzu7y3b8gewAA</XPD:REF>
 </XPD:OBJ>
 <XPD:REF name="InteractionInstanceSet">lzYG5jvIQkiYs8gAA2QZkgAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
