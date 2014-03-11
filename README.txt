@@ -6,3 +6,4 @@ de LEGINKÁBB ezt:
 https://thepiratebay.se/torrent/9154988/Lynda_-_Git_Essential_Training
 
 (persze ha ezt olvasod, akkor már lehet, hogy szükségtelen! :D)
+Ricsi tud commitolni!
