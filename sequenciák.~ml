@@ -2953,7 +2953,7 @@
 <XPD:OBJ name="OwnedViews[62]" type="UMLAssociationView" guid="EzJLj5wP1UG999vmIKPjngAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2550,813;2556,832;1780,832;1772,668;1722,660</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2550,813;2556,832;1722,665</XPD:ATTR>
 <XPD:REF name="Model">wU34VfJDO0C5wqIQy4tJlAAA</XPD:REF>
 <XPD:REF name="Head">1YSpX1I/70Gu1S7IprD6mgAA</XPD:REF>
 <XPD:REF name="Tail">KAFN5zJny0yVE2ooKWdaEwAA</XPD:REF>
