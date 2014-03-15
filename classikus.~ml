@@ -3053,14 +3053,14 @@
 <XPD:ATTR name="Name" type="string">setSpeed</XPD:ATTR>
 <XPD:REF name="Owner">ilXFytzrh0myosWQli08cAAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="vEcJlpivmkeP+rq0+HjHwgAA">
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="k15Tg3K+OUCcsZpsobteEgAA">
 <XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">void</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">hq3+4U79fEyShNW7tO+IyQAA</XPD:REF>
 </XPD:OBJ>
-<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="ELH5/hKdpEKHOLybDT0YTgAA">
+<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="uUn92J6NvEiXQTGSwAtYegAA">
 <XPD:ATTR name="Name" type="string">speed</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">double</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">hq3+4U79fEyShNW7tO+IyQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:ATTR name="#CallActions" type="integer">1</XPD:ATTR>
@@ -5187,7 +5187,7 @@
 <XPD:REF name="Views[2]">/CsFWydofE6O1YZGJfnebgAA</XPD:REF>
 <XPD:REF name="Views[3]">oGpiJzU4KEeZ8bmxCp7UkgAA</XPD:REF>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">7</XPD:ATTR>
+<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="gw8kaSnS/Ueb4HOazGZv/wAA">
 <XPD:ATTR name="Name" type="string">Torony reg</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
@@ -5393,6 +5393,7 @@
 <XPD:REF name="Head">WLVwztVBh0WKXBtTk+xdZAAA</XPD:REF>
 <XPD:REF name="Tail">xdZfLOLXykmPkOqm98xRVgAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="eYKafgxz9kK5MDLe1Xx6dwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
 <XPD:REF name="Model">uvzbUKGAVUKZrZFbMUD5gAAA</XPD:REF>
@@ -5428,6 +5429,7 @@
 <XPD:REF name="Head">exD8bhlWmE23NdKPRFU15QAA</XPD:REF>
 <XPD:REF name="Tail">WLVwztVBh0WKXBtTk+xdZAAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="zYUjHULrtkSwMV0rsU6UgAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
 <XPD:REF name="Model">D/BtiG2wj0eR1iNOeqT+jQAA</XPD:REF>
@@ -5463,6 +5465,7 @@
 <XPD:REF name="Head">dpq+gTSmjkuIWviEgz96bgAA</XPD:REF>
 <XPD:REF name="Tail">exD8bhlWmE23NdKPRFU15QAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="Vc6LuhceYk2BQg0KBg+q9wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
 <XPD:REF name="Model">gPZ5rQUhJEa7iTC6CmzbZAAA</XPD:REF>
@@ -5498,6 +5501,7 @@
 <XPD:REF name="Head">DWei6ZLajUaS0hk2muAdKAAA</XPD:REF>
 <XPD:REF name="Tail">dpq+gTSmjkuIWviEgz96bgAA</XPD:REF>
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="9aNPyaj8AkK7UaLfRnMY+QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
 <XPD:REF name="Model">4NyPotNx4UmYT56XDqWj0gAA</XPD:REF>
@@ -7783,6 +7787,25 @@ setTrap-et???
 <XPD:REF name="SendingStimuli[0]">Oh3NYl3Oik+tiEaKgIvO3QAA</XPD:REF>
 <XPD:ATTR name="#ReceivingStimuli" type="integer">1</XPD:ATTR>
 <XPD:REF name="ReceivingStimuli[0]">HMl3SzzIF0ma0lyNdquBlwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedCollaborationInstanceSets[7]" type="UMLCollaborationInstanceSet" guid="TGxDvFgGKUO1yTXnBLa/NQAA">
+<XPD:ATTR name="Name" type="string">Torony lerakása</XPD:ATTR>
+<XPD:REF name="RepresentedClassifier">1F2dH0OWNkyq+LR5t/W0GQAA</XPD:REF>
+<XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="tXUWhI4qMkCCeipKAlW7+wAA">
+<XPD:ATTR name="Name" type="string">InteractionInstanceSet1</XPD:ATTR>
+<XPD:REF name="Context">TGxDvFgGKUO1yTXnBLa/NQAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="whDgCETVc0u7+NpEkYiaSwAA">
+<XPD:ATTR name="Name" type="string">Torony lerakása</XPD:ATTR>
+<XPD:ATTR name="ShowSequenceNumber" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="MessageSignature" type="UMLMessageSignatureKind">mskNameOnly</XPD:ATTR>
+<XPD:REF name="DiagramOwner">tXUWhI4qMkCCeipKAlW7+wAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="vzU11uwp5UGSn14TIucFRwAA">
+<XPD:REF name="Diagram">whDgCETVc0u7+NpEkYiaSwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
