@@ -8013,7 +8013,7 @@ setTrap-et???
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="QEznZMjZVk67itlbXzVXDgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="0HR4ZBsnM0uFgpeC89JB1gAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string"> : Enemy</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">e : Enemy</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="dB3xjbUkdEuqZKSGe0LukQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -8182,7 +8182,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="xxb7uwBr/Euso26DWXmi8AAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8190,7 +8189,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="OqU/EP04oUy0mr2Yxgc1PAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -8216,7 +8214,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="QFsmK4I0sU6IVkhK4VpWVAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8224,7 +8221,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="Ylsqke6OlEiT4sy1Hp+l+wAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -8250,7 +8246,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="wnh9AhzX/EGb0cRidXwjggAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8258,7 +8253,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="nT+oogVT0USoW8TyCVXClAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -8284,7 +8278,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="NCVaJjeNoU6y57ELJSaWmgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8292,7 +8285,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="N606WtnHe0yJ2L0wlU+bTAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -8373,6 +8365,7 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:ATTR name="#ParticipatingInstances" type="integer">4</XPD:ATTR>
 <XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="TSNF1HcXPk+FHi/JcC6c2wAA">
+<XPD:ATTR name="Name" type="string">e</XPD:ATTR>
 <XPD:REF name="Classifier">ilXFytzrh0myosWQli08cAAA</XPD:REF>
 <XPD:REF name="CollaborationInstanceSet">531lDDknvE6HQpGReqWqswAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
@@ -8660,7 +8653,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="wZsjwxQu3EuLUvdRu2HIrAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8668,7 +8660,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="psi/+/7K+0Sl+Is3/V/RtQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -8694,7 +8685,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="8WP0pL5Fi0+1CTX7hESiaAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8702,7 +8692,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="EezJXpKeE0iudy4NAqAlowAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -8728,7 +8717,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="0hCeZeuSO0CvmkBzULp8GQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -8736,7 +8724,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="zsmzQ9whvkeWm7cZhD5geAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -9426,7 +9413,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="w/4inFVam0iWmf61/FawNAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -9434,7 +9420,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="6Ei5wgXbTkS669SfpcJafQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -9460,7 +9445,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="sC9o72VNDkGUWCaGBrGJ4AAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -9468,7 +9452,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="StGCrAEI0USm1PLA2A/4WwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -9494,7 +9477,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="BTPjS7VbX0ev850KrvO7aQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -9502,7 +9484,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="FvsDpfd5OEKib+l5K2weRQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -9944,7 +9925,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="azuAdn5aJ0mCJspZHT7bfAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -9952,7 +9932,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="NLkieuLgpUKpuxnoCERLYwAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -9978,7 +9957,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="+jSYtIUxu0WHpdpK+YqKdQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -9986,7 +9964,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="kQIXP1pXm0iizawa1O0CmAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -10012,7 +9989,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="S1ZIKZffMECVonCRi1k5AgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -10020,7 +9996,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="B9wNWr6djkaF86w0xnDUqQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
@@ -10046,7 +10021,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="NodeLabelView" guid="pM47j7f/bkyaJ+XxEoe4hQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
@@ -10054,7 +10028,6 @@ setTrap-et???
 </XPD:OBJ>
 <XPD:OBJ name="PropertyLabel" type="NodeLabelView" guid="vPnzmklrFUqmq9jfwQuMUAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">5</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">13</XPD:ATTR>
 <XPD:ATTR name="Alpha" type="real">1,5707963267949</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
