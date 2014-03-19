@@ -3241,11 +3241,12 @@
 <XPD:REF name="Type_">lQhjl0BENkepDWcY2eJPeAAA</XPD:REF>
 <XPD:REF name="Owner">ilXFytzrh0myosWQli08cAAA</XPD:REF>
 </XPD:OBJ>
-<XPD:ATTR name="#Instances" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="#Instances" type="integer">5</XPD:ATTR>
 <XPD:REF name="Instances[0]">UgkrBWieCUCd9wF4G3vNWgAA</XPD:REF>
 <XPD:REF name="Instances[1]">xqODy2yrLUC0/hk4dphCfwAA</XPD:REF>
 <XPD:REF name="Instances[2]">TSNF1HcXPk+FHi/JcC6c2wAA</XPD:REF>
 <XPD:REF name="Instances[3]">Jadr7CaDOkml5VluKL7slAAA</XPD:REF>
+<XPD:REF name="Instances[4]">uBILRWh1ckqNkoD0m9mUdQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="lQhjl0BENkepDWcY2eJPeAAA">
 <XPD:ATTR name="Name" type="string">GameController</XPD:ATTR>
@@ -5000,8 +5001,6 @@
 <XPD:REF name="Views[3]">Hg0yijEuaU2htHbKXWkpwgAA</XPD:REF>
 <XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">8IR0P8+bFECBn68iyJY15wAA</XPD:REF>
-<XPD:ATTR name="#Instances" type="integer">1</XPD:ATTR>
-<XPD:REF name="Instances[0]">uBILRWh1ckqNkoD0m9mUdQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[40]" type="UMLClass" guid="mJZB35XHeUupZqCZC6Cz9gAA">
 <XPD:ATTR name="Name" type="string">Elf</XPD:ATTR>
@@ -6789,7 +6788,7 @@
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="lbHxazglokeZXWuX5dhKTwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="kRe3cUnJV0OksHCM4zsD/gAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string"> : Dwarf</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">e : Enemy</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="sR6IbT8pa0S/U0EEBeNzGQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -6806,15 +6805,15 @@
 <XPD:OBJ name="OwnedViews[2]" type="UMLColObjectView" guid="POZlEUtPCEO+BNLwa3no3QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">384</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">380</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">168</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">94</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">99</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">40</XPD:ATTR>
 <XPD:REF name="Model">3+95QW1yFkikDGLk/EH9gAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="xK1r09BjNUShgHM8EayD3gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="GFHSEisrEUqc5q8udGJ6zQAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string"> : GameController</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">c : GameController</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="BE44TlEpNUSV59+/KudApgAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -6832,7 +6831,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">384,188;277,188</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">380,188;277,188</XPD:ATTR>
 <XPD:REF name="Model">zsAcm+oZF0WpNYZKjJmDWQAA</XPD:REF>
 <XPD:REF name="Head">ya6sozJ820+BzQHNiuko4AAA</XPD:REF>
 <XPD:REF name="Tail">POZlEUtPCEO+BNLwa3no3QAA</XPD:REF>
@@ -6940,7 +6939,8 @@
 <XPD:REF name="CollaborationInstanceSet">6xu94koUEkG/fJ4j7akttQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[2]" type="UMLObject" guid="uBILRWh1ckqNkoD0m9mUdQAA">
-<XPD:REF name="Classifier">V0VwDl28qEyfyT97QGkvNgAA</XPD:REF>
+<XPD:ATTR name="Name" type="string">e</XPD:ATTR>
+<XPD:REF name="Classifier">ilXFytzrh0myosWQli08cAAA</XPD:REF>
 <XPD:REF name="CollaborationInstanceSet">6xu94koUEkG/fJ4j7akttQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">8nWIyA8enUqmSLLrETGUGgAA</XPD:REF>
@@ -6959,6 +6959,7 @@
 <XPD:REF name="ReceivingStimuli[1]">p/3pLAKjUEOT+FGeBVUOiQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[3]" type="UMLObject" guid="3+95QW1yFkikDGLk/EH9gAAA">
+<XPD:ATTR name="Name" type="string">c</XPD:ATTR>
 <XPD:REF name="Classifier">lQhjl0BENkepDWcY2eJPeAAA</XPD:REF>
 <XPD:REF name="CollaborationInstanceSet">6xu94koUEkG/fJ4j7akttQAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
