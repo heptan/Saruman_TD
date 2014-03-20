@@ -5,6 +5,9 @@ package skeleton;
  * varázskövet megvalósító osztály.
  */
 public class plusTime extends GemStone {
+	/*
+	 * Az akadály fennállásának idejét növeli.
+	 */
 	@Override
 	public void setEffect(){
 		

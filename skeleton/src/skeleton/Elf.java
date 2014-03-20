@@ -1,7 +1,14 @@
 package skeleton;
 
 /*
- * A elf ellenséget megvalósító osztály
+ * A tünde ellenséget megvalósító osztály
  */
 public class Elf extends Enemy {
+	/*
+	 * Tünde léptetéséhez, pozícionálásáhor használt metódus.
+	 */
+	@Override
+	public void nextStep(){
+		
+	}
 }
