@@ -5,6 +5,9 @@ package skeleton;
  * osztály.
  */
 public class plusFrequency extends GemStone {
+	/*
+	 * A torony tüzelési gyakoriságát növeli.
+	*/
 	@Override
 	public void setEffect(){
 		

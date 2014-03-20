@@ -5,25 +5,48 @@ package skeleton;
  * osztály.
  */
 public class Position {
+	/*
+	 * A pozíció x koordionátája.
+	 */
 	private double x;
+	/*
+	 * A pozíció y koordionátája.
+	 */
 	private double y;
 	
+	/*
+	 * Az x koordinátát kérdezi le.
+	 */
 	public double getX() {
 		return x;
 	}
 	
+	/*
+	 * Az y koordinátát kérdezi le.
+	 */
 	public double getY() {
 		return y;
 	}
-	
+
+	/*
+	 * Az x koordinátát állítja be.
+	 */
 	public void setX(double _x) {
 	
 	}
 	
+	/*
+	 * Az y koordinátát állítja be.
+	 */
 	public void setY(double _y) {
 	
 	}
 	
+	/*
+	 * Megadja a paraméterként átadott Position típusú objektumtól
+	 * való távolságát
+	 * TODO Nincs paraméter!
+	 */
 	public double getDistance() {
 		return 0.0;
 	}
