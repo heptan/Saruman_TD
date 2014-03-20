@@ -30,7 +30,6 @@ public class Enemy {
 	
 	public int getTimeout() {
 		return timeout;
-	
 	}
 	
 	public void setTimeout(int timeout) {
@@ -38,10 +37,9 @@ public class Enemy {
 	}
 	
 	public void decTimeout(int dec) {
-	
 	}
 	
-	public int getSpeed() {
+	public int getSpeed() { //A sebességét adja vissza
 		return speed;
 	}
 	
