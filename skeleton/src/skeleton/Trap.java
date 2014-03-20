@@ -1,5 +1,9 @@
 package skeleton;
 
+/*
+ * Az akadály megvalósításához használt osztály.
+ */
+
 public class Trap extends EnemyObserver {
 	private long endTime;
 	private Position position;
@@ -37,7 +41,7 @@ public class Trap extends EnemyObserver {
 		//TODO
 		return false;
 	}
-	
+
 	public void enemyHasSteppedOn(Object e) {
 	
 	}

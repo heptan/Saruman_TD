@@ -1,5 +1,8 @@
 package skeleton;
 
+/*
+ * A pályaelem megvalósításához használt osztály.
+ */
 public abstract class Tile {
 	private Position position;
 	private Map map;

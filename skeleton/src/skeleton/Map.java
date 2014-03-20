@@ -2,6 +2,9 @@ package skeleton;
 
 import java.util.List;
 
+/*
+ * A térképet megvalósító osztály.
+ */
 public class Map {
 	private List<Tile> tileList;
 	private GameController gameController;

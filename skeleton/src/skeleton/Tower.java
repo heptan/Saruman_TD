@@ -2,12 +2,15 @@ package skeleton;
 
 import java.util.List;
 
+/*
+ * A torony megvalósításához használt osztály.
+ */
 public class Tower extends EnemyObserver {
 	private Position position;
 	private double range;
 	private Field field;
 	private List<GemStone> gemList;
-	private  List<Enemy> enemyList;
+	private List<Enemy> enemyList;
 	public void notifyFromEnemy(Enemy enemy) {
 	
 	}

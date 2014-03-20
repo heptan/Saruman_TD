@@ -1,5 +1,9 @@
 package skeleton;
 
+/*
+ * A térképen található objektumok pozíciójának tárolásához használt
+ * osztály.
+ */
 public class Position {
 	private double x;
 	private double y;
