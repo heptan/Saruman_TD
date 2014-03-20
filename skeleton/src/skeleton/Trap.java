@@ -11,8 +11,8 @@ public class Trap extends EnemyObserver {
 	private GemStone gem;
 	
 	public Trap() {
-		ConsoleUI.writeSeq("new Trap()");
-		ConsoleUI.writeSeq("new Trap()");
+		ConsoleUI.writeSeq("--> new Trap()");
+		ConsoleUI.writeSeq("<-- Trap");
 	}
 	
 	public void notifyFromEnemy(Enemy enemy) {

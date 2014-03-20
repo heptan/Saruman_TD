@@ -13,8 +13,8 @@ public class Tower extends EnemyObserver {
 	private  List<Enemy> enemyList;
 	
 	public Tower() {
-		ConsoleUI.writeSeq("new Tower()");
-		ConsoleUI.writeSeq("new Tower()");
+		ConsoleUI.writeSeq("--> new Tower()");
+		ConsoleUI.writeSeq("<-- Tower");
 	}
 	
 	/*
@@ -22,7 +22,7 @@ public class Tower extends EnemyObserver {
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {
-		ConsoleUI.writeSeq("Tower.notifyFromEnemy(enemy: Enemy)");
+		ConsoleUI.writeSeq("--> Tower.notifyFromEnemy(enemy: Enemy)");
 		
 		Position pos = enemy.getPosition();
 		
@@ -35,7 +35,7 @@ public class Tower extends EnemyObserver {
 			removeEnemy(enemy);
 		}
 		
-		ConsoleUI.writeSeq("Tower.notifyFromEnemy(enemy: Enemy)");
+		ConsoleUI.writeSeq("<-- void");
 	}
 	
 	public Position getPosition() {
@@ -67,23 +67,23 @@ public class Tower extends EnemyObserver {
 	}
 	
 	public void addEnemy(Enemy e) {
-		ConsoleUI.writeSeq("addEnemy(e: Enemy)");
+		ConsoleUI.writeSeq("--> addEnemy(e: Enemy)");
 		if(!enemyList.contains(e)) {
 			enemyList.add(e);
 		}
-		ConsoleUI.writeSeq("addEnemy(e: Enemy)");
+		ConsoleUI.writeSeq("<-- void");
 	}
 	
 	public void removeEnemy(Enemy e) {
-		ConsoleUI.writeSeq("removeEnemy(e: Enemy)");
+		ConsoleUI.writeSeq("--> removeEnemy(e: Enemy)");
 		if(enemyList.contains(e)) {
 			enemyList.remove(e);
 		}
-		ConsoleUI.writeSeq("removeEnemy(e: Enemy)");
+		ConsoleUI.writeSeq("<-- void");
 	}
 	
 	public void wipe() {
-		ConsoleUI.writeSeq("Tower.wipe()");
-		ConsoleUI.writeSeq("Tower.wipe()");
+		ConsoleUI.writeSeq("--> Tower.wipe()");
+		ConsoleUI.writeSeq("<-- void");
 	}
 }

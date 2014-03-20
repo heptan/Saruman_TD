@@ -34,7 +34,7 @@ public class Map {
 	}
 	
 	public void addTower(Position pos) {
-		ConsoleUI.writeSeq("Map.addTower(pos: Position)");
+		ConsoleUI.writeSeq("--> Map.addTower(pos: Position)");
 		
 		Field f = null;
 		for(Tile t : tileList) {
@@ -52,7 +52,7 @@ public class Map {
 			}
 		}
 		
-		ConsoleUI.writeSeq("Map.addTower(pos: Position)");
+		ConsoleUI.writeSeq("<-- void");
 	}
 	
 	public void addTrap(Position pos) {
