@@ -2,6 +2,9 @@ package skeleton;
 
 import java.util.List;
 
+/*
+ * A játéktér megvalósítására használt osztály. 
+ */
 public class GameController {
 	private List<Enemy> enemies;
 	private List<Road> path;
