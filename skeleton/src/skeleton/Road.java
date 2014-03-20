@@ -27,6 +27,8 @@ public class Road extends Tile {
 	 */
 	@Override
 	public Position getPosition() {
+		ConsoleUI.writeSeq("Position.getPosition()");
+		ConsoleUI.writeSeq("Position.getPosition()");
 		return position;
 	}
 	
@@ -68,6 +70,8 @@ public class Road extends Tile {
 	 * használt metódus.
 	 */
 	public Trap getTrap() {
+		ConsoleUI.writeSeq("Road.getTrap()");
+		ConsoleUI.writeSeq("Road.getTrap()");
 		return trap;
 	}
 	
@@ -76,7 +80,11 @@ public class Road extends Tile {
 	 * használt metódus.
 	 */
 	public void setTrap() {
-	
+		ConsoleUI.writeSeq("Road.setTrap()");
+		if(trap == null) {
+			trap = new Trap();
+		}
+		ConsoleUI.writeSeq("Road.setTrap()");
 	}
 	
 	/*
@@ -84,6 +92,8 @@ public class Road extends Tile {
 	 * metódus.
 	 */
 	public Road getNextRoad() {
+		ConsoleUI.writeSeq("Road.getNextRoad()");
+		ConsoleUI.writeSeq("Road.getNextRoad()");
 		return nextRoad;
 	}
 	

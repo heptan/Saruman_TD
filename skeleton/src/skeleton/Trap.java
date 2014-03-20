@@ -9,6 +9,12 @@ public class Trap extends EnemyObserver {
 	private Position position;
 	private Road road;
 	private GemStone gem;
+	
+	public Trap() {
+		ConsoleUI.writeSeq("new Trap()");
+		ConsoleUI.writeSeq("new Trap()");
+	}
+	
 	public void notifyFromEnemy(Enemy enemy) {
 	
 	}

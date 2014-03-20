@@ -67,20 +67,58 @@ public class Map {
 	 * Torony létrehozása (x, y) pontban.
 	 */
 	public void addTower(Position pos) {
-	
+		ConsoleUI.writeSeq("Map.addTower(pos: Position)");
+		
+		Field f = null;
+		for(Tile t : tileList) {
+			if(t.getPosition().getX() == pos.getX() &&
+			   t.getPosition().getY() == pos.getY() &&
+			   t.getClass().equals(f.getClass())) {
+					f = (Field)t;
+			}
+		}
+		
+		if(f != null) {
+			Tower t = f.getTower();
+			if(t == null) {
+				f.setTower();
+			}
+		}
+		
+		ConsoleUI.writeSeq("Map.addTower(pos: Position)");
 	}
 	
 	/*
 	 * Akadály létrehozása (x, y) pontban.
 	 */
 	public void addTrap(Position pos) {
-	
+		Road r = null;
+		for(Tile t : tileList) {
+			if(t.getPosition().getX() == pos.getX() &&
+			   t.getPosition().getY() == pos.getY() &&
+			   t.getClass().equals(Road.class)) {
+					r = (Road)t;
+			}
+		}
+		
+		r.getTrap();
+		r.setTrap();
+		
 	}
 	
 	/*
 	 * Torony törlése (x, y) pontból.
 	 */
 	public void removeTower(Position pos) {
-	
+		Field f = null;
+		for(Tile t : tileList) {
+			if(t.getPosition().getX() == pos.getX() &&
+			   t.getPosition().getY() == pos.getY() &&
+			   t.getClass().equals(Field.class)) {
+					f = (Field)t;
+			}
+		}
+		
+		f.resetTower();
 	}
 }
