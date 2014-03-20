@@ -135,17 +135,13 @@ public class Enemy {
 	 * Az ellenség léptetéséhez használt metódus
 	 */
 	public void nextStep() {		
-		ConsoleUI.writeSeq("Road.getNextRoad()");
+		ConsoleUI.writeSeq("--> Enemy.nextStep(): void");
+		
 		Road nextr = actRoad.getNextRoad();
-		ConsoleUI.writeSeq("Road.getNextRoad() - return nextr");
-		
-		ConsoleUI.writeSeq("Position.getPosition()");
 		Position nextr_pos = nextr.getPosition();
-		ConsoleUI.writeSeq("Position.getPosition() - return nextr_pos");
-		
-		ConsoleUI.writeSeq("Enemy.setPosition(nextr_pos)");
 		this.setPosition(nextr_pos);
-		ConsoleUI.writeSeq("Enemy.setPosition(nextr_pos) - return");
+		
+		ConsoleUI.writeSeq("<-- void");
 	}
 	
 	/*
@@ -159,6 +155,8 @@ public class Enemy {
 	 * Az actRoad attribútum getter metódusa
 	 */
 	public Road getActRoad() {
+		ConsoleUI.writeSeq("--> Enemy.getActRoad(): Road");
+		ConsoleUI.writeSeq("--> actRoad: Road");
 		return actRoad;
 	}
 	
