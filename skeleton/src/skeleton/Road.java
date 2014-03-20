@@ -6,6 +6,8 @@ public class Road extends Tile {
 	private Trap trap;
 	public Road nextRoad;
 	public Position getPosition() {
+		ConsoleUI.writeSeq("Position.getPosition()");
+		ConsoleUI.writeSeq("Position.getPosition()");
 		return position;
 	}
 	
@@ -26,18 +28,22 @@ public class Road extends Tile {
 	}
 	
 	public Trap getTrap() {
+		ConsoleUI.writeSeq("Road.getTrap()");
+		ConsoleUI.writeSeq("Road.getTrap()");
 		return trap;
 	}
 	
 	public void setTrap() {
+		ConsoleUI.writeSeq("Road.setTrap()");
 		if(trap == null) {
-			ConsoleUI.writeSeq("new Trap()");
 			trap = new Trap();
-			ConsoleUI.writeSeq("new Trap() - return trap");
 		}
+		ConsoleUI.writeSeq("Road.setTrap()");
 	}
 	
 	public Road getNextRoad() {
+		ConsoleUI.writeSeq("Road.getNextRoad()");
+		ConsoleUI.writeSeq("Road.getNextRoad()");
 		return nextRoad;
 	}
 	

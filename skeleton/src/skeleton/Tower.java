@@ -12,27 +12,30 @@ public class Tower extends EnemyObserver {
 	private List<GemStone> gemList;
 	private  List<Enemy> enemyList;
 	
+	public Tower() {
+		ConsoleUI.writeSeq("new Tower()");
+		ConsoleUI.writeSeq("new Tower()");
+	}
+	
 	/*
 	 * Az ellenség ezen a metóduson keresztül értesíti a feliratkozott objektumokat.
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {
-		ConsoleUI.writeSeq("Enemy.getPosition()");
+		ConsoleUI.writeSeq("Tower.notifyFromEnemy(enemy: Enemy)");
+		
 		Position pos = enemy.getPosition();
-		ConsoleUI.writeSeq("Enemy.getPosition() - return pos");
 		
 		//TODO Kérdés: addEnenmy vagy removeEnemy kell?
 		
 		if(true) {
-			ConsoleUI.writeSeq("addEnemy(enemy)");
 			addEnemy(enemy);
-			ConsoleUI.writeSeq("addEnemy(enemy) - return");
 		}
 		else {
-			ConsoleUI.writeSeq("removeEnemy(enemy)");
 			removeEnemy(enemy);
-			ConsoleUI.writeSeq("removeEnemy(enemy) - return");
 		}
+		
+		ConsoleUI.writeSeq("Tower.notifyFromEnemy(enemy: Enemy)");
 	}
 	
 	public Position getPosition() {
@@ -64,18 +67,23 @@ public class Tower extends EnemyObserver {
 	}
 	
 	public void addEnemy(Enemy e) {
+		ConsoleUI.writeSeq("addEnemy(e: Enemy)");
 		if(!enemyList.contains(e)) {
 			enemyList.add(e);
 		}
+		ConsoleUI.writeSeq("addEnemy(e: Enemy)");
 	}
 	
 	public void removeEnemy(Enemy e) {
+		ConsoleUI.writeSeq("removeEnemy(e: Enemy)");
 		if(enemyList.contains(e)) {
 			enemyList.remove(e);
 		}
+		ConsoleUI.writeSeq("removeEnemy(e: Enemy)");
 	}
 	
 	public void wipe() {
-	
+		ConsoleUI.writeSeq("Tower.wipe()");
+		ConsoleUI.writeSeq("Tower.wipe()");
 	}
 }

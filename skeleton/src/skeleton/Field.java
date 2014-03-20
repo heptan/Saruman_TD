@@ -59,6 +59,8 @@ public class Field extends Tile {
 	 * A tower attribútum getter metódusa
 	 */
 	public Tower getTower() {
+		ConsoleUI.writeSeq("Field.getTower()");
+		ConsoleUI.writeSeq("Field.getTower()");
 		return tower;
 	}
 
@@ -66,21 +68,21 @@ public class Field extends Tile {
 	 * A tower attribútum inicializálásához használt metódus
 	 */
 	public void setTower() {
+		ConsoleUI.writeSeq("Field.setTower()");
 		if(tower == null) {
-			ConsoleUI.writeSeq("new Tower()");
 			tower = new Tower();
-			ConsoleUI.writeSeq("new Tower() - return tower");
 		}
+		ConsoleUI.writeSeq("Field.setTower()");
 	}
 	
 	/*
 	 * A mezõn lévõ torony eltávolításához használt metódus
 	 */
 	public void resetTower() {
+		ConsoleUI.writeSeq("Field.resetTower()");
 		if(tower != null) {
-			ConsoleUI.writeSeq("Tower.wipe()");
 			tower.wipe();
-			ConsoleUI.writeSeq("Tower.wipe() - return");
 		}
+		ConsoleUI.writeSeq("Field.resetTower()");
 	}
 }

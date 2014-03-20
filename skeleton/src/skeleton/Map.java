@@ -34,6 +34,8 @@ public class Map {
 	}
 	
 	public void addTower(Position pos) {
+		ConsoleUI.writeSeq("Map.addTower(pos: Position)");
+		
 		Field f = null;
 		for(Tile t : tileList) {
 			if(t.getPosition().getX() == pos.getX() &&
@@ -44,15 +46,13 @@ public class Map {
 		}
 		
 		if(f != null) {
-			ConsoleUI.writeSeq("Field.getTower()");
 			Tower t = f.getTower();
-			ConsoleUI.writeSeq("Field.getTower() - return t");
 			if(t == null) {
-				ConsoleUI.writeSeq("Field.setTower()");
 				f.setTower();
-				ConsoleUI.writeSeq("Field.setTower() - return");
 			}
 		}
+		
+		ConsoleUI.writeSeq("Map.addTower(pos: Position)");
 	}
 	
 	public void addTrap(Position pos) {
@@ -65,13 +65,8 @@ public class Map {
 			}
 		}
 		
-		ConsoleUI.writeSeq("Road.getTrap()");
 		r.getTrap();
-		ConsoleUI.writeSeq("Road.getTrap() - return");
-		
-		ConsoleUI.writeSeq("Road.setTrap()");
 		r.setTrap();
-		ConsoleUI.writeSeq("Road.setTrap() - return");
 		
 	}
 	
@@ -85,9 +80,7 @@ public class Map {
 			}
 		}
 		
-		ConsoleUI.writeSeq("Field.resetTower()");
 		f.resetTower();
-		ConsoleUI.writeSeq("Field.resetTower() - return");
 	}
 	
 }
