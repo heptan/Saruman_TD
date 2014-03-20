@@ -159,6 +159,8 @@ public class Enemy {
 	 * Az actRoad attribútum getter metódusa
 	 */
 	public Road getActRoad() {
+		ConsoleUI.writeSeq("--> Enemy.getActRoad(): Road");
+		ConsoleUI.writeSeq("--> actRoad: Road");
 		return actRoad;
 	}
 	
