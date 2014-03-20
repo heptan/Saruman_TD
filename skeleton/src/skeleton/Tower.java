@@ -8,8 +8,28 @@ public class Tower extends EnemyObserver {
 	private Field field;
 	private List<GemStone> gemList;
 	private  List<Enemy> enemyList;
-	public void notifyFromEnemy(Enemy enemy) {
 	
+	/*
+	 * Az ellenség ezen a metóduson keresztül értesíti a feliratkozott objektumokat.
+	 */
+	@Override
+	public void notifyFromEnemy(Enemy enemy) {
+		ConsoleUI.writeSeq("Enemy.getPosition()");
+		Position pos = enemy.getPosition();
+		ConsoleUI.writeSeq("Enemy.getPosition() - return pos");
+		
+		//TODO Kérdés: addEnenmy vagy removeEnemy kell?
+		
+		if(true) {
+			ConsoleUI.writeSeq("addEnemy(enemy)");
+			addEnemy(enemy);
+			ConsoleUI.writeSeq("addEnemy(enemy) - return");
+		}
+		else {
+			ConsoleUI.writeSeq("removeEnemy(enemy)");
+			removeEnemy(enemy);
+			ConsoleUI.writeSeq("removeEnemy(enemy) - return");
+		}
 	}
 	
 	public Position getPosition() {
@@ -41,11 +61,15 @@ public class Tower extends EnemyObserver {
 	}
 	
 	public void addEnemy(Enemy e) {
-	
+		if(!enemyList.contains(e)) {
+			enemyList.add(e);
+		}
 	}
 	
 	public void removeEnemy(Enemy e) {
-	
+		if(enemyList.contains(e)) {
+			enemyList.remove(e);
+		}
 	}
 	
 	public void wipe() {

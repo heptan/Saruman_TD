@@ -3,6 +3,10 @@ package skeleton;
 public abstract class Tile {
 	private Position position;
 	private Map map;
+	
+	/*
+	 * A position attribútum getter metódusa
+	 */
 	public Position getPosition() {
 		return position;
 	}

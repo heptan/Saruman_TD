@@ -30,7 +30,11 @@ public class Road extends Tile {
 	}
 	
 	public void setTrap() {
-	
+		if(trap == null) {
+			ConsoleUI.writeSeq("new Trap()");
+			trap = new Trap();
+			ConsoleUI.writeSeq("new Trap() - return trap");
+		}
 	}
 	
 	public Road getNextRoad() {

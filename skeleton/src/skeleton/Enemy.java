@@ -59,7 +59,7 @@ public class Enemy {
 	 * A position attribútum setter metódusa
 	 */
 	public void setPosition(Position position) {
-	
+		this.position = position;
 	}
 	
 	/*
@@ -134,8 +134,18 @@ public class Enemy {
 	/*
 	 * Az ellenség léptetéséhez használt metódus
 	 */
-	public void nextStep() {
-	
+	public void nextStep() {		
+		ConsoleUI.writeSeq("Road.getNextRoad()");
+		Road nextr = actRoad.getNextRoad();
+		ConsoleUI.writeSeq("Road.getNextRoad() - return nextr");
+		
+		ConsoleUI.writeSeq("Position.getPosition()");
+		Position nextr_pos = nextr.getPosition();
+		ConsoleUI.writeSeq("Position.getPosition() - return nextr_pos");
+		
+		ConsoleUI.writeSeq("Enemy.setPosition(nextr_pos)");
+		this.setPosition(nextr_pos);
+		ConsoleUI.writeSeq("Enemy.setPosition(nextr_pos) - return");
 	}
 	
 	/*
