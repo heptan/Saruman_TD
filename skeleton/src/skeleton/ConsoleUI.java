@@ -1,5 +1,3 @@
-package skeleton;
-
 import java.io.*;
 
 /*
@@ -8,13 +6,13 @@ import java.io.*;
  * kérdéseket, szekvenciadiagramokat kiírni, illetve a válaszokat beolvasni.
  */
 public class ConsoleUI {
-	private static int indent = 0;		// A behúzások mélységét tartalamzó változó
+	private int indent = 0;		// A behúzások mélységét tartalamzó változó
 	
 	/*
 	 * Egy sima console-ra kiíró függvény, hogy egységesen ezen az osztályon 
 	 * keresztül lehessen kezelni a kimeneteket.
 	 */
-	public static void writeSimple(String msg) {
+	public void writeSimple(String msg) {
 		System.out.println(msg);
 	}
 	
@@ -22,7 +20,7 @@ public class ConsoleUI {
 	 * A szekvenciadiagramok "kirajzolásáért" felelõs függvény, a bekezdések
 	 * megfelelõ kezelésérõl gondoskodik.
 	 */
-	public static void writeSeq(String msg) {
+	public void writeSeq(String msg) {
 		// A bekezdések mélysége kissé sután, de az üzenet elsõ karaktere 
 		// alapján változik. Az egységesség miatt bátorkodtam megtenni ezt a 
 		// lépést és nem szétvenni két külön függvénybe (writeSeqCall, 
@@ -41,7 +39,7 @@ public class ConsoleUI {
 	 * beépített ellenõrzést tartalmaz, hogy a felhasználó csak számot adhasson
 	 * meg.
 	 */
-	public static int writeQuestion(String msg) {
+	public int writeQuestion(String msg) {
 		int answer = -1;				// a végleges válasz
 		String sAnswer = "-1";			// a "raw data" válasz
 		boolean answerIsGood = false;
