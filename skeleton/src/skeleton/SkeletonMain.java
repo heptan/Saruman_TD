@@ -1,5 +1,4 @@
-
-
+package skeleton;
 
 /*
  * A szkeleton keretét adó osztály, õ felelõs a megfelelõ teszteset 
