@@ -141,7 +141,8 @@ public class Enemy {
 	public void nextStep() {	
 		ConsoleUI.writeSeq("-->Enemy.nextStep()");
 		
-		Road nextr = actRoad.getNextRoad();
+		Road nextr = new Road();
+//		Road nextr = actRoad.getNextRoad();
 		Position nextr_pos = nextr.getPosition();
 		this.setPosition(nextr_pos);
 		

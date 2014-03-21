@@ -49,6 +49,10 @@ public class SkeletonMain {
 	 */
 	static void enemyOnRoad() {
 		cons.writeSimple("enemyOnRoad teszt eset:");
+		Enemy e = new Enemy();
+		Road actr = new Road();
+		e.setActRoad(actr);
+		e.nextStep();
 	}
 	
 	static void enemyInTowerRange() {
