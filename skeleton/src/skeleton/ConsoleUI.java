@@ -50,7 +50,7 @@ public class ConsoleUI {
 		System.out.println(msg);
 		while (!answerIsGood) {			// a bemenetkérõ és helyességellenörzõ 
 										// ciklus
-			System.out.print("Válasz: ");
+			System.out.print("Valasz: ");
 			BufferedReader br = new BufferedReader( new InputStreamReader(
 								System.in));
 			try {
@@ -65,11 +65,11 @@ public class ConsoleUI {
 					answerIsGood = true;
 				}
 				else {
-					System.out.println("Érvénytelen válasz.");
+					System.out.println("Ervenytelen valasz.");
 				}
 			}
 			catch(NumberFormatException e) {
-				System.out.println("Érvénytelen válasz.");
+				System.out.println("Ervenytelen valasz.");
 			}
 		}
 		return answer;
