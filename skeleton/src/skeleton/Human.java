@@ -7,7 +7,6 @@ public class Human extends Enemy {
 	/*
 	 * Ember léptetéséhez, pozícionálásáhor használt metódus.
 	 */
-	@Override
 	public void nextStep(){
 		
 	}

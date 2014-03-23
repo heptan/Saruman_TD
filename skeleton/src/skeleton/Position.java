@@ -15,6 +15,14 @@ public class Position {
 	private double y;
 	
 	/*
+	 * Position osztály kontstruktora, koordináták inicializálása
+	 */
+	public Position(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	/*
 	 * Az x koordinátát kérdezi le.
 	 */
 	public double getX() {

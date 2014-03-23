@@ -7,7 +7,6 @@ public class Dwarf extends Enemy {
 	/*
 	 * Törpe léptetéséhez, pozícionálásáhor használt metódus.
 	 */
-	@Override
 	public void nextStep(){
 		
 	}

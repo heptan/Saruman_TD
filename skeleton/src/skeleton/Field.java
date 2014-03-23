@@ -60,8 +60,8 @@ public class Field extends Tile {
 	 */
 	public Tower getTower() {
 		ConsoleUI.writeSeq("-->Field.getTower()");
-		ConsoleUI.writeSeq("<--Tower");
-		return tower;
+		ConsoleUI.writeSeq("<--null");
+		return null;
 	}
 
 	/*
@@ -69,9 +69,7 @@ public class Field extends Tile {
 	 */
 	public void setTower() {
 		ConsoleUI.writeSeq("-->Field.setTower()");
-		if(tower == null) {
-			tower = new Tower();
-		}
+		tower = new Tower();
 		ConsoleUI.writeSeq("<--void");
 	}
 	

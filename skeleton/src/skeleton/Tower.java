@@ -35,8 +35,8 @@ public class Tower extends EnemyObserver {
 	 * Konstruktor.
 	 */
 	public Tower() {
-		//ConsoleUI.writeSeq("-->new Tower()");
-		//ConsoleUI.writeSeq("<--Tower");
+		ConsoleUI.writeSeq("-->new Tower()");
+		ConsoleUI.writeSeq("<--Tower");
 	}
 	
 	/*

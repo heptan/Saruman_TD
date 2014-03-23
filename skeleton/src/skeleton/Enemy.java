@@ -111,7 +111,8 @@ public class Enemy {
 	 * A speed attribútum setter metódusa
 	 */
 	public void setSpeed(double speed) {
-	
+		ConsoleUI.writeSeq("-->Enemy.setSpeed(multiplier: double)");
+		ConsoleUI.writeSeq("<--void");
 	}
 	
 	/*
@@ -138,11 +139,17 @@ public class Enemy {
 	/*
 	 * Az ellenség léptetéséhez használt metódus
 	 */
-	public void nextStep() {	
+	public void nextStep(int from) {	
 		ConsoleUI.writeSeq("-->Enemy.nextStep()");
-		Road nextr = actRoad.getNextRoad();
-		Position nextr_pos = nextr.getPosition();
-		this.setPosition(nextr_pos);
+		if(from == 1) {
+			Road nextr = actRoad.getNextRoad();
+			Position nextr_pos = nextr.getPosition();
+			this.setPosition(nextr_pos);
+		}
+		else {
+			Road r = new Road();
+			r.enemyHasSteppedOn(this);
+		}
 		
 		ConsoleUI.writeSeq("<--void");
 	}

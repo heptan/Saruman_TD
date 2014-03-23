@@ -54,7 +54,7 @@ public class SkeletonMain {
 		Road nextr = new Road();
 		actr.setNextRoad(nextr);
 		e.setActRoad(actr);
-		e.nextStep();
+		e.nextStep(1);
 	}
 	
 	static void enemyInTowerRange() {
@@ -65,10 +65,14 @@ public class SkeletonMain {
 
 	static void enemyOnTrap() {
 		cons.writeSimple("enemyOnTrap teszt eset");
+		Enemy e = new Enemy();
+		e.nextStep(3);
 	}
 	
 	static void towerDeployment() {
 		cons.writeSimple("towerDeployment teszt eset");
+		Map m = new Map();
+		m.addTower(new Position(0,0));
 	}
 	
 	static void towerRemovement() {

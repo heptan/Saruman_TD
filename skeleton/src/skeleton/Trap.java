@@ -26,8 +26,8 @@ public class Trap extends EnemyObserver {
 	 * Konstruktor.
 	 */
 	public Trap() {
-		ConsoleUI.writeSeq("-->new Trap()");
-		ConsoleUI.writeSeq("<--Trap");
+		//ConsoleUI.writeSeq("-->new Trap()");
+		//ConsoleUI.writeSeq("<--Trap");
 	}
 	
 	/*
@@ -92,7 +92,9 @@ public class Trap extends EnemyObserver {
 	 * Az akadály értesül róla, hogy egy ellenséges egység lépett rá,
 	 * és meg tudja tenni a szükséges lépéseket.
 	 */
-	public void enemyHasSteppedOn(Object e) {
-	
+	public void enemyHasSteppedOn(Enemy e) {
+		ConsoleUI.writeSeq("-->Trap.enemyHasSteppedOn(e: Enemy)");
+		e.setSpeed(0);
+		ConsoleUI.writeSeq("<--void");
 	}
 }

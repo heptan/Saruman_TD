@@ -69,21 +69,9 @@ public class Map {
 	public void addTower(Position pos) {
 		ConsoleUI.writeSeq("-->Map.addTower(pos: Position)");
 		
-		Field f = null;
-		for(Tile t : tileList) {
-			if(t.getPosition().getX() == pos.getX() &&
-			   t.getPosition().getY() == pos.getY() &&
-			   t.getClass().equals(f.getClass())) {
-					f = (Field)t;
-			}
-		}
-		
-		if(f != null) {
-			Tower t = f.getTower();
-			if(t == null) {
-				f.setTower();
-			}
-		}
+		Field f = new Field();
+		f.getTower();
+		f.setTower();
 		
 		ConsoleUI.writeSeq("<--void");
 	}
