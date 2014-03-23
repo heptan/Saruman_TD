@@ -59,17 +59,19 @@ public class ConsoleUI {
 				e.printStackTrace(); 
 			}
 			
-			int i = 0;
-										// a válasz csak szám(ok)ból állhat
-			while (i < sAnswer.length() && sAnswer.charAt(i) >= '0'
-										&& sAnswer.charAt(i) <= '9')
-				++i;
-			if ( i >= sAnswer.length())
-				answerIsGood = true;
-			else
+			try {
+				answer = Integer.parseInt(sAnswer);		// a nyers adat átváltása
+				if(answer >= 0 && answer <= 9) {
+					answerIsGood = true;
+				}
+				else {
+					System.out.println("Érvénytelen válasz.");
+				}
+			}
+			catch(NumberFormatException e) {
 				System.out.println("Érvénytelen válasz.");
+			}
 		}
-		answer = Integer.parseInt(sAnswer);		// a nyers adat átváltása
 		return answer;
 	}
 }
