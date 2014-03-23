@@ -140,9 +140,7 @@ public class Enemy {
 	 */
 	public void nextStep() {	
 		ConsoleUI.writeSeq("-->Enemy.nextStep()");
-		
-		Road nextr = new Road();
-//		Road nextr = actRoad.getNextRoad();
+		Road nextr = actRoad.getNextRoad();
 		Position nextr_pos = nextr.getPosition();
 		this.setPosition(nextr_pos);
 		
@@ -168,7 +166,16 @@ public class Enemy {
 	/*
 	 * Az actRoad attribútum setter metódusa
 	 */
-	public void setActRoad(Road ar) {
+	public void setActRoad(Road road) {
+		actRoad = road;
+	}
 	
+	/*
+	 * Skeleton teszteléshez
+	 */
+	public void EllensegToronyHatosugaraban() {
+		Tower t = new Tower();
+		
+		t.notifyFromEnemy(this);
 	}
 }

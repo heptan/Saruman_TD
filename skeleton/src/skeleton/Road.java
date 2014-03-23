@@ -98,6 +98,14 @@ public class Road extends Tile {
 	}
 	
 	/*
+	 * Az aktuális útelemet követõ útelem beállításához szükséges
+	 * metódus.
+	 */
+	public void setNextRoad(Road road) {
+		nextRoad = road;
+	}
+	
+	/*
 	 * Az útelem értesül róla, hogy egy ellenséges egység lépett rá,
 	 * és meg tudja tenni a szükséges lépéseket.
 	 */

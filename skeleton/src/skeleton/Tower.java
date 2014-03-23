@@ -1,5 +1,9 @@
 package skeleton;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -25,14 +29,14 @@ public class Tower extends EnemyObserver {
 	/*
 	 * A torony hatósugarában lévõ ellenségek.
 	 */
-	private  List<Enemy> enemyList;
+	private  List<Enemy> enemyList = new ArrayList<Enemy>();
 	
 	/*
 	 * Konstruktor.
 	 */
 	public Tower() {
-		ConsoleUI.writeSeq("-->new Tower()");
-		ConsoleUI.writeSeq("<--Tower");
+		//ConsoleUI.writeSeq("-->new Tower()");
+		//ConsoleUI.writeSeq("<--Tower");
 	}
 	
 	/*
@@ -46,10 +50,28 @@ public class Tower extends EnemyObserver {
 		
 		//TODO Kérdés: addEnenmy vagy removeEnemy kell?
 		
-		if(true) {
+		System.out.println("\n   Valasszon egy valaszlehetoseget!");
+		System.out.println("      0 - |pos-t.position| <= range && !t.enemyList.contain(e)");
+		System.out.println("      1 - |pos-t.position| > range");
+		
+		String answer = "";
+		while(!answer.equals("0") && !answer.equals("1")) {
+			answer = "";
+			BufferedReader br = new BufferedReader( new InputStreamReader(
+					System.in));
+			try {
+				answer = br.readLine();
+			} catch (IOException e) {
+				System.out.println("Hiba tortent a beolvasas kozben");
+				e.printStackTrace();
+			}
+		}
+		
+		if(answer.equals("0")) {
 			addEnemy(enemy);
 		}
 		else {
+			enemyList.add(enemy);
 			removeEnemy(enemy);
 		}
 		
