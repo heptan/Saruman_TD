@@ -29,11 +29,11 @@ public class ConsoleUI {
 		// writeSeqRet).
 		if (msg.charAt(0) == '-')
 			++indent;
-		else if (msg.charAt(0) == '<')
-			--indent;
 		for (int i = 0; i < indent; ++i)
-			System.out.println("\t");
+			System.out.print("   ");
 		System.out.println(msg);
+		if (msg.charAt(0) == '<')
+			--indent;
 	}
 	
 	/*
