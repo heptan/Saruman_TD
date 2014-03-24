@@ -12,15 +12,15 @@ public class SkeletonMain {
 		do {
 			// Válaszlehetõségek felsorolása, majd a válasz bekérése
 			cons.writeSimple("Kerem valasszon egy tesztesetet:");
-			cons.writeSimple("   1. Ellenseg altalanos palyaelemre lep.");
-			cons.writeSimple("   2. Ellenseg torony hatosugaraba lep.");
-			cons.writeSimple("   3. Ellenseg akadalyra lep.");
-			cons.writeSimple("   4. Torony lerakasa.");
-			cons.writeSimple("   5. Torony torlese.");
-			cons.writeSimple("   6. Varazsko elhelyezese.");
-			cons.writeSimple("   7. Akadaly elhelyezese.");
-			cons.writeSimple("   8. Jatek vege, vesztettunk.");
-			cons.writeSimple("   0. Kilepes a programbol.");
+			cons.writeSimple("   1. Ellenseg altalanos palyaelemre lep");
+			cons.writeSimple("   2. Ellenseg torony hatosugaraba lep");
+			cons.writeSimple("   3. Ellenseg akadalyra lep");
+			cons.writeSimple("   4. Torony lerakasa");
+			cons.writeSimple("   5. Torony torlese");
+			cons.writeSimple("   6. Varazsko elhelyezese");
+			cons.writeSimple("   7. Akadaly elhelyezese");
+			cons.writeSimple("   8. Jatek vege, a jatekos veszit");
+			cons.writeSimple("   0. Kilepes a programbol");
 			
 			select = cons.writeQuestion("");
 			switch (select) {
@@ -46,7 +46,7 @@ public class SkeletonMain {
 	 * Ellenség általános pályaelemre lép.
 	 */
 	static void enemyOnRoad() {
-		cons.writeSimple("enemyOnRoad teszt eset:");
+		cons.writeSimple("1. Ellenseg altalanos palyaelemre lep:");
 		Enemy e = new Enemy();
 		Road actr = new Road();
 		Road nextr = new Road();
@@ -56,43 +56,43 @@ public class SkeletonMain {
 	}
 	
 	static void enemyInTowerRange() {
-		cons.writeSimple("enemyInTowerRange teszt eset:");
+		cons.writeSimple("2. Ellenseg torony hatosugaraba lep:");
 		Enemy e = new Enemy();
 		e.EllensegToronyHatosugaraban();
 	}
 
 	static void enemyOnTrap() {
-		cons.writeSimple("enemyOnTrap teszt eset");
+		cons.writeSimple("3. Ellenseg akadalyra lep");
 		Enemy e = new Enemy();
 		e.nextStep(3);
 	}
 	
 	static void towerDeployment() {
-		cons.writeSimple("towerDeployment teszt eset");
+		cons.writeSimple("4. Torony lerakasa");
 		Map m = new Map();
 		m.addTower(new Position(0,0));
 	}
 	
 	static void towerRemovement() {
-		cons.writeSimple("towerRemovement teszt eset");
+		cons.writeSimple("5. Torony torlese");
 		Map m = new Map();
 		m.removeTower(new Position(0,0));
 	}
 	
 	static void gemDeployment() {
-		cons.writeSimple("gemDeployment teszt eset");
+		cons.writeSimple("6. Varazsko elhelyezese");
 		Road r = new Road();
 		r.gemDeployment();
 	}
 	
 	static void trapDeployment() {
-		cons.writeSimple("trapDeployment teszt eset");
+		cons.writeSimple("7. Akadaly elhelyezese");
 		Map m = new Map();
 		m.addTrap(new Position(0, 0));
 	}
 	
 	static void gameOverLose() {
-		cons.writeSimple("gameOverLose teszt eset");
+		cons.writeSimple("8. Jatek vege, a jatekos veszit");
 		Enemy e = new Enemy();
 		e.gameOverLose();
 	}
