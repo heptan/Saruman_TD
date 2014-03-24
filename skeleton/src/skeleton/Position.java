@@ -6,11 +6,11 @@ package skeleton;
  */
 public class Position {
 	/*
-	 * A pozíció x koordionátája.
+	 * A pozíció x koordinátája.
 	 */
 	private double x;
 	/*
-	 * A pozíció y koordionátája.
+	 * A pozíció y koordinátája.
 	 */
 	private double y;
 	
