@@ -16,7 +16,7 @@ public class Road extends Tile {
 	 * Az úton lévõ opcionális akadály referenciáját tárolja
 	 * (ha nincs akadály, akkor null).
 	 */
-	private Trap trap = new Trap();
+	private Trap trap = new Trap(false);
 	/*
 	 * Az ellenség haladása szerinti következõ útelemet tárolja.
 	 */
@@ -27,7 +27,7 @@ public class Road extends Tile {
 	 */
 	@Override
 	public Position getPosition() {
-		ConsoleUI.writeSeq("-->Position.getPosition()");
+		ConsoleUI.writeSeq("-->Road.getPosition()");
 		ConsoleUI.writeSeq("<--Position");
 		return position;
 	}

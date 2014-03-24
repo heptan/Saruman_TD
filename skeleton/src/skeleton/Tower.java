@@ -59,7 +59,7 @@ public class Tower extends EnemyObserver {
 		System.out.println("\n   Valasszon egy valaszlehetoseget! ");
 		System.out.println("      0 - |pos-t.position| <= range && !t.enemyList.contain(e)");
 		System.out.println("      1 - |pos-t.position| > range");
-		System.out.print("Valasz: ");
+		System.out.print("   Valasz: ");
 		String answer = "";
 		while(!answer.equals("0") && !answer.equals("1")) {
 			answer = "";

@@ -23,11 +23,17 @@ public class Trap extends EnemyObserver {
 	private GemStone gem;
 	
 	/*
-	 * Konstruktor.
+	 * Konstruktor
 	 */
 	public Trap() {
 		ConsoleUI.writeSeq("-->new Trap()");
 		ConsoleUI.writeSeq("<--Trap");
+	}
+	
+	/*
+	 * Konstruktor, teszteléshez
+	 */
+	public Trap(boolean f) {
 	}
 	
 	/*
