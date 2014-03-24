@@ -23,10 +23,7 @@ public class ConsoleUI {
 	 * megfelelõ kezelésérõl gondoskodik.
 	 */
 	public static void writeSeq(String msg) {
-		// A bekezdések mélysége kissé sután, de az üzenet elsõ karaktere 
-		// alapján változik. Az egységesség miatt bátorkodtam megtenni ezt a 
-		// lépést és nem szétvenni két külön függvénybe (writeSeqCall, 
-		// writeSeqRet).
+		// Az üzenet elsõ karaktere alapján változik.
 		if (msg.charAt(0) == '-')
 			++indent;
 		for (int i = 0; i < indent; ++i)
