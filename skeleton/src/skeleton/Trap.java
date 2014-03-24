@@ -26,8 +26,8 @@ public class Trap extends EnemyObserver {
 	 * Konstruktor.
 	 */
 	public Trap() {
-		//ConsoleUI.writeSeq("-->new Trap()");
-		//ConsoleUI.writeSeq("<--Trap");
+		ConsoleUI.writeSeq("-->new Trap()");
+		ConsoleUI.writeSeq("<--Trap");
 	}
 	
 	/*
@@ -77,7 +77,9 @@ public class Trap extends EnemyObserver {
 	 * Varázskõ hozzáadása.
 	 */
 	public void addGemStone(String gemstone) {
-	
+		ConsoleUI.writeSeq("-->Trap.addGemStone(gemstone: String)");
+		GemStone g = new plusTime();
+		ConsoleUI.writeSeq("<--void");
 	}
 	
 	/*

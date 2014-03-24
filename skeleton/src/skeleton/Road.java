@@ -71,8 +71,8 @@ public class Road extends Tile {
 	 */
 	public Trap getTrap() {
 		ConsoleUI.writeSeq("-->Road.getTrap()");
-		ConsoleUI.writeSeq("<--Trap");
-		return trap;
+		ConsoleUI.writeSeq("<--null");
+		return null;
 	}
 	
 	/*
@@ -81,9 +81,9 @@ public class Road extends Tile {
 	 */
 	public void setTrap() {
 		ConsoleUI.writeSeq("-->Road.setTrap()");
-		if(trap == null) {
-			trap = new Trap();
-		}
+		
+		trap = new Trap();
+		
 		ConsoleUI.writeSeq("<--void");
 	}
 	
@@ -113,5 +113,13 @@ public class Road extends Tile {
 		ConsoleUI.writeSeq("-->Road.enemyHasSteppedOn(e: Enemy)");
 		trap.enemyHasSteppedOn(e);
 		ConsoleUI.writeSeq("<--void");
+	}
+	
+	/*
+	 * Skeleton teszteléshez
+	 */
+	public void gemDeployment(String gemstone) {
+		trap = new Trap();
+		trap.addGemStone(gemstone);
 	}
 }

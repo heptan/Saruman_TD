@@ -82,16 +82,9 @@ public class Map {
 	public void addTrap(Position pos) {
 		ConsoleUI.writeSeq("-->Map.addTrap(pos: Position)");
 	
-		Road r = null;
-		for(Tile t : tileList) {
-			if(t.getPosition().getX() == pos.getX() &&
-			   t.getPosition().getY() == pos.getY() &&
-			   t.getClass().equals(Road.class)) {
-					r = (Road)t;
-			}
-		}
-		
+		Road r = new Road();
 		r.getTrap();
+		
 		r.setTrap();
 		
 		ConsoleUI.writeSeq("<--void");
@@ -101,15 +94,11 @@ public class Map {
 	 * Torony törlése (x, y) pontból.
 	 */
 	public void removeTower(Position pos) {
-		Field f = null;
-		for(Tile t : tileList) {
-			if(t.getPosition().getX() == pos.getX() &&
-			   t.getPosition().getY() == pos.getY() &&
-			   t.getClass().equals(Field.class)) {
-					f = (Field)t;
-			}
-		}
+		ConsoleUI.writeSeq("-->Map.removeTower(pos: Position)");
 		
+		Field f = new Field();
 		f.resetTower();
+		
+		ConsoleUI.writeSeq("<--void");
 	}
 }

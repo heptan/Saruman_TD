@@ -78,9 +78,9 @@ public class Field extends Tile {
 	 */
 	public void resetTower() {
 		ConsoleUI.writeSeq("-->Field.resetTower()");
-		if(tower != null) {
-			tower.wipe();
-		}
+		tower = new Tower(true);
+		tower.wipe();
+		
 		ConsoleUI.writeSeq("<--void");
 	}
 }

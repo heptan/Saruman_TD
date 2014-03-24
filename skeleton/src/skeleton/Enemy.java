@@ -185,4 +185,12 @@ public class Enemy {
 		
 		t.notifyFromEnemy(this);
 	}
+	
+	/*
+	 * Skeleton teszteléshez
+	 */
+	public void gameOverLose() {
+		gameController = new GameController();
+		gameController.gameOver();
+	}
 }

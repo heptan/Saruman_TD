@@ -61,7 +61,7 @@ public class ConsoleUI {
 			
 			try {
 				answer = Integer.parseInt(sAnswer);		// a nyers adat átváltása
-				if(answer >= 0 && answer <= 9) {
+				if(answer >= 0 && answer <= 8) {
 					answerIsGood = true;
 				}
 				else {

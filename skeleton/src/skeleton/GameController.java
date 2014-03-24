@@ -19,7 +19,8 @@ public class GameController {
 	}
 	
 	public void gameOver() {
-	
+		ConsoleUI.writeSeq("-->GameController.gameOver()");
+		ConsoleUI.writeSeq("<--void");
 	}
 	
 	public void win() {

@@ -32,11 +32,17 @@ public class Tower extends EnemyObserver {
 	private  List<Enemy> enemyList = new ArrayList<Enemy>();
 	
 	/*
-	 * Konstruktor.
+	 * Konstruktor
 	 */
 	public Tower() {
 		ConsoleUI.writeSeq("-->new Tower()");
 		ConsoleUI.writeSeq("<--Tower");
+	}
+	
+	/*
+	 * Konstruktor teszteléshez
+	 */
+	public Tower(boolean test) {
 	}
 	
 	/*
@@ -50,10 +56,10 @@ public class Tower extends EnemyObserver {
 		
 		//TODO Kérdés: addEnenmy vagy removeEnemy kell?
 		
-		System.out.println("\n   Valasszon egy valaszlehetoseget!");
+		System.out.println("\n   Valasszon egy valaszlehetoseget! ");
 		System.out.println("      0 - |pos-t.position| <= range && !t.enemyList.contain(e)");
 		System.out.println("      1 - |pos-t.position| > range");
-		
+		System.out.print("Valasz: ");
 		String answer = "";
 		while(!answer.equals("0") && !answer.equals("1")) {
 			answer = "";

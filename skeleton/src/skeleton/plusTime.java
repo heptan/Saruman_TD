@@ -5,6 +5,15 @@ package skeleton;
  * varázskövet megvalósító osztály.
  */
 public class plusTime extends GemStone {
+	
+	/*
+	 * Konstruktor
+	 */
+	public plusTime() {
+		ConsoleUI.writeSeq("-->new plusTime()");
+		ConsoleUI.writeSeq("<--plusTime");
+	}
+	
 	/*
 	 * Az akadály fennállásának idejét növeli.
 	 */

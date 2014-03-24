@@ -20,7 +20,6 @@ public class SkeletonMain {
 			cons.writeSimple("   6. Varazsko elhelyezese.");
 			cons.writeSimple("   7. Akadaly elhelyezese.");
 			cons.writeSimple("   8. Jatek vege, vesztettunk.");
-			cons.writeSimple("   9. Jatek vege, nyertunk.");
 			cons.writeSimple("   0. Kilepes a programbol.");
 			
 			select = cons.writeQuestion("");
@@ -34,7 +33,6 @@ public class SkeletonMain {
 				case 6: gemDeployment(); break;
 				case 7: trapDeployment(); break;
 				case 8: gameOverLose(); break;
-				case 9: gameOverWin(); break;
 				default:cons.writeSimple("Undefined selection, "
 						+ "the program will terminate... You."); 
 						select = 0;
@@ -77,21 +75,26 @@ public class SkeletonMain {
 	
 	static void towerRemovement() {
 		cons.writeSimple("towerRemovement teszt eset");
+		Map m = new Map();
+		m.removeTower(new Position(0,0));
 	}
 	
 	static void gemDeployment() {
 		cons.writeSimple("gemDeployment teszt eset");
+		Road r = new Road();
+		r.gemDeployment("PlusTime");
 	}
+	
 	static void trapDeployment() {
 		cons.writeSimple("trapDeployment teszt eset");
+		Map m = new Map();
+		m.addTrap(new Position(0, 0));
 	}
 	
 	static void gameOverLose() {
 		cons.writeSimple("gameOverLose teszt eset");
-	}
-	
-	static void gameOverWin() {
-		cons.writeSimple("gameOverWin teszt eset");
+		Enemy e = new Enemy();
+		e.gameOverLose();
 	}
 	
 }
