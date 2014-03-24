@@ -181,7 +181,7 @@ public class Enemy {
 	 * Skeleton teszteléshez
 	 */
 	public void EllensegToronyHatosugaraban() {
-		Tower t = new Tower();
+		Tower t = new Tower(false);
 		
 		t.notifyFromEnemy(this);
 	}

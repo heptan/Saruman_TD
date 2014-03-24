@@ -118,8 +118,8 @@ public class Road extends Tile {
 	/*
 	 * Skeleton teszteléshez
 	 */
-	public void gemDeployment(String gemstone) {
-		trap = new Trap();
-		trap.addGemStone(gemstone);
+	public void gemDeployment() {
+		trap = new Trap(false);
+		trap.addGemStone("PlusTime");
 	}
 }

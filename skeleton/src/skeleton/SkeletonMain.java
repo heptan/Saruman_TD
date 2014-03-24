@@ -82,7 +82,7 @@ public class SkeletonMain {
 	static void gemDeployment() {
 		cons.writeSimple("gemDeployment teszt eset");
 		Road r = new Road();
-		r.gemDeployment("PlusTime");
+		r.gemDeployment();
 	}
 	
 	static void trapDeployment() {

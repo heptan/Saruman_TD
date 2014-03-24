@@ -83,7 +83,7 @@ public class Trap extends EnemyObserver {
 	 * Varázskõ hozzáadása.
 	 */
 	public void addGemStone(String gemstone) {
-		ConsoleUI.writeSeq("-->Trap.addGemStone(gemstone: String)");
+		ConsoleUI.writeSeq("-->Trap.addGemStone(\"PlusTime\": String)");
 		GemStone g = new plusTime();
 		ConsoleUI.writeSeq("<--void");
 	}
