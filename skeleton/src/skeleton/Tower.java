@@ -35,7 +35,7 @@ public class Tower extends EnemyObserver {
 	 * Konstruktor
 	 */
 	public Tower() {
-		ConsoleUI.writeSeq("-->new Tower()");
+		ConsoleUI.writeSeq("-->new Tower(): Tower");
 		ConsoleUI.writeSeq("<--Tower");
 	}
 	
@@ -50,7 +50,7 @@ public class Tower extends EnemyObserver {
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {
-		ConsoleUI.writeSeq("-->Tower.notifyFromEnemy(enemy: Enemy)");
+		ConsoleUI.writeSeq("-->Tower.notifyFromEnemy(enemy: Enemy): void");
 		
 		Position pos = enemy.getPosition();
 		
@@ -137,7 +137,7 @@ public class Tower extends EnemyObserver {
 	 * 	Hozzáad egy ellenséget a listához.
 	 */
 	public void addEnemy(Enemy e) {
-		ConsoleUI.writeSeq("-->addEnemy(e: Enemy)");
+		ConsoleUI.writeSeq("-->addEnemy(e: Enemy): void");
 		if(!enemyList.contains(e)) {
 			enemyList.add(e);
 		}
@@ -148,7 +148,7 @@ public class Tower extends EnemyObserver {
 	 * Eltávolít egy ellenséget a listáról.
 	 */
 	public void removeEnemy(Enemy e) {
-		ConsoleUI.writeSeq("-->removeEnemy(e: Enemy)");
+		ConsoleUI.writeSeq("-->removeEnemy(e: Enemy): void");
 		if(enemyList.contains(e)) {
 			enemyList.remove(e);
 		}
@@ -159,7 +159,7 @@ public class Tower extends EnemyObserver {
 	 * Torony törlése.
 	 */
 	public void wipe() {
-		ConsoleUI.writeSeq("-->Tower.wipe()");
+		ConsoleUI.writeSeq("-->Tower.wipe(): void");
 		ConsoleUI.writeSeq("<--void");
 	}
 }

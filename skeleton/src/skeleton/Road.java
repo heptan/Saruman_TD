@@ -27,7 +27,7 @@ public class Road extends Tile {
 	 */
 	@Override
 	public Position getPosition() {
-		ConsoleUI.writeSeq("-->Road.getPosition()");
+		ConsoleUI.writeSeq("-->Road.getPosition(): Position");
 		ConsoleUI.writeSeq("<--Position");
 		return position;
 	}
@@ -70,7 +70,7 @@ public class Road extends Tile {
 	 * használt metódus.
 	 */
 	public Trap getTrap() {
-		ConsoleUI.writeSeq("-->Road.getTrap()");
+		ConsoleUI.writeSeq("-->Road.getTrap(): Trap");
 		ConsoleUI.writeSeq("<--null");
 		return null;
 	}
@@ -80,7 +80,7 @@ public class Road extends Tile {
 	 * használt metódus.
 	 */
 	public void setTrap() {
-		ConsoleUI.writeSeq("-->Road.setTrap()");
+		ConsoleUI.writeSeq("-->Road.setTrap(): void");
 		
 		trap = new Trap();
 		
@@ -92,7 +92,7 @@ public class Road extends Tile {
 	 * metódus.
 	 */
 	public Road getNextRoad() {
-		ConsoleUI.writeSeq("-->Road.getNextRoad()");
+		ConsoleUI.writeSeq("-->Road.getNextRoad(): Road");
 		ConsoleUI.writeSeq("<--Road");
 		return nextRoad;
 	}
@@ -110,7 +110,7 @@ public class Road extends Tile {
 	 * és meg tudja tenni a szükséges lépéseket.
 	 */
 	public void enemyHasSteppedOn(Enemy e) {
-		ConsoleUI.writeSeq("-->Road.enemyHasSteppedOn(e: Enemy)");
+		ConsoleUI.writeSeq("-->Road.enemyHasSteppedOn(e: Enemy): void");
 		trap.enemyHasSteppedOn(e);
 		ConsoleUI.writeSeq("<--void");
 	}

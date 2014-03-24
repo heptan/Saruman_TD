@@ -67,7 +67,7 @@ public class Map {
 	 * Torony létrehozása (x, y) pontban.
 	 */
 	public void addTower(Position pos) {
-		ConsoleUI.writeSeq("-->Map.addTower(pos: Position)");
+		ConsoleUI.writeSeq("-->Map.addTower(pos: Position): void");
 		
 		Field f = new Field();
 		f.getTower();
@@ -80,7 +80,7 @@ public class Map {
 	 * Akadály létrehozása (x, y) pontban.
 	 */
 	public void addTrap(Position pos) {
-		ConsoleUI.writeSeq("-->Map.addTrap(pos: Position)");
+		ConsoleUI.writeSeq("-->Map.addTrap(pos: Position): void");
 	
 		Road r = new Road();
 		r.getTrap();
@@ -94,7 +94,7 @@ public class Map {
 	 * Torony törlése (x, y) pontból.
 	 */
 	public void removeTower(Position pos) {
-		ConsoleUI.writeSeq("-->Map.removeTower(pos: Position)");
+		ConsoleUI.writeSeq("-->Map.removeTower(pos: Position): void");
 		
 		Field f = new Field();
 		f.resetTower();

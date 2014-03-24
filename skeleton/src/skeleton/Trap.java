@@ -26,7 +26,7 @@ public class Trap extends EnemyObserver {
 	 * Konstruktor
 	 */
 	public Trap() {
-		ConsoleUI.writeSeq("-->new Trap()");
+		ConsoleUI.writeSeq("-->new Trap(): Trap");
 		ConsoleUI.writeSeq("<--Trap");
 	}
 	
@@ -83,7 +83,7 @@ public class Trap extends EnemyObserver {
 	 * Varázskõ hozzáadása.
 	 */
 	public void addGemStone(String gemstone) {
-		ConsoleUI.writeSeq("-->Trap.addGemStone(\"PlusTime\": String)");
+		ConsoleUI.writeSeq("-->Trap.addGemStone(\"PlusTime\": String): void");
 		GemStone g = new plusTime();
 		ConsoleUI.writeSeq("<--void");
 	}
@@ -101,7 +101,7 @@ public class Trap extends EnemyObserver {
 	 * és meg tudja tenni a szükséges lépéseket.
 	 */
 	public void enemyHasSteppedOn(Enemy e) {
-		ConsoleUI.writeSeq("-->Trap.enemyHasSteppedOn(e: Enemy)");
+		ConsoleUI.writeSeq("-->Trap.enemyHasSteppedOn(e: Enemy): void");
 		e.setSpeed(0);
 		ConsoleUI.writeSeq("<--void");
 	}

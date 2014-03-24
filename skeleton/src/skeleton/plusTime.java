@@ -10,7 +10,7 @@ public class plusTime extends GemStone {
 	 * Konstruktor
 	 */
 	public plusTime() {
-		ConsoleUI.writeSeq("-->new plusTime()");
+		ConsoleUI.writeSeq("-->new plusTime(): plusTime");
 		ConsoleUI.writeSeq("<--plusTime");
 	}
 	

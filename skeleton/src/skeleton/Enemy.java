@@ -52,7 +52,7 @@ public class Enemy {
 	 * A position attribútum getter metódusa
 	 */
 	public Position getPosition() {
-		ConsoleUI.writeSeq("-->Enemy.getPosition()");
+		ConsoleUI.writeSeq("-->Enemy.getPosition(): Position");
 		ConsoleUI.writeSeq("<--Position");
 		return position;
 	}
@@ -111,7 +111,7 @@ public class Enemy {
 	 * A speed attribútum setter metódusa
 	 */
 	public void setSpeed(double speed) {
-		ConsoleUI.writeSeq("-->Enemy.setSpeed(multiplier: double)");
+		ConsoleUI.writeSeq("-->Enemy.setSpeed(multiplier: double): void");
 		ConsoleUI.writeSeq("<--void");
 	}
 	
@@ -140,7 +140,7 @@ public class Enemy {
 	 * Az ellenség léptetéséhez használt metódus
 	 */
 	public void nextStep(int from) {	
-		ConsoleUI.writeSeq("-->Enemy.nextStep()");
+		ConsoleUI.writeSeq("-->Enemy.nextStep(): void");
 		if(from == 1) {
 			Road nextr = actRoad.getNextRoad();
 			Position nextr_pos = nextr.getPosition();
@@ -165,7 +165,7 @@ public class Enemy {
 	 * Az actRoad attribútum getter metódusa
 	 */
 	public Road getActRoad() {
-		ConsoleUI.writeSeq("-->Enemy.getActRoad()");
+		ConsoleUI.writeSeq("-->Enemy.getActRoad(): Road");
 		ConsoleUI.writeSeq("<--Road");
 		return actRoad;
 	}

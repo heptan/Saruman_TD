@@ -19,12 +19,12 @@ public class GameController {
 	}
 	
 	public void gameOver() {
-		ConsoleUI.writeSeq("-->GameController.gameOver()");
+		ConsoleUI.writeSeq("-->GameController.gameOver(): void");
 		ConsoleUI.writeSeq("<--void");
 	}
 	
 	public void win() {
-	
+
 	}
 	
 	public List<Enemy> getEnemyList() {
