@@ -11,7 +11,7 @@ public class SkeletonMain {
 		int select = 0;
 		do {
 			// Válaszlehetõségek felsorolása, majd a válasz bekérése
-			cons.writeSimple("Kerem valasszon egy tesztesetet:");
+			cons.writeSimple("\nKerem valasszon egy tesztesetet:\n");
 			cons.writeSimple("   1. Ellenseg altalanos palyaelemre lep");
 			cons.writeSimple("   2. Ellenseg torony hatosugaraba lep");
 			cons.writeSimple("   3. Ellenseg akadalyra lep");
