@@ -1,68 +1,68 @@
 package proto;
 
 /*
- * A mez� p�lyaelemet megval�s�t� oszt�ly
+ * A mező pályaelemet megvalósító osztály
  */
 public class Field extends Tile {
 	/*
-	 * A t�rk�pre mutat� referencia
+	 * A térképre mutató referencia
 	 */
 	private Map map;
 	
 	/*
-	 * A mez� poz�c�j�t t�rol� attrib�tum
+	 * A mező pozícóját tároló attribútum
 	 */
 	private Position position;
 	
 	/*
-	 * A mez�n tal�lhat� toronyra mutat� referencia. Ha nincs ilyen, akkor null.
+	 * A mezőn található toronyra mutató referencia
 	 */
 	private Tower tower;
 	
 	/*
-	 * A map attrib�tum getter met�dusa
+	 * A map attribútum getter metódusa
 	 */
 	public Map getMap() {
 		return map;
 	}
 	
 	/*
-	 * A map attrib�tum setter met�dusa
+	 * A map attribútum setter metódusa
 	 */
 	public void setMap(Map map) {
 		this.map = map;
 	}
 	
 	/*
-	 * A position attrib�tum getter met�dusa
+	 * A position attribútum getter metódusa
 	 */
 	public Position getPosition() {
 		return position;
 	}
 	
 	/*
-	 * A position attrib�tum setter met�dusa
+	 * A position attribútum setter metódusa
 	 */
 	public void setPosition(Position position) {
 		this.position = position;
 	}
 	
 	/*
-	 * A tower attrib�tum getter met�dusa
+	 * A tower attribútum getter metódusa
 	 */
 	public Tower getTower() {
 		return tower;
 	}
 
 	/*
-	 * A tower attrib�tum inicializ�l�s�hoz haszn�lt met�dus
+	 * A tower attribútum inicializálásához használt metódus
 	 */
 	public void setTower() {
 		tower = new Tower();
 	}
 	
 	/*
-	 * A mez�n l�v� torony elt�vol�t�s�hoz haszn�lt met�dus
+	 * A mezőn lévő torony eltávolításához használt metódus
 	 */
 	public void resetTower() {
 		tower.wipe();
@@ -70,13 +70,16 @@ public class Field extends Tile {
 	}
 	
 	/*
-	 * A mez�n l�v� torony hat�sugar�t �ll�tja a k�d szerint
+	 * A mezőn lévő torony hatósugarát állítja a köd szerint
 	 */
 	public void setRange(boolean mist){
 		if(mist) tower.setRange(Constants.MIST_RANGE);
 		else tower.setRange(Constants.DEFAULT_TOWER_RANGE);
 	}
 	
+	/*
+	 * Különböző varázskövek hozzáadása a toronyhoz
+	 */
 	@Override
 	public void addAntiHuman() {
 		tower.addAntiHuman();
@@ -107,6 +110,9 @@ public class Field extends Tile {
 		tower.addPlusRange();
 	}
 
+	/*
+	 * Ez a típus nem adható hozzá, hibaüzenet
+	 */
 	@Override
 	public void addPlusTime() {
 		System.out.println("Ezt a követ csak akadályra lehet tenni");

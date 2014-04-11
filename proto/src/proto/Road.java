@@ -1,67 +1,69 @@
 package proto;
 
 /*
- * Az �t megval�s�t�s�ra haszn�lt oszt�ly.
+ * Az út megvalósítására használt osztály
  */
 public class Road extends Tile {
 	/*
-	 * A t�rk�pre mutat� referenci�t t�rolja.
+	 * A térképre mutató referenciát tárolja
 	 */
 	private Map map;
 
 	/*
-	 * Az �t poz�ci�j�t t�rolja.
+	 * Az út pozícióját tárolja
 	 */
 	private Position position;
 
 	/*
-	 * Az �ton l�v� opcion�lis akad�ly referenci�j�t t�rolja
-	 * (ha nincs akad�ly, akkor null).
+	 * Az úton lévő akadály referenciáját tárolja
+	 * (ha nincs akadály, akkor null)
 	 */
 	private Trap trap;
 
 	/*
-	 * Az ellens�g halad�sa szerinti k�vetkez� �telemet t�rolja.
+	 * Az ellenség haladása szerinti következő útelemet tárolja
 	 */
 	private Road nextRoad;
 
 	/*
-	 * Az �ton l�v� opcion�lis akad�ly referenci�j�nak lek�rdez�s�hez
-	 * haszn�lt met�dus.
+	 * Az úton lévő akadály referenciájának lekérdezése
 	 */
 	public Trap getTrap() {
 		return trap;
 	}
 	
 	/*
-	 * Az �ton l�v� opcion�lis akad�ly referenci�j�nak be�ll�t�s�hoz
-	 * haszn�lt met�dus.
+	 * Az úton lévő akadály referenciájának beállítása
 	 */
 	public void setTrap() {
 		trap = new Trap();
 	}
 	
 	/*
-	 * Az aktu�lis �telemet k�vet� �telem lek�rdez�s�hez sz�ks�ges
-	 * met�dus.
+	 * Az aktuális útelemet követő útelem lekérdezése
 	 */
 	public Road getNextRoad() {
 		return nextRoad;
 	}
 	
 	/*
-	 * Az aktu�lis �telemet k�vet� �telem be�ll�t�s�hoz sz�ks�ges
-	 * met�dus.
+	 * Az aktuális útelemet követő útelem beállítása
 	 */
 	public void setNextRoad(Road road) {
 		nextRoad = road;
 	}
 	
+	/*
+	 * Az akadály idejét meghosszabbító varázskő hozzáadása
+	 */
 	@Override
 	public void addPlusTime() {
 		trap.addPlusTime();
 	}
 
+	/*
+	 * A többi típust itt nem használhatjuk, hiba
+	 */
 	@Override
 	public void addAntiHuman() {
 		System.out.println("Ezt a követ csak toronyra lehet tenni");
