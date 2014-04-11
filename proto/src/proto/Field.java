@@ -2,6 +2,11 @@ package proto;
 
 /*
  * A mez� p�lyaelemet megval�s�t� oszt�ly
+ * (.)  (.)
+ *  |    |
+ *  |    |
+ *  |    |
+ *    ()
  */
 public class Field extends Tile {
 	/*
