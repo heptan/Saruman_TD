@@ -2,11 +2,6 @@ package proto;
 
 /*
  * A mez� p�lyaelemet megval�s�t� oszt�ly
- * (.)  (.)
- *  |    |
- *  |    |
- *  |    |
- *    ()
  */
 public class Field extends Tile {
 	/*
@@ -63,71 +58,64 @@ public class Field extends Tile {
 	 * A tower attrib�tum inicializ�l�s�hoz haszn�lt met�dus
 	 */
 	public void setTower() {
-		
+		tower = new Tower();
 	}
 	
 	/*
 	 * A mez�n l�v� torony elt�vol�t�s�hoz haszn�lt met�dus
 	 */
 	public void resetTower() {
-		ConsoleUI.writeSeq("-->Field.resetTower(): void");
-		tower = new Tower(true);
 		tower.wipe();
-		
-		ConsoleUI.writeSeq("<--void");
+		tower = null;
 	}
 	
 	/*
 	 * A mez�n l�v� torony hat�sugar�t �ll�tja a k�d szerint
 	 */
 	public void setRange(boolean mist){
-		
+		if(mist) tower.setRange(Constants.MIST_RANGE);
+		else tower.setRange(Constants.DEFAULT_TOWER_RANGE);
 	}
 
 	/*
 	 * �j Enemy-t megfigyel� observer
 	 */
 	public void addEnemyObserver(EnemyObserver observer) {
-	
+		map.addEnemyObserver(observer);
 	}
 	
 	@Override
 	public void addAntiHuman() {
-		// TODO Auto-generated method stub
-		
+		tower.addAntiHuman();
 	}
 
 	@Override
 	public void addAntiElf() {
-		// TODO Auto-generated method stub
-		
+		tower.addAntiElf();
 	}
 
 	@Override
 	public void addAntiDwarf() {
-		// TODO Auto-generated method stub
-		
+		tower.addAntiDwarf();
 	}
 
 	@Override
 	public void addAntiHobbit() {
-		// TODO Auto-generated method stub
-		
+		tower.addAntiHobbit();
 	}
 
 	@Override
 	public void addPlusFrequency() {
-		// TODO Auto-generated method stub
-		
+		tower.addPlusFrequency();
 	}
 
 	@Override
 	public void addPlusRange() {
-		// TODO Auto-generated method stub
-		
+		tower.addPlusRange();
 	}
 
 	@Override
 	public void addPlusTime() {
+		System.out.println("Ez a kő itt nem használható");
 	}
 }
