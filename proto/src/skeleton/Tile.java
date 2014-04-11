@@ -5,13 +5,28 @@ package skeleton;
  */
 public abstract class Tile {
 	/*
-	 * A pályaelem pozíciója.
-	 */
-	private Position position;
-	/*
 	 * A térképre mutató referencia.
 	 */
-	private Map map;
+	protected Map map;
+	
+	/*
+	 * A pályaelem pozíciója.
+	 */
+	protected Position position;
+
+	/*
+	 * A térképre mutató referenciát kérdezi le.
+	 */
+	public Map getMap() {
+		return map;
+	}
+	
+	/*
+	 * A térképre mutató referenciát állítja be.
+	 */
+	public void setMap(Map map) {
+		this.map = map;
+	}
 	
 	/*
 	 * A pályaelem pozícióját kérdezi le.
@@ -24,35 +39,23 @@ public abstract class Tile {
 	 * A pályaelem pozícióját állítja be.
 	 */
 	public void setPosition(Position position) {
-	
-	}
-	
-	/*
-	 * A térképre mutató referenciát állítja be.
-	 */
-	public void setMap(Map map) {
-	
-	}
-	
-	/*
-	 * A térképre mutató referenciát kérdezi le.
-	 */
-	public Map getMap() {
-		return map;
+		this.position = position;
 	}
 	
 	/*
 	 * Új, az Enemy lépési eseményére való feliratkozás
 	 * továbbításához használt metódus.
 	 */
-	public void addEnemyObserver(EnemyObserver observer) {
-	
-	}
+	public abstract void addEnemyObserver(EnemyObserver observer);
 	
 	/*
-	 * Új varázskõ hozzáadásához használt metódus.
+	 * Új varázskõ hozzáadásához használt metódusok.
 	 */
-	public void addGemStone(String gemstone) {
-	
-	}
+	public abstract void addAntiHuman();
+	public abstract void addAntiElf();
+	public abstract void addAntiDwarf();
+	public abstract void addAntiHobbit();
+	public abstract void addPlusFrequency();
+	public abstract void addPlusRange();
+	public abstract void addPlusTime();
 }
