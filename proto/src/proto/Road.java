@@ -5,74 +5,32 @@ package proto;
  */
 public class Road extends Tile {
 	/*
-	 * Az �t poz�ci�j�t t�rolja.
-	 */
-	private Position position;
-	/*
 	 * A t�rk�pre mutat� referenci�t t�rolja.
 	 */
 	private Map map;
+
+	/*
+	 * Az �t poz�ci�j�t t�rolja.
+	 */
+	private Position position;
+
 	/*
 	 * Az �ton l�v� opcion�lis akad�ly referenci�j�t t�rolja
 	 * (ha nincs akad�ly, akkor null).
 	 */
-	private Trap trap = new Trap(false);
+	private Trap trap;
+
 	/*
 	 * Az ellens�g halad�sa szerinti k�vetkez� �telemet t�rolja.
 	 */
 	private Road nextRoad;
 
 	/*
-	 * Az �t poz�ci�j�nak lek�rdez�s�hez haszn�lt met�dus.
-	 */
-	@Override
-	public Position getPosition() {
-		ConsoleUI.writeSeq("-->Road.getPosition(): Position");
-		ConsoleUI.writeSeq("<--Position");
-		return position;
-	}
-	
-	/*
-	 * Az �t poz�ci�j�nak be�ll�t�s�hoz haszn�lt met�dus.
-	 */
-	@Override
-	public void setPosition(Position position) {
-	
-	}
-	
-	/*
-	 * A t�rk�pre mutat� referencia lek�rdez�s�hez haszn�lt met�dus.
-	 */
-	@Override
-	public Map getMap() {
-		return map;
-	}
-	
-	/*
-	 * A t�rk�pre mutat� referencia be�ll�t�s�hoz haszn�lt met�dus.
-	 */
-	@Override
-	public void setMap(Map map) {
-	
-	}
-	
-	/*
-	 * �j, az Enemy l�p�si esem�ny�re val� feliratkoz�s
-	 * tov�bb�t�s�hoz haszn�lt met�dus.
-	 */
-	@Override
-	public void addEnemyObserver(EnemyObserver observer) {
-	
-	}
-	
-	/*
 	 * Az �ton l�v� opcion�lis akad�ly referenci�j�nak lek�rdez�s�hez
 	 * haszn�lt met�dus.
 	 */
 	public Trap getTrap() {
-		ConsoleUI.writeSeq("-->Road.getTrap(): Trap");
-		ConsoleUI.writeSeq("<--null");
-		return null;
+		return trap;
 	}
 	
 	/*
@@ -80,11 +38,7 @@ public class Road extends Tile {
 	 * haszn�lt met�dus.
 	 */
 	public void setTrap() {
-		ConsoleUI.writeSeq("-->Road.setTrap(): void");
-		
 		trap = new Trap();
-		
-		ConsoleUI.writeSeq("<--void");
 	}
 	
 	/*
@@ -92,8 +46,6 @@ public class Road extends Tile {
 	 * met�dus.
 	 */
 	public Road getNextRoad() {
-		ConsoleUI.writeSeq("-->Road.getNextRoad(): Road");
-		ConsoleUI.writeSeq("<--Road");
 		return nextRoad;
 	}
 	
@@ -105,51 +57,38 @@ public class Road extends Tile {
 		nextRoad = road;
 	}
 	
-	/*
-	 * Az �telem �rtes�l r�la, hogy egy ellens�ges egys�g l�pett r�,
-	 * �s meg tudja tenni a sz�ks�ges l�p�seket.
-	 */
-	public void enemyHasSteppedOn(Enemy e) {
-		ConsoleUI.writeSeq("-->Road.enemyHasSteppedOn(e: Enemy): void");
-		trap.enemyHasSteppedOn(e);
-		ConsoleUI.writeSeq("<--void");
-	}
-	
-	/*
-	 * Skeleton tesztel�shez
-	 */
-	public void gemDeployment() {
-		trap = new Trap(false);
-		trap.addGemStone("PlusTime");
-	}
-
 	@Override
 	public void addPlusTime() {
-		// TODO Auto-generated method stub
-		
+		trap.addPlusTime();
 	}
 
 	@Override
 	public void addAntiHuman() {
+		System.out.println("Ezt a követ csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addAntiElf() {
+		System.out.println("Ezt a követ csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addAntiDwarf() {
+		System.out.println("Ezt a követ csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addAntiHobbit() {
+		System.out.println("Ezt a követ csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addPlusFrequency() {
+		System.out.println("Ezt a követ csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addPlusRange() {
+		System.out.println("Ezt a követ csak toronyra lehet tenni");
 	}
 }

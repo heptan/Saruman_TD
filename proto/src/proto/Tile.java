@@ -46,7 +46,9 @@ public abstract class Tile {
 	 * �j, az Enemy l�p�si esem�ny�re val� feliratkoz�s
 	 * tov�bb�t�s�hoz haszn�lt met�dus.
 	 */
-	public abstract void addEnemyObserver(EnemyObserver observer);
+	public void addEnemyObserver(EnemyObserver observer) {
+		map.addEnemyObserver(observer);
+	}
 	
 	/*
 	 * �j var�zsk� hozz�ad�s�hoz haszn�lt met�dusok.

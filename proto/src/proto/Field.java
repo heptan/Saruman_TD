@@ -7,17 +7,17 @@ public class Field extends Tile {
 	/*
 	 * A t�rk�pre mutat� referencia
 	 */
-	private Map map = null;
+	private Map map;
 	
 	/*
 	 * A mez� poz�c�j�t t�rol� attrib�tum
 	 */
-	private Position position = null;
+	private Position position;
 	
 	/*
 	 * A mez�n tal�lhat� toronyra mutat� referencia. Ha nincs ilyen, akkor null.
 	 */
-	private Tower tower = null;
+	private Tower tower;
 	
 	/*
 	 * A map attrib�tum getter met�dusa
@@ -76,13 +76,6 @@ public class Field extends Tile {
 		if(mist) tower.setRange(Constants.MIST_RANGE);
 		else tower.setRange(Constants.DEFAULT_TOWER_RANGE);
 	}
-
-	/*
-	 * �j Enemy-t megfigyel� observer
-	 */
-	public void addEnemyObserver(EnemyObserver observer) {
-		map.addEnemyObserver(observer);
-	}
 	
 	@Override
 	public void addAntiHuman() {
@@ -116,6 +109,6 @@ public class Field extends Tile {
 
 	@Override
 	public void addPlusTime() {
-		System.out.println("Ez a kő itt nem használható");
+		System.out.println("Ezt a követ csak akadályra lehet tenni");
 	}
 }
