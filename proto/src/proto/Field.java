@@ -4,21 +4,34 @@ package proto;
  * A mez� p�lyaelemet megval�s�t� oszt�ly
  */
 public class Field extends Tile {
+	/*
+	 * A t�rk�pre mutat� referencia
+	 */
+	private Map map = null;
 	
 	/*
 	 * A mez� poz�c�j�t t�rol� attrib�tum
 	 */
-	private Position position;
-	
-	/*
-	 * A t�rk�pre mutat� referencia
-	 */
-	private Map map;
+	private Position position = null;
 	
 	/*
 	 * A mez�n tal�lhat� toronyra mutat� referencia. Ha nincs ilyen, akkor null.
 	 */
-	private Tower tower;
+	private Tower tower = null;
+	
+	/*
+	 * A map attrib�tum getter met�dusa
+	 */
+	public Map getMap() {
+		return map;
+	}
+	
+	/*
+	 * A map attrib�tum setter met�dusa
+	 */
+	public void setMap(Map map) {
+		this.map = map;
+	}
 	
 	/*
 	 * A position attrib�tum getter met�dusa
@@ -31,46 +44,21 @@ public class Field extends Tile {
 	 * A position attrib�tum setter met�dusa
 	 */
 	public void setPosition(Position position) {
-	
-	}
-	
-	/*
-	 * A map attrib�tum setter met�dusa
-	 */
-	public void setMap(Map map) {
-	
-	}
-	
-	/*
-	 * A map attrib�tum getter met�dusa
-	 */
-	public Map getMap() {
-		return map;
-	}
-	
-	/*
-	 * �j Enemy-t megfigyel� observer
-	 */
-	public void addEnemyObserver(EnemyObserver observer) {
-	
+		this.position = position;
 	}
 	
 	/*
 	 * A tower attrib�tum getter met�dusa
 	 */
 	public Tower getTower() {
-		ConsoleUI.writeSeq("-->Field.getTower(): Tower");
-		ConsoleUI.writeSeq("<--null");
-		return null;
+		return tower;
 	}
 
 	/*
 	 * A tower attrib�tum inicializ�l�s�hoz haszn�lt met�dus
 	 */
 	public void setTower() {
-		ConsoleUI.writeSeq("-->Field.setTower(): void");
-		tower = new Tower();
-		ConsoleUI.writeSeq("<--void");
+		
 	}
 	
 	/*
@@ -82,5 +70,59 @@ public class Field extends Tile {
 		tower.wipe();
 		
 		ConsoleUI.writeSeq("<--void");
+	}
+	
+	/*
+	 * A mez�n l�v� torony hat�sugar�t �ll�tja a k�d szerint
+	 */
+	public void setRange(boolean mist){
+		
+	}
+
+	/*
+	 * �j Enemy-t megfigyel� observer
+	 */
+	public void addEnemyObserver(EnemyObserver observer) {
+	
+	}
+	
+	@Override
+	public void addAntiHuman() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addAntiElf() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addAntiDwarf() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addAntiHobbit() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPlusFrequency() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPlusRange() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addPlusTime() {
 	}
 }

@@ -122,4 +122,34 @@ public class Road extends Tile {
 		trap = new Trap(false);
 		trap.addGemStone("PlusTime");
 	}
+
+	@Override
+	public void addPlusTime() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addAntiHuman() {
+	}
+
+	@Override
+	public void addAntiElf() {
+	}
+
+	@Override
+	public void addAntiDwarf() {
+	}
+
+	@Override
+	public void addAntiHobbit() {
+	}
+
+	@Override
+	public void addPlusFrequency() {
+	}
+
+	@Override
+	public void addPlusRange() {
+	}
 }

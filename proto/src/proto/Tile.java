@@ -5,13 +5,28 @@ package proto;
  */
 public abstract class Tile {
 	/*
-	 * A p�lyaelem poz�ci�ja.
-	 */
-	private Position position;
-	/*
 	 * A t�rk�pre mutat� referencia.
 	 */
-	private Map map;
+	protected Map map;
+	
+	/*
+	 * A p�lyaelem poz�ci�ja.
+	 */
+	protected Position position;
+
+	/*
+	 * A t�rk�pre mutat� referenci�t k�rdezi le.
+	 */
+	public Map getMap() {
+		return map;
+	}
+	
+	/*
+	 * A t�rk�pre mutat� referenci�t �ll�tja be.
+	 */
+	public void setMap(Map map) {
+		this.map = map;
+	}
 	
 	/*
 	 * A p�lyaelem poz�ci�j�t k�rdezi le.
@@ -24,35 +39,23 @@ public abstract class Tile {
 	 * A p�lyaelem poz�ci�j�t �ll�tja be.
 	 */
 	public void setPosition(Position position) {
-	
-	}
-	
-	/*
-	 * A t�rk�pre mutat� referenci�t �ll�tja be.
-	 */
-	public void setMap(Map map) {
-	
-	}
-	
-	/*
-	 * A t�rk�pre mutat� referenci�t k�rdezi le.
-	 */
-	public Map getMap() {
-		return map;
+		this.position = position;
 	}
 	
 	/*
 	 * �j, az Enemy l�p�si esem�ny�re val� feliratkoz�s
 	 * tov�bb�t�s�hoz haszn�lt met�dus.
 	 */
-	public void addEnemyObserver(EnemyObserver observer) {
-	
-	}
+	public abstract void addEnemyObserver(EnemyObserver observer);
 	
 	/*
-	 * �j var�zsk� hozz�ad�s�hoz haszn�lt met�dus.
+	 * �j var�zsk� hozz�ad�s�hoz haszn�lt met�dusok.
 	 */
-	public void addGemStone(String gemstone) {
-	
-	}
+	public abstract void addAntiHuman();
+	public abstract void addAntiElf();
+	public abstract void addAntiDwarf();
+	public abstract void addAntiHobbit();
+	public abstract void addPlusFrequency();
+	public abstract void addPlusRange();
+	public abstract void addPlusTime();
 }
