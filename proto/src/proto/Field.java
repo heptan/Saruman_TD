@@ -73,7 +73,8 @@ public class Field extends Tile {
 	 * A mezőn lévő torony hatósugarát állítja a köd szerint
 	 */
 	public void setRange(boolean mist){
-		if(mist) tower.setRange(Constants.MIST_RANGE);
+		// TODO 
+		if(mist) tower.setRange((-1) * Constants.DEFAULT_TOWER_RANGE);
 		else tower.setRange(Constants.DEFAULT_TOWER_RANGE);
 	}
 	
