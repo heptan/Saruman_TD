@@ -1,104 +1,215 @@
-package proto;
+package skeleton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
- * A tï¿½rkï¿½pet megvalï¿½sï¿½tï¿½ osztï¿½ly.
+ * A térképet megvalósító osztály.
  */
 public class Map {
-	/*
-	 * A pï¿½lyaelemeket tartalmazï¿½ lista.
-	 */
-	private List<Tile> tileList;
-	/*
-	 * A jï¿½tï¿½ktï¿½rre mutatï¿½ referenciï¿½t tartalmazï¿½ attribï¿½tum.
-	 */
+	private List<Tile> tileList = new ArrayList<Tile>();
 	private GameController gameController;
+	private boolean mist;
+	
+	
 	/*
-	 * A jï¿½tï¿½ktï¿½rre mutatï¿½ referencia beï¿½llï¿½tï¿½sï¿½hoz hasznï¿½lt metï¿½dus.
+	 * A játéktérre mutató referencia beállításához használt metódus.
 	 */
 	public void setGameController(GameController gamecontroller) {
-	
+		gameController = gamecontroller;
 	}
 	
 	/*
-	 * A pï¿½lyaelemeket tartalmazï¿½ lista lekï¿½rdezï¿½sï¿½hez hasznï¿½lt
-	 * metï¿½dus
+	 * A pályaelemeket tartalmazó lista lekérdezéséhez használt
+	 * metódus
 	 */
 	public List<Tile> getTileList() {
 		return tileList;
 	}
 	
 	/*
-	 * Adott (x, y) koordinï¿½tï¿½val rendelkezï¿½ pï¿½lyaelem
-	 * referenciï¿½jï¿½nak lekï¿½rdezï¿½sï¿½hez hasznï¿½lt metï¿½dus.
+	 * Adott (x, y) koordinátával rendelkezõ pályaelem
+	 * referenciájának lekérdezéséhez használt metódus.
 	 */
 	public Tile getTile(Position position) {
-		//TODO
-		return null;
+		// Mivel nem taroltuk el a palya meretet, ezert egyesevel vegig
+		//   kell nezni minden elemet...
+		// ja, es nem kell == operatort irni Position osztalynak
+		int x = (int) position.getX(), y = (int) position.getY();
+		int match = tileList.size();
+		for (int i = 0; i < tileList.size(); ++i){
+			if (tileList.get(i).getPosition().getX() == x &&
+				tileList.get(i).getPosition().getY() == y){
+				match = i;
+				break;
+			}
+		}
+		if (match < tileList.size())
+			return tileList.get(match);
+		else
+			return null;
 	}
 	
 	/*
-	 * ï¿½j, az Enemy lï¿½pï¿½si esemï¿½nyï¿½re valï¿½ feliratkozï¿½s
-	 * tovï¿½bbï¿½tï¿½sï¿½hoz hasznï¿½lt metï¿½dus.
+	 * Új, az Enemy lépési eseményére való feliratkozás
+	 * továbbításához használt metódus.
 	 */
 	public void addEnemyObserver(EnemyObserver observer) {
-	
+		gameController.addEnemyObserver(observer);
 	}
 	
 	/*
-	 * ï¿½j varï¿½zskï¿½ hozzï¿½adï¿½sï¿½hoz hasznï¿½lt metï¿½dus; paramï¿½terkï¿½nt van
-	 * megadva az ï¿½j varï¿½zskï¿½ tï¿½pusa, illetve azon pï¿½lyaelem (x, y)
-	 * koordinï¿½tï¿½ja, amely a varï¿½zskï¿½ helyï¿½ï¿½l kivï¿½lasztï¿½sra kerï¿½lt
+	 * Új varázskõ hozzáadásához használt metódus; paraméterként van
+	 * megadva az új varázskõ típusa, illetve azon pályaelem (x, y)
+	 * koordinátája, amely a varázskõ helyéül kiválasztásra került
 	 */
 	public void addGemstone(String type, Position position) {
-	
+		int x = (int) position.getX(), y = (int) position.getY();
+		int match = tileList.size();
+		for (int i = 0; i < tileList.size(); ++i){
+			if (tileList.get(i).getPosition().getX() == x &&
+				tileList.get(i).getPosition().getY() == y){
+				match = i;
+				break;
+			}
+		}
+		if (match == tileList.size()){
+			ConsoleUI.writeSimple("Nem letezo pozicio.");
+			return;
+		}
+		else {
+			if (tileList.get(match) instanceof Road){
+				if (((Road) tileList.get(match)).getTrap() != null){
+					((Road) tileList.get(match)).getTrap().addGemStone(type);
+				}
+			}
+			else{
+				if (((Field) tileList.get(match)).getTower() != null){
+					((Field) tileList.get(match)).getTower().addGemStone(type);
+				}
+			}
+		}
 	}
 	
 	/*
-	 * ï¿½j, az Enemy lï¿½pï¿½si esemï¿½nyï¿½rï¿½l valï¿½ leiratkozï¿½s
-	 * tovï¿½bbï¿½tï¿½sï¿½hoz hasznï¿½lt metï¿½dus.
+	 * Új, az Enemy lépési eseményérõl való leiratkozás
+	 * továbbításához használt metódus.
 	 */
 	public void removeEnemyObserver(EnemyObserver observer) {
-	
+		gameController.removeEnemyObserver(observer);
 	}
 	
 	/*
-	 * Torony lï¿½trehozï¿½sa (x, y) pontban.
+	 * Torony létrehozása (x, y) pontban.
 	 */
 	public void addTower(Position pos) {
-		ConsoleUI.writeSeq("-->Map.addTower(pos: Position): void");
-		
-		Field f = new Field();
-		f.getTower();
-		f.setTower();
-		
-		ConsoleUI.writeSeq("<--void");
+		int x = (int) pos.getX(), y = (int) pos.getY();
+		int match = tileList.size();
+		for (int i = 0; i < tileList.size(); ++i){
+			if (tileList.get(i).getPosition().getX() == x &&
+				tileList.get(i).getPosition().getY() == y){
+				match = i;
+				break;
+			}
+		}
+		if (match == tileList.size()){
+			ConsoleUI.writeSimple("Nem letezo pozicio.");
+			return;
+		}
+		else{
+			if (tileList.get(match) instanceof Road){
+				ConsoleUI.writeSimple("Utra nem helyezhet tornyot.");
+				return;
+			}
+			else{
+				if (((Field) tileList.get(match)).getTower() != null){
+					ConsoleUI.writeSimple("Itt mar van torony");
+					return;
+				}
+				else{
+					((Field) tileList.get(match)).setTower();
+				}
+			}
+		}
 	}
 	
 	/*
-	 * Akadï¿½ly lï¿½trehozï¿½sa (x, y) pontban.
+	 * Akadály létrehozása (x, y) pontban.
 	 */
 	public void addTrap(Position pos) {
-		ConsoleUI.writeSeq("-->Map.addTrap(pos: Position): void");
-	
-		Road r = new Road();
-		r.getTrap();
-		
-		r.setTrap();
-		
-		ConsoleUI.writeSeq("<--void");
+		int x = (int) pos.getX(), y = (int) pos.getY();
+		int match = tileList.size();
+		for (int i = 0; i < tileList.size(); ++i){
+			if (tileList.get(i).getPosition().getX() == x &&
+				tileList.get(i).getPosition().getY() == y){
+				match = i;
+				break;
+			}
+		}
+		if (match == tileList.size()){
+			ConsoleUI.writeSimple("Nem letezo pozicio.");
+			return;
+		}
+		else{
+			if (tileList.get(match) instanceof Field){
+				ConsoleUI.writeSimple("Mezore nem helyezhet akadalyt.");
+				return;
+			}
+			else{
+				if (((Road) tileList.get(match)).getTrap() != null){
+					ConsoleUI.writeSimple("Itt mar van akadaly");
+					return;
+				}
+				else{
+					((Road) tileList.get(match)).setTrap();
+				}
+			}
+		}
 	}
 	
 	/*
-	 * Torony tï¿½rlï¿½se (x, y) pontbï¿½l.
+	 * Torony törlése (x, y) pontból.
 	 */
 	public void removeTower(Position pos) {
-		ConsoleUI.writeSeq("-->Map.removeTower(pos: Position): void");
-		
-		Field f = new Field();
-		f.resetTower();
-		
-		ConsoleUI.writeSeq("<--void");
+		int x = (int) pos.getX(), y = (int) pos.getY();
+		int match = tileList.size();
+		for (int i = 0; i < tileList.size(); ++i){
+			if (tileList.get(i).getPosition().getX() == x &&
+				tileList.get(i).getPosition().getY() == y){
+				match = i;
+				break;
+			}
+		}
+		if (match == tileList.size()){
+			ConsoleUI.writeSimple("Nem letezo pozicio.");
+			return;
+		}
+		else{
+			// ezeket azert hagyom benne, hogy ha valami difi lenne a pos
+			//   atadasanal, akkor itt kiderulhessen, amugy ez jozan esszel
+			//   atgondolva nem kovetkezhet be, hiszen csak letezo toronyra
+			//   hivodhat meg ez
+			if (tileList.get(match) instanceof Road){
+				ConsoleUI.writeSimple("Utrol nem torolhet tornyot.");
+				return;
+			}
+			else{
+				if (((Field) tileList.get(match)).getTower() != null){
+					ConsoleUI.writeSimple("Itt nincs is torony!");
+					return;
+				}
+				else{
+					((Field) tileList.get(match)).resetTower();
+				}
+			}
+		}
+	}
+	
+	boolean isMisty(){
+		return mist == true ? true : false;
+	}
+	
+	void setMist(boolean m){
+		mist = m;
 	}
 }
