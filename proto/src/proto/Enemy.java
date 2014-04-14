@@ -3,194 +3,167 @@ package proto;
 import java.util.List;
 
 /*
- * Az ellens�get megval�s�t� absztrakt �soszt�ly
- * TODO Ennek abstract-nak k�ne lennie
+ * Az ellenseget megvalosito absztrakt ososztaly
  */
-public class Enemy {
+public abstract class Enemy {
 	
 	/*
-	 * Az ellens�g poz�ci�j�t t�rol� attrib�tum
+	 * Az ellenseg pozociojat tarolo attributum
 	 */
 	private Position position;
 	
 	/*
-	 * Az ellens�g �leterej�t t�rol� attrib�tum
+	 * Az ellenseg eleterejet tarolo attributum
 	 */
 	private int health;
 	
 	/*
-	 * Az ellens�g aktu�lis sebess�g�t t�rol� attrib�tum
+	 * Az ellenseg aktualis sebesseget tarolo attributum
 	 */
 	private int speed;
 	
 	/*
-	 * Az ellens�g h�tral�v� v�rakoz�si idej�t t�rol� attrib�tum 
+	 * Az ellenseg hatralevo varakozasi idejet tarolo attributum 
 	 */
 	private int timeout;
 	
 	/*
-	 * Az ellens�g maxim�lis v�rakoz�si idej�t t�rol� attrib�tum
+	 * Az ellenseg maximalis varakozasi idejet tarolo attributum
 	 */
 	private int maxtimeout;
 	
 	/*
-	 * A feliratkozott megfigyel�ket tartalmaz� lista
+	 * A feliratkozott megfigyeloket tartalmazo lista
 	 */
 	private List<EnemyObserver> observers;
 	
 	/*
-	 * Az aktu�lis �t p�lyaelemre mutat� referencia
+	 * Az aktualis ut palyaelemre mutato referencia
 	 */
 	private Road actRoad;
 	
 	/*
-	 * A j�t�kt�rre mutat� referencia
+	 * A jatekterre mutato referencia
 	 */
 	private GameController gameController;
 	
 	/*
-	 * A position attrib�tum getter met�dusa
+	 * A position attributum getter metodusa
 	 */
 	public Position getPosition() {
-		ConsoleUI.writeSeq("-->Enemy.getPosition(): Position");
-		ConsoleUI.writeSeq("<--Position");
 		return position;
 	}
 	
 	/*
-	 * A position attrib�tum setter met�dusa
+	 * A position attributum setter metodusa
 	 */
 	public void setPosition(Position position) {
-		ConsoleUI.writeSeq("-->Enemy.setPosition(position: Position)");
 		this.position = position;
-		ConsoleUI.writeSeq("<--void");
 	}
 	
 	/*
-	 * A health attrib�tum getter met�dusa
+	 * A health attributum getter metodusa
 	 */
 	public int getHealth() {
 		return health;
 	}
 	
 	/*
-	 * A health attrib�tum setter met�dusa
+	 * A health attributum setter metodusa
 	 */
 	public void setHealth(int health) {
-	
+		this.health = health;
 	}
 	
 	/*
-	 * A timeout attrib�tum getter met�dusa
+	 * A timeout attributum getter metodusa
 	 */
 	public int getTimeout() {
 		return timeout;
 	}
 	
 	/*
-	 * A timeout attrib�tum setter met�dusa
+	 * A timeout attributum setter metodusa
 	 */
 	public void setTimeout(int timeout) {
 	
 	}
 	
 	/*
-	 * A timeout attrib�tum 
+	 * A timeout attributum novelesehez hasznalt metodus 
 	 */
 	public void decTimeout(int dec) {
+		this.timeout += dec;
 	}
 	
 	/*
-	 * Az speed attrib�tum getter met�dusa
+	 * Az speed attributum getter metodusa
 	 */
 	public int getSpeed() {
 		return speed;
 	}
 	
 	/*
-	 * A speed attrib�tum setter met�dusa
+	 * A speed attributum setter metodusa
 	 */
-	public void setSpeed(double speed) {
-		ConsoleUI.writeSeq("-->Enemy.setSpeed(multiplier: double): void");
-		ConsoleUI.writeSeq("<--void");
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
 	
 	/*
-	 * Az ellens�gn�l feliratkozott observereket tartalmaz� lista inicializ�l�hoz haszn�lt met�dus.
+	 * Az ellensegnel feliratkozott observereket tartalmazo lista inicializalasahoz hasznalt metodus.
 	 */
 	public void setObservers(List<EnemyObserver> observers) {
-	
+		if(observers != null) {
+			this.observers = observers;
+		}
 	}
 	
 	/*
-	 * �j observer regisztr�l�s�hoz haszn�lt met�dus
+	 * Uj observer regisztralasahoz hasznalt metodus
 	 */
 	public void addObserver(EnemyObserver observer) {
-	
+		if(observer != null && !observers.contains(observer)) {
+			observers.add(observer);
+		}
 	}
 	
 	/*
-	 * Feliratkozott observer kiregisztr�l�s�hoz haszn�lt met�dus.
+	 * Feliratkozott observer kiregisztralasahoz hasznalt metodus.
 	 */
 	public void removeObserver(EnemyObserver observer) {
-	
+		if(observer != null && observers.contains(observer)) {
+			observers.remove(observer);
+		}
 	}
 	
 	/*
-	 * Az ellens�g l�ptet�s�hez haszn�lt met�dus
+	 * Az ellenseg leptetesehez hasznalt metodus
 	 */
 	public void nextStep(int from) {	
-		ConsoleUI.writeSeq("-->Enemy.nextStep(): void");
-		if(from == 1) {
-			Road nextr = actRoad.getNextRoad();
-			Position nextr_pos = nextr.getPosition();
-			this.setPosition(nextr_pos);
-		}
-		else {
-			Road r = new Road();
-			r.enemyHasSteppedOn(this);
-		}
 		
-		ConsoleUI.writeSeq("<--void");
 	}
 	
 	/*
-	 * A feliratkozott observerek �rtes�t�s�re haszn�lt met�dus
+	 * A feliratkozott observerek ertesitesere hasznalt metodus
 	 */
 	public void notifyEnemyObservers() {
-	
+		for(EnemyObserver eo : observers) {
+			eo.notifyFromEnemy(this);
+		}
 	}
 	
 	/*
-	 * Az actRoad attrib�tum getter met�dusa
+	 * Az actRoad attributum getter metodusa
 	 */
 	public Road getActRoad() {
-		ConsoleUI.writeSeq("-->Enemy.getActRoad(): Road");
-		ConsoleUI.writeSeq("<--Road");
 		return actRoad;
 	}
 	
 	/*
-	 * Az actRoad attrib�tum setter met�dusa
+	 * Az actRoad attributum setter metodusa
 	 */
 	public void setActRoad(Road road) {
 		actRoad = road;
-	}
-	
-	/*
-	 * Skeleton tesztel�shez
-	 */
-	public void EllensegToronyHatosugaraban() {
-		Tower t = new Tower(false);
-		
-		t.notifyFromEnemy(this);
-	}
-	
-	/*
-	 * Skeleton tesztel�shez
-	 */
-	public void gameOverLose() {
-		gameController = new GameController();
-		gameController.gameOver();
 	}
 }

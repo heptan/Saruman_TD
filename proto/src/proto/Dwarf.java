@@ -1,11 +1,11 @@
 package proto;
 
 /*
- * A t�rpe ellens�get megval�s�t� oszt�ly
+ * A torpe ellenseget megvalosito osztaly
  */
 public class Dwarf extends Enemy {
 	/*
-	 * T�rpe l�ptet�s�hez, poz�cion�l�s�hor haszn�lt met�dus.
+	 * Torpe ellenseg leptetesehez, pozicionalasahoz hasznalt metodus.
 	 */
 	public void nextStep(){
 		

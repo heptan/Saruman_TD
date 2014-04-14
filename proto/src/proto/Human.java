@@ -1,11 +1,11 @@
 package proto;
 
 /*
- * Az ember megval�s�t�s�ra haszn�lt oszt�ly.
+ * Az ember ellenseget megvalosito osztaly
  */
 public class Human extends Enemy {
 	/*
-	 * Ember l�ptet�s�hez, poz�cion�l�s�hor haszn�lt met�dus.
+	 * Ember ellenseg leptetesehez, pozicionalasahoz hasznalt metodus.
 	 */
 	public void nextStep(){
 		
