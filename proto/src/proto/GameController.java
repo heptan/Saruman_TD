@@ -1,11 +1,11 @@
-package skeleton;
+package proto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /*
  * Author: VAM
- * Az ellensegek létrehozása, nyilvantartasa, ha kell, akkor kettobe 
+ * Az ellensegek lï¿½trehozï¿½sa, nyilvantartasa, ha kell, akkor kettobe 
  * vagasa, az EnemyObserverek regisztralasanak kezelese, a palya 
  * letrehozasa, inicializalasa, illetve a jatekvege feltetelek figyelese. 
  */
@@ -47,7 +47,7 @@ public class GameController {
 //		ConsoleUI.writeSeq("<--void");
 		ConsoleUI.writeSimple("A jatek veget ert, az ellenseg elpusztitotta az"
 				+ " egy gyurut a vegzet hegyenel.");
-		// akadalyok megszuntetese: az endTime valtozo modosítasa ugy, hogy
+		// akadalyok megszuntetese: az endTime valtozo modosï¿½tasa ugy, hogy
 		//   azonnal megszunjenek
 // TODO
 		// lekerjuk a palyaelemeket tartalmazo listat
@@ -223,6 +223,11 @@ public class GameController {
 			}
 		}
 		++enemyCounter;
+	}
+
+	public void removeEnemy(Enemy enemy) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

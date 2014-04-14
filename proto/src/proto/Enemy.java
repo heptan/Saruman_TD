@@ -10,42 +10,37 @@ public abstract class Enemy {
 	/*
 	 * Az ellenseg pozociojat tarolo attributum
 	 */
-	private Position position;
+	protected Position position;
 	
 	/*
 	 * Az ellenseg eleterejet tarolo attributum
 	 */
-	private int health;
+	protected int health;
 	
 	/*
 	 * Az ellenseg aktualis sebesseget tarolo attributum
 	 */
-	private int speed;
+	protected int speed;
 	
 	/*
 	 * Az ellenseg hatralevo varakozasi idejet tarolo attributum 
 	 */
-	private int timeout;
-	
-	/*
-	 * Az ellenseg maximalis varakozasi idejet tarolo attributum
-	 */
-	private int maxtimeout;
+	protected int timeout;
 	
 	/*
 	 * A feliratkozott megfigyeloket tartalmazo lista
 	 */
-	private List<EnemyObserver> observers;
+	protected List<EnemyObserver> observers;
 	
 	/*
 	 * Az aktualis ut palyaelemre mutato referencia
 	 */
-	private Road actRoad;
+	protected Road actroad;
 	
 	/*
 	 * A jatekterre mutato referencia
 	 */
-	private GameController gameController;
+	protected GameController gameController;
 	
 	/*
 	 * A position attributum getter metodusa
@@ -73,6 +68,13 @@ public abstract class Enemy {
 	 */
 	public void setHealth(int health) {
 		this.health = health;
+		if(this.health <= 0) {
+			for(EnemyObserver enemyobserver : observers) {
+				enemyobserver.notifyFromEnemy(this);
+			}
+			
+			gameController.removeEnemy(this);
+		}
 	}
 	
 	/*
@@ -86,14 +88,7 @@ public abstract class Enemy {
 	 * A timeout attributum setter metodusa
 	 */
 	public void setTimeout(int timeout) {
-	
-	}
-	
-	/*
-	 * A timeout attributum novelesehez hasznalt metodus 
-	 */
-	public void decTimeout(int dec) {
-		this.timeout += dec;
+		this.timeout = timeout;
 	}
 	
 	/*
@@ -140,16 +135,14 @@ public abstract class Enemy {
 	/*
 	 * Az ellenseg leptetesehez hasznalt metodus
 	 */
-	public void nextStep(int from) {	
-		
-	}
+	public abstract void nextStep();
 	
 	/*
 	 * A feliratkozott observerek ertesitesere hasznalt metodus
 	 */
 	public void notifyEnemyObservers() {
-		for(EnemyObserver eo : observers) {
-			eo.notifyFromEnemy(this);
+		for(EnemyObserver enemy_observer : observers) {
+			enemy_observer.notifyFromEnemy(this);
 		}
 	}
 	
@@ -157,13 +150,13 @@ public abstract class Enemy {
 	 * Az actRoad attributum getter metodusa
 	 */
 	public Road getActRoad() {
-		return actRoad;
+		return actroad;
 	}
 	
 	/*
 	 * Az actRoad attributum setter metodusa
 	 */
-	public void setActRoad(Road road) {
-		actRoad = road;
+	public void setActRoad(Road actroad) {
+		this.actroad = actroad;
 	}
 }

@@ -8,7 +8,5 @@ public abstract class EnemyObserver {
 	/*
 	 * Az ellenseg ezen a metoduson keresztul ertesiti a feliratkozott objektumokat.
 	 */
-	public void notifyFromEnemy(Enemy enemy) {
-	
-	}
+	public abstract void notifyFromEnemy(Enemy enemy);
 }
