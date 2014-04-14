@@ -68,7 +68,7 @@ public class Tower extends EnemyObserver {
 	}
 	
 	/*
-	 * ez a függvény hívódik meg az ellenség objektum lépési eseményének elsütésekor. 
+	 * ez a fï¿½ggvï¿½ny hï¿½vï¿½dik meg az ellensï¿½g objektum lï¿½pï¿½si esemï¿½nyï¿½nek elsï¿½tï¿½sekor. 
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {		
