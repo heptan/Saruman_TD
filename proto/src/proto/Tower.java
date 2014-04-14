@@ -1,6 +1,7 @@
 package proto;
 
 import java.io.BufferedReader;
+import java.util.Random;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -54,6 +55,18 @@ public class Tower extends EnemyObserver {
 	/*
 	 * Konstruktor
 	 */
+	public Tower(){
+		gemList = new ArrayList<GemStone>();
+		enemyList = new ArrayList<Enemy>();
+		damageElf = 10;
+		damageHuman = 10;
+		damageDwarf = 10;
+		damageHobbit = 10;
+		frequency = 1;
+		range = 2;
+		field = null;
+		position = null;
+	}
 	public Tower(Field place, Position pos) {
 		gemList = new ArrayList<GemStone>();
 		enemyList = new ArrayList<Enemy>();
@@ -85,49 +98,125 @@ public class Tower extends EnemyObserver {
 	 * A torony pozï¿½ciï¿½jï¿½nak lekï¿½rdezï¿½se.
 	 */
 	public void shoot(){
-		for(Enemy enemy : enemyList ){
-			for(int i < frequency){
-				int health = enemy.getHealth();
+		for (int j = 0; j < frequency; j++) {		
+			for(Enemy enemy : enemyList ){				
 				
-				enemy.setHealth(health-something);
-			}			
+				int health = enemy.getHealth();				
+				
+				Random randomGenerator = new Random();
+				int randomInt = randomGenerator.nextInt(10);
+				boolean split = randomInt==1?true:false;
+				
+				if(enemy instanceof Dwarf){											
+						enemy.setHealth(health - damageDwarf);
+						if (split) {
+							gameController.splitDwarf(enemy);
+							}
+				}else if(enemy instanceof Elf){										
+						enemy.setHealth(health - damageElf);
+						if (split) {
+							gameController.splitElf(enemy);
+							}
+				}else if(enemy instanceof Human){										
+						enemy.setHealth(health - damageHuman);
+						if (split) {
+							gameController.splitHuman(enemy);
+							}
+				}
+				else if(enemy instanceof Hobbit){								
+						enemy.setHealth(health - damageHobbit);
+						if (split) {
+							gameController.splitHobbit(enemy);
+							}
+				}						
+			}
 		}
 	}
-	
+	/*
+	 * A tündék elleni sebzés lekérdezése
+	 */
+	public int getDamageElf(){
+		return damageElf;
+	}
+	public void setDamegeElf(int dElf){
+		damageElf = dElf;
+	}	
+	/*
+	 * A emberek elleni sebzés lekérdezése
+	 */
+	public int getDamageHuman(){
+		return damageHuman;
+	}
+	public void setDamegeHuman(int dHuman){
+		damageHuman = dHUman;
+	}
+	/*
+	 * A törpök elleni sebzés lekérdezése
+	 */
+	public int getDamageDwarf(){
+		return damageDwarf;
+	}
+	public void setDamegeDwarf(int dDwarf){
+		damageDwarf = dDwarf;
+	}
+	/*
+	 * A hobbitok elleni sebzés lekérdezése
+	 */
+	public int getDamageHobbit(){
+		return damageHobbit;
+	}
+	public void setDamegeHobbit(int dHobbit){
+		damageHobbit = dHobbit;
+	}
+	/*
+	 * A lövési frekvencia lekérdezése
+	 */
+	public int getFrequency(){
+		return frequency;
+	}
+	/*
+	 * A torony pozíciójának lekérdezése
+	 */
+	public void setFrequency(int freq){
+		frequency = freq;
+	}	
+	/*
+	 * A torony pozíciójának lekérdezése
+	 */
 	public Position getPosition() {
 		return position;
 	}
 	
 	/*
-	 * A torony pozï¿½ciï¿½jï¿½nak beï¿½llï¿½tï¿½sa.
+	 * A torony poziciojanak beallitasa
 	 */
 	public void setPosition(Position pos) {
 		position = pos;
 	}
 	
 	/*
-	 * A torony hatï¿½tï¿½volsï¿½gï¿½nak lekï¿½rdezï¿½se.
+	 * A torony hatosugaranak lekerdezese
 	 */
 	public double getRange() {
 		return range;
 	}
 	
 	/*
-	 * A torony hatï¿½tï¿½volsï¿½gï¿½nak beï¿½llï¿½tï¿½sa.
+	 * a torony hatotavolsaganak beallitasa
 	 */
 	public void setRange(double ran) {
 		range = ran;
 	}
 	
 	/*
-	 * A toronyhoz tartozï¿½ mezï¿½ referenciï¿½jï¿½nak beï¿½llï¿½tï¿½sa.
+	 * A mezo beallitasa amin a torony van
 	 */
 	public void setField(Field f) {
 		field = f;
 	}
 	
 	/*
-	 * ï¿½j varï¿½zskï¿½ hozzï¿½adï¿½sa.
+	 * Ember elleni ko hozzaadasa
 	 */
 	public void addAntiHuman() {
 		if(gemList.size()<4){
@@ -136,6 +225,9 @@ public class Tower extends EnemyObserver {
 			anti.setEffect(this);
 		}
 	}
+	/*
+	 * Tunde elleni ko hozzaadasa
+	 */
 	public void addAntiElf() {
 		if(gemList.size()<4){
 			anti = new antiElf();
@@ -143,6 +235,9 @@ public class Tower extends EnemyObserver {
 			anti.setEffect(this);
 		}
 	}
+	/*
+	 * Torp elleni ko hozzaadasa
+	 */
 	public void addAntiDwarf() {
 		if(gemList.size()<4){
 			anti = new antiDwarf();
@@ -150,6 +245,9 @@ public class Tower extends EnemyObserver {
 			anti.setEffect(this);
 		}
 	}
+	/*
+	 * Hobbit elleni ko hozzaadasa
+	 */
 	public void addAntiHobbit() {
 		if(gemList.size()<4){
 			anti = new antiHobbit();
@@ -157,15 +255,29 @@ public class Tower extends EnemyObserver {
 			anti.setEffect(this);
 		}
 	}
+	public void addPlusFrequency(){
+		if(gemList.size()<4){
+			anti = new plusFrequency();
+			gemList.add(anti);
+			anti.setEffect(this);
+		}
+	}
+	public void addPlusRange(){
+		if(gemList.size()<4){
+			anti = new plusFrequency();
+			gemList.add(anti);
+			anti.setEffect(this);
+		}
+	}
 	/*
-	 * A varï¿½zskï¿½vek listï¿½jï¿½nak lekï¿½rdezï¿½se.
+	 * A varazsko listajanak lekerdezese
 	 */
 	public List<GemStone> getGemStoneList() {
 		return gemList;
 	}
 	
 	/*
-	 * 	Hozzï¿½ad egy ellensï¿½get a listï¿½hoz.
+	 * 	ellenseg hozzaadasa a listahoz
 	 */
 	public void addEnemy(Enemy e) {		
 		if(!enemyList.contains(e)) {
@@ -174,7 +286,7 @@ public class Tower extends EnemyObserver {
 	}
 	
 	/*
-	 * Eltï¿½volï¿½t egy ellensï¿½get a listï¿½rï¿½l.
+	 * ellenseg eltavolitasa a listabol
 	 */
 	public void removeEnemy(Enemy e) {		
 		if(enemyList.contains(e)) {
@@ -183,7 +295,7 @@ public class Tower extends EnemyObserver {
 	}
 	
 	/*
-	 * Torony tï¿½rlï¿½se.
+	 * Torony torlese
 	 */
 	public void wipe() {
 		for(Enemy enemy : enemyList){

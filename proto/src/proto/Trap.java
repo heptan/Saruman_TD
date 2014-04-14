@@ -1,5 +1,8 @@
 package proto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * Az akad�ly megval�s�t�s�hoz haszn�lt oszt�ly.
  */
@@ -25,25 +28,57 @@ public class Trap extends EnemyObserver {
 	/*
 	 * Konstruktor
 	 */
-	public Trap() {
-		ConsoleUI.writeSeq("-->new Trap(): Trap");
-		ConsoleUI.writeSeq("<--Trap");
-	}
+	private List<Enemy> enemyList;
 	
-	/*
-	 * Konstruktor, tesztel�shez
-	 */
-	public Trap(boolean f) {
+	public Trap(){
+		endTime = 10;		
+		road = null;
+		position = null;
+		gem = null;
+		enemyList = new ArrayList<Enemy>();
 	}
-	
+	public Trap(Road r) {
+		endTime = 10;		
+		road = r;
+		position = r.getPosition();
+		gem = null;
+		enemyList = new ArrayList<Enemy>();
+	}	
 	/*
 	 * Az ellens�g ezen a met�duson kereszt�l �rtes�ti a feliratkozott objektumokat.
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {
+		Position enemyPosition = enemy.getPosition();
+		if(enemyPosition == position){
+			addEnemy(enemy);
+		}
+		else{
+			removeEnemy(enemy);
+		}
 	
 	}
+	/*
+	 * 	ellenseg hozzaadasa a listahoz
+	 */
+	public void addEnemy(Enemy enemy) {		
+		if(!enemyList.contains(enemy)) {
+			enemyList.add(enemy);
+			int speed = enemy.getSpeed();			
+			enemy.setSpeed(speed -5);
+		}		
+	}
 	
+	/*
+	 * ellenseg eltavolitasa a listabol
+	 */
+	public void removeEnemy(Enemy enemy) {		
+		if(enemyList.contains(enemy)) {			
+			int speed = enemy.getSpeed();			
+			enemy.setSpeed(speed +5);
+			enemyList.remove(enemy);
+		}
+	}
 	/*
 	 * A megsz�n�s idej�nek lek�rdez�se.
 	 */
@@ -55,7 +90,7 @@ public class Trap extends EnemyObserver {
 	 * A megsz�n�s idej�nek be�ll�t�sa.
 	 */
 	public void setEndTime(long endtime) {
-	
+		endTime = endtime;	
 	}
 	
 	/*
@@ -68,41 +103,33 @@ public class Trap extends EnemyObserver {
 	/*
 	 * A poz�ci� be�ll�t�sa.
 	 */
-	public void setPosition(Position position) {
-	
+	public void setPosition(Position pos) {
+		position = pos;	
 	}
 	
 	/*
 	 * Az akad�lyt tartalmaz� �telem be�ll�t�sa.
 	 */
-	public void setRoad(Road road) {
-	
+	public void setRoad(Road r) {
+		road = r;	
 	}
 	
 	/*
 	 * Var�zsk� hozz�ad�sa.
 	 */
-	public void addGemStone(String gemstone) {
-		ConsoleUI.writeSeq("-->Trap.addGemStone(\"PlusTime\": String): void");
-		GemStone g = new plusTime();
-		ConsoleUI.writeSeq("<--void");
+	public void addPlusTime(String gemstone) {
+		gem = new plusTime();	
+		gem.setEffect(this);
 	}
 	
 	/*
 	 * Var�zsk� l�tez�s�nek lek�rdez�se.
 	 */
 	public boolean isGemStoned() {
-		//TODO
-		return false;
-	}
-
-	/*
-	 * Az akad�ly �rtes�l r�la, hogy egy ellens�ges egys�g l�pett r�,
-	 * �s meg tudja tenni a sz�ks�ges l�p�seket.
-	 */
-	public void enemyHasSteppedOn(Enemy e) {
-		ConsoleUI.writeSeq("-->Trap.enemyHasSteppedOn(e: Enemy): void");
-		e.setSpeed(0);
-		ConsoleUI.writeSeq("<--void");
-	}
+		if (gem == null){
+			return false;
+		}else{
+			return true;
+		}		
+	}	
 }
