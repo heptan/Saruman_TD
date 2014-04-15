@@ -17,8 +17,17 @@ public class PlusTime extends GemStone {
 	/*
 	 * Az akad�ly fenn�ll�s�nak idej�t n�veli.
 	 */
+
 	@Override
-	public void setEffect(){
+	public void setEffect(Tower toSet) {
+		System.out.println("Ezt a kovet csak akadalyra lehet tenni");
+		
+		
+	}	
+	
+	@Override
+	public void setEffect(Trap toSet) {
+		toSet.setEndTime(2*(toSet.getEndTime()));
 		
 	}
 }

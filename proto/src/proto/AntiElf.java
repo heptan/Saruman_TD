@@ -5,11 +5,16 @@ package proto;
  */
 public class AntiElf extends GemStone {
 	
-	/*
-	 * TODO Ez mire is kell pontosan? Milyen attrib�tumot �ll�t be?
-	 */
+
 	@Override
 	public void setEffect(Tower toSet) {
 		toSet.setDamegeElf(2*(toSet.getDamageElf()));
+		
+	}	
+	
+	@Override
+	public void setEffect(Trap toSet) {
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");;
+		
 	}	
 }

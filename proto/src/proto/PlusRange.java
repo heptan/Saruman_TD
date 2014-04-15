@@ -8,8 +8,16 @@ public class PlusRange extends GemStone {
 	/*
 	 * A torony hat�t�vols�g�t n�veli.
 	 */
+
 	@Override
-	public void setEffect(){
+	public void setEffect(Tower toSet) {
+		toSet.setRange(2*(toSet.getRange()));
+		
+	}	
+	
+	@Override
+	public void setEffect(Trap toSet) {
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");;
 		
 	}
 }
