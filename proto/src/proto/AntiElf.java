@@ -9,8 +9,7 @@ public class AntiElf extends GemStone {
 	 * TODO Ez mire is kell pontosan? Milyen attrib�tumot �ll�t be?
 	 */
 	@Override
-	public void setEffect() {
-		
-	}
-	
+	public void setEffect(Tower toSet) {
+		toSet.setDamegeElf(2*(toSet.getDamageElf()));
+	}	
 }

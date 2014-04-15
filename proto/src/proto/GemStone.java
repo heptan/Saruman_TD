@@ -9,8 +9,7 @@ public abstract class GemStone {
 	/*
 	 * TODO Ez mire is kell pontosan? Milyen attrib�tumot �ll�t be?
 	 */
-	public void setEffect() {
-		
-	}
+	public abstract void setEffect(Tower toSet);
+	public abstract void setEffect(Trap toSet);
 	
 }
