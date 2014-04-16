@@ -103,7 +103,9 @@ public class ProtoMain {
 			return;
 		}
 		
-		System.out.println(input[0] + ", file: " + input[1]);
+		System.out.println(input[0] + ", file: " + input[1] + "\n\n");
+		
+		Loader.loadMap("\\testinputs\\11.test");
 	}
 	
 	/*
