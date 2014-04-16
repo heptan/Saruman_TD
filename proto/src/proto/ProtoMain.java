@@ -105,7 +105,7 @@ public class ProtoMain {
 		
 		System.out.println(input[0] + ", file: " + input[1] + "\n\n");
 		
-		Loader.loadMap("\\testinputs\\11.test");
+		Loader.loadMap(input[1]);
 	}
 	
 	/*

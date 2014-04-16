@@ -1,5 +1,7 @@
 package proto;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +14,19 @@ public class Loader {
 	 * Terkepkepet beolvaso metodus
 	 */
 	public static Map loadMap(String path) {
-		Map loadedmap = new Map();
 		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(path));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				System.out.println(line);
+			}
+		    
+		} catch(Exception e) {
+			System.out.println("Hiba a fajl beolvasasa soran!");
+		}
 		
-		
-		return loadedmap;
+		return null;
 	}
 	
 	/*
