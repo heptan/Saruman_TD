@@ -105,7 +105,12 @@ public class ProtoMain {
 		
 		System.out.println(input[0] + ", file: " + input[1] + "\n\n");
 		
-		Loader.loadMap(input[1]);
+		if(Loader.loadMap(input[1]) == null) {
+			System.out.println("Hiba a terkepfajl beolvasasa soran!");
+		}
+		else {
+			//TODO Inicializálás
+		}
 	}
 	
 	/*

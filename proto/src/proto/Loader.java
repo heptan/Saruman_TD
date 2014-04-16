@@ -15,16 +15,28 @@ public class Loader {
 	 */
 	public static Map loadMap(String path) {
 		
+		List<String> maplines = new ArrayList<String>();
+		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			String line = null;
 			while ((line = reader.readLine()) != null) {
+				maplines.add(line);
 				System.out.println(line);
 			}
 		    
 		} catch(Exception e) {
 			System.out.println("Hiba a fajl beolvasasa soran!");
 		}
+		
+		if(maplines.size() != 0) {
+			return parseMap(maplines);
+		}
+		
+		return null;
+	}
+	
+	private static Map parseMap(List<String> maplines) {
 		
 		return null;
 	}
