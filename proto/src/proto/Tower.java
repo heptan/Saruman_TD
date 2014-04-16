@@ -220,7 +220,7 @@ public class Tower extends EnemyObserver {
 	 */
 	public void addAntiHuman() {
 		if(gemList.size()<4){
-			anti = new AntiHuman();
+			GemStone anti = new AntiHuman();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
@@ -230,7 +230,7 @@ public class Tower extends EnemyObserver {
 	 */
 	public void addAntiElf() {
 		if(gemList.size()<4){
-			anti = new AntiElf();
+			GemStone anti = new AntiElf();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
@@ -240,7 +240,7 @@ public class Tower extends EnemyObserver {
 	 */
 	public void addAntiDwarf() {
 		if(gemList.size()<4){
-			anti = new AntiDwarf();
+			GemStone anti = new AntiDwarf();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
@@ -250,21 +250,21 @@ public class Tower extends EnemyObserver {
 	 */
 	public void addAntiHobbit() {
 		if(gemList.size()<4){
-			anti = new AntiHobbit();
+			GemStone anti = new AntiHobbit();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
 	public void addPlusFrequency(){
 		if(gemList.size()<4){
-			anti = new PlusFrequency();
+			GemStone anti = new PlusFrequency();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
 	public void addPlusRange(){
 		if(gemList.size()<4){
-			anti = new PlusFrequency();
+			GemStone anti = new PlusFrequency();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
