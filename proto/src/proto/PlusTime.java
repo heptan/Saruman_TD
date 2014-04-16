@@ -1,8 +1,7 @@
 package proto;
 
 /*
- * Az akad�ly fenn�ll�si idej�nek meghosszabb�t�s�hoz haszn�lt
- * var�zsk�vet megval�s�t� oszt�ly.
+ * Az akadalyra helyezheto varazskovet reprezentalo osztaly.
  */
 public class PlusTime extends GemStone {
 	
@@ -14,9 +13,7 @@ public class PlusTime extends GemStone {
 		ConsoleUI.writeSeq("<--plusTime");
 	}
 	
-	/*
-	 * Az akad�ly fenn�ll�s�nak idej�t n�veli.
-	 */
+	//Ezt a kovet nem lehet toronyra rakni, ezert ha ez a helyzet hiba uzenetet kuldok.
 
 	@Override
 	public void setEffect(Tower toSet) {
@@ -24,6 +21,10 @@ public class PlusTime extends GemStone {
 		
 		
 	}	
+	
+	/*A parameterben kapott csapda lejarati idejet elkeri a csapda getEndTime metodusaval,
+	 *  modositja a kapott erteket, majd a modositott ertekkel meghivja a setEndTime metodust.
+	 */
 	
 	@Override
 	public void setEffect(Trap toSet) {
