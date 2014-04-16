@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * A térképet megvalósító osztály.
+ * A tï¿½rkï¿½pet megvalï¿½sï¿½tï¿½ osztï¿½ly.
  */
 public class Map {
 	private List<Tile> tileList = new ArrayList<Tile>();
@@ -13,23 +13,23 @@ public class Map {
 	
 	
 	/*
-	 * A játéktérre mutató referencia beállításához használt metódus.
+	 * A jï¿½tï¿½ktï¿½rre mutatï¿½ referencia beï¿½llï¿½tï¿½sï¿½hoz hasznï¿½lt metï¿½dus.
 	 */
 	public void setGameController(GameController gamecontroller) {
 		gameController = gamecontroller;
 	}
 	
 	/*
-	 * A pályaelemeket tartalmazó lista lekérdezéséhez használt
-	 * metódus
+	 * A pï¿½lyaelemeket tartalmazï¿½ lista lekï¿½rdezï¿½sï¿½hez hasznï¿½lt
+	 * metï¿½dus
 	 */
 	public List<Tile> getTileList() {
 		return tileList;
 	}
 	
 	/*
-	 * Adott (x, y) koordinátával rendelkezõ pályaelem
-	 * referenciájának lekérdezéséhez használt metódus.
+	 * Adott (x, y) koordinï¿½tï¿½val rendelkezï¿½ pï¿½lyaelem
+	 * referenciï¿½jï¿½nak lekï¿½rdezï¿½sï¿½hez hasznï¿½lt metï¿½dus.
 	 */
 	public Tile getTile(Position position) {
 		// Mivel nem taroltuk el a palya meretet, ezert egyesevel vegig
@@ -51,17 +51,17 @@ public class Map {
 	}
 	
 	/*
-	 * Új, az Enemy lépési eseményére való feliratkozás
-	 * továbbításához használt metódus.
+	 * ï¿½j, az Enemy lï¿½pï¿½si esemï¿½nyï¿½re valï¿½ feliratkozï¿½s
+	 * tovï¿½bbï¿½tï¿½sï¿½hoz hasznï¿½lt metï¿½dus.
 	 */
 	public void addEnemyObserver(EnemyObserver observer) {
 		gameController.addEnemyObserver(observer);
 	}
 	
 	/*
-	 * Új varázskõ hozzáadásához használt metódus; paraméterként van
-	 * megadva az új varázskõ típusa, illetve azon pályaelem (x, y)
-	 * koordinátája, amely a varázskõ helyéül kiválasztásra került
+	 * ï¿½j varï¿½zskï¿½ hozzï¿½adï¿½sï¿½hoz hasznï¿½lt metï¿½dus; paramï¿½terkï¿½nt van
+	 * megadva az ï¿½j varï¿½zskï¿½ tï¿½pusa, illetve azon pï¿½lyaelem (x, y)
+	 * koordinï¿½tï¿½ja, amely a varï¿½zskï¿½ helyï¿½ï¿½l kivï¿½lasztï¿½sra kerï¿½lt
 	 */
 	public void addGemstone(String type, Position position) {
 		int x = (int) position.getX(), y = (int) position.getY();
@@ -74,17 +74,17 @@ public class Map {
 			}
 		}
 		if (match == tileList.size()){
-			ConsoleUI.writeSimple("Nem letezo pozicio.");
 			return;
 		}
 		else {
 			if (tileList.get(match) instanceof Road){
 				if (((Road) tileList.get(match)).getTrap() != null){
-					((Road) tileList.get(match)).getTrap().addGemStone(type);
+					((Road) tileList.get(match)).getTrap().addPlusTime("");
 				}
 			}
 			else{
 				if (((Field) tileList.get(match)).getTower() != null){
+					//TODO Kulon gemstone-ok szerint, kulon metodus hivas!
 					((Field) tileList.get(match)).getTower().addGemStone(type);
 				}
 			}
@@ -92,15 +92,15 @@ public class Map {
 	}
 	
 	/*
-	 * Új, az Enemy lépési eseményérõl való leiratkozás
-	 * továbbításához használt metódus.
+	 * ï¿½j, az Enemy lï¿½pï¿½si esemï¿½nyï¿½rï¿½l valï¿½ leiratkozï¿½s
+	 * tovï¿½bbï¿½tï¿½sï¿½hoz hasznï¿½lt metï¿½dus.
 	 */
 	public void removeEnemyObserver(EnemyObserver observer) {
 		gameController.removeEnemyObserver(observer);
 	}
 	
 	/*
-	 * Torony létrehozása (x, y) pontban.
+	 * Torony lï¿½trehozï¿½sa (x, y) pontban.
 	 */
 	public void addTower(Position pos) {
 		int x = (int) pos.getX(), y = (int) pos.getY();
@@ -113,17 +113,14 @@ public class Map {
 			}
 		}
 		if (match == tileList.size()){
-			ConsoleUI.writeSimple("Nem letezo pozicio.");
 			return;
 		}
 		else{
 			if (tileList.get(match) instanceof Road){
-				ConsoleUI.writeSimple("Utra nem helyezhet tornyot.");
 				return;
 			}
 			else{
 				if (((Field) tileList.get(match)).getTower() != null){
-					ConsoleUI.writeSimple("Itt mar van torony");
 					return;
 				}
 				else{
@@ -134,7 +131,7 @@ public class Map {
 	}
 	
 	/*
-	 * Akadály létrehozása (x, y) pontban.
+	 * Akadï¿½ly lï¿½trehozï¿½sa (x, y) pontban.
 	 */
 	public void addTrap(Position pos) {
 		int x = (int) pos.getX(), y = (int) pos.getY();
@@ -147,17 +144,14 @@ public class Map {
 			}
 		}
 		if (match == tileList.size()){
-			ConsoleUI.writeSimple("Nem letezo pozicio.");
 			return;
 		}
 		else{
 			if (tileList.get(match) instanceof Field){
-				ConsoleUI.writeSimple("Mezore nem helyezhet akadalyt.");
 				return;
 			}
 			else{
 				if (((Road) tileList.get(match)).getTrap() != null){
-					ConsoleUI.writeSimple("Itt mar van akadaly");
 					return;
 				}
 				else{
@@ -168,7 +162,7 @@ public class Map {
 	}
 	
 	/*
-	 * Torony törlése (x, y) pontból.
+	 * Torony tï¿½rlï¿½se (x, y) pontbï¿½l.
 	 */
 	public void removeTower(Position pos) {
 		int x = (int) pos.getX(), y = (int) pos.getY();
@@ -181,7 +175,6 @@ public class Map {
 			}
 		}
 		if (match == tileList.size()){
-			ConsoleUI.writeSimple("Nem letezo pozicio.");
 			return;
 		}
 		else{
@@ -190,12 +183,10 @@ public class Map {
 			//   atgondolva nem kovetkezhet be, hiszen csak letezo toronyra
 			//   hivodhat meg ez
 			if (tileList.get(match) instanceof Road){
-				ConsoleUI.writeSimple("Utrol nem torolhet tornyot.");
 				return;
 			}
 			else{
 				if (((Field) tileList.get(match)).getTower() != null){
-					ConsoleUI.writeSimple("Itt nincs is torony!");
 					return;
 				}
 				else{
