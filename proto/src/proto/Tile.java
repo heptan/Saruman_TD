@@ -1,57 +1,57 @@
 package proto;
 
 /*
- * A pályaelem megvalósításához használt osztály
+ * A palyaelem megvalositasahoz hasznalt osztaly
  */
 public abstract class Tile {
 	/*
-	 * A térképre mutató referencia
+	 * A terkepre mutato referencia
 	 */
 	protected Map map;
 	
 	/*
-	 * A pályaelem pozíciója
+	 * A palyaelem pozicioja
 	 */
 	protected Position position;
 
 	/*
-	 * A térképre mutató referenciát kérdezi le
+	 * A terkepre mutato referenciat kerdezi le
 	 */
 	public Map getMap() {
 		return map;
 	}
 	
 	/*
-	 * A térképre mutató referenciát állítja be
+	 * A terkepre mutato referenciat allitja be
 	 */
 	public void setMap(Map map) {
 		this.map = map;
 	}
 	
 	/*
-	 * A pályaelem pozícióját kérdezi le
+	 * A palyaelem poziciojat kerdezi le
 	 */
 	public Position getPosition() {
 		return position;
 	}
 	
 	/*
-	 * A pályaelem pozícióját állítja be
+	 * A palyaelem poziciojat allitja be
 	 */
 	public void setPosition(Position position) {
 		this.position = position;
 	}
 	
 	/*
-	 * Új, az Enemy lépési eseményére való feliratkozás
-	 * továbbításához használt metódus
+	 * Uj, az Enemy lepesi esemenyere valo feliratkozas
+	 * tovabbitasahoz hasznalt metodus
 	 */
 	public void addEnemyObserver(EnemyObserver observer) {
 		map.addEnemyObserver(observer);
 	}
 	
 	/*
-	 * Új varázskő hozzáadásához használt metódusok
+	 * Uj varazsko hozzaadasahoz hasznalt metodusok
 	 */
 	public abstract void addAntiHuman();
 	public abstract void addAntiElf();

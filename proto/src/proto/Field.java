@@ -1,68 +1,68 @@
 package proto;
 
 /*
- * A mező pályaelemet megvalósító osztály
+ * A mezo palyaelemet megvalosito osztaly
  */
 public class Field extends Tile {
 	/*
-	 * A térképre mutató referencia
+	 * A terkepre mutato referencia
 	 */
 	private Map map;
 	
 	/*
-	 * A mező pozícóját tároló attribútum
+	 * A mezo pozicojat tarolo attributum
 	 */
 	private Position position;
 	
 	/*
-	 * A mezőn található toronyra mutató referencia
+	 * A mezon talalhato toronyra mutato referencia
 	 */
 	private Tower tower;
 	
 	/*
-	 * A map attribútum getter metódusa
+	 * A map attributum getter metodusa
 	 */
 	public Map getMap() {
 		return map;
 	}
 	
 	/*
-	 * A map attribútum setter metódusa
+	 * A map attributum setter metodusa
 	 */
 	public void setMap(Map map) {
 		this.map = map;
 	}
 	
 	/*
-	 * A position attribútum getter metódusa
+	 * A position attributum getter metodusa
 	 */
 	public Position getPosition() {
 		return position;
 	}
 	
 	/*
-	 * A position attribútum setter metódusa
+	 * A position attributum setter metodusa
 	 */
 	public void setPosition(Position position) {
 		this.position = position;
 	}
 	
 	/*
-	 * A tower attribútum getter metódusa
+	 * A tower attributum getter metodusa
 	 */
 	public Tower getTower() {
 		return tower;
 	}
 
 	/*
-	 * A tower attribútum inicializálásához használt metódus
+	 * A tower attributum inicializalasahoz hasznalt metodus
 	 */
 	public void setTower() {
 		tower = new Tower();
 	}
 	
 	/*
-	 * A mezőn lévő torony eltávolításához használt metódus
+	 * A mezon levo torony eltavolitasahoz hasznalt metodus
 	 */
 	public void resetTower() {
 		tower.wipe();
@@ -70,7 +70,7 @@ public class Field extends Tile {
 	}
 	
 	/*
-	 * A mezőn lévő torony hatósugarát állítja a köd szerint
+	 * A mezon levo torony hatosugarat allitja a kod szerint
 	 */
 	public void setRange(boolean mist){
 		// TODO 
@@ -79,7 +79,7 @@ public class Field extends Tile {
 	}
 	
 	/*
-	 * Különböző varázskövek hozzáadása a toronyhoz
+	 * Kulonbozo varazskovek hozzaadasa a toronyhoz
 	 */
 	@Override
 	public void addAntiHuman() {
@@ -112,10 +112,10 @@ public class Field extends Tile {
 	}
 
 	/*
-	 * Ez a típus nem adható hozzá, hibaüzenet
+	 * Ez a tipus nem adhato hozza, hibauzenet
 	 */
 	@Override
 	public void addPlusTime() {
-		System.out.println("Ezt a követ csak akadályra lehet tenni");
+		System.out.println("Ezt a kovet csak akadalyra lehet tenni");
 	}
 }

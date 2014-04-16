@@ -1,60 +1,60 @@
 package proto;
 
 /*
- * Az út megvalósítására használt osztály
+ * Az ut megvalositasara hasznalt osztaly
  */
 public class Road extends Tile {
 	/*
-	 * A térképre mutató referenciát tárolja
+	 * A terkepre mutato referenciat tarolja
 	 */
 	private Map map;
 
 	/*
-	 * Az út pozícióját tárolja
+	 * Az ut poziciojat tarolja
 	 */
 	private Position position;
 
 	/*
-	 * Az úton lévő akadály referenciáját tárolja
-	 * (ha nincs akadály, akkor null)
+	 * Az uton levo akadaly referenciajat tarolja
+	 * (ha nincs akadaly, akkor null)
 	 */
 	private Trap trap;
 
 	/*
-	 * Az ellenség haladása szerinti következő útelemet tárolja
+	 * Az ellenseg haladasa szerinti kovetkezo utelemet tarolja
 	 */
 	private Road nextRoad;
 
 	/*
-	 * Az úton lévő akadály referenciájának lekérdezése
+	 * Az uton levo akadaly referenciajanak lekerdezese
 	 */
 	public Trap getTrap() {
 		return trap;
 	}
 	
 	/*
-	 * Az úton lévő akadály referenciájának beállítása
+	 * Az uton levo akadaly referenciajanak beallitasa
 	 */
 	public void setTrap() {
 		trap = new Trap();
 	}
 	
 	/*
-	 * Az aktuális útelemet követő útelem lekérdezése
+	 * Az aktualis utelemet koveto utelem lekerdezese
 	 */
 	public Road getNextRoad() {
 		return nextRoad;
 	}
 	
 	/*
-	 * Az aktuális útelemet követő útelem beállítása
+	 * Az aktualis utelemet koveto utelem beallitasa
 	 */
 	public void setNextRoad(Road road) {
 		nextRoad = road;
 	}
 	
 	/*
-	 * Az akadály idejét meghosszabbító varázskő hozzáadása
+	 * Az akadaly idejet meghosszabbito varazsko hozzaadasa
 	 */
 	@Override
 	public void addPlusTime() {
@@ -62,35 +62,35 @@ public class Road extends Tile {
 	}
 
 	/*
-	 * A többi típust itt nem használhatjuk, hiba
+	 * A tobbi tipust itt nem hasznalhatjuk, hiba
 	 */
 	@Override
 	public void addAntiHuman() {
-		System.out.println("Ezt a követ csak toronyra lehet tenni");
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addAntiElf() {
-		System.out.println("Ezt a követ csak toronyra lehet tenni");
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addAntiDwarf() {
-		System.out.println("Ezt a követ csak toronyra lehet tenni");
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addAntiHobbit() {
-		System.out.println("Ezt a követ csak toronyra lehet tenni");
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addPlusFrequency() {
-		System.out.println("Ezt a követ csak toronyra lehet tenni");
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
 
 	@Override
 	public void addPlusRange() {
-		System.out.println("Ezt a követ csak toronyra lehet tenni");
+		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
 }
