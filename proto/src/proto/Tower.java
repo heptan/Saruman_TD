@@ -53,7 +53,7 @@ public class Tower extends EnemyObserver {
 	private int frequency;
 	
 	/*
-	 * Konstruktor
+	 * Default konstruktor
 	 */
 	public Tower(){
 		gemList = new ArrayList<GemStone>();
@@ -66,8 +66,11 @@ public class Tower extends EnemyObserver {
 		range = 2;
 		field = null;
 		position = null;
-	}
-	public Tower(Field place, Position pos) {
+
+		/*
+		 * Konstruktor, parametere a mezo, ami a torony van
+		 */
+		public Tower(Field place) {
 		gemList = new ArrayList<GemStone>();
 		enemyList = new ArrayList<Enemy>();
 		damageElf = 10;
@@ -77,37 +80,37 @@ public class Tower extends EnemyObserver {
 		frequency = 1;
 		range = 2;
 		field = place;
-		position = pos;
+		position = place.getPosition();
 	}
 	
 	/*
-	 * ez a f�ggv�ny h�v�dik meg az ellens�g objektum l�p�si esem�ny�nek els�t�sekor. 
+	 * ez a fuggveny hivodik meg amikor az ellenseg lep
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {		
-		Position enemyPosition = enemy.getPosition();
-		double distance = enemyPosition.getDistance(position);
-		if (distance < range){
+		Position enemyPosition = enemy.getPosition();			//az ellenseg poziciojanak lekerese
+		double distance = enemyPosition.getDistance(position);	//a tavolsag kiszamitasa
+		if (distance < range){									//ha tavolsagon belul van, felvetel a listaba
 			addEnemy(enemy);
-		}else{
+		}else{													//ha a hatotavolsagon kivul van, akkor torles a listabol
 			removeEnemy(enemy);
 		}		
 	}
 	
 	/*
-	 * A torony poz�ci�j�nak lek�rdez�se.
+	 * a torony lovese
 	 */
 	public void shoot(){
-		for (int j = 0; j < frequency; j++) {		
-			for(Enemy enemy : enemyList ){				
-				
-				int health = enemy.getHealth();				
+		for (int j = 0; j < frequency; j++) {					//a frekvenciatol fugg, hanyszor kell loni
+			for(Enemy enemy : enemyList ){						//minden ellensegre le kell adni egy lovest				
 				
 				Random randomGenerator = new Random();
-				int randomInt = randomGenerator.nextInt(10);
-				boolean split = randomInt==1?true:false;
+				int randomInt = randomGenerator.nextInt(10);	//veletlen szam 0 es 9 kozott
+				boolean split = randomInt==1?true:false;		//ha a kapott veletlen szam 1, split a loves
+		
+				enemy.hit(split);
 				
-				if(enemy instanceof Dwarf){											
+				/*if(enemy instanceof Dwarf){											
 						enemy.setHealth(health - damageDwarf);
 						if (split) {
 							gameController.splitDwarf(enemy);
@@ -128,7 +131,7 @@ public class Tower extends EnemyObserver {
 						if (split) {
 							gameController.splitHobbit(enemy);
 							}
-				}						
+				}						*/
 			}
 		}
 	}

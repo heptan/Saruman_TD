@@ -21,4 +21,10 @@ public class Dwarf extends Enemy {
 			timeout--;
 		}
 	}
+	public void hit(boolean split){
+		//na itt akkor most kap toroy referenciat, vagy mi legyen??
+		if (split) {
+			gameController.splitDwarf(enemy);
+		}
+	}
 }
