@@ -1,5 +1,6 @@
 package proto;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.lang.Integer;
 
@@ -30,7 +31,7 @@ public abstract class Enemy {
 	protected GameController gameController;
 	
 	// Temporalis sebzes szamlalo.
-	protected List<Integer> damages;
+	protected List<Integer> damages = new ArrayList<Integer>();
 	
 	/*
 	 * A position attributum getter metodusa
