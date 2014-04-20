@@ -1,19 +1,22 @@
 package proto;
 
 /*
- * A torony hat�t�vols�g�nak n�vel�s�hez haszn�lt var�zsk�vet
- * megval�s�t� oszt�ly.
+ * A torony lovesi hatosugarat modosito varazskovet reprezentalo osztaly.
  */
 public class PlusRange extends GemStone {
 	/*
-	 * A torony hat�t�vols�g�t n�veli.
+	 *A metodus elkeri a parameterben kapott torony megfelelo erteket (range)
+	 * a torony megfelelo get metodusaval, 
+	 * modositja az erteket, majd a set metodussal beallitja a kiszamolt erteket.
 	 */
-
+	
 	@Override
 	public void setEffect(Tower toSet) {
 		toSet.setRange(2*(toSet.getRange()));
 		
 	}	
+	
+	//Ezt a kovet nem lehet akadalyra rakni, ezert ha ez a helyzet hiba uzenetet kuldok.
 	
 	@Override
 	public void setEffect(Trap toSet) {

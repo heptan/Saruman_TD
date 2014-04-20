@@ -1,13 +1,15 @@
 package proto;
 
 /*
- * Var�zsk�vet megval�s�t� absztrakt �soszt�ly.
+ * Absztrakt osztaly. A kulonbozo- varazsko tipusoknak emeli ki a kozos tulajdonsagat,
+ * illetve az oket hasznalo osztalyoknak ad egy egyseges kezelesi lehetoseget.
  */
 public abstract class GemStone {
 
 	
 	/*
-	 * TODO Ez mire is kell pontosan? Milyen attrib�tumot �ll�t be?
+	 * Absztrakt fuggvenyek, melyek az egyseges iranyitast segitik, a megvalositas
+	 * az egyes leszarmazottakban.
 	 */
 	public abstract void setEffect(Tower toSet);
 	public abstract void setEffect(Trap toSet);

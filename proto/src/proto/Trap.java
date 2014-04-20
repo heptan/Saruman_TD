@@ -4,32 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Az akad�ly megval�s�t�s�hoz haszn�lt oszt�ly.
+ * Az akadalyt megvalosito osztaly
  */
 
 public class Trap extends EnemyObserver {
 	/*
-	 * Az akad�ly megsz�n�s�nek ideje.
+	 * Az akadaly megszuneseig hatralevo ido
 	 */
 	private long endTime;
 	/*
-	 * Az akad�ly poz�ci�ja.
+	 * Az akadaly pozicioja
 	 */
 	private Position position;
 	/*
-	 * Az akad�lyt tartalmaz� �telem referenci�ja.
+	 * Az ut amin az akadaly van
 	 */
 	private Road road;
 	/*
-	 * Az opcion�lis var�zsk�re mutat� referencia.
+	 * Az opcionalis varazsko
 	 */
 	private GemStone gem;
 	
 	/*
-	 * Konstruktor
+	 * Az akadalyon tartozkodo ellensegek listaja
 	 */
 	private List<Enemy> enemyList;
-	
+	/*
+	 * Default konstruktor
+	 */
 	public Trap(){
 		endTime = 10;		
 		road = null;
@@ -37,6 +39,9 @@ public class Trap extends EnemyObserver {
 		gem = null;
 		enemyList = new ArrayList<Enemy>();
 	}
+	/*
+	 * Konstruktor ami az utat varja parameternek
+	 */
 	public Trap(Road r) {
 		endTime = 10;		
 		road = r;
@@ -45,7 +50,7 @@ public class Trap extends EnemyObserver {
 		enemyList = new ArrayList<Enemy>();
 	}	
 	/*
-	 * Az ellens�g ezen a met�duson kereszt�l �rtes�ti a feliratkozott objektumokat.
+	 * Az ellenseg ertesitese a lepesrol
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {
@@ -80,42 +85,42 @@ public class Trap extends EnemyObserver {
 		}
 	}
 	/*
-	 * A megsz�n�s idej�nek lek�rdez�se.
+	 * A megszunes idejenek lekerdezese
 	 */
 	public long getEndTime() {
 		return endTime;
 	}
 	
 	/*
-	 * A megsz�n�s idej�nek be�ll�t�sa.
+	 * A megszunes idejenek beallitasa
 	 */
 	public void setEndTime(long endtime) {
 		endTime = endtime;	
 	}
 	
 	/*
-	 * A poz�ci� lek�rdez�se.
+	 * A pozicio lekerdezese
 	 */
 	public Position getPosition() {
 		return position;
 	}
 	
 	/*
-	 * A poz�ci� be�ll�t�sa.
+	 * A pozicio bellitasa
 	 */
 	public void setPosition(Position pos) {
 		position = pos;	
 	}
 	
 	/*
-	 * Az akad�lyt tartalmaz� �telem be�ll�t�sa.
+	 * Az akadalyt tartalmazo ut beallitasa
 	 */
 	public void setRoad(Road r) {
 		road = r;	
 	}
 	
 	/*
-	 * Var�zsk� hozz�ad�sa.
+	 * Varazsko hozzaadasa
 	 */
 	public void addPlusTime(String gemstone) {
 		gem = new plusTime();	
@@ -123,7 +128,7 @@ public class Trap extends EnemyObserver {
 	}
 	
 	/*
-	 * Var�zsk� l�tez�s�nek lek�rdez�se.
+	 * Varazsko letenek lekerdezese
 	 */
 	public boolean isGemStoned() {
 		if (gem == null){

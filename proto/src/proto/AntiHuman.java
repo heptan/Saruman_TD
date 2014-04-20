@@ -1,16 +1,23 @@
 package proto;
 
 /*
- * Az ember ellens�g ellen haszn�lhat� var�zsk�vet megval�s�t� oszt�ly.
+ * A kulonbozo tipusu ellensegek elleni sebzest modosito varazskovek reprezentalasara hasznalt 
+ * osztaly.
  */
 public class AntiHuman extends GemStone {
 	
+//	A metodus mind a 4 tipusra azonos: elkeri a parameterben kapott torony megfelelo 
+//	tipusu sebzeserteket a torony getDamageXxxx metodusaval, modositja az erteket,
+//	majd a setDamageXxxx metodussal beallitja a kiszamolt erteket.
+//
 
 	@Override
 	public void setEffect(Tower toSet) {
 		toSet.setDamegeHuman(2*(toSet.getDamageHuman()));
 		
 	}	
+	
+	//Ezt a kovet nem lehet akadalyra rakni, ezert ha ez a helyzet hiba uzenetet kuldok.
 	
 	@Override
 	public void setEffect(Trap toSet) {
