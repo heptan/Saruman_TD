@@ -66,7 +66,7 @@ public class Tower extends EnemyObserver {
 		range = 2;
 		field = null;
 		position = null;
-
+	}
 		/*
 		 * Konstruktor, parametere a mezo, ami a torony van
 		 */
@@ -101,37 +101,15 @@ public class Tower extends EnemyObserver {
 	 * a torony lovese
 	 */
 	public void shoot(){
-		for (int j = 0; j < frequency; j++) {					//a frekvenciatol fugg, hanyszor kell loni
+		for (int j = 0; j < frequency; j++) {					//a frekvenciatol fugg, hanyszor kell loni			
 			for(Enemy enemy : enemyList ){						//minden ellensegre le kell adni egy lovest				
 				
 				Random randomGenerator = new Random();
 				int randomInt = randomGenerator.nextInt(10);	//veletlen szam 0 es 9 kozott
 				boolean split = randomInt==1?true:false;		//ha a kapott veletlen szam 1, split a loves
 		
-				enemy.hit(split, this);							//az enemy-t találat éri ettõl a toronytól
+				enemy.hit(split, this);							//az enemy-t talalat eri ettol a toronytol
 				
-				/*if(enemy instanceof Dwarf){											
-						enemy.setHealth(health - damageDwarf);
-						if (split) {
-							gameController.splitDwarf(enemy);
-							}
-				}else if(enemy instanceof Elf){										
-						enemy.setHealth(health - damageElf);
-						if (split) {
-							gameController.splitElf(enemy);
-							}
-				}else if(enemy instanceof Human){										
-						enemy.setHealth(health - damageHuman);
-						if (split) {
-							gameController.splitHuman(enemy);
-							}
-				}
-				else if(enemy instanceof Hobbit){								
-						enemy.setHealth(health - damageHobbit);
-						if (split) {
-							gameController.splitHobbit(enemy);
-							}
-				}						*/
 			}
 		}
 	}
