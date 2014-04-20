@@ -108,7 +108,7 @@ public class Tower extends EnemyObserver {
 				int randomInt = randomGenerator.nextInt(10);	//veletlen szam 0 es 9 kozott
 				boolean split = randomInt==1?true:false;		//ha a kapott veletlen szam 1, split a loves
 		
-				enemy.hit(split);
+				enemy.hit(split, this);							//az enemy-t találat éri ettõl a toronytól
 				
 				/*if(enemy instanceof Dwarf){											
 						enemy.setHealth(health - damageDwarf);
@@ -136,7 +136,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 	/*
-	 * A tï¿½ndï¿½k elleni sebzï¿½s lekï¿½rdezï¿½se
+	 * A tundek elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageElf(){
 		return damageElf;
@@ -145,7 +145,7 @@ public class Tower extends EnemyObserver {
 		damageElf = dElf;
 	}	
 	/*
-	 * A emberek elleni sebzï¿½s lekï¿½rdezï¿½se
+	 * A emberek elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageHuman(){
 		return damageHuman;
@@ -154,7 +154,7 @@ public class Tower extends EnemyObserver {
 		damageHuman = dHuman;
 	}
 	/*
-	 * A tï¿½rpï¿½k elleni sebzï¿½s lekï¿½rdezï¿½se
+	 * A torpok elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageDwarf(){
 		return damageDwarf;
@@ -163,7 +163,7 @@ public class Tower extends EnemyObserver {
 		damageDwarf = dDwarf;
 	}
 	/*
-	 * A hobbitok elleni sebzï¿½s lekï¿½rdezï¿½se
+	 * A hobbitok elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageHobbit(){
 		return damageHobbit;
@@ -172,60 +172,47 @@ public class Tower extends EnemyObserver {
 		damageHobbit = dHobbit;
 	}
 	/*
-	 * A lï¿½vï¿½si frekvencia lekï¿½rdezï¿½se
+	 * A lovesi frekvencia lekerdezese es beallitasa
 	 */
 	public int getFrequency(){
 		return frequency;
 	}
-	/*
-	 * A torony pozï¿½ciï¿½jï¿½nak lekï¿½rdezï¿½se
-	 */
 	public void setFrequency(int freq){
 		frequency = freq;
 	}	
 	/*
-	 * A torony pozï¿½ciï¿½jï¿½nak lekï¿½rdezï¿½se
+	 * a torony poziciojanak lekerdezese es beallitasa
 	 */
 	public Position getPosition() {
 		return position;
 	}
-	
-	/*
-	 * A torony poziciojanak beallitasa
-	 */
 	public void setPosition(Position pos) {
 		position = pos;
 	}
 	
 	/*
-	 * A torony hatosugaranak lekerdezese
+	 * A torony hatosugaranak lekerdezese es beallitasa
 	 */
 	public double getRange() {
 		return range;
 	}
-	
-	/*
-	 * a torony hatotavolsaganak beallitasa
-	 */
 	public void setRange(double ran) {
 		range = ran;
 	}
-	
 	/*
 	 * A mezo beallitasa amin a torony van
 	 */
 	public void setField(Field f) {
 		field = f;
-	}
-	
+	}	
 	/*
 	 * Ember elleni ko hozzaadasa
 	 */
 	public void addAntiHuman() {
-		if(gemList.size()<4){
-			GemStone anti = new AntiHuman();
-			gemList.add(anti);
-			anti.setEffect(this);
+		if(gemList.size()<4){					//csak akkor kell hozzaadni, ha 4-nel kevesebb van
+			GemStone anti = new AntiHuman();	//letre kell hozni
+			gemList.add(anti);					//betenni a listaba
+			anti.setEffect(this);				//es beallitani a hatasat
 		}
 	}
 	/*
@@ -258,6 +245,9 @@ public class Tower extends EnemyObserver {
 			anti.setEffect(this);
 		}
 	}
+	/*
+	 * Frekvencianovelo ko hozzaadasa
+	 */
 	public void addPlusFrequency(){
 		if(gemList.size()<4){
 			GemStone anti = new PlusFrequency();
@@ -265,6 +255,9 @@ public class Tower extends EnemyObserver {
 			anti.setEffect(this);
 		}
 	}
+	/*
+	 * Hatosugarnovelo ko hozzaadasa
+	 */
 	public void addPlusRange(){
 		if(gemList.size()<4){
 			GemStone anti = new PlusFrequency();

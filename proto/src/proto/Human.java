@@ -21,4 +21,13 @@ public class Human extends Enemy {
 			timeout--;
 		}
 	}
+	/*
+	 * Ember ellenseget sebzo metodus
+	 */
+	public void hit(boolean split, Tower tower){
+		health -= tower.getDamageHuman();
+		if (split) {
+			gameController.splitHuman(this);
+		}
+	}
 }
