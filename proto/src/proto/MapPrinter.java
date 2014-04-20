@@ -40,7 +40,7 @@ public class MapPrinter {
 			}
 		}
 		
-		//Terkepkepet tarolo tomb feltoltese; enemyk
+		//Terkepkepet tarolo tomb feltoltese; Dwarf, Elf, Hobbit, Human
 		for(Enemy e : gamecontroller.getEnemyList()) {
 			int x = (int)e.getPosition().getX();
 			int y = (int)e.getPosition().getY();
