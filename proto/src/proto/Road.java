@@ -1,18 +1,14 @@
 package proto;
 
-/*
+import java.util.ArrayList;
+import java.util.List;
+
+/**
  * Az ut megvalositasara hasznalt osztaly
+ * 
+ * @author Atilla Ivanics
  */
 public class Road extends Tile {
-	/*
-	 * A terkepre mutato referenciat tarolja
-	 */
-	private Map map;
-
-	/*
-	 * Az ut poziciojat tarolja
-	 */
-	private Position position;
 
 	/*
 	 * Az uton levo akadaly referenciajat tarolja
@@ -23,7 +19,22 @@ public class Road extends Tile {
 	/*
 	 * Az ellenseg haladasa szerinti kovetkezo utelemet tarolja
 	 */
-	private Road nextRoad;
+	private List<Road> nextroad;
+	
+	/*
+	 * Road osztaly konstruktora, nextroad lista inicializalasa ures arraylist-re
+	 */
+	public Road() {
+		nextroad = new ArrayList<Road>();
+	}
+	
+	/*
+	 * Road osztaly konstruktora, nextroad lista inicializalasa ures arraylist-re
+	 */
+	public Road(double x, double y) {
+		nextroad = new ArrayList<Road>();
+		position = new Position(x, y);
+	}
 
 	/*
 	 * Az uton levo akadaly referenciajanak lekerdezese
@@ -43,14 +54,56 @@ public class Road extends Tile {
 	 * Az aktualis utelemet koveto utelem lekerdezese
 	 */
 	public Road getNextRoad() {
-		return nextRoad;
+		//TODO Veletlen valasztas
+		return nextroad.get(0);
+	}
+	
+	/*
+	 * Az aktualis utelemet koveto utelemek listajanak
+	 */
+	public List<Road> getNextRoadList() {
+		return nextroad;
 	}
 	
 	/*
 	 * Az aktualis utelemet koveto utelem beallitasa
 	 */
-	public void setNextRoad(Road road) {
-		nextRoad = road;
+	public void addNextRoad(Road road) {
+		if(road != null) {
+			nextroad.add(road);
+		}
+	}
+	
+	/*
+	 * Az utelemrol elerheto kovetkezo utelemekt inicializalo metodus
+	 */
+	public void setNeighbours(List<Road> junctionroadlist) {
+		
+		if(nextroad.size() != 0) {
+			return;
+		}
+		
+		Road junctionroad = null;
+		for(Road r : junctionroadlist) {
+			if(r.getPosition().getX() == position.getX() && r.getPosition().getY() == position.getY()) {
+				junctionroad = r;
+			}
+		}
+		if(junctionroad != null) {
+			nextroad.clear();
+			for(Road r : junctionroad.getNextRoadList()) {
+				nextroad.add((Road)map.getTile(r.getPosition().getX(), r.getPosition().getY()));
+				r.setNeighbours(junctionroadlist);
+			}
+		}
+		else {
+			for(Road r : map.getRoadNeighbours(position.getX(), position.getY())) {
+				if(r.getNextRoadList().size() == 0) {
+					nextroad.add(r);
+					r.setNeighbours(junctionroadlist);
+				}
+			}
+		}
 	}
 	
 	/*
@@ -58,7 +111,8 @@ public class Road extends Tile {
 	 */
 	@Override
 	public void addPlusTime() {
-		trap.addPlusTime();
+		//TODO
+		//trap.addPlusTime();
 	}
 
 	/*

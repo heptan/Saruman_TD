@@ -3,8 +3,11 @@ package proto;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-/*
+/**
  * A proto keretet ado osztaly, teszteles innet indul
+ * 
+ * @author Alex Torok
+ * @since 2014-04-20
  */
 public class ProtoMain {
 	
@@ -25,6 +28,7 @@ public class ProtoMain {
 				
 			} catch(Exception e) {
 				System.out.println("Hiba a beolvasas folyaman, probalja ujra!");
+				e.printStackTrace();
 			}
 			
 		}
@@ -103,14 +107,14 @@ public class ProtoMain {
 			return;
 		}
 		
-		System.out.println(input[0] + ", file: " + input[1] + "\n\n");
+		System.out.println(input[0] + ", file: " + input[1] + "\n");
 		
-		if(Loader.loadMap(input[1]) == null) {
+		Map loadedmap = Loader.loadMap(input[1]);
+		if(loadedmap == null) {
 			System.out.println("Hiba a terkepfajl beolvasasa soran!");
+			return;
 		}
-		else {
-			//TODO Inicializálás
-		}
+		MapPrinter.printMap(loadedmap);
 	}
 	
 	/*
