@@ -1,46 +1,36 @@
 package proto;
 
 import java.util.List;
+import java.lang.Integer;
 
 /*
  * Az ellenseget megvalosito absztrakt ososztaly
  */
 public abstract class Enemy {
 	
-	/*
-	 * Az ellenseg pozociojat tarolo attributum
-	 */
+	// Az ellenseg pozociojat tarolo attributum
 	protected Position position;
 	
-	/*
-	 * Az ellenseg eleterejet tarolo attributum
-	 */
+	// Az ellenseg eleterejet tarolo attributum
 	protected int health;
 	
-	/*
-	 * Az ellenseg aktualis sebesseget tarolo attributum
-	 */
+	// Az ellenseg aktualis sebesseget tarolo attributum
 	protected int speed;
 	
-	/*
-	 * Az ellenseg hatralevo varakozasi idejet tarolo attributum 
-	 */
+	// Az ellenseg hatralevo varakozasi idejet tarolo attributum 
 	protected int timeout;
 	
-	/*
-	 * A feliratkozott megfigyeloket tartalmazo lista
-	 */
+	// A feliratkozott megfigyeloket tartalmazo lista
 	protected List<EnemyObserver> observers;
 	
-	/*
-	 * Az aktualis ut palyaelemre mutato referencia
-	 */
+	// Az aktualis ut palyaelemre mutato referencia
 	protected Road actroad;
 	
-	/*
-	 * A jatekterre mutato referencia
-	 */
+	// A jatekterre mutato referencia
 	protected GameController gameController;
+	
+	// Temporalis sebzes szamlalo.
+	protected List<Integer> damages;
 	
 	/*
 	 * A position attributum getter metodusa
@@ -68,6 +58,10 @@ public abstract class Enemy {
 	 */
 	public void setHealth(int health) {
 		this.health = health;
+	}
+	
+	public void decreaseHealth(int amount) {
+		this.health -= health;
 		if(this.health <= 0) {
 			for(EnemyObserver enemyobserver : observers) {
 				enemyobserver.notifyFromEnemy(this);
@@ -159,4 +153,42 @@ public abstract class Enemy {
 	public void setActRoad(Road actroad) {
 		this.actroad = actroad;
 	}
+	
+	/*
+	 * Ha nem rendelkezik a torony semmilyen modositokovel, akkor ez a fugg-
+	 *   veny fog meghivodni, igy biztositva, hogy ne fordulhasson elo az, 
+	 *   hogy az ellenseget nem eri talalat, mikor a hatosugaron belul van.
+	 */
+	public void getShot(int damage) {
+		damages.add(damage);
+	}
+	
+	public abstract void getShotWithAntiDwarf(int damage);
+	
+	public abstract void getShotWithAntiElf(int damage);
+
+	public abstract void getShotWithAntiHobbit(int damage);
+
+	public abstract void getShotWithAntiHuman(int damage);
+
+	/*
+	 * Ebben a metodusban szamitodik ki a tenyleges sebzes es kerul levonasra
+	 *   az eleteropontokbol (health).
+	 */
+	public void shotEnd() {
+		int max = -1;
+		if (!damages.isEmpty()){
+			max = 0;
+		}
+		for (int i = 1; i < damages.size(); ++i){
+			if (damages.get(i) > damages.get(max)){
+				max = i;
+			}
+		}
+		if (max >= 0){
+			this.decreaseHealth(damages.get(max));
+		}
+		damages.clear();
+	}
+	public abstract void split();
 }

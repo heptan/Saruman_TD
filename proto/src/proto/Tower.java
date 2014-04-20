@@ -108,11 +108,60 @@ public class Tower extends EnemyObserver {
 				int randomInt = randomGenerator.nextInt(10);	//veletlen szam 0 es 9 kozott
 				boolean split = randomInt==1?true:false;		//ha a kapott veletlen szam 1, split a loves
 		
-				enemy.hit(split, this);							//az enemy-t talalat eri ettol a toronytol
+// ez mi a szosz??????? -->				enemy.hit(split, this);		//az enemy-t talalat eri ettol a toronytol
+				// segedvaltozo, figyeli, hogy volt-e loves, ha nem, akkor
+				//   meghivja a default shot fuggvenyet az ellensegnek
+				//   ezzel biztositva, hogy ne fordulhasson elo az, hogy az
+				//   ellenseget nem eri talalat, mikor a hatosugaron belul van.
+				boolean wasHit = false;
+				// Ellenorizzuk, hogy mely kovekkel rendelkezik a torony, majd
+				//   meghivjuk a megfelelo sebzo fuggvenyeket. Ha semmilyennel,
+				//   akkor default 10-et fog sebezni.
+				if (gemListHas(AntiDwarf.class)){
+					enemy.getShotWithAntiDwarf(damageDwarf);
+					wasHit = true;
+				}
+				if (gemListHas(AntiElf.class)){
+					enemy.getShotWithAntiDwarf(damageElf);
+					wasHit = true;
+				}
+				if (gemListHas(AntiHobbit.class)){
+					enemy.getShotWithAntiDwarf(damageHobbit);
+					wasHit = true;
+				}
+				if (gemListHas(AntiHuman.class)){
+					enemy.getShotWithAntiDwarf(damageHuman);
+					wasHit = true;
+				}
+				if (!wasHit){
+					enemy.getShot(10);	// default sebzes
+				}
+				// A lovessorozatot lezaro fuggvenyhivas. Ebben valasztodik ki
+				//   a megfelelo mennyisegu sebzes.
+				enemy.shotEnd();
 				
+				// Vegul az ellenseg split-elesenek az kezelese
+				if (split)
+					enemy.split();
 			}
 		}
 	}
+	
+	/*
+	 * Segedfuggveny a torony lovesehez. Visszaadja, hogy a parameterben atadott
+	 *   objektum osztalyaval megegyezo objektum van-e a gemList listaban.
+	 * Egesz pontosan ez ahhoz kell, hogy megtudjuk milyen tipusu lovest kell 
+	 *   leadnunk.
+	 */
+	private boolean gemListHas(Class <? extends GemStone> gs) {
+		for (GemStone gemst : gemList){
+			if (gemst != null && gs.isInstance(gemst));
+				return true;
+		}
+		return false;
+	}
+	
+	
 	/*
 	 * A tundek elleni sebzodes lekerdezese es beallitasa
 	 */
