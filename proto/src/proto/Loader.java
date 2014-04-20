@@ -44,10 +44,11 @@ public class Loader {
 
 	private static Map parseMap(List<String> maplines) {
 		int i = 0, x = 0, y = 0;
-		String line = maplines.get(0);
+		String line = "";
 		Map loadedmap = new Map();
 
-		while (!line.equals("<JUNCTIONS>")) {
+		while (!line.equals("<JUNCTIONS>") && i < maplines.size()) {
+			line = maplines.get(i);
 			for (String item : line.split("\\|")) {
 				if (!item.trim().equals("")) {
 					Tile newtile = null;
@@ -64,7 +65,7 @@ public class Loader {
 			}
 			x = 0;
 			y++;
-			line = maplines.get(++i);
+			i++;
 		}
 
 		i++;

@@ -11,6 +11,8 @@ import java.io.InputStreamReader;
  */
 public class ProtoMain {
 	
+	static GameController sandbox = new GameController();
+	
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -114,7 +116,10 @@ public class ProtoMain {
 			System.out.println("Hiba a terkepfajl beolvasasa soran!");
 			return;
 		}
-		MapPrinter.printMap(loadedmap);
+		
+		sandbox.setMap(loadedmap);
+		
+		MapPrinter.printMap(sandbox);
 	}
 	
 	/*

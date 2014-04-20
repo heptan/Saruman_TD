@@ -45,7 +45,7 @@ public class GameController {
 	public void gameOver() {
 //		ConsoleUI.writeSeq("-->GameController.gameOver(): void");
 //		ConsoleUI.writeSeq("<--void");
-		ConsoleUI.writeSimple("A jatek veget ert, az ellenseg elpusztitotta az"
+		System.out.println("A jatek veget ert, az ellenseg elpusztitotta az"
 				+ " egy gyurut a vegzet hegyenel.");
 		// akadalyok megszuntetese: az endTime valtozo modos�tasa ugy, hogy
 		//   azonnal megszunjenek
@@ -80,7 +80,7 @@ public class GameController {
 	
 	public void win() {
 		if (enemyCounter == 30 && enemies.isEmpty()){
-			ConsoleUI.writeSimple("A jatek veget ert, az osszes ellenseges egyseg "
+			System.out.println("A jatek veget ert, az osszes ellenseges egyseg "
 					+ "elpusztult, Saruman dicsoseges uralkodasa folytatodik!");
 // TODO
 			// lekerjuk a palyaelemeket tartalmazo listat
@@ -124,7 +124,8 @@ public class GameController {
 		// Az enemies listahoz hozzaadunk egy uj ellenseget,
 		//   az inicializalasa az Enemy osztalyban tortenik meg, viszont
 		//   be kell allitani az observer listajat.
-		enemies.add(new Enemy());
+		//TODO
+		//enemies.add(new Enemy());
 // TODO ujonnan hozzaadott enemy observer listajanak feltoltese, 
 //      illetve javitasa, ha lehetseges egy tower listara a map osztalyban
 		for (Tile t : map.getTileList()){
@@ -228,6 +229,20 @@ public class GameController {
 	public void removeEnemy(Enemy enemy) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	/*
+	 * A terkep lekerdezesehez hasznalt metodus, a prototipus kepernyore kiirato fuggvenyei hivjak
+	 */
+	public Map getMap() {
+		return this.map;
+	}
+	
+	/*
+	 * A terkep beallitasahoz hasznalt metodus, a prototipus inicializalasakor hivosdik
+	 */
+	public void setMap(Map map) {
+		this.map = map;
 	}
 	
 }
