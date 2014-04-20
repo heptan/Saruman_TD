@@ -21,4 +21,13 @@ public class Elf extends Enemy {
 			timeout--;
 		}
 	}
+	/*
+	 * Tunde ellenseget sebzo metodus
+	 */
+	public void hit(boolean split, Tower tower){
+		health -= tower.getDamageElf();
+		if (split) {
+			gameController.splitElf(this);
+		}
+	}
 }

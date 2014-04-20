@@ -21,4 +21,13 @@ public class Hobbit extends Enemy {
 			timeout--;
 		}
 	}
+	/*
+	 * Hobbit ellenseget sebzo metodus
+	 */
+	public void hit(boolean split, Tower tower){
+		health -= tower.getDamageHobbit();
+		if (split) {
+			gameController.splitHobbit(this);
+		}
+	}
 }

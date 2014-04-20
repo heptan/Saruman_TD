@@ -21,10 +21,13 @@ public class Dwarf extends Enemy {
 			timeout--;
 		}
 	}
-	public void hit(boolean split){
-		//na itt akkor most kap toroy referenciat, vagy mi legyen??
+	/*
+	 * Torpe ellenseget sebzo metodus
+	 */
+	public void hit(boolean split, Tower tower){
+		health -= tower.getDamageDwarf();
 		if (split) {
-			gameController.splitDwarf(enemy);
+			gameController.splitDwarf(this);
 		}
 	}
 }
