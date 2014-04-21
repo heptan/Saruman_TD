@@ -20,6 +20,9 @@ public class GameController {
 
 	// Singleton mintahoz szukseges valtozo
 	private static GameController instance = null;
+	
+	//Veletlenszeru viselkedes megvalositasahoz szukseges, jelzi, hogy be-e van kapcsolva a veletlenszeru viselkedes
+	private boolean israndomized = true;
 
 	private GameController() {
 		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
@@ -246,5 +249,19 @@ public class GameController {
 				}
 			}
 		}
+	}
+	
+	/*
+	 * Veltenlenszeru viselkedes allapotanak lekerdezese
+	 */
+	public boolean isRandomized() {
+		return israndomized;
+	}
+	
+	/*
+	 * Veltenlenszeru viselkedes beallitasa
+	 */
+	public void setRandomized(boolean israndomized) {
+		this.israndomized = israndomized;
 	}
 }

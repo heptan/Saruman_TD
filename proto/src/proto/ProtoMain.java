@@ -168,7 +168,7 @@ public class ProtoMain {
 		List<String> commands = Loader.loadCommands(input[1]);
 		System.out.println("\nA beolvasott parancsok a kovetkezoek.\n");
 		for(String command : commands) {
-			System.out.println(command);
+			runCommand(command, true);
 		}
 		System.out.println("");
 	}
@@ -400,7 +400,13 @@ public class ProtoMain {
 			return;
 		}
 		
-		System.out.println(input[0] + ", israndomize: " + input[1]);
+		sandbox.setRandomized(israndomize);
+		if(israndomize) {
+			System.out.println("Veletlenszeru viselkedes bekapcsolva!");
+		}
+		else {
+			System.out.println("Veletlenszeru viselkedes kikapcsolva!");
+		}
 	}
 	
 	/*
