@@ -58,8 +58,7 @@ public class Field extends Tile {
 	 * A tower attributum inicializalasahoz hasznalt metodus
 	 */
 	public void setTower() {
-		tower = new Tower();
-		tower.setField(this);
+		tower = new Tower(this);
 		tower.setPosition(this.position);
 		for(Enemy e : map.getGameController().getEnemyList()) {
 			e.addObserver(tower);
@@ -79,8 +78,8 @@ public class Field extends Tile {
 	 */
 	public void setRange(boolean mist){
 		// TODO 
-		if(mist) tower.setRange((-1) * Constants.DEFAULT_TOWER_RANGE);
-		else tower.setRange(Constants.DEFAULT_TOWER_RANGE);
+		if(mist) tower.setRange((-1) * Constants.TOWER_DEFAULT_RANGE);
+		else tower.setRange(Constants.TOWER_DEFAULT_RANGE);
 	}
 	
 	/*

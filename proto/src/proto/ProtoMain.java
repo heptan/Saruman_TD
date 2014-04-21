@@ -371,7 +371,6 @@ public class ProtoMain {
 				field.addPlusRange();
 				break;
 			}
-			return;
 		}
 		else {
 			Road road = (Road)tile;

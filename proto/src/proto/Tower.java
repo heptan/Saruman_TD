@@ -30,7 +30,7 @@ public class Tower extends EnemyObserver {
 	/*
 	 * A torony hatosugaraban levo ellensegek
 	 */
-	private  List<Enemy> enemyList;
+	private List<Enemy> enemyList;
 	/*
 	 * A torony tundek elleni sebzese
 	 */
@@ -51,172 +51,177 @@ public class Tower extends EnemyObserver {
 	 * A torony lovesi frekvenciaja
 	 */
 	private int frequency;
-	
-	/*
-	 * Default konstruktor
-	 */
-	public Tower(){
-		gemList = new ArrayList<GemStone>();
-		enemyList = new ArrayList<Enemy>();
-		damageElf = 10;
-		damageHuman = 10;
-		damageDwarf = 10;
-		damageHobbit = 10;
-		frequency = 1;
-		range = Constants.DEFAULT_TOWER_RANGE;
-		field = null;
-		position = null;
-	}
+
 	/*
 	 * Konstruktor, parametere a mezo, ami a torony van
 	 */
 	public Tower(Field place) {
 		gemList = new ArrayList<GemStone>();
 		enemyList = new ArrayList<Enemy>();
-		damageElf = 10;
-		damageHuman = 10;
-		damageDwarf = 10;
-		damageHobbit = 10;
+		damageElf = Constants.TOWER_DAMAGEELF;
+		damageHuman = Constants.TOWER_DAMAGEHUMAN;
+		damageDwarf = Constants.TOWER_DAMAGEDWARF;
+		damageHobbit = Constants.TOWER_DAMAGEHOBBIT;
 		frequency = 1;
-		range = Constants.DEFAULT_TOWER_RANGE;
+		range = Constants.TOWER_DEFAULT_RANGE;
 		field = place;
 		position = place.getPosition();
 	}
-	
+
 	/*
 	 * ez a fuggveny hivodik meg amikor az ellenseg lep
 	 */
 	@Override
-	public void notifyFromEnemy(Enemy enemy) {		
-		Position enemyPosition = enemy.getPosition();			//az ellenseg poziciojanak lekerese
-		double distance = enemyPosition.getDistance(position);	//a tavolsag kiszamitasa
-		if (distance < range){									//ha tavolsagon belul van, felvetel a listaba
+	public void notifyFromEnemy(Enemy enemy) {
+		Position enemyPosition = enemy.getPosition(); // az ellenseg
+														// poziciojanak lekerese
+		double distance = enemyPosition.getDistance(position); // a tavolsag
+																// kiszamitasa
+		if (distance < range) { // ha tavolsagon belul van, felvetel a listaba
 			addEnemy(enemy);
-		}else{													//ha a hatotavolsagon kivul van, akkor torles a listabol
+		} else { // ha a hatotavolsagon kivul van, akkor torles a listabol
 			removeEnemy(enemy);
-		}		
+		}
 	}
-	
+
 	/*
 	 * a torony lovese
 	 */
-	public void shoot(){
-		for (int j = 0; j < frequency; j++) {					//a frekvenciatol fugg, hanyszor kell loni			
-			for(Enemy enemy : enemyList ){						//minden ellensegre le kell adni egy lovest				
-				
+	public void shoot() {
+		for (int j = 0; j < frequency; j++) { // a frekvenciatol fugg, hanyszor
+												// kell loni
+			for (Enemy enemy : enemyList) { // minden ellensegre le kell adni
+											// egy lovest
+
 				Random randomGenerator = new Random();
-				int randomInt = randomGenerator.nextInt(10);	//veletlen szam 0 es 9 kozott
-				boolean split = randomInt==1?true:false;		//ha a kapott veletlen szam 1, split a loves
-		
-// ez mi a szosz??????? -->				enemy.hit(split, this);		//az enemy-t talalat eri ettol a toronytol
+				int randomInt = randomGenerator.nextInt(10); // veletlen szam 0
+																// es 9 kozott
+				boolean split = randomInt == 1 ? true : false; // ha a kapott
+																// veletlen szam
+																// 1, split a
+																// loves
+
+				// ez mi a szosz??????? --> enemy.hit(split, this); //az enemy-t
+				// talalat eri ettol a toronytol
 				// segedvaltozo, figyeli, hogy volt-e loves, ha nem, akkor
-				//   meghivja a default shot fuggvenyet az ellensegnek
-				//   ezzel biztositva, hogy ne fordulhasson elo az, hogy az
-				//   ellenseget nem eri talalat, mikor a hatosugaron belul van.
+				// meghivja a default shot fuggvenyet az ellensegnek
+				// ezzel biztositva, hogy ne fordulhasson elo az, hogy az
+				// ellenseget nem eri talalat, mikor a hatosugaron belul van.
 				boolean wasHit = false;
 				// Ellenorizzuk, hogy mely kovekkel rendelkezik a torony, majd
-				//   meghivjuk a megfelelo sebzo fuggvenyeket. Ha semmilyennel,
-				//   akkor default 10-et fog sebezni.
-				if (gemListHas(AntiDwarf.class)){
+				// meghivjuk a megfelelo sebzo fuggvenyeket. Ha semmilyennel,
+				// akkor default 10-et fog sebezni.
+				if (gemListHas(AntiDwarf.class)) {
 					enemy.getShotWithAntiDwarf(damageDwarf);
 					wasHit = true;
 				}
-				if (gemListHas(AntiElf.class)){
-					enemy.getShotWithAntiDwarf(damageElf);
+				if (gemListHas(AntiElf.class)) {
+					enemy.getShotWithAntiElf(damageElf);
 					wasHit = true;
 				}
-				if (gemListHas(AntiHobbit.class)){
-					enemy.getShotWithAntiDwarf(damageHobbit);
+				if (gemListHas(AntiHobbit.class)) {
+					enemy.getShotWithAntiHobbit(damageHobbit);
 					wasHit = true;
 				}
-				if (gemListHas(AntiHuman.class)){
-					enemy.getShotWithAntiDwarf(damageHuman);
+				if (gemListHas(AntiHuman.class)) {
+					enemy.getShotWithAntiHuman(damageHuman);
 					wasHit = true;
 				}
-				if (!wasHit){
-					enemy.getShot(Constants.TOWER_SHOT);	// default sebzes
+				if (!wasHit) {
+					enemy.getShot(Constants.TOWER_SHOT); // default sebzes
 				}
 				// A lovessorozatot lezaro fuggvenyhivas. Ebben valasztodik ki
-				//   a megfelelo mennyisegu sebzes.
+				// a megfelelo mennyisegu sebzes.
 				enemy.shotEnd();
-				
+
 				// Vegul az ellenseg split-elesenek az kezelese
 				if (split)
 					enemy.split();
 			}
 		}
 	}
-	
+
 	/*
 	 * Segedfuggveny a torony lovesehez. Visszaadja, hogy a parameterben atadott
-	 *   objektum osztalyaval megegyezo objektum van-e a gemList listaban.
-	 * Egesz pontosan ez ahhoz kell, hogy megtudjuk milyen tipusu lovest kell 
-	 *   leadnunk.
+	 * objektum osztalyaval megegyezo objektum van-e a gemList listaban. Egesz
+	 * pontosan ez ahhoz kell, hogy megtudjuk milyen tipusu lovest kell
+	 * leadnunk.
 	 */
-	private boolean gemListHas(Class <? extends GemStone> gs) {
-		for (GemStone gemst : gemList){
-			if (gemst != null && gs.isInstance(gemst));
-				return true;
+	private boolean gemListHas(Class<? extends GemStone> gs) {
+		for (GemStone gemst : gemList) {
+			if (gemst != null && gs.isInstance(gemst))
+				;
+			return true;
 		}
 		return false;
 	}
-	
-	
+
 	/*
 	 * A tundek elleni sebzodes lekerdezese es beallitasa
 	 */
-	public int getDamageElf(){
+	public int getDamageElf() {
 		return damageElf;
 	}
-	public void setDamegeElf(int dElf){
+
+	public void setDamegeElf(int dElf) {
 		damageElf = dElf;
-	}	
+	}
+
 	/*
 	 * A emberek elleni sebzodes lekerdezese es beallitasa
 	 */
-	public int getDamageHuman(){
+	public int getDamageHuman() {
 		return damageHuman;
 	}
-	public void setDamegeHuman(int dHuman){
+
+	public void setDamegeHuman(int dHuman) {
 		damageHuman = dHuman;
 	}
+
 	/*
 	 * A torpok elleni sebzodes lekerdezese es beallitasa
 	 */
-	public int getDamageDwarf(){
+	public int getDamageDwarf() {
 		return damageDwarf;
 	}
-	public void setDamegeDwarf(int dDwarf){
+
+	public void setDamegeDwarf(int dDwarf) {
 		damageDwarf = dDwarf;
 	}
+
 	/*
 	 * A hobbitok elleni sebzodes lekerdezese es beallitasa
 	 */
-	public int getDamageHobbit(){
+	public int getDamageHobbit() {
 		return damageHobbit;
 	}
-	public void setDamegeHobbit(int dHobbit){
+
+	public void setDamegeHobbit(int dHobbit) {
 		damageHobbit = dHobbit;
 	}
+
 	/*
 	 * A lovesi frekvencia lekerdezese es beallitasa
 	 */
-	public int getFrequency(){
+	public int getFrequency() {
 		return frequency;
 	}
-	public void setFrequency(int freq){
+
+	public void setFrequency(int freq) {
 		frequency = freq;
-	}	
+	}
+
 	/*
 	 * a torony poziciojanak lekerdezese es beallitasa
 	 */
 	public Position getPosition() {
 		return position;
 	}
+
 	public void setPosition(Position pos) {
 		position = pos;
 	}
-	
+
 	/*
 	 * A torony hatosugaranak lekerdezese
 	 */
@@ -230,102 +235,111 @@ public class Tower extends EnemyObserver {
 	public void setRange(double ran) {
 		range += ran;
 	}
+
 	/*
 	 * A mezo beallitasa amin a torony van
 	 */
 	public void setField(Field f) {
 		field = f;
-	}	
+	}
+
 	/*
 	 * Ember elleni ko hozzaadasa
 	 */
 	public void addAntiHuman() {
-		if(gemList.size()<4){					//csak akkor kell hozzaadni, ha 4-nel kevesebb van
-			GemStone anti = new AntiHuman();	//letre kell hozni
-			gemList.add(anti);					//betenni a listaba
-			anti.setEffect(this);				//es beallitani a hatasat
+		if (gemList.size() < 4) { // csak akkor kell hozzaadni, ha 4-nel
+									// kevesebb van
+			GemStone anti = new AntiHuman(); // letre kell hozni
+			gemList.add(anti); // betenni a listaba
+			anti.setEffect(this); // es beallitani a hatasat
 		}
 	}
+
 	/*
 	 * Tunde elleni ko hozzaadasa
 	 */
 	public void addAntiElf() {
-		if(gemList.size()<4){
+		if (gemList.size() < 4) {
 			GemStone anti = new AntiElf();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
+
 	/*
 	 * Torp elleni ko hozzaadasa
 	 */
 	public void addAntiDwarf() {
-		if(gemList.size()<4){
+		if (gemList.size() < 4) {
 			GemStone anti = new AntiDwarf();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
+
 	/*
 	 * Hobbit elleni ko hozzaadasa
 	 */
 	public void addAntiHobbit() {
-		if(gemList.size()<4){
+		if (gemList.size() < 4) {
 			GemStone anti = new AntiHobbit();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
+
 	/*
 	 * Frekvencianovelo ko hozzaadasa
 	 */
-	public void addPlusFrequency(){
-		if(gemList.size()<4){
+	public void addPlusFrequency() {
+		if (gemList.size() < 4) {
 			GemStone anti = new PlusFrequency();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
+
 	/*
 	 * Hatosugarnovelo ko hozzaadasa
 	 */
-	public void addPlusRange(){
-		if(gemList.size()<4){
+	public void addPlusRange() {
+		if (gemList.size() < 4) {
 			GemStone anti = new PlusFrequency();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}
 	}
+
 	/*
 	 * A varazsko listajanak lekerdezese
 	 */
 	public List<GemStone> getGemStoneList() {
 		return gemList;
 	}
-	
+
 	/*
-	 * 	ellenseg hozzaadasa a listahoz
+	 * ellenseg hozzaadasa a listahoz
 	 */
-	public void addEnemy(Enemy e) {		
-		if(!enemyList.contains(e)) {
+	public void addEnemy(Enemy e) {
+		if (!enemyList.contains(e)) {
 			enemyList.add(e);
-		}		
+		}
 	}
-	
+
 	/*
 	 * ellenseg eltavolitasa a listabol
 	 */
-	public void removeEnemy(Enemy e) {		
-		if(enemyList.contains(e)) {
+	public void removeEnemy(Enemy e) {
+		if (enemyList.contains(e)) {
 			enemyList.remove(e);
 		}
 	}
-	
+
 	/*
 	 * Torony torlese
 	 */
 	public void wipe() {
-		for(Enemy enemy : enemyList){
+		for (Enemy enemy : enemyList) {
 			enemy.removeObserver(this);
 		}
 	}

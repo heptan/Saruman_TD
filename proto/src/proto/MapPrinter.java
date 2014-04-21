@@ -107,17 +107,17 @@ public class MapPrinter {
 					if (tw.getGemStoneList().size() != 0) {
 						for (GemStone g : tw.getGemStoneList()) {
 							if (g.getClass() == AntiDwarf.class) {
-								System.out.println("\t\tAntiDwarf");
+								System.out.println("\t\tantiDwarf");
 							} else if (g.getClass() == AntiElf.class) {
-								System.out.println("\t\tAntiElf");
+								System.out.println("\t\tantiElf");
 							} else if (g.getClass() == AntiHobbit.class) {
-								System.out.println("\t\tAntiHobbit");
+								System.out.println("\t\tantiHobbit");
 							} else if (g.getClass() == AntiHuman.class) {
-								System.out.println("\t\tAntiHuman");
+								System.out.println("\t\tantiHuman");
 							} else if (g.getClass() == PlusFrequency.class) {
-								System.out.println("\t\tPlusFrequency");
+								System.out.println("\t\tplusFrequency");
 							} else if (g.getClass() == PlusRange.class) {
-								System.out.println("\t\tPlusRange");
+								System.out.println("\t\tplusRange");
 							}
 						}
 					}
