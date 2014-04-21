@@ -123,7 +123,7 @@ public class Trap extends EnemyObserver {
 	 * Varazsko hozzaadasa
 	 */
 	public void addPlusTime(String gemstone) {
-		gem = new plusTime();	
+		gem = new PlusTime();	
 		gem.setEffect(this);
 	}
 	

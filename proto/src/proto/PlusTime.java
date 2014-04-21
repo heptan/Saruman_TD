@@ -9,8 +9,6 @@ public class PlusTime extends GemStone {
 	 * Konstruktor
 	 */
 	public PlusTime() {
-		ConsoleUI.writeSeq("-->new plusTime(): plusTime");
-		ConsoleUI.writeSeq("<--plusTime");
 	}
 	
 	//Ezt a kovet nem lehet toronyra rakni, ezert ha ez a helyzet hiba uzenetet kuldok.

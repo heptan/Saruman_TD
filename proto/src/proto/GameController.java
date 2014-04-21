@@ -239,7 +239,7 @@ public class GameController {
 	}
 	
 	/*
-	 * A terkep beallitasahoz hasznalt metodus, a prototipus inicializalasakor hivosdik
+	 * A terkep beallitasahoz hasznalt metodus, a prototipus inicializalasakor hivodik
 	 */
 	public void setMap(Map map) {
 		this.map = map;
