@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Map {
 	private List<Tile> tilelist = new ArrayList<Tile>();
-	private GameController gameController;
+	private GameController gamecontroller;
 	private boolean mist;
 	
 	
@@ -17,7 +17,7 @@ public class Map {
 	 * A jatekterre mutato referencia beallitasahoz hasznalt metodus.
 	 */
 	public void setGameController(GameController gamecontroller) {
-		gameController = gamecontroller;
+		this.gamecontroller = gamecontroller;
 	}
 	
 	/*
@@ -69,7 +69,7 @@ public class Map {
 	 * tovabbitasahoz hasznalt metodus.
 	 */
 	public void addEnemyObserver(EnemyObserver observer) {
-		gameController.addEnemyObserver(observer);
+		gamecontroller.addEnemyObserver(observer);
 	}
 	
 	/*
@@ -109,7 +109,7 @@ public class Map {
 	 * Az Enemy lepesi esemenyerol valo leiratkozas tovabbitasahoz hasznalt metodus
 	 */
 	public void removeEnemyObserver(EnemyObserver observer) {
-		gameController.removeEnemyObserver(observer);
+		gamecontroller.removeEnemyObserver(observer);
 	}
 	
 	/*
@@ -293,7 +293,17 @@ public class Map {
 		return roads;
 	}
 	
+	/*
+	 * Tile torlese
+	 */
 	void clearTiles() {
 		tilelist.clear();
+	}
+	
+	/*
+	 * GameController gettere
+	 */
+	public GameController getGameController() {
+		return gamecontroller;
 	}
 }

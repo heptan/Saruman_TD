@@ -62,8 +62,7 @@ public class GameController {
 	public void gameOver() {
 		// ConsoleUI.writeSeq("-->GameController.gameOver(): void");
 		// ConsoleUI.writeSeq("<--void");
-		System.out.println("A jatek veget ert, az ellenseg elpusztitotta az"
-				+ " egy gyurut a vegzet hegyenel.");
+		System.out.println("A jatek elveszitve!");
 		// akadalyok megszuntetese: az endTime valtozo modositasa ugy, hogy
 		// azonnal megszunjenek
 		// TODO
@@ -94,10 +93,9 @@ public class GameController {
 	}
 
 	public void win() {
-		if (enemyCounter == Constants.ENEMY_COUNTER_MAX && enemies.isEmpty()) {
+		if (enemyCounter >= Constants.ENEMY_COUNTER_MAX && enemies.isEmpty()) {
 			System.out
-					.println("A jatek veget ert, az osszes ellenseges egyseg "
-							+ "elpusztult, Saruman dicsoseges uralkodasa folytatodik!");
+					.println("A jatek megnyerve!");
 			// lekerjuk a palyaelemeket tartalmazo listat
 			List<Tile> temp = map.getTileList();
 			// Vegigiteralunk rajta es minden elemnel megnezzuk, hogy ut, vagy

@@ -63,7 +63,7 @@ public class Tower extends EnemyObserver {
 		damageDwarf = 10;
 		damageHobbit = 10;
 		frequency = 1;
-		range = 2;
+		range = Constants.DEFAULT_TOWER_RANGE;
 		field = null;
 		position = null;
 	}
@@ -78,7 +78,7 @@ public class Tower extends EnemyObserver {
 		damageDwarf = 10;
 		damageHobbit = 10;
 		frequency = 1;
-		range = 2;
+		range = Constants.DEFAULT_TOWER_RANGE;
 		field = place;
 		position = place.getPosition();
 	}
