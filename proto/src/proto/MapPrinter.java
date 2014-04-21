@@ -97,12 +97,12 @@ public class MapPrinter {
 			}
 		}
 		if(towerpcs > 0) {
-			System.out.println("\nTowers:");
+			System.out.println("Towers:");
 			for (Tile t : tilelist) {
 				if (t.getClass() == Field.class && ((Field) t).getTower() != null) {
 					Tower tw = ((Field) t).getTower();
 					System.out.println("\t(" + (int)tw.getPosition().getX() + ","
-							+ (int)tw.getPosition().getY() + "), " + tw.getRange());
+							+ (int)tw.getPosition().getY() + "), " + (int)tw.getRange());
 	
 					if (tw.getGemStoneList().size() != 0) {
 						for (GemStone g : tw.getGemStoneList()) {

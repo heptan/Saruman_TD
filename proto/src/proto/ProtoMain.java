@@ -143,6 +143,8 @@ public class ProtoMain {
 	 */
 	public static void command_loadMap(String[] input) {
 		
+		sandbox = new GameController();
+		
 		if(input.length != 2) {
 			System.out.println("\nErvenytelen parameterezes!\n");
 			return;

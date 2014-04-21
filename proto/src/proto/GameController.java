@@ -21,11 +21,12 @@ public class GameController {
 
 	// Singleton mintahoz szukseges valtozo
 	private static GameController instance = null;
-	
-	//Veletlenszeru viselkedes megvalositasahoz szukseges, jelzi, hogy be-e van kapcsolva a veletlenszeru viselkedes
+
+	// Veletlenszeru viselkedes megvalositasahoz szukseges, jelzi, hogy be-e van
+	// kapcsolva a veletlenszeru viselkedes
 	private boolean israndomized = true;
 
-	private GameController() {
+	public GameController() {
 		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
 	}
 
@@ -94,8 +95,14 @@ public class GameController {
 
 	public void win() {
 		if (enemyCounter >= Constants.ENEMY_COUNTER_MAX && enemies.isEmpty()) {
-			System.out
-					.println("A jatek megnyerve!");
+			// majd a palyan levo ellensegeket is
+			enemies.clear();
+			// vegul az "utakat"
+			path.clear();
+			enemyCounter = 0;
+
+			MapPrinter.printMap(this);
+
 			// lekerjuk a palyaelemeket tartalmazo listat
 			List<Tile> temp = map.getTileList();
 			// Vegigiteralunk rajta es minden elemnel megnezzuk, hogy ut, vagy
@@ -114,11 +121,8 @@ public class GameController {
 			}
 			// toroljuk ki az osszes palyaelemet a Map osztaly listajabol
 			map.clearTiles();
-			// majd a palyan levo ellensegeket is
-			enemies.clear();
-			// vegul az "utakat"
-			path.clear();
-			enemyCounter = 0;
+
+			System.out.println("A jatek megnyerve!");
 		}
 
 	}
@@ -151,7 +155,8 @@ public class GameController {
 		}
 		enemies.get(enemies.size() - 1).setPosition(new Position(posx, posy));
 		enemies.get(enemies.size() - 1).setHealth(Constants.MAX_ENEMY_HEALTH);
-		enemies.get(enemies.size() - 1).setActRoad((Road)map.getTile(posx, posy));
+		enemies.get(enemies.size() - 1).setActRoad(
+				(Road) map.getTile(posx, posy));
 		enemies.get(enemies.size() - 1).setGameController(this);
 		// ujonnan hozzaadott enemy observer listajanak feltoltese,
 		// illetve javitasa, ha lehetseges egy tower listara a map osztalyban
@@ -235,8 +240,9 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
-		if(enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
+		if (enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
 			win();
+			return;
 		}
 		for (int i = 0; i < enemies.size() && !gameover; ++i) {
 			enemies.get(i).nextStep();
@@ -254,15 +260,18 @@ public class GameController {
 				}
 			}
 		}
+		if (enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
+			win();
+		}
 	}
-	
+
 	/*
 	 * Veltenlenszeru viselkedes allapotanak lekerdezese
 	 */
 	public boolean isRandomized() {
 		return israndomized;
 	}
-	
+
 	/*
 	 * Veltenlenszeru viselkedes beallitasa
 	 */
