@@ -12,6 +12,10 @@ public class Hobbit extends Enemy {
 	 */
 	public void nextStep() {
 		if(timeout <= 0) {
+			if(actroad.getNextRoad() == null) {
+				gamecontroller.gameOver();
+			}
+			
 			this.position = actroad.getNextRoad().getPosition();
 			actroad = actroad.getNextRoad();
 			timeout = speed;
@@ -28,7 +32,7 @@ public class Hobbit extends Enemy {
 	public void hit(boolean split, Tower tower){
 		health -= tower.getDamageHobbit();
 		if (split) {
-			gameController.splitHobbit(this);
+			gamecontroller.splitHobbit(this);
 		}
 	}
 	/*
@@ -55,7 +59,7 @@ public class Hobbit extends Enemy {
 	}
 	@Override
 	public void split() {
-		this.gameController.splitHobbit(this);
+		this.gamecontroller.splitHobbit(this);
 		
 	}
 }

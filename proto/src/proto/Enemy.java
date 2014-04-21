@@ -28,7 +28,7 @@ public abstract class Enemy {
 	protected Road actroad;
 	
 	// A jatekterre mutato referencia
-	protected GameController gameController;
+	protected GameController gamecontroller;
 	
 	// Temporalis sebzes szamlalo.
 	protected List<Integer> damages = new ArrayList<Integer>();
@@ -68,7 +68,7 @@ public abstract class Enemy {
 				enemyobserver.notifyFromEnemy(this);
 			}
 			
-			gameController.removeEnemy(this);
+			gamecontroller.removeEnemy(this);
 		}
 	}
 	
