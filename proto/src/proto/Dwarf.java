@@ -12,6 +12,10 @@ public class Dwarf extends Enemy {
 	 */
 	public void nextStep() {
 		if(timeout <= 0) {
+			if(actroad.getNextRoad() == null) {
+				gamecontroller.gameOver();
+			}
+			
 			this.position = actroad.getNextRoad().getPosition();
 			actroad = actroad.getNextRoad();
 			timeout = speed;
@@ -28,7 +32,7 @@ public class Dwarf extends Enemy {
 	public void hit(boolean split, Tower tower){
 		health -= tower.getDamageDwarf();
 		if (split) {
-			gameController.splitDwarf(this);
+			gamecontroller.splitDwarf(this);
 		}
 	}
 	/*
@@ -56,7 +60,7 @@ public class Dwarf extends Enemy {
 	}
 	@Override
 	public void split() {
-		this.gameController.splitDwarf(this);
+		this.gamecontroller.splitDwarf(this);
 		
 	}
 }

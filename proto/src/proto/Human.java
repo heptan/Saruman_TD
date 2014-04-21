@@ -12,6 +12,10 @@ public class Human extends Enemy {
 	 */
 	public void nextStep() {
 		if(timeout <= 0) {
+			if(actroad.getNextRoad() == null) {
+				gamecontroller.gameOver();
+			}
+			
 			this.position = actroad.getNextRoad().getPosition();
 			actroad = actroad.getNextRoad();
 			timeout = speed;
@@ -28,7 +32,7 @@ public class Human extends Enemy {
 	public void hit(boolean split, Tower tower){
 		health -= tower.getDamageHuman();
 		if (split) {
-			gameController.splitHuman(this);
+			gamecontroller.splitHuman(this);
 		}
 	}
 	/*
@@ -54,7 +58,7 @@ public class Human extends Enemy {
 	}
 	@Override
 	public void split() {
-		this.gameController.splitHuman(this);
+		this.gamecontroller.splitHuman(this);
 	}
 	// Igen, ctrl+c, ctrl+v powa!
 }
