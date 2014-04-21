@@ -94,7 +94,7 @@ public class GameController {
 	}
 
 	public void win() {
-		if (enemyCounter == 30 && enemies.isEmpty()) {
+		if (enemyCounter == Constants.ENEMY_COUNTER_MAX && enemies.isEmpty()) {
 			System.out
 					.println("A jatek veget ert, az osszes ellenseges egyseg "
 							+ "elpusztult, Saruman dicsoseges uralkodasa folytatodik!");
@@ -237,6 +237,9 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
+		if(enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
+			win();
+		}
 		for (int i = 0; i < enemies.size() && !gameover; ++i) {
 			enemies.get(i).nextStep();
 		}

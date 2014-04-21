@@ -445,6 +445,8 @@ public class ProtoMain {
 			}
 		}
 		
-		MapPrinter.printMap(sandbox);
+		if(sandbox.getMap() != null) {
+			MapPrinter.printMap(sandbox);
+		}
 	}
 }
