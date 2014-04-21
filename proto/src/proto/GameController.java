@@ -136,31 +136,31 @@ public class GameController {
 		// az inicializalasa az Enemy osztalyban tortenik meg, viszont
 		// be kell allitani az observer listajat.
 		switch (type) {
-		case "Dwarf":
+		case "dwarf":
 			enemies.add(new Dwarf());
 			break;
-		case "Elf":
+		case "elf":
 			enemies.add(new Elf());
 			break;
-		case "Hobbit":
+		case "hobbit":
 			enemies.add(new Hobbit());
 			break;
-		case "Human":
+		case "human":
 			enemies.add(new Human());
 			break;
 		}
-		enemies.get(enemies.size()).setPosition(new Position(posx, posy));
-		enemies.get(enemies.size()).setHealth(Constants.MAX_ENEMY_HEALTH);
+		enemies.get(enemies.size() - 1).setPosition(new Position(posx, posy));
+		enemies.get(enemies.size() - 1).setHealth(Constants.MAX_ENEMY_HEALTH);
 		// ujonnan hozzaadott enemy observer listajanak feltoltese,
 		// illetve javitasa, ha lehetseges egy tower listara a map osztalyban
 		for (Tile t : map.getTileList()) {
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null)
-					enemies.get(enemies.size()).addObserver(
+					enemies.get(enemies.size() - 1).addObserver(
 							((Field) t).getTower());
 			} else {
 				if (((Road) t).getTrap() != null) {
-					enemies.get(enemies.size()).addObserver(
+					enemies.get(enemies.size() - 1).addObserver(
 							((Road) t).getTrap());
 				}
 			}
@@ -170,38 +170,38 @@ public class GameController {
 
 	void splitDwarf(Dwarf d) {
 		enemies.add(new Dwarf());
-		splitCommonSetup(enemies.get(enemies.size()));
+		splitCommonSetup(enemies.get(enemies.size() - 1));
 	}
 
 	void splitElf(Elf e) {
 		enemies.add(new Elf());
-		splitCommonSetup(enemies.get(enemies.size()));
+		splitCommonSetup(enemies.get(enemies.size() - 1));
 	}
 
 	void splitHobbit(Hobbit h) {
 		enemies.add(new Hobbit());
-		splitCommonSetup(enemies.get(enemies.size()));
+		splitCommonSetup(enemies.get(enemies.size() - 1));
 	}
 
 	void splitHuman(Human h) {
 		enemies.add(new Human());
-		splitCommonSetup(enemies.get(enemies.size()));
+		splitCommonSetup(enemies.get(enemies.size() - 1));
 	}
 
 	void splitCommonSetup(Enemy e) {
-		enemies.get(enemies.size()).setActRoad(e.getActRoad());
-		enemies.get(enemies.size()).setHealth(e.getHealth());
-		enemies.get(enemies.size()).setPosition(e.getPosition());
-		enemies.get(enemies.size()).setSpeed(e.getSpeed());
-		enemies.get(enemies.size()).setTimeout(e.getTimeout());
+		enemies.get(enemies.size() - 1).setActRoad(e.getActRoad());
+		enemies.get(enemies.size() - 1).setHealth(e.getHealth());
+		enemies.get(enemies.size() - 1).setPosition(e.getPosition());
+		enemies.get(enemies.size() - 1).setSpeed(e.getSpeed());
+		enemies.get(enemies.size() - 1).setTimeout(e.getTimeout());
 		for (Tile t : map.getTileList()) {
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null)
-					enemies.get(enemies.size()).addObserver(
+					enemies.get(enemies.size() - 1).addObserver(
 							((Field) t).getTower());
 			} else {
 				if (((Road) t).getTrap() != null) {
-					enemies.get(enemies.size()).addObserver(
+					enemies.get(enemies.size() - 1).addObserver(
 							((Road) t).getTrap());
 				}
 			}
