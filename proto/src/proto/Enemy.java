@@ -22,7 +22,7 @@ public abstract class Enemy {
 	protected int timeout;
 	
 	// A feliratkozott megfigyeloket tartalmazo lista
-	protected List<EnemyObserver> observers;
+	protected List<EnemyObserver> observers = new ArrayList<EnemyObserver>();
 	
 	// Az aktualis ut palyaelemre mutato referencia
 	protected Road actroad;
