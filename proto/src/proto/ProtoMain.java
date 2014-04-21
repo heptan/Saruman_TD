@@ -198,6 +198,7 @@ public class ProtoMain {
 		}
 		
 		sandbox.startNewEnemy(posx, posy, input[1]);
+		MapPrinter.printMap(sandbox);
 	}
 	
 	/*
@@ -436,5 +437,7 @@ public class ProtoMain {
 		else {
 			sandbox.nextStep();
 		}
+		
+		MapPrinter.printMap(sandbox);
 	}
 }

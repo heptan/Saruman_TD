@@ -13,6 +13,7 @@ public class Elf extends Enemy {
 	public void nextStep() {
 		if(timeout <= 0) {
 			this.position = actroad.getNextRoad().getPosition();
+			actroad = actroad.getNextRoad();
 			timeout = speed;
 			
 			notifyEnemyObservers();

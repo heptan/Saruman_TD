@@ -151,6 +151,7 @@ public class GameController {
 		}
 		enemies.get(enemies.size() - 1).setPosition(new Position(posx, posy));
 		enemies.get(enemies.size() - 1).setHealth(Constants.MAX_ENEMY_HEALTH);
+		enemies.get(enemies.size() - 1).setActRoad((Road)map.getTile(posx, posy));
 		// ujonnan hozzaadott enemy observer listajanak feltoltese,
 		// illetve javitasa, ha lehetseges egy tower listara a map osztalyban
 		for (Tile t : map.getTileList()) {
