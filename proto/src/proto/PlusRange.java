@@ -12,7 +12,7 @@ public class PlusRange extends GemStone {
 	
 	@Override
 	public void setEffect(Tower toSet) {
-		toSet.setRange(2*(toSet.getRange()));
+		toSet.setRange(2);
 		
 	}	
 	
