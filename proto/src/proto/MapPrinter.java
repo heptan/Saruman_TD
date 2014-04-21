@@ -61,6 +61,7 @@ public class MapPrinter {
 		}
 		
 		// Terkepkep kiirasa
+		System.out.println();
 		for (int y = 0; y < tilegrid.length; y++) {
 			System.out.print("|");
 			for (int x = 0; x < tilegrid[y].length; x++) {
