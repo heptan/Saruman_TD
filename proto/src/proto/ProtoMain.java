@@ -435,7 +435,9 @@ public class ProtoMain {
 			}
 		}
 		else {
-			sandbox.nextStep();
+			if(sandbox.getMap() != null) {
+				sandbox.nextStep();
+			}
 		}
 		
 		MapPrinter.printMap(sandbox);

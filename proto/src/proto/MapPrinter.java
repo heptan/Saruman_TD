@@ -62,12 +62,14 @@ public class MapPrinter {
 		
 		// Terkepkep kiirasa
 		System.out.println();
-		for (int y = 0; y < tilegrid.length; y++) {
-			System.out.print("|");
-			for (int x = 0; x < tilegrid[y].length; x++) {
-				System.out.print(tilegrid[y][x] + "|");
+		if(gamecontroller.getMap().getTileList().size() > 0) {
+			for (int y = 0; y < tilegrid.length; y++) {
+				System.out.print("|");
+				for (int x = 0; x < tilegrid[y].length; x++) {
+					System.out.print(tilegrid[y][x] + "|");
+				}
+				System.out.println("");
 			}
-			System.out.println("");
 		}
 
 		// Ellenseglista kiiratasa
