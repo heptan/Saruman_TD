@@ -42,13 +42,15 @@ public class Loader {
 		return null;
 	}
 
+	/*
+	 * Terkepkep parser
+	 */
 	private static Map parseMap(List<String> maplines) {
 		int i = 0, x = 0, y = 0;
-		String line = "";
 		Map loadedmap = new Map();
-
+		
+		String line = maplines.get(0);
 		while (!line.equals("<JUNCTIONS>") && i < maplines.size()) {
-			line = maplines.get(i);
 			for (String item : line.split("\\|")) {
 				if (!item.trim().equals("")) {
 					Tile newtile = null;
@@ -66,6 +68,9 @@ public class Loader {
 			x = 0;
 			y++;
 			i++;
+			if(i < maplines.size()) {
+				line = maplines.get(i);
+			}
 		}
 
 		i++;
@@ -116,6 +121,20 @@ public class Loader {
 	public static List<String> loadCommands(String path) {
 		List<String> loadedcommands = new ArrayList<String>();
 
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(path));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				loadedcommands.add(line);
+			}
+
+		} catch (FileNotFoundException e) {
+			System.out.println("A megadott fajl nem talalhato!");
+		} catch (Exception e) {
+			System.out.println("Hiba a fajl beolvasasa soran!");
+			e.printStackTrace();
+		}
+		
 		return loadedcommands;
 	}
 }

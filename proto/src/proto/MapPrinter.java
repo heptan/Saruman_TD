@@ -73,17 +73,17 @@ public class MapPrinter {
 		System.out.println("\nEnemies:");
 		for (Enemy e : gamecontroller.getEnemyList()) {
 			if (e.getClass() == Dwarf.class) {
-				System.out.println("(" + e.getPosition().getX() + ","
-						+ e.getPosition().getY() + ", Dwarf," + e.getHealth());
+				System.out.println("(" + (int)e.getPosition().getX() + ","
+						+ (int)e.getPosition().getY() + ", Dwarf," + e.getHealth());
 			} else if (e.getClass() == Elf.class) {
-				System.out.println("(" + e.getPosition().getX() + ","
-						+ e.getPosition().getY() + ", Elf," + e.getHealth());
+				System.out.println("(" + (int)e.getPosition().getX() + ","
+						+ (int)e.getPosition().getY() + ", Elf," + e.getHealth());
 			} else if (e.getClass() == Hobbit.class) {
-				System.out.println("(" + e.getPosition().getX() + ","
-						+ e.getPosition().getY() + ", Hobbit," + e.getHealth());
+				System.out.println("(" + (int)e.getPosition().getX() + ","
+						+ (int)e.getPosition().getY() + ", Hobbit," + e.getHealth());
 			} else if (e.getClass() == Human.class) {
-				System.out.println("(" + e.getPosition().getX() + ","
-						+ e.getPosition().getY() + ", Human," + e.getHealth());
+				System.out.println("(" + (int)e.getPosition().getX() + ","
+						+ (int)e.getPosition().getY() + ", Human," + e.getHealth());
 			}
 		}
 
@@ -92,8 +92,8 @@ public class MapPrinter {
 		for (Tile t : tilelist) {
 			if (t.getClass() == Field.class && ((Field) t).getTower() != null) {
 				Tower tw = ((Field) t).getTower();
-				System.out.println("\t(" + tw.getPosition().getX() + ","
-						+ tw.getPosition().getY() + "), " + tw.getRange());
+				System.out.println("\t(" + (int)tw.getPosition().getX() + ","
+						+ (int)tw.getPosition().getY() + "), " + tw.getRange());
 
 				if (tw.getGemStoneList().size() != 0) {
 					for (GemStone g : tw.getGemStoneList()) {
@@ -120,8 +120,8 @@ public class MapPrinter {
 		for (Tile t : tilelist) {
 			if (t.getClass() == Road.class && ((Road) t).getTrap() != null) {
 				Trap tr = ((Road) t).getTrap();
-				System.out.println("\t(" + tr.getPosition().getX() + ","
-						+ tr.getPosition().getY() + "), " + tr.getEndTime());
+				System.out.println("\t(" + (int)tr.getPosition().getX() + ","
+						+ (int)tr.getPosition().getY() + "), " + tr.getEndTime());
 
 				if (tr.isGemStoned()) {
 						System.out.println("\t\tPlusTime");

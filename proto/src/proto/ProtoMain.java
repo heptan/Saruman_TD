@@ -1,5 +1,6 @@
 package proto;
 
+import java.util.List;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -21,7 +22,7 @@ public class ProtoMain {
 		
 		String actcommand = "";
 		
-		while(!actcommand.trim().equals("quit")) {
+		while(!actcommand.trim().equals("quit") || !actcommand.trim().equals("exit")) {
 			
 			try {
 				
@@ -29,13 +30,13 @@ public class ProtoMain {
 				runCommand(actcommand,false);
 				
 			} catch(Exception e) {
-				System.out.println("Hiba a beolvasas folyaman, probalja ujra!");
+				System.out.println("\nHiba a beolvasas folyaman, probalja ujra!\n");
 				e.printStackTrace();
 			}
 			
 		}
 		
-		System.out.println("\nViszlat!");
+		System.out.println("\nViszlat!\n");
 	}
 	
 	/*
@@ -58,7 +59,7 @@ public class ProtoMain {
 			
 		case "loadCommandList":
 			if(fromfile == true) {
-				System.out.println("Ervenytelen parancs a bemeneti parancsfajlban, a 'loadCommandList' parancs csak a parancsertelmezoben hasznalhato");
+				System.out.println("\nErvenytelen parancs a bemeneti parancsfajlban, a 'loadCommandList' parancs csak a parancsertelmezoben hasznalhato\n");
 				return;
 			}
 				
@@ -105,7 +106,7 @@ public class ProtoMain {
 	public static void command_loadMap(String[] input) {
 		
 		if(input.length != 2) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 		
@@ -113,7 +114,7 @@ public class ProtoMain {
 		
 		Map loadedmap = Loader.loadMap(input[1]);
 		if(loadedmap == null) {
-			System.out.println("Hiba a terkepfajl beolvasasa soran!");
+			System.out.println("\nHiba a terkepfajl beolvasasa soran!\n");
 			return;
 		}
 		
@@ -128,11 +129,16 @@ public class ProtoMain {
 	public static void command_loadCommandList(String[] input) {
 		
 		if(input.length != 2) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 		
-		System.out.println(input[0] + ", file: " + input[1]);
+		List<String> commands = Loader.loadCommands(input[1]);
+		System.out.println("\nA beolvasott parancsok a kovetkezoek.\n");
+		for(String command : commands) {
+			System.out.println(command);
+		}
+		System.out.println("");
 	}
 	
 	/*
@@ -142,25 +148,43 @@ public class ProtoMain {
 		int posx, posy;
 		
 		if(input.length != 4) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 		
 		if(!input[1].equals("dwarf") && !input[1].equals("elf") &&
 				!input[1].equals("hobbit") && !input[1].equals("human")) {
-			System.out.println("Ervenytelen ellensegtipus!");
+			System.out.println("\nErvenytelen ellensegtipus!\n");
 		}
 		
 		try {
 			posx = Integer.parseInt(input[2]);
 			posy = Integer.parseInt(input[3]);
 		} catch(NumberFormatException e) {
-			System.out.println("A koordinata nem szam!");
+			System.out.println("\nA koordinata nem szam!\n");
 			return;
 		}
 		
-		System.out.println(input[0] + ", type: " + input[1] +
-				", x: " + input[2] + ", y: " + input[3]);
+		Enemy e = null;
+		switch(input[1]) {
+		case "dwarf":
+			e = new Dwarf();
+			break;
+		case "elf":
+			e = new Elf();
+			break;
+		case "hobbit":
+			e = new Hobbit();
+			break;
+		case "human":
+			e = new Human();
+			break;
+		}
+		e.setPosition(new Position(posx, posy));
+		e.setHealth(Constants.MAX_ENEMY_HEALTH);
+		
+		//Big TODO
+		sandbox.startNewEnemy();
 	}
 	
 	/*
@@ -170,7 +194,7 @@ public class ProtoMain {
 		int posx, posy;
 		
 		if(input.length != 3) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 		
@@ -178,11 +202,25 @@ public class ProtoMain {
 			posx = Integer.parseInt(input[1]);
 			posy = Integer.parseInt(input[2]);
 		} catch(NumberFormatException e) {
-			System.out.println("A koordinata nem szam!");
+			System.out.println("\nA koordinata nem szam!\n");
 			return;
 		}
 		
-		System.out.println(input[0] + ", x: " + input[1] + ", y: " + input[2]);
+		Map map = sandbox.getMap();
+		Tile tile = (map.getTile(posx,posy));
+		if(tile.getClass() == Road.class) {
+			System.out.println("\nUton nem helyeztheto el torony!\n");
+			return;
+		}
+		
+		Field field = (Field)map.getTile(posx, posy);
+		if(field.getTower() != null) {
+			System.out.println("\nA mezon mar van torony!\n");
+			return;
+		}
+		
+		field.setTower();
+		MapPrinter.printMap(sandbox);
 	}
 	
 	/*
@@ -192,7 +230,7 @@ public class ProtoMain {
 		int posx, posy;
 		
 		if(input.length != 3) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 		
@@ -200,11 +238,25 @@ public class ProtoMain {
 			posx = Integer.parseInt(input[1]);
 			posy = Integer.parseInt(input[2]);
 		} catch(NumberFormatException e) {
-			System.out.println("A koordinata nem szam!");
+			System.out.println("\nA koordinata nem szam!\n");
 			return;
 		}
 		
-		System.out.println(input[0] + ", x: " + input[1] + ", y: " + input[2]);
+		Map map = sandbox.getMap();
+		Tile tile = (map.getTile(posx,posy));
+		if(tile.getClass() == Road.class) {
+			System.out.println("\nUton nem lehet torony!\n");
+			return;
+		}
+		
+		Field field = (Field)map.getTile(posx, posy);
+		if(field.getTower() == null) {
+			System.out.println("\nA mezon nincs meg torony, nem lehet mit eltavolitani!\n");
+			return;
+		}
+		
+		field.resetTower();
+		MapPrinter.printMap(sandbox);
 	}
 	
 	/*
@@ -214,7 +266,7 @@ public class ProtoMain {
 		int posx, posy;
 		
 		if(input.length != 3) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 		
@@ -222,11 +274,25 @@ public class ProtoMain {
 			posx = Integer.parseInt(input[1]);
 			posy = Integer.parseInt(input[2]);
 		} catch(NumberFormatException e) {
-			System.out.println("A koordinata nem szam!");
+			System.out.println("\nA koordinata nem szam!\n");
 			return;
 		}
 		
-		System.out.println(input[0] + ", x: " + input[1] + ", y: " + input[2]);
+		Map map = sandbox.getMap();
+		Tile tile = (map.getTile(posx,posy));
+		if(tile.getClass() == Field.class) {
+			System.out.println("\nMezon nem helyeztheto el akadaly!\n");
+			return;
+		}
+		
+		Road road = (Road)map.getTile(posx, posy);
+		if(road.getTrap() != null) {
+			System.out.println("\nAz uton mar van akadaly!\n");
+			return;
+		}
+		
+		road.setTrap();
+		MapPrinter.printMap(sandbox);
 	}
 	
 	/*

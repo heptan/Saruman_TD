@@ -48,6 +48,9 @@ public class Road extends Tile {
 	 */
 	public void setTrap() {
 		trap = new Trap();
+		trap.setPosition(this.position);
+		trap.setRoad(this);
+		//TODO Akadaly idejenek beallitasa
 	}
 	
 	/*

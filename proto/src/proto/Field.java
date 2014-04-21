@@ -59,6 +59,9 @@ public class Field extends Tile {
 	 */
 	public void setTower() {
 		tower = new Tower();
+		tower.setField(this);
+		tower.setPosition(this.position);
+		tower.setRange(Constants.DEFAULT_TOWER_RANGE);
 	}
 	
 	/*
