@@ -165,26 +165,7 @@ public class ProtoMain {
 			return;
 		}
 		
-		Enemy e = null;
-		switch(input[1]) {
-		case "dwarf":
-			e = new Dwarf();
-			break;
-		case "elf":
-			e = new Elf();
-			break;
-		case "hobbit":
-			e = new Hobbit();
-			break;
-		case "human":
-			e = new Human();
-			break;
-		}
-		e.setPosition(new Position(posx, posy));
-		e.setHealth(Constants.MAX_ENEMY_HEALTH);
-		
-		//Big TODO
-		sandbox.startNewEnemy();
+		sandbox.startNewEnemy(posx, posy, input[1]);
 	}
 	
 	/*
