@@ -114,8 +114,9 @@ public class Road extends Tile {
 	 */
 	@Override
 	public void addPlusTime() {
-		//TODO
-		//trap.addPlusTime();
+		if(trap != null) {
+			trap.addPlusTime();
+		}
 	}
 
 	/*

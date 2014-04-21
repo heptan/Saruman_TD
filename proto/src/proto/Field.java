@@ -86,32 +86,44 @@ public class Field extends Tile {
 	 */
 	@Override
 	public void addAntiHuman() {
-		tower.addAntiHuman();
+		if(tower != null) {
+			tower.addAntiHuman();
+		}
 	}
 
 	@Override
 	public void addAntiElf() {
-		tower.addAntiElf();
+		if(tower != null) {
+			tower.addAntiElf();
+		}
 	}
 
 	@Override
 	public void addAntiDwarf() {
-		tower.addAntiDwarf();
+		if(tower != null) {
+			tower.addAntiDwarf();
+		}
 	}
 
 	@Override
 	public void addAntiHobbit() {
-		tower.addAntiHobbit();
+		if(tower != null) {
+			tower.addAntiHobbit();
+		}
 	}
 
 	@Override
 	public void addPlusFrequency() {
-		tower.addPlusFrequency();
+		if(tower != null) {
+			tower.addPlusFrequency();
+		}
 	}
 
 	@Override
 	public void addPlusRange() {
-		tower.addPlusRange();
+		if(tower != null) {
+			tower.addPlusRange();
+		}
 	}
 
 	/*

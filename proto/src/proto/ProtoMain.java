@@ -57,6 +57,10 @@ public class ProtoMain {
 			command_loadMap(input);
 			break;
 			
+		case "lm":
+			command_loadMap(input);
+			break;
+			
 		case "loadCommandList":
 			if(fromfile == true) {
 				System.out.println("\nErvenytelen parancs a bemeneti parancsfajlban, a 'loadCommandList' parancs csak a parancsertelmezoben hasznalhato\n");
@@ -70,7 +74,15 @@ public class ProtoMain {
 			command_addEnenmy(input);
 			break;
 			
+		case "ae":
+			command_addEnenmy(input);
+			break;
+			
 		case "addTower":
+			command_addTower(input);
+			break;
+			
+		case "ato":
 			command_addTower(input);
 			break;
 			
@@ -78,7 +90,15 @@ public class ProtoMain {
 			command_removeTower(input);
 			break;
 			
+		case "rto":
+			command_removeTower(input);
+			break;
+			
 		case "addTrap":
+			command_addTrap(input);
+			break;
+			
+		case "atr":
 			command_addTrap(input);
 			break;
 			
@@ -86,11 +106,23 @@ public class ProtoMain {
 			command_addGemStone(input);
 			break;
 			
+		case "ag":
+			command_addGemStone(input);
+			break;
+			
 		case "setRandomize":
 			command_setRandomize(input);
 			break;
 			
+		case "sr":
+			command_setRandomize(input);
+			break;
+			
 		case "nextStep":
+			command_nextStep(input);
+			break;
+			
+		case "n":
 			command_nextStep(input);
 			break;
 			
@@ -283,14 +315,14 @@ public class ProtoMain {
 		int posx, posy;
 		
 		if(input.length != 4) {
-			System.out.println("Ervenytelen parameterezes!");
+			System.out.println("\nErvenytelen parameterezes!\n");
 			return;
 		}
 
-		if(!input[1].equals("antihuman") && !input[1].equals("antielf") &&
-				!input[1].equals("antidwarf") && !input[1].equals("antihobbit") &&
+		if(!input[1].equals("antidwarf") && !input[1].equals("antielf") &&
+				!input[1].equals("antihobbit") && !input[1].equals("antihuman") &&
 				!input[1].equals("plustime") && !input[1].equals("plusfrequency") && !input[1].equals("plusrange")) {
-			System.out.println("Ervenytelen varazskotipus!");
+			System.out.println("\nErvenytelen varazskotipus!\n");
 			return;
 		}
 		
@@ -298,12 +330,52 @@ public class ProtoMain {
 			posx = Integer.parseInt(input[2]);
 			posy = Integer.parseInt(input[3]);
 		} catch(NumberFormatException e) {
-			System.out.println("A koordinata nem szam!");
+			System.out.println("\nA koordinata nem szam!\n");
 			return;
 		}
 		
-		System.out.println(input[0] + ", type: " + input[1] + 
-				", x: " + input[2] + ", y: " + input[3]);
+		Map map = sandbox.getMap();
+		Tile tile = (map.getTile(posx,posy));
+		if(tile.getClass() == Field.class) {
+			Field field = (Field)tile;
+			if(field.getTower() == null) {
+				System.out.println("\nA mezon nincs torony, nem lehet mit varazskovezni!\n");
+				return;
+			}
+			
+			switch(input[1]) {
+			case "antidwarf":
+				field.addAntiDwarf();
+				break;
+			case "antielf":
+				field.addAntiElf();
+				break;
+			case "antihobbit":
+				field.addAntiHobbit();
+				break;
+			case "antihuman":
+				field.addAntiHuman();
+				break;
+			case "plusfrequency":
+				field.addPlusFrequency();
+				break;
+			case "plusrange":
+				field.addPlusRange();
+				break;
+			}
+			return;
+		}
+		else {
+			Road road = (Road)tile;
+			if(road.getTrap() == null) {
+				System.out.println("\nAz uton nincs akadaly, nem lehet mit varazskovezni!\n");
+				return;
+			}
+			
+			road.addPlusTime();
+		}
+		
+		MapPrinter.printMap(sandbox);
 	}
 	
 	/*
