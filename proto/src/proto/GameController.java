@@ -17,6 +17,19 @@ public class GameController {
 									//   egysegeket szamolja
 	private Map map = new Map();	// hivatkozas a palyara
 	
+	// Singleton mintahoz szukseges valtozo
+	private static GameController instance = null;
+
+	private GameController() {
+		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
+	}
+	public static GameController getInstace() {
+		if (instance == null){
+			instance = new GameController();
+		}
+		return instance;
+	}
+	
 	/*
 	 * Minden ellenseges egyseg observer listajahoz hozzaadja a parameterben
 	 *   atadott objektumot.
@@ -47,9 +60,9 @@ public class GameController {
 //		ConsoleUI.writeSeq("<--void");
 		System.out.println("A jatek veget ert, az ellenseg elpusztitotta az"
 				+ " egy gyurut a vegzet hegyenel.");
-		// akadalyok megszuntetese: az endTime valtozo modos�tasa ugy, hogy
+		// akadalyok megszuntetese: az endTime valtozo modositasa ugy, hogy
 		//   azonnal megszunjenek
-// TODO
+// TODO		
 		// lekerjuk a palyaelemeket tartalmazo listat
 		List<Tile> temp = map.getTileList();
 		// Vegigiteralunk rajta es minden elemnel megnezzuk, hogy ut, vagy
@@ -67,22 +80,19 @@ public class GameController {
 				}
 			}	
 		}
-// TODO ilyen fuggveny nincs a Map osztalyban
 		// toroljuk ki az osszes palyaelemet a Map osztaly listajabol
-		//map.clearTiles();
+		map.clearTiles();
 		// majd a palyan levo ellensegeket is
 		enemies.clear();
 		// vegul az "utakat"
 		path.clear();
 		enemyCounter = 0;
-		map = null;
 	}
 	
 	public void win() {
 		if (enemyCounter == 30 && enemies.isEmpty()){
 			System.out.println("A jatek veget ert, az osszes ellenseges egyseg "
 					+ "elpusztult, Saruman dicsoseges uralkodasa folytatodik!");
-// TODO
 			// lekerjuk a palyaelemeket tartalmazo listat
 			List<Tile> temp = map.getTileList();
 			// Vegigiteralunk rajta es minden elemnel megnezzuk, hogy ut, vagy
@@ -100,9 +110,8 @@ public class GameController {
 					}
 				}	
 			}
-// TODO ilyen fuggveny nincs a Map osztalyban
 			// toroljuk ki az osszes palyaelemet a Map osztaly listajabol
-			//map.clearTiles();
+			map.clearTiles();
 			// majd a palyan levo ellensegeket is
 			enemies.clear();
 			// vegul az "utakat"
@@ -120,13 +129,18 @@ public class GameController {
 	 * Uj ellenseges egyseg felvetele az enemies listaba, observer listajank
 	 *   beallitasa, illetve az enemyCounter novelese.
 	 */
-	public void startNewEnemy() {
+	public void startNewEnemy(double posx, double posy, String type) {
 		// Az enemies listahoz hozzaadunk egy uj ellenseget,
 		//   az inicializalasa az Enemy osztalyban tortenik meg, viszont
 		//   be kell allitani az observer listajat.
-		//TODO
-		//enemies.add(new Enemy());
-// TODO ujonnan hozzaadott enemy observer listajanak feltoltese, 
+		switch (type){
+		case "Dwarf": enemies.add(new Dwarf()); break;
+		case "Elf":	enemies.add(new Elf()); break;
+		case "Hobbit": enemies.add(new Hobbit()); break;
+		case "Human": enemies.add(new Human()); break;
+		}
+		enemies.get(enemies.size()).setPosition(new Position(posx, posy));
+//      ujonnan hozzaadott enemy observer listajanak feltoltese, 
 //      illetve javitasa, ha lehetseges egy tower listara a map osztalyban
 		for (Tile t : map.getTileList()){
 			if (t instanceof Field){
@@ -144,27 +158,24 @@ public class GameController {
 	
 	void splitDwarf(Dwarf d){
 		enemies.add(new Dwarf());
-		enemies.get(enemies.size()).setActRoad(d.getActRoad());
-		enemies.get(enemies.size()).setHealth(d.getHealth());
-		enemies.get(enemies.size()).setPosition(d.getPosition());
-		enemies.get(enemies.size()).setSpeed(d.getSpeed());
-		enemies.get(enemies.size()).setTimeout(d.getTimeout());
-		for (Tile t : map.getTileList()){
-			if (t instanceof Field){
-				if (((Field) t).getTower() != null)
-					enemies.get(enemies.size()).addObserver(((Field) t).getTower());
-			}
-			else {
-				if (((Road) t).getTrap() != null){
-					enemies.get(enemies.size()).addObserver(((Road) t).getTrap());
-				}
-			}
-		}
-		++enemyCounter;
+		splitCommonSetup(enemies.get(enemies.size()));
 	}
 	
 	void splitElf(Elf e){
 		enemies.add(new Elf());
+		splitCommonSetup(enemies.get(enemies.size()));
+	}
+	
+	void splitHobbit(Hobbit h){
+		enemies.add(new Hobbit());
+		splitCommonSetup(enemies.get(enemies.size()));
+	}
+	
+	void splitHuman(Human h){
+		enemies.add(new Human());
+		splitCommonSetup(enemies.get(enemies.size()));
+	}
+	void splitCommonSetup(Enemy e) {
 		enemies.get(enemies.size()).setActRoad(e.getActRoad());
 		enemies.get(enemies.size()).setHealth(e.getHealth());
 		enemies.get(enemies.size()).setPosition(e.getPosition());
@@ -183,52 +194,9 @@ public class GameController {
 		}
 		++enemyCounter;
 	}
-	
-	void splitHobbit(Hobbit h){
-		enemies.add(new Hobbit());
-		enemies.get(enemies.size()).setActRoad(h.getActRoad());
-		enemies.get(enemies.size()).setHealth(h.getHealth());
-		enemies.get(enemies.size()).setPosition(h.getPosition());
-		enemies.get(enemies.size()).setSpeed(h.getSpeed());
-		enemies.get(enemies.size()).setTimeout(h.getTimeout());
-		for (Tile t : map.getTileList()){
-			if (t instanceof Field){
-				if (((Field) t).getTower() != null)
-					enemies.get(enemies.size()).addObserver(((Field) t).getTower());
-			}
-			else {
-				if (((Road) t).getTrap() != null){
-					enemies.get(enemies.size()).addObserver(((Road) t).getTrap());
-				}
-			}
-		}
-		++enemyCounter;
-	}
-	
-	void splitHuman(Human h){
-		enemies.add(new Human());
-		enemies.get(enemies.size()).setActRoad(h.getActRoad());
-		enemies.get(enemies.size()).setHealth(h.getHealth());
-		enemies.get(enemies.size()).setPosition(h.getPosition());
-		enemies.get(enemies.size()).setSpeed(h.getSpeed());
-		enemies.get(enemies.size()).setTimeout(h.getTimeout());
-		for (Tile t : map.getTileList()){
-			if (t instanceof Field){
-				if (((Field) t).getTower() != null)
-					enemies.get(enemies.size()).addObserver(((Field) t).getTower());
-			}
-			else {
-				if (((Road) t).getTrap() != null){
-					enemies.get(enemies.size()).addObserver(((Road) t).getTrap());
-				}
-			}
-		}
-		++enemyCounter;
-	}
 
 	public void removeEnemy(Enemy enemy) {
-		// TODO Auto-generated method stub
-		
+		enemies.remove(enemy);
 	}
 	
 	/*
@@ -245,4 +213,26 @@ public class GameController {
 		this.map = map;
 	}
 	
+	/*
+	 * Egyet lep a jatekbeli kor szamlalo.
+	 */
+	void nextStep() {
+		for (Enemy e : enemies){
+			e.nextStep();
+		}
+		for (Tile t : map.getTileList()){
+			if (t instanceof Field){
+				if ( ((Field) t).getTower() != null ){
+					((Field) t).getTower().shoot();
+				}
+			}
+			else {
+				if ( ((Road) t).getTrap() != null ){
+					// hoho! ide nem is kell semmi, mert az ellenseg, ha
+					//   notify-olja a trap-et, akkor az lassitja, ha meg
+					//   mar nincs azon az uton ahol a trap, akkor hanyagolja!
+				}
+			}
+		}
+	}
 }

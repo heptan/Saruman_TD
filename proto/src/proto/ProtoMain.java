@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
  */
 public class ProtoMain {
 	
-	static GameController sandbox = new GameController();
+	static GameController sandbox = GameController.getInstace();
 	
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
