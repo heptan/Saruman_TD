@@ -58,6 +58,10 @@ public class Road extends Tile {
 	 */
 	public Road getNextRoad() {
 		//TODO Veletlen valasztas
+		if(nextroad.size() == 0) {
+			return null;
+		}
+		
 		return nextroad.get(0);
 	}
 	

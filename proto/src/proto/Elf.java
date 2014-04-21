@@ -14,6 +14,7 @@ public class Elf extends Enemy {
 		if(timeout <= 0) {
 			if(actroad.getNextRoad() == null) {
 				gamecontroller.gameOver();
+				return;
 			}
 			
 			this.position = actroad.getNextRoad().getPosition();

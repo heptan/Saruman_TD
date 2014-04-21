@@ -61,6 +61,9 @@ public abstract class Enemy {
 		this.health = health;
 	}
 	
+	/*
+	 * Eletero csokkentese a megadott mertekkel
+	 */
 	public void decreaseHealth(int amount) {
 		this.health -= health;
 		if(this.health <= 0) {
@@ -164,14 +167,31 @@ public abstract class Enemy {
 		damages.add(damage);
 	}
 	
+	/*
+	 * Loves AntiDward varazskovel ellatott toronytol
+	 */
 	public abstract void getShotWithAntiDwarf(int damage);
 	
+	/*
+	 * Loves AntiElf varazskovel ellatott toronytol
+	 */
 	public abstract void getShotWithAntiElf(int damage);
 
+	/*
+	 * Loves AntiHobbit varazskovel ellatott toronytol
+	 */
 	public abstract void getShotWithAntiHobbit(int damage);
 
+	/*
+	 * Loves AntiHuman varazskovel ellatott toronytol
+	 */
 	public abstract void getShotWithAntiHuman(int damage);
 
+	/*
+	 * Kettevago lovedektol erkezett loves
+	 */
+	public abstract void split();
+	
 	/*
 	 * Ebben a metodusban szamitodik ki a tenyleges sebzes es kerul levonasra
 	 *   az eleteropontokbol (health).
@@ -191,5 +211,19 @@ public abstract class Enemy {
 		}
 		damages.clear();
 	}
-	public abstract void split();
+	
+	/*
+	 * GameController beallitasa
+	 */
+	public void setGameController(GameController gamecontroller) {
+		this.gamecontroller = gamecontroller;
+	}
+	
+	/*
+	 * GameController lekerdezese
+	 */
+	public GameController getGameController() {
+		return gamecontroller;
+	}
+
 }
