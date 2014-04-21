@@ -10,6 +10,7 @@ import java.util.List;
  * letrehozasa, inicializalasa, illetve a jatekvege feltetelek figyelese. 
  */
 public class GameController {
+	private boolean gameover = false;
 	private List<Enemy> enemies = new ArrayList<Enemy>(); // ellenseglista
 	private List<Road> path = new ArrayList<Road>(); // valaszthato utelemkbol
 														// allo utak
@@ -89,6 +90,7 @@ public class GameController {
 		// vegul az "utakat"
 		path.clear();
 		enemyCounter = 0;
+		gameover = true;
 	}
 
 	public void win() {
@@ -235,8 +237,8 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
-		for (Enemy e : enemies) {
-			e.nextStep();
+		for (int i = 0; i < enemies.size() && !gameover; ++i) {
+			enemies.get(i).nextStep();
 		}
 		for (Tile t : map.getTileList()) {
 			if (t instanceof Field) {
