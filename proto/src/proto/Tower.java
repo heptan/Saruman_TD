@@ -134,7 +134,7 @@ public class Tower extends EnemyObserver {
 					wasHit = true;
 				}
 				if (!wasHit){
-					enemy.getShot(10);	// default sebzes
+					enemy.getShot(Constants.TOWER_SHOT);	// default sebzes
 				}
 				// A lovessorozatot lezaro fuggvenyhivas. Ebben valasztodik ki
 				//   a megfelelo mennyisegu sebzes.

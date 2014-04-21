@@ -6,5 +6,6 @@ public class Constants {
 	public static final int MIST_RANGE = 0;
 	
 	public static final int MAX_ENEMY_HEALTH = 100;
+	public static final int TOWER_SHOT = 50; 
 
 }

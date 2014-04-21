@@ -65,7 +65,7 @@ public abstract class Enemy {
 	 * Eletero csokkentese a megadott mertekkel
 	 */
 	public void decreaseHealth(int amount) {
-		this.health -= health;
+		this.health -= amount;
 		if(this.health <= 0) {
 			for(EnemyObserver enemyobserver : observers) {
 				enemyobserver.notifyFromEnemy(this);
