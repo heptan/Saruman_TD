@@ -55,7 +55,9 @@ public class Road extends Tile {
 		trap = new Trap();
 		trap.setPosition(this.position);
 		trap.setRoad(this);
-		// TODO Akadaly idejenek beallitasa
+		for(Enemy e : map.getGameController().getEnemyList()) {
+			e.addObserver(trap);
+		}
 	}
 
 	/*
@@ -64,6 +66,9 @@ public class Road extends Tile {
 	public Road getNextRoad() {
 		
 		if (map.getGameController().isRandomized()) {
+			if(nextroad.size() == 0) {
+				return null;
+			}
 			Random rand = new Random();
 			int n = rand.nextInt(nextroad.size());
 			return nextroad.get(n);
