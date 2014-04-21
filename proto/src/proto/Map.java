@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
+ * Author: VAM
  * A terkepet megvalosito osztaly.
  */
 public class Map {
@@ -290,5 +291,9 @@ public class Map {
 		}
 		
 		return roads;
+	}
+	
+	void clearTiles() {
+		tilelist.clear();
 	}
 }
