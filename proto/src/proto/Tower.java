@@ -218,13 +218,17 @@ public class Tower extends EnemyObserver {
 	}
 	
 	/*
-	 * A torony hatosugaranak lekerdezese es beallitasa
+	 * A torony hatosugaranak lekerdezese
 	 */
 	public double getRange() {
 		return range;
 	}
+
+	/*
+	 * A torony hatosugaranak novelese a kapott ertekkel
+	 */
 	public void setRange(double ran) {
-		range = ran;
+		range += ran;
 	}
 	/*
 	 * A mezo beallitasa amin a torony van
