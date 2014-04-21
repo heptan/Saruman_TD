@@ -12,13 +12,14 @@ public class Elf extends Enemy {
 	 */
 	public void nextStep() {
 		if(timeout <= 0) {
-			if(actroad.getNextRoad() == null) {
+			Road nextroad = actroad.getNextRoad();
+			if(nextroad == null) {
 				gamecontroller.gameOver();
 				return;
 			}
 			
-			this.position = actroad.getNextRoad().getPosition();
-			actroad = actroad.getNextRoad();
+			this.position = nextroad.getPosition();
+			actroad = nextroad;
 			timeout = speed;
 			
 			notifyEnemyObservers();
