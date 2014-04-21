@@ -17,6 +17,19 @@ public class GameController {
 									//   egysegeket szamolja
 	private Map map = new Map();	// hivatkozas a palyara
 	
+	// Singleton mintahoz szukseges valtozo
+	private static GameController instance = null;
+
+	private GameController() {
+		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
+	}
+	public static GameController getInstace() {
+		if (instance == null){
+			instance = new GameController();
+		}
+		return instance;
+	}
+	
 	/*
 	 * Minden ellenseges egyseg observer listajahoz hozzaadja a parameterben
 	 *   atadott objektumot.
