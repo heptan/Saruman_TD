@@ -76,16 +76,16 @@ public class MapPrinter {
 		System.out.println("\nEnemies:");
 		for (Enemy e : gamecontroller.getEnemyList()) {
 			if (e.getClass() == Dwarf.class) {
-				System.out.println("(" + (int)e.getPosition().getX() + ","
+				System.out.println("\t(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Dwarf, " + e.getHealth());
 			} else if (e.getClass() == Elf.class) {
-				System.out.println("(" + (int)e.getPosition().getX() + ","
+				System.out.println("\t(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Elf, " + e.getHealth());
 			} else if (e.getClass() == Hobbit.class) {
-				System.out.println("(" + (int)e.getPosition().getX() + ","
+				System.out.println("\t(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Hobbit, " + e.getHealth());
 			} else if (e.getClass() == Human.class) {
-				System.out.println("(" + (int)e.getPosition().getX() + ","
+				System.out.println("\t(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Human, " + e.getHealth());
 			}
 		}
