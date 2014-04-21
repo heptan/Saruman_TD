@@ -22,7 +22,7 @@ public class ProtoMain {
 		
 		String actcommand = "";
 		
-		while(!actcommand.trim().equals("quit") || !actcommand.trim().equals("exit")) {
+		while(!(actcommand.trim().equals("quit") || actcommand.trim().equals("exit"))) {
 			
 			try {
 				
@@ -124,6 +124,12 @@ public class ProtoMain {
 			
 		case "n":
 			command_nextStep(input);
+			break;
+			
+		case "quit":
+			break;
+			
+		case "exit":
 			break;
 			
 		default:
