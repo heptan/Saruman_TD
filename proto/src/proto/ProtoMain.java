@@ -148,8 +148,6 @@ public class ProtoMain {
 			return;
 		}
 		
-		System.out.println(input[0] + ", file: " + input[1] + "\n");
-		
 		Map loadedmap = Loader.loadMap(input[1]);
 		if(loadedmap == null) {
 			System.out.println("\nHiba a terkepfajl beolvasasa soran!\n");

@@ -67,10 +67,10 @@ public class Tower extends EnemyObserver {
 		field = null;
 		position = null;
 	}
-		/*
-		 * Konstruktor, parametere a mezo, ami a torony van
-		 */
-		public Tower(Field place) {
+	/*
+	 * Konstruktor, parametere a mezo, ami a torony van
+	 */
+	public Tower(Field place) {
 		gemList = new ArrayList<GemStone>();
 		enemyList = new ArrayList<Enemy>();
 		damageElf = 10;

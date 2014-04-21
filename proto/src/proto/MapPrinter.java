@@ -73,66 +73,80 @@ public class MapPrinter {
 		}
 
 		// Ellenseglista kiiratasa
-		System.out.println("\nEnemies:");
 		for (Enemy e : gamecontroller.getEnemyList()) {
 			if (e.getClass() == Dwarf.class) {
-				System.out.println("\t(" + (int)e.getPosition().getX() + ","
+				System.out.println("(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Dwarf, " + e.getHealth());
 			} else if (e.getClass() == Elf.class) {
-				System.out.println("\t(" + (int)e.getPosition().getX() + ","
+				System.out.println("(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Elf, " + e.getHealth());
 			} else if (e.getClass() == Hobbit.class) {
-				System.out.println("\t(" + (int)e.getPosition().getX() + ","
+				System.out.println("(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Hobbit, " + e.getHealth());
 			} else if (e.getClass() == Human.class) {
-				System.out.println("\t(" + (int)e.getPosition().getX() + ","
+				System.out.println("(" + (int)e.getPosition().getX() + ","
 						+ (int)e.getPosition().getY() + "), Human, " + e.getHealth());
 			}
 		}
 
 		// Toronylista kiirasa
-		System.out.println("\nTowers:");
+		int towerpcs = 0;
 		for (Tile t : tilelist) {
 			if (t.getClass() == Field.class && ((Field) t).getTower() != null) {
-				Tower tw = ((Field) t).getTower();
-				System.out.println("\t(" + (int)tw.getPosition().getX() + ","
-						+ (int)tw.getPosition().getY() + "), " + tw.getRange());
-
-				if (tw.getGemStoneList().size() != 0) {
-					for (GemStone g : tw.getGemStoneList()) {
-						if (g.getClass() == AntiDwarf.class) {
-							System.out.println("\t\tAntiDwarf");
-						} else if (g.getClass() == AntiElf.class) {
-							System.out.println("\t\tAntiElf");
-						} else if (g.getClass() == AntiHobbit.class) {
-							System.out.println("\t\tAntiHobbit");
-						} else if (g.getClass() == AntiHuman.class) {
-							System.out.println("\t\tAntiHuman");
-						} else if (g.getClass() == PlusFrequency.class) {
-							System.out.println("\t\tPlusFrequency");
-						} else if (g.getClass() == PlusRange.class) {
-							System.out.println("\t\tPlusRange");
+				towerpcs++;
+			}
+		}
+		if(towerpcs > 0) {
+			System.out.println("\nTowers:");
+			for (Tile t : tilelist) {
+				if (t.getClass() == Field.class && ((Field) t).getTower() != null) {
+					Tower tw = ((Field) t).getTower();
+					System.out.println("\t(" + (int)tw.getPosition().getX() + ","
+							+ (int)tw.getPosition().getY() + "), " + tw.getRange());
+	
+					if (tw.getGemStoneList().size() != 0) {
+						for (GemStone g : tw.getGemStoneList()) {
+							if (g.getClass() == AntiDwarf.class) {
+								System.out.println("\t\tAntiDwarf");
+							} else if (g.getClass() == AntiElf.class) {
+								System.out.println("\t\tAntiElf");
+							} else if (g.getClass() == AntiHobbit.class) {
+								System.out.println("\t\tAntiHobbit");
+							} else if (g.getClass() == AntiHuman.class) {
+								System.out.println("\t\tAntiHuman");
+							} else if (g.getClass() == PlusFrequency.class) {
+								System.out.println("\t\tPlusFrequency");
+							} else if (g.getClass() == PlusRange.class) {
+								System.out.println("\t\tPlusRange");
+							}
 						}
 					}
 				}
 			}
 		}
-		
+			
 		// Akadalylista kiirasa
-		System.out.println("\nTraps:");
+		int trapspcs = 0;
 		for (Tile t : tilelist) {
 			if (t.getClass() == Road.class && ((Road) t).getTrap() != null) {
-				Trap tr = ((Road) t).getTrap();
-				System.out.println("\t(" + (int)tr.getPosition().getX() + ","
-						+ (int)tr.getPosition().getY() + "), " + tr.getEndTime());
-
-				if (tr.isGemStoned()) {
-						System.out.println("\t\tPlusTime");
-					}
+				trapspcs++;
+			}
+		}
+		if(trapspcs > 0) {
+		System.out.println("\nTraps:");
+			for (Tile t : tilelist) {
+				if (t.getClass() == Road.class && ((Road) t).getTrap() != null) {
+					Trap tr = ((Road) t).getTrap();
+					System.out.println("\t(" + (int)tr.getPosition().getX() + ","
+							+ (int)tr.getPosition().getY() + "), " + tr.getEndTime());
+	
+					if (tr.isGemStoned()) {
+							System.out.println("\t\tPlusTime");
+						}
+				}
 			}
 		}
 		
-		System.out.println("\nA jatekter aktualis allapota fent lathato!\n");
+		System.out.println("");
 	}
-
 }
