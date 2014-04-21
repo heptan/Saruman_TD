@@ -257,6 +257,8 @@ public class GameController {
 					// hoho! ide nem is kell semmi, mert az ellenseg, ha
 					// notify-olja a trap-et, akkor az lassitja, ha meg
 					// mar nincs azon az uton ahol a trap, akkor hanyagolja!
+					Trap trap = ((Road) t).getTrap();
+					trap.setEndTime(trap.getEndTime() - 1);
 				}
 			}
 		}

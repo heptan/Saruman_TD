@@ -5,7 +5,7 @@ package proto;
  */
 public class Hobbit extends Enemy {
 	
-	final int speed = 3;
+	final int speed = Constants.SPEED_HOBBIT;
 	
 	/*
 	 * Hobbit ellenseg leptetesehez, pozicionalasahoz hasznalt metodus.

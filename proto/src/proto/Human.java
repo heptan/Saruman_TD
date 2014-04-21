@@ -5,7 +5,7 @@ package proto;
  */
 public class Human extends Enemy {
 	
-	final int speed = 2;
+	final int speed = Constants.SPEED_HUMAN;
 	
 	/*
 	 * Ember ellenseg leptetesehez, pozicionalasahoz hasznalt metodus.

@@ -44,7 +44,7 @@ public class MapPrinter {
 		for(Enemy e : gamecontroller.getEnemyList()) {
 			int x = (int)e.getPosition().getX();
 			int y = (int)e.getPosition().getY();
-			if(!tilegrid[y][x].equals(" ")) {
+			if(tilegrid[y][x].equals("E")) {
 				tilegrid[y][x] = "M";
 			}
 			else {
@@ -133,7 +133,7 @@ public class MapPrinter {
 			}
 		}
 		if(trapspcs > 0) {
-		System.out.println("\nTraps:");
+		System.out.println("Traps:");
 			for (Tile t : tilelist) {
 				if (t.getClass() == Road.class && ((Road) t).getTrap() != null) {
 					Trap tr = ((Road) t).getTrap();

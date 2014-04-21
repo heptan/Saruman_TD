@@ -5,7 +5,7 @@ package proto;
  */
 public class Dwarf extends Enemy {
 	
-	final int speed = 4;
+	final int speed = Constants.SPEED_DWARF;
 	
 	/*
 	 * Torpe ellenseg leptetesehez, pozicionalasahoz hasznalt metodus.

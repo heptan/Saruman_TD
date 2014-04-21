@@ -5,7 +5,7 @@ package proto;
  */
 public class Elf extends Enemy {
 	
-	final int speed = 1;
+	final int speed = Constants.SPEED_ELF;
 	
 	/*
 	 * Tunde ellenseg leptetesehez, pozicionalasahoz hasznalt metodus.
