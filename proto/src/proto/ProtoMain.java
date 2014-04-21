@@ -351,9 +351,12 @@ public class ProtoMain {
 			}
 			
 			System.out.println(input[0] + ", stepnum: " + input[1]);
+			for(int i = 0; i < stepnum; i++) {
+				sandbox.nextStep();
+			}
 		}
 		else {
-			System.out.println(input[0]);
+			sandbox.nextStep();
 		}
 	}
 }
