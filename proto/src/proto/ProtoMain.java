@@ -150,6 +150,7 @@ public class ProtoMain {
 			return;
 		}
 		
+		loadedmap.setGameController(sandbox);
 		sandbox.setMap(loadedmap);
 		
 		MapPrinter.printMap(sandbox);
@@ -177,7 +178,7 @@ public class ProtoMain {
 	 * Uj ellenseg hozzaadasa
 	 */
 	public static void command_addEnenmy(String[] input) {
-		int posx, posy;
+		double posx, posy;
 		
 		if(input.length != 4) {
 			System.out.println("\nErvenytelen parameterezes!\n");
@@ -190,8 +191,8 @@ public class ProtoMain {
 		}
 		
 		try {
-			posx = Integer.parseInt(input[2]);
-			posy = Integer.parseInt(input[3]);
+			posx = Double.parseDouble(input[2]);
+			posy = Double.parseDouble(input[3]);
 		} catch(NumberFormatException e) {
 			System.out.println("\nA koordinata nem szam!\n");
 			return;
@@ -205,7 +206,7 @@ public class ProtoMain {
 	 * Uj torony hozzaadasa
 	 */
 	public static void command_addTower(String[] input) {
-		int posx, posy;
+		double posx, posy;
 		
 		if(input.length != 3) {
 			System.out.println("\nErvenytelen parameterezes!\n");
@@ -213,8 +214,8 @@ public class ProtoMain {
 		}
 		
 		try {
-			posx = Integer.parseInt(input[1]);
-			posy = Integer.parseInt(input[2]);
+			posx = Double.parseDouble(input[1]);
+			posy = Double.parseDouble(input[2]);
 		} catch(NumberFormatException e) {
 			System.out.println("\nA koordinata nem szam!\n");
 			return;
@@ -241,7 +242,7 @@ public class ProtoMain {
 	 * Meglevo torony torlese
 	 */
 	public static void command_removeTower(String[] input) {
-		int posx, posy;
+		double posx, posy;
 		
 		if(input.length != 3) {
 			System.out.println("\nErvenytelen parameterezes!\n");
@@ -249,8 +250,8 @@ public class ProtoMain {
 		}
 		
 		try {
-			posx = Integer.parseInt(input[1]);
-			posy = Integer.parseInt(input[2]);
+			posx = Double.parseDouble(input[1]);
+			posy = Double.parseDouble(input[2]);
 		} catch(NumberFormatException e) {
 			System.out.println("\nA koordinata nem szam!\n");
 			return;
@@ -277,7 +278,7 @@ public class ProtoMain {
 	 * Uj csapda hozzaadasa
 	 */
 	public static void command_addTrap(String[] input) {
-		int posx, posy;
+		double posx, posy;
 		
 		if(input.length != 3) {
 			System.out.println("\nErvenytelen parameterezes!\n");
@@ -285,8 +286,8 @@ public class ProtoMain {
 		}
 		
 		try {
-			posx = Integer.parseInt(input[1]);
-			posy = Integer.parseInt(input[2]);
+			posx = Double.parseDouble(input[1]);
+			posy = Double.parseDouble(input[2]);
 		} catch(NumberFormatException e) {
 			System.out.println("\nA koordinata nem szam!\n");
 			return;
@@ -313,7 +314,7 @@ public class ProtoMain {
 	 * Uj varazsko hozzaadasa
 	 */
 	public static void command_addGemStone(String[] input) {
-		int posx, posy;
+		double posx, posy;
 		
 		if(input.length != 4) {
 			System.out.println("\nErvenytelen parameterezes!\n");
@@ -328,8 +329,8 @@ public class ProtoMain {
 		}
 		
 		try {
-			posx = Integer.parseInt(input[2]);
-			posy = Integer.parseInt(input[3]);
+			posx = Double.parseDouble(input[2]);
+			posy = Double.parseDouble(input[3]);
 		} catch(NumberFormatException e) {
 			System.out.println("\nA koordinata nem szam!\n");
 			return;
