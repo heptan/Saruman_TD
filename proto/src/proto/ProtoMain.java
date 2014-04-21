@@ -409,10 +409,10 @@ public class ProtoMain {
 		
 		sandbox.setRandomized(israndomize);
 		if(israndomize) {
-			System.out.println("Veletlenszeru viselkedes bekapcsolva!");
+			System.out.println("\nVeletlenszeru viselkedes bekapcsolva!\n");
 		}
 		else {
-			System.out.println("Veletlenszeru viselkedes kikapcsolva!");
+			System.out.println("\nVeletlenszeru viselkedes kikapcsolva!\n");
 		}
 	}
 	
