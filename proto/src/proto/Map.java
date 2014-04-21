@@ -93,7 +93,7 @@ public class Map {
 		else {
 			if (tilelist.get(match) instanceof Road){
 				if (((Road) tilelist.get(match)).getTrap() != null){
-					((Road) tilelist.get(match)).getTrap().addPlusTime("");
+					((Road) tilelist.get(match)).getTrap().addPlusTime();
 				}
 			}
 			else{
