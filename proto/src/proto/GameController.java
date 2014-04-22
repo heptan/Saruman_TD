@@ -177,22 +177,22 @@ public class GameController {
 
 	void splitDwarf(Dwarf d) {
 		enemies.add(new Dwarf());
-		splitCommonSetup(enemies.get(enemies.size() - 1));
+		splitCommonSetup(d);
 	}
 
 	void splitElf(Elf e) {
 		enemies.add(new Elf());
-		splitCommonSetup(enemies.get(enemies.size() - 1));
+		splitCommonSetup(e);
 	}
 
 	void splitHobbit(Hobbit h) {
 		enemies.add(new Hobbit());
-		splitCommonSetup(enemies.get(enemies.size() - 1));
+		splitCommonSetup(h);
 	}
 
 	void splitHuman(Human h) {
 		enemies.add(new Human());
-		splitCommonSetup(enemies.get(enemies.size() - 1));
+		splitCommonSetup(h);
 	}
 
 	void splitCommonSetup(Enemy e) {
@@ -201,6 +201,7 @@ public class GameController {
 		enemies.get(enemies.size() - 1).setPosition(e.getPosition());
 		enemies.get(enemies.size() - 1).setSpeed(e.getSpeed());
 		enemies.get(enemies.size() - 1).setTimeout(e.getTimeout());
+		enemies.get(enemies.size() - 1).setGameController(e.getGameController());
 		for (Tile t : map.getTileList()) {
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null)

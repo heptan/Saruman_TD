@@ -92,14 +92,36 @@ public class Tower extends EnemyObserver {
 												// kell loni
 			for (Enemy enemy : enemyList) { // minden ellensegre le kell adni
 											// egy lovest
-
-				Random randomGenerator = new Random();
-				int randomInt = randomGenerator.nextInt(10); // veletlen szam 0
-																// es 9 kozott
-				boolean split = randomInt == 1 ? true : false; // ha a kapott
-																// veletlen szam
-																// 1, split a
-																// loves
+				
+				boolean split = false;
+				if(field.getMap().getGameController().isRandomized()) {
+					Random randomGenerator = new Random();
+					int randomInt = randomGenerator.nextInt(10); // veletlen szam 0
+																	// es 9 kozott
+					split = randomInt == 1 ? true : false; // ha a kapott
+																	// veletlen szam
+																	// 1, split a
+																	// loves
+				}
+				else {
+					System.out.println("\nVagjuk kette az ellenseget? {i|n}\n");
+					
+					BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+					try {
+						String inputtext = br.readLine();
+						if(inputtext.trim().equals("i")) {
+							split = true;
+						}
+						else if(inputtext.trim().equals("n")) {
+							split = false;
+						}
+						else {
+							System.out.println("Nem ervenyes bemenet, az ellenseg nem lesz kettevagva!");
+						}
+					} catch(Exception e) {
+						System.out.println("Hiba a bemenet beolvasasakor, az ellenseg nem lesz kettevagva!");
+					}
+				}
 
 				// ez mi a szosz??????? --> enemy.hit(split, this); //az enemy-t
 				// talalat eri ettol a toronytol

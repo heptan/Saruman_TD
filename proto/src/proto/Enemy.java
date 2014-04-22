@@ -113,6 +113,13 @@ public abstract class Enemy {
 	}
 	
 	/*
+	 * Az ellensegnel feliratkozott observereket tartalmazo lista lekerdezesehez hasznalt metodus.
+	 */
+	public List<EnemyObserver> getObservers() {
+		return this.observers;
+	}
+	
+	/*
 	 * Uj observer regisztralasahoz hasznalt metodus
 	 */
 	public void addObserver(EnemyObserver observer) {
