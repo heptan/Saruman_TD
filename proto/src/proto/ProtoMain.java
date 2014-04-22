@@ -17,7 +17,7 @@ public class ProtoMain {
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		System.out.println("'Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
+		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
 		System.out.println("Adja meg a kivant parancsot es nyomja meg az 'Enter' billentyut!\n");
 		
 		String actcommand = "";
