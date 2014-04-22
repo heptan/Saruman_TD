@@ -310,9 +310,15 @@ public class GameController {
 			enemies.get(i).nextStep();
 		}
 		for (Tile t : map.getTileList()) {
+			if(t == null) {
+				return;
+			}
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null) {
 					((Field) t).getTower().shoot();
+					if(map.getTileList() == null || map.getTileList().size() == 0) {
+						break;
+					}
 				}
 			} else {
 				if (((Road) t).getTrap() != null) {

@@ -72,6 +72,8 @@ public abstract class Enemy {
 			}
 			
 			gamecontroller.removeEnemy(this);
+			
+			gamecontroller.win();
 		}
 	}
 	

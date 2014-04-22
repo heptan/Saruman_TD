@@ -73,7 +73,7 @@ public class Trap extends EnemyObserver {
 		if (!enemyList.contains(enemy)) {
 			enemyList.add(enemy);
 			int timeout = enemy.getTimeout();
-			enemy.setTimeout(timeout + 2);
+			enemy.setTimeout(timeout + 1);
 		}
 	}
 
