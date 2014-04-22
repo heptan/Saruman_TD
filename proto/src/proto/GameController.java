@@ -1,11 +1,14 @@
 package proto;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /*
  * Author: VAM
- * Az ellensegek l�trehoz�sa, nyilvantartasa, ha kell, akkor kettobe 
+ * Az ellensegek letrehozasa, nyilvantartasa, ha kell, akkor kettobe 
  * vagasa, az EnemyObserverek regisztralasanak kezelese, a palya 
  * letrehozasa, inicializalasa, illetve a jatekvege feltetelek figyelese. 
  */
@@ -175,26 +178,41 @@ public class GameController {
 		++enemyCounter;
 	}
 
+	/*
+	 * Dwarf szetvagasa
+	 */
 	void splitDwarf(Dwarf d) {
 		enemies.add(new Dwarf());
 		splitCommonSetup(d);
 	}
 
+	/*
+	 * Elf szetvagasa
+	 */
 	void splitElf(Elf e) {
 		enemies.add(new Elf());
 		splitCommonSetup(e);
 	}
 
+	/*
+	 * Hobbit szetvagasa
+	 */
 	void splitHobbit(Hobbit h) {
 		enemies.add(new Hobbit());
 		splitCommonSetup(h);
 	}
 
+	/*
+	 * Human szetvagasa
+	 */
 	void splitHuman(Human h) {
 		enemies.add(new Human());
 		splitCommonSetup(h);
 	}
 
+	/*
+	 * Enemy szetvagasanak klonozasa
+	 */
 	void splitCommonSetup(Enemy e) {
 		enemies.get(enemies.size() - 1).setActRoad(e.getActRoad());
 		enemies.get(enemies.size() - 1).setHealth(e.getHealth());
@@ -217,6 +235,9 @@ public class GameController {
 		++enemyCounter;
 	}
 
+	/*
+	 * Ellenseg eltavolitasa az ellenseglistabol
+	 */
 	public void removeEnemy(Enemy enemy) {
 		enemies.remove(enemy);
 	}
@@ -241,6 +262,46 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
+		boolean mist = false;
+		if(isRandomized()) {
+			Random randomGenerator = new Random();
+			//Veletlenszam 0 és 9 kozott
+			int randomInt = randomGenerator.nextInt(10); 
+			// ha a kapott veletlen szam 1, lesz kod
+			mist = randomInt == 1 ? true : false; 
+		}
+		else {
+			System.out.println("\nLegyen kod? {i|n}\n");
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				String inputtext = br.readLine();
+				if(inputtext.trim().equals("i")) {
+					mist = true;
+				}
+				else if(inputtext.trim().equals("n")) {
+					mist = false;
+				}
+				else {
+					System.out.println("Nem ervenyes bemenet, nem lesz kod!");
+				}
+			} catch(Exception e) {
+				System.out.println("Hiba a bemenet beolvasasakor, nem lesz kod!");
+			}
+		}
+		
+		//Ha kod van, akkor csokkentjuk a tornyok hatosugarat
+		for (Tile t : map.getTileList()) {
+			if (t instanceof Field) {
+				if (((Field) t).getTower() != null) {
+					if( (mist && !map.isMisty()) || (!mist && map.isMisty()) ) {
+						((Field) t).setRange(mist);
+					}
+				}
+			}
+		}
+		map.setMist(mist);
+		
 		if (enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
 			win();
 			return;

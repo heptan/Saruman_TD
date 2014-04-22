@@ -107,7 +107,11 @@ public class Road extends Tile {
 					
 			}
 			
-			return nextroad.get(0);
+			if(nextroad.size() > 0) {
+				return nextroad.get(0);
+			}
+			
+			return null;
 		}
 		
 	}

@@ -213,7 +213,7 @@ public class Map {
 	 * Kod aktualis allapotanak lekerdezesehez hasznalt metodus
 	 */
 	boolean isMisty(){
-		return mist == true ? true : false;
+		return mist;
 	}
 	
 	/*
