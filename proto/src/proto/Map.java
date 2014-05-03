@@ -317,4 +317,38 @@ public class Map {
 	public void draw(Graphics g) {
 		mapDrawer.draw(this, g);
 	}
+	
+	/**
+	 * Toronylista lekerdezese a terkeptol
+	 * @return Az aktualis toronylista
+	 */
+	public List<Tower> getTowerList() {
+		List<Tower> towers = new ArrayList<Tower>();
+ 		for (Tile tile : tilelist) {
+			int x = (int) tile.getPosition().getX();
+			int y = (int) tile.getPosition().getY();
+			if (tile.getClass() == Field.class && ((Field)tile).getTower() != null) {
+				towers.add(((Field)tile).getTower());
+			}
+		}
+ 		
+ 		return towers;
+	}
+	
+	/**
+	 * Akadalylista lekerdezese a terkeptol
+	 * @return Az aktualis akadalylista
+	 */
+	public List<Trap> getTrapList() {
+		List<Trap> traps = new ArrayList<Trap>();
+ 		for (Tile tile : tilelist) {
+			int x = (int) tile.getPosition().getX();
+			int y = (int) tile.getPosition().getY();
+			if (tile.getClass() == Road.class && ((Road)tile).getTrap() != null) {
+				traps.add(((Road)tile).getTrap());
+			}
+		}
+ 		
+ 		return traps;
+	}
 }

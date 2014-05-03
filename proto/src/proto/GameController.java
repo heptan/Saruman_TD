@@ -142,6 +142,10 @@ public class GameController {
 		// Az enemies listahoz hozzaadunk egy uj ellenseget,
 		// az inicializalasa az Enemy osztalyban tortenik meg, viszont
 		// be kell allitani az observer listajat.
+		if (map.getTile(posx, posy).getClass() != Road.class) {
+			System.out.println("Ellenseget csak utra lehet rakni!");
+			return;
+		}
 		switch (type) {
 		case "dwarf":
 			enemies.add(new Dwarf());
@@ -219,7 +223,8 @@ public class GameController {
 		enemies.get(enemies.size() - 1).setPosition(e.getPosition());
 		enemies.get(enemies.size() - 1).setSpeed(e.getSpeed());
 		enemies.get(enemies.size() - 1).setTimeout(e.getTimeout());
-		enemies.get(enemies.size() - 1).setGameController(e.getGameController());
+		enemies.get(enemies.size() - 1)
+				.setGameController(e.getGameController());
 		for (Tile t : map.getTileList()) {
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null)
@@ -263,45 +268,44 @@ public class GameController {
 	 */
 	void nextStep() {
 		boolean mist = false;
-		if(isRandomized()) {
+		if (isRandomized()) {
 			Random randomGenerator = new Random();
-			//Veletlenszam 0 és 9 kozott
-			int randomInt = randomGenerator.nextInt(10); 
+			// Veletlenszam 0 és 9 kozott
+			int randomInt = randomGenerator.nextInt(10);
 			// ha a kapott veletlen szam 1, lesz kod
-			mist = randomInt == 1 ? true : false; 
-		}
-		else {
+			mist = randomInt == 1 ? true : false;
+		} else {
 			System.out.println("\nLegyen kod? {i|n}\n");
-			
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					System.in));
 			try {
 				String inputtext = br.readLine();
-				if(inputtext.trim().equals("i")) {
+				if (inputtext.trim().equals("i")) {
 					mist = true;
-				}
-				else if(inputtext.trim().equals("n")) {
+				} else if (inputtext.trim().equals("n")) {
 					mist = false;
-				}
-				else {
+				} else {
 					System.out.println("Nem ervenyes bemenet, nem lesz kod!");
 				}
-			} catch(Exception e) {
-				System.out.println("Hiba a bemenet beolvasasakor, nem lesz kod!");
+			} catch (Exception e) {
+				System.out
+						.println("Hiba a bemenet beolvasasakor, nem lesz kod!");
 			}
 		}
-		
-		//Ha kod van, akkor csokkentjuk a tornyok hatosugarat
+
+		// Ha kod van, akkor csokkentjuk a tornyok hatosugarat
 		for (Tile t : map.getTileList()) {
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null) {
-					if( (mist && !map.isMisty()) || (!mist && map.isMisty()) ) {
+					if ((mist && !map.isMisty()) || (!mist && map.isMisty())) {
 						((Field) t).setRange(mist);
 					}
 				}
 			}
 		}
 		map.setMist(mist);
-		
+
 		if (enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
 			win();
 			return;
@@ -310,13 +314,14 @@ public class GameController {
 			enemies.get(i).nextStep();
 		}
 		for (Tile t : map.getTileList()) {
-			if(t == null) {
+			if (t == null) {
 				return;
 			}
 			if (t instanceof Field) {
 				if (((Field) t).getTower() != null) {
 					((Field) t).getTower().shoot();
-					if(map.getTileList() == null || map.getTileList().size() == 0) {
+					if (map.getTileList() == null
+							|| map.getTileList().size() == 0) {
 						break;
 					}
 				}
@@ -347,5 +352,15 @@ public class GameController {
 	 */
 	public void setRandomized(boolean israndomized) {
 		this.israndomized = israndomized;
+	}
+
+	/*
+	 * Terkep meretenek lekerdezese
+	 */
+	public Position getMapSize() {
+		if (map != null) {
+			return map.getSize();
+		}
+		return null;
 	}
 }

@@ -13,12 +13,13 @@ import java.io.InputStreamReader;
 public class ProtoMain {
 	
 	static GameController sandbox = GameController.getInstace();
+	static GuiManager maingui;
 	
 	public static void main(String[] args) {
 		
-		runCommand("loadMap map_l.test",false);
+		runCommand("loadMap map_m.test",false);
 		
-		GuiManager maingui = new GuiManager(sandbox);
+		maingui = new GuiManager(sandbox);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
@@ -31,6 +32,7 @@ public class ProtoMain {
 				
 				actcommand = br.readLine();
 				runCommand(actcommand,false);
+				maingui.refreshLists();
 				
 			} catch(Exception e) {
 				System.out.println("\nHiba a beolvasas folyaman, probalja ujra!\n");
