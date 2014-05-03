@@ -13,13 +13,14 @@ import java.io.InputStreamReader;
 public class ProtoMain {
 	
 	static GameController sandbox = GameController.getInstace();
+	static GameTimer timer = new GameTimer(sandbox);
 	static GuiManager maingui;
 	
 	public static void main(String[] args) {
 		
 		runCommand("loadMap " + Constants.MAP_FILE_SRC,false);
 		
-		maingui = new GuiManager(sandbox);
+		maingui = new GuiManager(sandbox, timer);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");

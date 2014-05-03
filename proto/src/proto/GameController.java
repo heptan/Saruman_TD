@@ -267,10 +267,20 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
+		// Ellensegek automatikus letrehozasa
+		if (enemies.size() < 2) {
+			for (int i = 0;i < (enemyCounter/2 + 1) && 
+						   enemyCounter	< Constants.ENEMY_COUNTER_MAX + 1; ++i){
+				Random rndGen = new Random();
+				int rndType = rndGen.nextInt(4);
+				String type[] = {"dwarf", "elf", "hobbit", "human"};
+				this.startNewEnemy(0, 0, type[rndType]);
+			}
+		}
 		boolean mist = false;
 		if (isRandomized()) {
 			Random randomGenerator = new Random();
-			// Veletlenszam 0 és 9 kozott
+			// Veletlenszam 0 es 9 kozott
 			int randomInt = randomGenerator.nextInt(10);
 			// ha a kapott veletlen szam 1, lesz kod
 			mist = randomInt == 1 ? true : false;

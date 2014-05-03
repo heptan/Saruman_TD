@@ -74,7 +74,7 @@ public class GuiManager extends JFrame {
 	private JButton actionbutton = new JButton("Go!");
 
 	// Jateksebesseg modositasahoz hasznalt gombok
-	private JButton playbutton = new JButton("Play");
+	private JButton playbutton = new JButton("Uzsgyi!");
 	private JButton pausebutton = new JButton("Pause");
 	private JButton ffwdbutton = new JButton("FFwd");
 
@@ -103,6 +103,8 @@ public class GuiManager extends JFrame {
 
 	// GameController-re mutato referencia
 	private GameController gamecontroller;
+	// GameTimer-re mutato referencia
+	private GameTimer gametimer;
 
 	// Terkep merete
 	int mapsizex = 0, mapsizey = 0;
@@ -114,12 +116,14 @@ public class GuiManager extends JFrame {
 	 * @param gamecontroller
 	 *            A jatekteret tartalmazo GameController
 	 */
-	public GuiManager(GameController gamecontroller) {
+	public GuiManager(GameController gamecontroller, GameTimer gametimer) {
 
 		super("SUPER TD");
 
 		this.gamecontroller = gamecontroller;
 
+		this.gametimer = gametimer;
+		
 		initGui();
 
 		setActionListeners();
@@ -380,7 +384,8 @@ public class GuiManager extends JFrame {
 	 * Play gombra kattintas
 	 */
 	private void clickedPlayButton() {
-		JOptionPane.showMessageDialog(frame, "Na majd ez lesz egyszer a play!");
+		//JOptionPane.showMessageDialog(frame, "Na majd ez lesz egyszer a play!");
+		this.gametimer.setNormalSpeed();
 	}
 
 	/**
