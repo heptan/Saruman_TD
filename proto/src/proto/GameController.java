@@ -267,6 +267,9 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
+		if(gameover == true) {
+			return;
+		}
 		// Ellensegek automatikus letrehozasa
 		if (enemies.size() < 2) {
 			for (int i = 0;i < (enemyCounter/2 + 1) && 

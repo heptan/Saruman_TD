@@ -274,6 +274,9 @@ public class GuiManager {
 				enemylistmodel.addElement(newelement);
 			}
 			enemylist.validate();
+		} else {
+			enemylistmodel.removeAllElements();
+			enemylist.validate();
 		}
 		
 		List<Tower> towers = gamecontroller.getMap().getTowerList();
@@ -285,6 +288,9 @@ public class GuiManager {
 				towerlistmodel.addElement(newelement);
 			}
 			towerlist.validate();
+		} else {
+			towerlistmodel.removeAllElements();
+			towerlist.validate();
 		}
 		
 		List<Trap> traps = gamecontroller.getMap().getTrapList();
@@ -295,6 +301,9 @@ public class GuiManager {
 				String newelement = "(" + (int)t.getPosition().getX() + "," + (int)t.getPosition().getY() + ")|" + (int)t.getEndTime();
 				traplistmodel.addElement(newelement);
 			}
+			traplist.validate();
+		} else {
+			traplistmodel.removeAllElements();
 			traplist.validate();
 		}
 	}
