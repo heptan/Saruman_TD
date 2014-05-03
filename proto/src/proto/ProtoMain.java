@@ -15,11 +15,12 @@ public class ProtoMain {
 	static GameController sandbox = GameController.getInstace();
 	
 	public static void main(String[] args) {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		GuiManager maingui = new GuiManager();
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
 		System.out.println("Adja meg a kivant parancsot es nyomja meg az 'Enter' billentyut!\n");
-		
 		String actcommand = "";
 		
 		while(!(actcommand.trim().equals("quit") || actcommand.trim().equals("exit"))) {
