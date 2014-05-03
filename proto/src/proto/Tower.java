@@ -326,7 +326,7 @@ public class Tower extends EnemyObserver {
 	 */
 	public void addPlusRange() {
 		if (gemList.size() < 4) {
-			GemStone anti = new PlusFrequency();
+			GemStone anti = new PlusRange();
 			gemList.add(anti);
 			anti.setEffect(this);
 		}

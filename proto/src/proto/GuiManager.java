@@ -2,7 +2,6 @@ package proto;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -22,10 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
-import javax.swing.SpringLayout;
 
 /**
  * Ez az osztaly felelos a felhasznaloi feluleten levo vezerlok es egyeb
@@ -63,10 +60,15 @@ public class GuiManager extends JFrame {
 	// Hozzaadni, eltavolitani kivant terkepelem tipusanak kivalasztasahoz
 	// hasznalt legurdolista
 	private JComboBox<String> typebox;
+	
+	//Varazsko kivalasztasahoz hasznalt legordulo cimke es lista
+	private JLabel gemstoneboxlabel = new JLabel("Varazsko tipusa:");
+	private JComboBox<String> gemstonebox;
 
 	// Legordulo listak tartalma
-	String[] functionBoxContent = { "Add", "Remove" };
-	String[] typeBoxContent = { "Tower", "Trap", "GemStone" };
+	String[] functionboxcontent = { "Add", "Remove" };
+	String[] typeboxcontent = { "Tower", "Trap", "GemStone" };
+	String[] gemstoneboxcontent = { "Dwarf elleni", "Elf elleni", "Hobbit elleni", "Human elleni","Tuzelesi gyakorisag+","Hatotav+"};
 
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt gomb
 	private JButton actionbutton = new JButton("Go!");
@@ -92,6 +94,10 @@ public class GuiManager extends JFrame {
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt komponenseket
 	// tartalmazo panel.
 	private JPanel functionpanel = new JPanel();
+	//Varazsko kivalasztasahoz hasznalt listat tarolo panel
+	private JPanel gemstonepanel = new JPanel();
+	//Vezerloket osszefogo panel
+	private JPanel functionmainpanel = new JPanel();
 	// Terkep panelje
 	private MapPanel mappanel = new MapPanel(this);
 
@@ -139,7 +145,7 @@ public class GuiManager extends JFrame {
 		controlpanel.setLayout(new BorderLayout());
 		controlpanel.add(speedpanel, BorderLayout.NORTH);
 		controlpanel.add(listpanel, BorderLayout.CENTER);
-		controlpanel.add(functionpanel, BorderLayout.SOUTH);
+		controlpanel.add(functionmainpanel, BorderLayout.SOUTH);
 		speedpanel.add(pausebutton, BoxLayout.X_AXIS);
 		speedpanel.add(ffwdbutton, BoxLayout.X_AXIS);
 		speedpanel.add(playbutton, BoxLayout.X_AXIS);
@@ -149,8 +155,9 @@ public class GuiManager extends JFrame {
 		enemylist.setEnabled(false);
 		towerlist.setEnabled(false);
 		traplist.setEnabled(false);
-		functionbox = new JComboBox<String>(functionBoxContent);
-		typebox = new JComboBox<String>(typeBoxContent);
+		functionbox = new JComboBox<String>(functionboxcontent);
+		typebox = new JComboBox<String>(typeboxcontent);
+		gemstonebox = new JComboBox<String>(gemstoneboxcontent);
 
 		listpanel.setLayout(new BorderLayout());
 		listpanel.add(listlabelpanel, BorderLayout.NORTH);
@@ -163,18 +170,26 @@ public class GuiManager extends JFrame {
 		listmainpanel.add(towerlist);
 		listmainpanel.add(traplist);
 		listmainpanel.add(enemylist);
+		gemstonepanel.add(gemstoneboxlabel);
+		gemstonebox.setEnabled(false);
+		gemstonepanel.add(gemstonebox);
 		functionpanel.add(functionbox);
 		functionpanel.add(typebox);
 		functionpanel.add(xcoordfield);
 		functionpanel.add(ycoordfield);
 		functionpanel.add(actionbutton);
+		functionmainpanel.setLayout(new BorderLayout());
+		functionmainpanel.add(functionpanel,BorderLayout.NORTH);
+		functionmainpanel.add(gemstonepanel, BorderLayout.SOUTH);
+		
 		controlpanel.setPreferredSize(new Dimension(Constants.GUI_CONTROLLER_W,
 				mapsizey));
 		frame.getContentPane().add(mainpanel);
+		frame.setResizable(false);
 		frame.getContentPane().setPreferredSize(
 				new Dimension(Constants.GUI_CONTROLLER_W + mapsizex, mapsizey));
 		frame.pack();
-
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
 		// ESC gombra kilep
@@ -195,6 +210,13 @@ public class GuiManager extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				changedSelectedFunction();
+			}
+		});
+		
+		typebox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				changedSelectedType();
 			}
 		});
 
@@ -301,6 +323,18 @@ public class GuiManager extends JFrame {
 			typebox.setEnabled(false);
 		}
 	}
+	
+	/**
+	 * Megvaltozott a kivalasztott tipus
+	 */
+	private void changedSelectedType() {
+		if (typebox.getSelectedIndex() == 2) {
+			gemstonebox.setEnabled(true);
+		} else {
+			gemstonebox.setEnabled(false);
+		}
+	}
+
 
 	/**
 	 * Go! gombra kattintas
@@ -323,11 +357,11 @@ public class GuiManager extends JFrame {
 			}
 			//Akadaly
 			else if(typeindex == 1) {
-				
+				addTrap(posx, posy);
 			}
 			//Varazsko
 			else if(typeindex == 2) {
-				
+				addGemStone(gemstonebox.getSelectedIndex(),posx,posy);
 			}
 			else {
 				JOptionPane.showMessageDialog(frame, "Itt van valami bibi, a kivalasztott type index ervenytelen!");
@@ -443,6 +477,79 @@ public class GuiManager extends JFrame {
 		}
 		
 		field.resetTower();
+		
+		refreshLists();
+	}
+	
+	/**
+	 * Uj csapda hozzaadasa
+	 */
+	public void addTrap(double posx, double posy) {
+		
+		Map map = gamecontroller.getMap();
+		
+		Tile tile = (map.getTile(posx,posy));
+		if(tile.getClass() == Field.class) {
+			JOptionPane.showMessageDialog(frame,"Mezon nem helyeztheto el akadaly!");
+			return;
+		}
+		
+		Road road = (Road)map.getTile(posx, posy);
+		if(road.getTrap() != null) {
+			JOptionPane.showMessageDialog(frame,"Az uton mar van akadaly!");
+			return;
+		}
+		
+		road.setTrap();
+		
+		refreshLists();
+	}
+	
+	/**
+	 * Uj varazsko hozzaadasa
+	 */
+	public void addGemStone(int type, double posx, double posy) {
+		
+		Map map = gamecontroller.getMap();
+		
+		Tile tile = (map.getTile(posx,posy));
+		if(tile.getClass() == Field.class) {
+			Field field = (Field)tile;
+			if(field.getTower() == null) {
+				JOptionPane.showMessageDialog(frame,"A mezon nincs torony, nem lehet mit varazskovezni!");
+				return;
+			}
+			
+			switch(type) {
+			case 0:
+				field.addAntiDwarf();
+				break;
+			case 1:
+				field.addAntiElf();
+				break;
+			case 2:
+				field.addAntiHobbit();
+				break;
+			case 3:
+				field.addAntiHuman();
+				break;
+			case 4:
+				field.addPlusFrequency();
+				break;
+			case 5:
+				field.addPlusRange();
+				break;
+			}
+		}
+		else {
+			Road road = (Road)tile;
+			if(road.getTrap() == null) {
+				JOptionPane.showMessageDialog(frame,"Az uton nincs akadaly, nem lehet mit varazskovezni!");
+				return;
+			}
+			
+			road.addPlusTime();
+		}
 		
 		refreshLists();
 	}
