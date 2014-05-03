@@ -21,6 +21,7 @@ public class ProtoMain {
 		runCommand("loadMap " + Constants.MAP_FILE_SRC,false);
 		
 		timer = new GameTimer(sandbox);
+		sandbox.setGameTimer(timer);
 		maingui = new GuiManager(sandbox, timer);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

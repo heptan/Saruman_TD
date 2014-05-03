@@ -399,14 +399,16 @@ public class GuiManager {
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		JOptionPane.showMessageDialog(frame, "Nem erunk ra szunetet tartani!");
+		//JOptionPane.showMessageDialog(frame, "Nem erunk ra szunetet tartani!");
+		this.gametimer.pause();
 	}
 
 	/**
 	 * FFDW gombra kattintas
 	 */
 	private void clickedFfwdButton() {
-		JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
+		//JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
+		this.gametimer.setFastForward();
 	}
 	
 	/**

@@ -47,6 +47,6 @@ public class GameTimer {
 			public void run() {
 				tickEvent();
 			}
-		}, Long.MAX_VALUE);
+		}, 50000000);
 	}
 }

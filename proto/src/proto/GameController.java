@@ -29,6 +29,11 @@ public class GameController {
 	// kapcsolva a veletlenszeru viselkedes
 	private boolean israndomized = true;
 
+	private GameTimer gametimer;
+	public void setGameTimer(GameTimer gt) {
+		this.gametimer = gt;
+	}
+	
 	public GameController() {
 		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
 	}
@@ -64,6 +69,7 @@ public class GameController {
 	 * az akadalyokat, tornyokat, a palyat es a rajta talallhato mezoket.
 	 */
 	public void gameOver() {
+		this.gametimer.pause();
 		// ConsoleUI.writeSeq("-->GameController.gameOver(): void");
 		// ConsoleUI.writeSeq("<--void");
 		System.out.println("A jatek elveszitve!");
@@ -97,6 +103,7 @@ public class GameController {
 	}
 
 	public void win() {
+		this.gametimer.pause();
 		if (enemyCounter >= Constants.ENEMY_COUNTER_MAX && enemies.isEmpty()) {
 			// majd a palyan levo ellensegeket is
 			enemies.clear();
