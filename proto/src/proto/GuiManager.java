@@ -31,7 +31,7 @@ import javax.swing.KeyStroke;
  * @author Atilla Ivanics, Alex Torok
  * @since 2014-05-02
  */
-public class GuiManager extends JFrame {
+public class GuiManager {
 
 	// Az alap frame
 	private JFrame frame;
@@ -74,7 +74,7 @@ public class GuiManager extends JFrame {
 	private JButton actionbutton = new JButton("Go!");
 
 	// Jateksebesseg modositasahoz hasznalt gombok
-	private JButton playbutton = new JButton("Uzsgyi!");
+	private JButton playbutton = new JButton("Play");
 	private JButton pausebutton = new JButton("Pause");
 	private JButton ffwdbutton = new JButton("FFwd");
 
@@ -118,8 +118,6 @@ public class GuiManager extends JFrame {
 	 */
 	public GuiManager(GameController gamecontroller, GameTimer gametimer) {
 
-		super("SUPER TD");
-
 		this.gamecontroller = gamecontroller;
 
 		this.gametimer = gametimer;
@@ -139,7 +137,7 @@ public class GuiManager extends JFrame {
 		mapsizey = ((int) gamecontroller.getMap().getSize().getY() + 1)
 				* Constants.GUI_TILE_SIZE;
 
-		final JFrame frame = new JFrame("FrameDemo");
+		final JFrame frame = new JFrame("Super TD");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainpanel.setLayout(new BorderLayout());
 		mainpanel.add(mappanel, BorderLayout.CENTER);

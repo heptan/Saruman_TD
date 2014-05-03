@@ -13,13 +13,14 @@ import java.io.InputStreamReader;
 public class ProtoMain {
 	
 	static GameController sandbox = GameController.getInstace();
-	static GameTimer timer = new GameTimer(sandbox);
+	static GameTimer timer;
 	static GuiManager maingui;
 	
 	public static void main(String[] args) {
 		
 		runCommand("loadMap " + Constants.MAP_FILE_SRC,false);
 		
+		timer = new GameTimer(sandbox);
 		maingui = new GuiManager(sandbox, timer);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
