@@ -20,4 +20,6 @@ public class Constants {
 	public static final int SPEED_ELF = 0;
 	public static final int SPEED_HOBBIT = 3;
 	public static final int SPEED_HUMAN = 2;
+	
+	public static final int GUI_CONTROLLER_W = 200;
 }

@@ -16,7 +16,9 @@ public class ProtoMain {
 	
 	public static void main(String[] args) {
 		
-		GuiManager maingui = new GuiManager();
+		runCommand("loadMap map_l.test",false);
+		
+		GuiManager maingui = new GuiManager(sandbox);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
