@@ -23,6 +23,7 @@ public class ProtoMain {
 		timer = new GameTimer(sandbox);
 		sandbox.setGameTimer(timer);
 		maingui = new GuiManager(sandbox, timer);
+		timer.setGUIManager(maingui);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");

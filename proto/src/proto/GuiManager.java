@@ -323,6 +323,14 @@ public class GuiManager {
 	public void redrawMap(Graphics g) {
 		gamecontroller.getMap().draw(g);
 	}
+	
+	/**
+	 * Ezt a metodust azon osztalyok hivhatjak, akik nem ismerik a Graphics
+	 *   osztalyt, vagy amivel a redrawMap meghivhato.
+	 */
+	public void redrawMapAuto() {
+		
+	}
 
 	/**
 	 * Megvaltozott a kivalasztott funkcio

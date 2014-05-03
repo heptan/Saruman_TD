@@ -7,7 +7,11 @@ import java.lang.Long;
 public class GameTimer {
 	private GameController gamecontroller;
 	private Timer timer;
+	private GuiManager guiManager;
 	
+	public void setGUIManager(GuiManager gm) {
+		this.guiManager = gm;
+	}
 	public GameTimer(GameController gc) {
 		this.gamecontroller = gc;
 		timer = new Timer(true);
@@ -15,6 +19,8 @@ public class GameTimer {
 	
 	private void tickEvent() {
 		this.gamecontroller.nextStep();
+		this.guiManager.refreshLists();
+		// TODO palya ujrarajzolasa!
 	}
 	
 	public void setFastForward() {
@@ -23,7 +29,7 @@ public class GameTimer {
 			public void run() {
 				tickEvent();
 			}
-		}, Constants.TIMER_INTERVAL/2);
+		}, 0, Constants.TIMER_INTERVAL/2);
 	}
 	
 	public void setNormalSpeed() {
@@ -32,7 +38,7 @@ public class GameTimer {
 			public void run() {
 				tickEvent();
 			}
-		}, Constants.TIMER_INTERVAL);
+		}, 0,  Constants.TIMER_INTERVAL);
 	}
 	
 	/*
@@ -47,6 +53,6 @@ public class GameTimer {
 			public void run() {
 				tickEvent();
 			}
-		}, 50000000);
+		}, 50000000, 1);
 	}
 }
