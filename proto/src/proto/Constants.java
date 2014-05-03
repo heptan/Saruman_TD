@@ -21,5 +21,6 @@ public class Constants {
 	public static final int SPEED_HOBBIT = 3;
 	public static final int SPEED_HUMAN = 2;
 	
-	public static final int GUI_CONTROLLER_W = 200;
+	public static final int GUI_CONTROLLER_W = 300;
+	public static final int GUI_TILE_SIZE = 100;
 }

@@ -1,5 +1,6 @@
 package proto;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class Map {
 	private List<Tile> tilelist = new ArrayList<Tile>();
 	private GameController gamecontroller;
 	private boolean mist;
+	private DrawMap mapDrawer = new DrawMap();
 	
 	
 	/*
@@ -305,5 +307,14 @@ public class Map {
 	 */
 	public GameController getGameController() {
 		return gamecontroller;
+	}
+	
+	/**
+	 * Ezen keresztul erjuk el a terkeprajzolo objektumot
+	 *
+	 * @param g Ahova mindezt ki kene rajzolni
+	 */
+	public void draw(Graphics g) {
+		mapDrawer.draw(this, g);
 	}
 }
