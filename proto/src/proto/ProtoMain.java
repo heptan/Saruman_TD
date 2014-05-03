@@ -17,7 +17,7 @@ public class ProtoMain {
 	
 	public static void main(String[] args) {
 		
-		runCommand("loadMap map_m.test",false);
+		runCommand("loadMap " + Constants.MAP_FILE_SRC,false);
 		
 		maingui = new GuiManager(sandbox);
 		

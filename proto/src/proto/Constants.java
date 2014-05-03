@@ -2,6 +2,8 @@ package proto;
 
 public class Constants {
 	
+	public static final String MAP_FILE_SRC = "map_m.test";
+	
 	public static final int MIST_RANGE = 0;
 	
 	public static final int ENEMY_MAX_HEALTH = 100;
