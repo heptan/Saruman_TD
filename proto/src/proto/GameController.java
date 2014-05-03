@@ -14,6 +14,7 @@ import java.util.Random;
  */
 public class GameController {
 	private boolean gameover = false;
+	private boolean win = false;
 	private List<Enemy> enemies = new ArrayList<Enemy>(); // ellenseglista
 	private List<Road> path = new ArrayList<Road>(); // valaszthato utelemkbol
 														// allo utak
@@ -103,6 +104,7 @@ public class GameController {
 	}
 
 	public void win() {
+		win = true;
 		this.gametimer.pause();
 		if (enemyCounter >= Constants.ENEMY_COUNTER_MAX && enemies.isEmpty()) {
 			// majd a palyan levo ellensegeket is
@@ -274,7 +276,7 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
-		if(gameover == true) {
+		if(gameover == true || win == true) {
 			return;
 		}
 		// Ellensegek automatikus letrehozasa
