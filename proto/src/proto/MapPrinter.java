@@ -44,7 +44,7 @@ public class MapPrinter {
 		for(Enemy e : gamecontroller.getEnemyList()) {
 			int x = (int)e.getPosition().getX();
 			int y = (int)e.getPosition().getY();
-			if(tilegrid[y][x].equals("E")) {
+			if(tilegrid[y][x] == "D" || tilegrid[y][x].equals("E") || tilegrid[y][x].equals("O") || tilegrid[y][x].equals("H")) {
 				tilegrid[y][x] = "M";
 			}
 			else {

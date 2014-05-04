@@ -282,7 +282,7 @@ public class GameController {
 		// Ellensegek automatikus letrehozasa
 		if (enemies.size() < 2) {
 			for (int i = 0;i < (enemyCounter/2 + 1) && 
-						   enemyCounter	< Constants.ENEMY_COUNTER_MAX + 1; ++i){
+						   enemyCounter	< Constants.ENEMY_COUNTER_MAX; ++i){
 				Random rndGen = new Random();
 				int rndType = rndGen.nextInt(4);
 				String type[] = {"dwarf", "elf", "hobbit", "human"};

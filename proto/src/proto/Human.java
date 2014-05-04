@@ -15,6 +15,7 @@ public class Human extends Enemy {
 			Road nextroad = actroad.getNextRoad();
 			if(nextroad == null) {
 				gamecontroller.gameOver();
+				return;
 			}
 			
 			this.position = nextroad.getPosition();
