@@ -25,9 +25,8 @@ public class GameTimer {
 	
 	private void tickEvent() {
 		this.gamecontroller.nextStep();
-		this.guiManager.refreshLists();		
-		Graphics g = this.guiManager.getMapPanel().getGraphics();
-		this.guiManager.redrawMap(g);
+		this.guiManager.refreshLists();	
+		this.guiManager.getMapPanel().repaint();
 		
 	}
 	
