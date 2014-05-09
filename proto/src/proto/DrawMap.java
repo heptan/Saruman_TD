@@ -29,13 +29,13 @@ public class DrawMap {
 				g.setColor(Color.BLACK);
 				g.fillRect(x, y, 1, (tilesize / 4));
 				g.fillRect(x, y, (tilesize / 4), 1);
-				g.setColor(Color.WHITE);
+				g.setColor(Color.RED);
 				g.fillRect(x, y + (tilesize / 4), 1, (tilesize / 4));
 				g.fillRect(x + (tilesize / 4), y, (tilesize / 4), 1);
 				g.setColor(Color.BLACK);
 				g.fillRect(x, y + 2 * (tilesize / 4), 1, (tilesize / 4));
 				g.fillRect(x + 2 * (tilesize / 4), y, (tilesize / 4), 1);
-				g.setColor(Color.WHITE);
+				g.setColor(Color.RED);
 				g.fillRect(x, y + 3 * (tilesize / 4), 1, (tilesize / 4));
 				g.fillRect(x + 3 * (tilesize / 4), y, (tilesize / 4), 1);
 			}
@@ -43,7 +43,7 @@ public class DrawMap {
 			//Utolso oszlopszegely
 			for (int y = 0; y < sizey; y += (tilesize / 4)) {
 				if(g.getColor() == Color.BLACK) {
-					g.setColor(Color.WHITE);
+					g.setColor(Color.RED);
 				} else {
 					g.setColor(Color.BLACK);
 				}
@@ -54,7 +54,7 @@ public class DrawMap {
 		//Utolso sorszegely
 		for (int x = 0; x < sizex; x += (tilesize / 4)) {
 			if(g.getColor() == Color.BLACK) {
-				g.setColor(Color.WHITE);
+				g.setColor(Color.RED);
 			} else {
 				g.setColor(Color.BLACK);
 			}
