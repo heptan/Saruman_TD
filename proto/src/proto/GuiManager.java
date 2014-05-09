@@ -128,8 +128,15 @@ public class GuiManager {
 	}
 
 	/**
-	 * GUI inicializalasa
+	 * a mappanel lekeresehez hasznalt metodus, a terkep frissitese miatt
+	 * ra szukseg
 	 */
+	public MapPanel getMapPanel(){
+		return mappanel;
+	}
+	/**
+	 * GUI inicializalasa
+	 */	
 	private void initGui() {
 
 		mapsizex = ((int) gamecontroller.getMap().getSize().getX() + 1)
@@ -324,9 +331,9 @@ public class GuiManager {
 		List<Tile> tileList = gamecontroller.getMap().getTileList();
 		for(Tile t : tileList){
 			t.draw(g);
-		}
+		}		
 		gamecontroller.getMap().draw(g);
-	}
+	}	
 	
 	/**
 	 * Ezt a metodust azon osztalyok hivhatjak, akik nem ismerik a Graphics
@@ -482,6 +489,8 @@ public class GuiManager {
 		field.setTower();
 		
 		refreshLists();
+		
+		mappanel.repaint();
 	}
 	
 	/**
@@ -505,6 +514,8 @@ public class GuiManager {
 		field.resetTower();
 		
 		refreshLists();
+		
+		mappanel.repaint();
 	}
 	
 	/**
@@ -529,6 +540,9 @@ public class GuiManager {
 		road.setTrap();
 		
 		refreshLists();
+		
+		mappanel.repaint();
+		
 	}
 	
 	/**
@@ -578,6 +592,8 @@ public class GuiManager {
 		}
 		
 		refreshLists();
+		
+		mappanel.repaint();
 	}
 
 }

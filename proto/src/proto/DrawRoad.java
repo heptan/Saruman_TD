@@ -12,6 +12,6 @@ public class DrawRoad {
 		int tilesize = Constants.GUI_TILE_SIZE;
 		
 		g.setColor(new Color(185, 122, 87));
-		g.fillRect(x*tilesize+x, y*tilesize+y, tilesize,tilesize);
+		g.fillRect(x*tilesize, y*tilesize, tilesize,tilesize);
 	} 
 }

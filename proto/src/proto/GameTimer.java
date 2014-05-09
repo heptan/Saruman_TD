@@ -2,6 +2,7 @@ package proto;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.awt.Graphics;
 import java.lang.Long;
 
 public class GameTimer {
@@ -19,9 +20,10 @@ public class GameTimer {
 	
 	private void tickEvent() {
 		this.gamecontroller.nextStep();
-		this.guiManager.refreshLists();
-		// TODO palya ujrarajzolasa!
-		//this.guiManager.redrawMap();
+		this.guiManager.refreshLists();		
+		Graphics g = this.guiManager.getMapPanel().getGraphics();
+		this.guiManager.redrawMap(g);
+		
 	}
 	
 	public void setFastForward() {
