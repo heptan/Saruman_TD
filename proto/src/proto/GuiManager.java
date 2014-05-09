@@ -321,10 +321,13 @@ public class GuiManager {
 	 * Ezzel a metodussal tortenik a terkep ujrarajzolasa
 	 */
 	public void redrawMap(Graphics g) {
+		//Palyaelemek rajzolasa
 		List<Tile> tileList = gamecontroller.getMap().getTileList();
 		for(Tile t : tileList){
 			t.draw(g);
 		}
+		
+		//Terkep racs rajzolasa
 		gamecontroller.getMap().draw(g);
 	}
 	
