@@ -75,7 +75,6 @@ public class GameController {
 		// ConsoleUI.writeSeq("-->GameController.gameOver(): void");
 		// ConsoleUI.writeSeq("<--void");
 		System.out.println("A jatek elveszitve!");
-		this.gametimer.getGUIManager().notifyTheGamerAboutGameOver();
 		// akadalyok megszuntetese: az endTime valtozo modositasa ugy, hogy
 		// azonnal megszunjenek
 		// TODO
@@ -139,7 +138,6 @@ public class GameController {
 			map.clearTiles();
 
 			System.out.println("A jatek megnyerve!");
-			this.gametimer.getGUIManager().notifyTheGamerAboutWin();
 		}
 
 	}
@@ -400,4 +398,5 @@ public class GameController {
 	public void modifyMana(int m) {
 		mana += m;
 	}
+	
 }

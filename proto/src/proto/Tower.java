@@ -1,5 +1,6 @@
 package proto;
 
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.util.Random;
 import java.io.IOException;
@@ -11,6 +12,8 @@ import java.util.List;
  * A tornyot megvalosito osztaly. 
  */
 public class Tower extends EnemyObserver {
+	private DrawTower towerDrawer = new DrawTower();
+	
 	/*
 	 * a torony pozicioja
 	 */
@@ -370,5 +373,8 @@ public class Tower extends EnemyObserver {
 		for (Enemy enemy : enemyList) {
 			enemy.removeObserver(this);
 		}
+	}
+	public void draw(Graphics g) {
+		towerDrawer.draw(this, g);
 	}
 }

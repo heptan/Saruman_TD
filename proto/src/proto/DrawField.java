@@ -12,6 +12,6 @@ public class DrawField {
 		int tilesize = Constants.GUI_TILE_SIZE;
 
 		g.setColor(new Color(118, 147, 60));
-		g.fillRect(x * tilesize + x, y * tilesize + y, tilesize, tilesize);
+		g.fillRect(x * tilesize, y * tilesize , tilesize, tilesize);
 	}
 }

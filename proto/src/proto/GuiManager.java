@@ -129,8 +129,15 @@ public class GuiManager {
 	}
 
 	/**
-	 * GUI inicializalasa
+	 * a mappanel lekeresehez hasznalt metodus, a terkep frissitese miatt
+	 * ra szukseg
 	 */
+	public MapPanel getMapPanel(){
+		return mappanel;
+	}
+	/**
+	 * GUI inicializalasa
+	 */	
 	private void initGui() {
 
 		mapsizex = ((int) gamecontroller.getMap().getSize().getX() + 1)
@@ -329,11 +336,10 @@ public class GuiManager {
 		List<Tile> tileList = gamecontroller.getMap().getTileList();
 		for(Tile t : tileList){
 			t.draw(g);
-		}
-		
-		//Terkep racs rajzolasa
-		gamecontroller.getMap().draw(g);
+		}	
 	}
+		
+		//Terkep racs rajzolasa	
 	
 	/**
 	 * Ezt a metodust azon osztalyok hivhatjak, akik nem ismerik a Graphics
@@ -494,6 +500,8 @@ public class GuiManager {
 		
 		refreshVEPLabel();
 		refreshLists();
+		
+		mappanel.repaint();
 	}
 	
 	/**
@@ -517,6 +525,8 @@ public class GuiManager {
 		field.resetTower();
 		
 		refreshLists();
+		
+		mappanel.repaint();
 	}
 	
 	/**
@@ -545,6 +555,9 @@ public class GuiManager {
 		
 		refreshVEPLabel();
 		refreshLists();
+		
+		mappanel.repaint();
+		
 	}
 	
 	/**
@@ -599,17 +612,11 @@ public class GuiManager {
 		
 		refreshVEPLabel();
 		refreshLists();
+		
+		mappanel.repaint();
 	}
 	
 	public void refreshVEPLabel() {
 		veplabel.setText("VEP: " + gamecontroller.getMana());
-	}
-	
-	public void notifyTheGamerAboutGameOver() {
-		JOptionPane.showMessageDialog(frame, "A játek elveszitve!");
-	}
-	
-	public void notifyTheGamerAboutWin() {
-		JOptionPane.showMessageDialog(frame, "A játek megnyerve!");
 	}
 }

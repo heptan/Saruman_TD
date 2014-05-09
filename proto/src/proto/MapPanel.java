@@ -37,7 +37,8 @@ public class MapPanel extends JPanel {
 		g.fillRect(0, 0, ((int)mapsize.getX() + 1) * Constants.GUI_TILE_SIZE, ((int)mapsize.getY() + 1) * Constants.GUI_TILE_SIZE);
 		
 		//Terkep negyzetracsanak kirajzolasa
-		guimanager.redrawMap(g);
+		guimanager.redrawMap(g);	
+		
 	}
 
 }

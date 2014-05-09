@@ -1,5 +1,6 @@
 package proto;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import java.util.List;
  */
 
 public class Trap extends EnemyObserver {
+	private DrawTrap trapDrawer = new DrawTrap();
 	/*
 	 * Az akadaly megszuneseig hatralevo ido
 	 */
@@ -139,5 +141,8 @@ public class Trap extends EnemyObserver {
 		} else {
 			return true;
 		}
+	}
+	public void draw(Graphics g) {
+		trapDrawer.draw(this, g);
 	}
 }
