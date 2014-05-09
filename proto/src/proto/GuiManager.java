@@ -335,8 +335,12 @@ public class GuiManager {
 		//Palyaelemek rajzolasa
 		List<Tile> tileList = gamecontroller.getMap().getTileList();
 		for(Tile t : tileList){
+			//ez itt a trapeket es towereket is kirajzolja, ha vannak
 			t.draw(g);
-		}	
+		}
+		//racs kirajzolasa
+		gamecontroller.getMap().draw(g);
+		
 	}
 		
 		//Terkep racs rajzolasa	

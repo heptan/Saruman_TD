@@ -148,5 +148,8 @@ public class Field extends Tile {
 	
 	public void draw(Graphics g) {
 		fieldDrawer.draw(this, g);
+		if(tower != null){
+			tower.draw(g);
+		}
 	}
 }
