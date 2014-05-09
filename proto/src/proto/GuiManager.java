@@ -74,6 +74,7 @@ public class GuiManager {
 	private JButton actionbutton = new JButton("Go!");
 
 	// Jateksebesseg modositasahoz hasznalt gombok
+	private JLabel veplabel = new JLabel("VEP: ");
 	private JButton playbutton = new JButton("Play");
 	private JButton pausebutton = new JButton("Pause");
 	private JButton ffwdbutton = new JButton("FFwd");
@@ -148,6 +149,7 @@ public class GuiManager {
 		controlpanel.add(speedpanel, BorderLayout.NORTH);
 		controlpanel.add(listpanel, BorderLayout.CENTER);
 		controlpanel.add(functionmainpanel, BorderLayout.SOUTH);
+		speedpanel.add(veplabel, BoxLayout.X_AXIS);
 		speedpanel.add(pausebutton, BoxLayout.X_AXIS);
 		speedpanel.add(ffwdbutton, BoxLayout.X_AXIS);
 		speedpanel.add(playbutton, BoxLayout.X_AXIS);
@@ -202,6 +204,8 @@ public class GuiManager {
 				System.exit(0);
 			}
 		});
+		
+		refreshVEPLabel();
 	}
 
 	/**
@@ -488,6 +492,7 @@ public class GuiManager {
 		gamecontroller.modifyMana(-20);
 		field.setTower();
 		
+		refreshVEPLabel();
 		refreshLists();
 	}
 	
@@ -538,6 +543,7 @@ public class GuiManager {
 		gamecontroller.modifyMana(-10);
 		road.setTrap();
 		
+		refreshVEPLabel();
 		refreshLists();
 	}
 	
@@ -590,7 +596,12 @@ public class GuiManager {
 			road.addPlusTime();
 		}
 		gamecontroller.modifyMana(-10);
+		
+		refreshVEPLabel();
 		refreshLists();
 	}
-
+	
+	public void refreshVEPLabel() {
+		veplabel.setText("VEP: " + gamecontroller.getMana());
+	}
 }

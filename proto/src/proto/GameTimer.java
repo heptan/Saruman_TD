@@ -12,6 +12,11 @@ public class GameTimer {
 	public void setGUIManager(GuiManager gm) {
 		this.guiManager = gm;
 	}
+	
+	public GuiManager getGUIManager() {
+		return this.guiManager;
+	}
+	
 	public GameTimer(GameController gc) {
 		this.gamecontroller = gc;
 		timer = new Timer(true);

@@ -258,6 +258,7 @@ public class GameController {
 	public void removeEnemy(Enemy enemy) {
 		enemies.remove(enemy);
 		mana += 5;
+		gametimer.getGUIManager().refreshVEPLabel();
 	}
 
 	/*
