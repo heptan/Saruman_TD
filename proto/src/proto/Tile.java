@@ -1,5 +1,7 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A palyaelem megvalositasahoz hasznalt osztaly
  */
@@ -60,4 +62,5 @@ public abstract class Tile {
 	public abstract void addPlusFrequency();
 	public abstract void addPlusRange();
 	public abstract void addPlusTime();
+	public abstract void draw(Graphics g);
 }

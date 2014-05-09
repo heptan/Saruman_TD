@@ -1,5 +1,6 @@
 package proto;
 
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,6 +15,7 @@ import java.util.Random;
  */
 public class Road extends Tile {
 
+	private DrawRoad roadDrawer = new DrawRoad();
 	/*
 	 * Az uton levo akadaly referenciajat tarolja (ha nincs akadaly, akkor null)
 	 */
@@ -207,5 +209,8 @@ public class Road extends Tile {
 	@Override
 	public void addPlusRange() {
 		System.out.println("Ezt a kovet csak toronyra lehet tenni");
+	}
+	public void draw(Graphics g) {
+		roadDrawer.draw(this, g);
 	}
 }
