@@ -24,7 +24,7 @@ public class Constants {
 	public static final int SPEED_HUMAN = 2;
 	
 	public static final int GUI_CONTROLLER_W = 300;
-	public static final int GUI_TILE_SIZE = 100;
+	public static final int GUI_TILE_SIZE = 80;
 	
 	public static final long TIMER_INTERVAL = 1000;
 }
