@@ -1,0 +1,30 @@
+package proto;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**
+ * Az AntiElf rajzolo objektuma, kirajzolja a köveket.
+ * A elfek elleni varazskovek kirajzolasaert felelos osztaly.
+ * 
+ * @author Richard Czedli
+ * @since 2014-05-09
+ */
+public class DrawAntiElf extends GemDrawer {
+
+	/**
+	 * a parameterkent kapott g objektummal
+		kirajzoltat egy magenta szinu rombuszt a megkapott o objektum poziciojanak 
+		megfelelo negyzetracs jobb felso hatodaba.
+	 */
+	public void draw(AntiElf o, Graphics g) {
+				Position pos = o.getPosition();
+				int x = (int) pos.getX();
+				int y = (int) pos.getY();
+				int tilesize = Constants.GUI_TILE_SIZE;
+				
+				g.setColor(new Color(0xFF, 0x00, 0xFF));
+				g.fillPolygon(new int []{x+tilesize/2,x+tilesize*3/4,x+tilesize,x+tilesize*3/4}, new int []{y+tilesize/6,y,y+tilesize/6,y+tilesize/3},4);
+			} 
+		}
+

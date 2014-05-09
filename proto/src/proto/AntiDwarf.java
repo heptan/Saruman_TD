@@ -5,7 +5,8 @@ package proto;
  * osztaly.
  */
 public class AntiDwarf extends GemStone {
-	
+	 private DrawAntiDwarf dad=new DrawAntiDwarf();
+	 
 //	A metodus mind a 4 tipusra azonos: elkeri a parameterben kapott torony megfelelo 
 //	tipusu sebzeserteket a torony getDamageXxxx metodusaval, modositja az erteket,
 //	majd a setDamageXxxx metodussal beallitja a kiszamolt erteket.
@@ -21,6 +22,12 @@ public class AntiDwarf extends GemStone {
 	@Override
 	public void setEffect(Trap toSet) {
 		System.out.println("Ezt a kovet csak toronyra lehet tenni");;
+		
+	}
+	
+	public DrawAntiDwarf getDrawer(){
+	 return this.dad;	
+		
 		
 	}
 }

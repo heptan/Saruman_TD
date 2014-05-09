@@ -287,6 +287,7 @@ public class Tower extends EnemyObserver {
 			gemList.add(anti);
 			anti.setEffect(this);
 			anti.setPosition(position);// beallitjuk a poziciojat
+			
 		}
 	}
 
@@ -299,6 +300,7 @@ public class Tower extends EnemyObserver {
 			gemList.add(anti);
 			anti.setEffect(this);
 			anti.setPosition(position);// beallitjuk a poziciojat
+			((DrawAntiDwarf) (anti.getDrawer())).
 		}
 	}
 

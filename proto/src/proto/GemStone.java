@@ -25,5 +25,5 @@ public abstract class GemStone {
 	 */
 	public abstract void setEffect(Tower toSet);
 	public abstract void setEffect(Trap toSet);
-	
+	public abstract GemDrawer getDrawer();
 }
