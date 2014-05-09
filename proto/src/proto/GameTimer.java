@@ -21,6 +21,7 @@ public class GameTimer {
 		this.gamecontroller.nextStep();
 		this.guiManager.refreshLists();
 		// TODO palya ujrarajzolasa!
+		//this.guiManager.redrawMap();
 	}
 	
 	public void setFastForward() {

@@ -1,9 +1,13 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A mezo palyaelemet megvalosito osztaly
  */
 public class Field extends Tile {
+	
+	private DrawField fieldDrawer = new DrawField();
 	/*
 	 * A terkepre mutato referencia
 	 */
@@ -140,5 +144,9 @@ public class Field extends Tile {
 	@Override
 	public void addPlusTime() {
 		System.out.println("Ezt a kovet csak akadalyra lehet tenni");
+	}
+	
+	public void draw(Graphics g) {
+		fieldDrawer.draw(this, g);
 	}
 }
