@@ -20,10 +20,13 @@ public class DrawAntiDwarf {
 		negyzetracs bal felso hatodaba.
 	 */
 	public void draw(AntiDwarf o, Graphics g) {
-		int tilesize = Constants.GUI_TILE_SIZE;
-		int sizex = ((int) map.getSize().getX() + 1) * tilesize;
-		int sizey = ((int) map.getSize().getY() + 1) * tilesize;
+				Position pos = o.getPosition();
+				int x = (int) pos.getX();
+				int y = (int) pos.getY();
+				int tilesize = Constants.GUI_TILE_SIZE;
+				
+				g.setColor(new Color(185, 122, 87));
+				g.fillRect(x*tilesize+x, y*tilesize+y, tilesize,tilesize);
+			} 
+		}
 
-
-
-}}

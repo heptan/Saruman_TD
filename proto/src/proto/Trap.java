@@ -127,6 +127,7 @@ public class Trap extends EnemyObserver {
 	public void addPlusTime() {
 		gem = new PlusTime();
 		gem.setEffect(this);
+		gem.setPosition(position);// beallitjuk a poziciojat
 	}
 
 	/*

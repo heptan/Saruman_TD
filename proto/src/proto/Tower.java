@@ -274,6 +274,7 @@ public class Tower extends EnemyObserver {
 			GemStone anti = new AntiHuman(); // letre kell hozni
 			gemList.add(anti); // betenni a listaba
 			anti.setEffect(this); // es beallitani a hatasat
+			anti.setPosition(position);// beallitjuk a poziciojat
 		}
 	}
 
@@ -285,6 +286,7 @@ public class Tower extends EnemyObserver {
 			GemStone anti = new AntiElf();
 			gemList.add(anti);
 			anti.setEffect(this);
+			anti.setPosition(position);// beallitjuk a poziciojat
 		}
 	}
 
@@ -296,6 +298,7 @@ public class Tower extends EnemyObserver {
 			GemStone anti = new AntiDwarf();
 			gemList.add(anti);
 			anti.setEffect(this);
+			anti.setPosition(position);// beallitjuk a poziciojat
 		}
 	}
 
@@ -307,6 +310,7 @@ public class Tower extends EnemyObserver {
 			GemStone anti = new AntiHobbit();
 			gemList.add(anti);
 			anti.setEffect(this);
+			anti.setPosition(position);// beallitjuk a poziciojat
 		}
 	}
 
@@ -318,6 +322,7 @@ public class Tower extends EnemyObserver {
 			GemStone anti = new PlusFrequency();
 			gemList.add(anti);
 			anti.setEffect(this);
+			anti.setPosition(position);// beallitjuk a poziciojat
 		}
 	}
 
@@ -329,6 +334,7 @@ public class Tower extends EnemyObserver {
 			GemStone anti = new PlusRange();
 			gemList.add(anti);
 			anti.setEffect(this);
+			anti.setPosition(position);// beallitjuk a poziciojat
 		}
 	}
 
