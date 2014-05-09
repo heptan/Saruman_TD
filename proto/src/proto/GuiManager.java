@@ -341,9 +341,14 @@ public class GuiManager {
 		//racs kirajzolasa
 		gamecontroller.getMap().draw(g);
 		
-	}
+		//az ellensegek kirajzolasa
+		List<Enemy> enemyList = gamecontroller.getEnemyList();
+		for(Enemy e : enemyList){
+			e.draw(g);
+		}
 		
-		//Terkep racs rajzolasa	
+	}	
+		
 	
 	/**
 	 * Ezt a metodust azon osztalyok hivhatjak, akik nem ismerik a Graphics

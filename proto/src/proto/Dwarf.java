@@ -1,10 +1,12 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A torpe ellenseget megvalosito osztaly
  */
 public class Dwarf extends Enemy {
-	
+	private DrawDwarf dwarfDrawer = new DrawDwarf();
 	final int speed = Constants.SPEED_DWARF;
 	
 	/*
@@ -64,5 +66,8 @@ public class Dwarf extends Enemy {
 	public void split() {
 		this.gamecontroller.splitDwarf(this);
 		
+	}
+	public void draw(Graphics g) {
+		dwarfDrawer.draw(this, g);
 	}
 }
