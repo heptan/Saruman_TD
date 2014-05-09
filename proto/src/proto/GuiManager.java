@@ -468,6 +468,10 @@ public class GuiManager {
 	 * Uj torony hozzaadasa
 	 */
 	private void addTower(double posx, double posy) {
+		if (gamecontroller.getMana() < 20){
+			JOptionPane.showMessageDialog(frame, "A torony lerakasahoz legalabb 20 VEP kell.");
+			return;
+		}
 		Map map = gamecontroller.getMap();
 		
 		Tile tile = (map.getTile(posx,posy));
@@ -481,7 +485,7 @@ public class GuiManager {
 			JOptionPane.showMessageDialog(frame,"A mezon mar van torony!");
 			return;
 		}
-		
+		gamecontroller.modifyMana(-20);
 		field.setTower();
 		
 		refreshLists();
@@ -514,7 +518,10 @@ public class GuiManager {
 	 * Uj csapda hozzaadasa
 	 */
 	public void addTrap(double posx, double posy) {
-		
+		if (gamecontroller.getMana() < 10) {
+			JOptionPane.showMessageDialog(frame, "Akadaly lerakasahoz legalavv 10 VEP kell!");
+			return;
+		}
 		Map map = gamecontroller.getMap();
 		
 		Tile tile = (map.getTile(posx,posy));
@@ -528,7 +535,7 @@ public class GuiManager {
 			JOptionPane.showMessageDialog(frame,"Az uton mar van akadaly!");
 			return;
 		}
-		
+		gamecontroller.modifyMana(-10);
 		road.setTrap();
 		
 		refreshLists();
@@ -538,7 +545,10 @@ public class GuiManager {
 	 * Uj varazsko hozzaadasa
 	 */
 	public void addGemStone(int type, double posx, double posy) {
-		
+		if (gamecontroller.getMana() < 10){
+			JOptionPane.showMessageDialog(frame, "Varazsko hozzaadasahoz legalabb 10 VEP kell!");
+			return;
+		}
 		Map map = gamecontroller.getMap();
 		
 		Tile tile = (map.getTile(posx,posy));
@@ -579,7 +589,7 @@ public class GuiManager {
 			
 			road.addPlusTime();
 		}
-		
+		gamecontroller.modifyMana(-10);
 		refreshLists();
 	}
 
