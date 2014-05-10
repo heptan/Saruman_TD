@@ -39,6 +39,12 @@ public class GameController {
 	public GameController() {
 		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
 	}
+	public boolean getWin(){
+		return win;
+	}
+	public boolean getGameOver(){
+		return gameover;
+	}
 
 	public static GameController getInstace() {
 		if (instance == null) {

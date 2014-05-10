@@ -27,6 +27,7 @@ public class GameTimer {
 		this.gamecontroller.nextStep();
 		this.guiManager.refreshLists();	
 		this.guiManager.getMapPanel().repaint();
+		this.guiManager.itsOver();
 		
 	}
 	

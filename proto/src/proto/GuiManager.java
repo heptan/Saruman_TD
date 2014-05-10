@@ -383,8 +383,19 @@ public class GuiManager {
 		}
 		
 		// racs kirajzolasa
-		gamecontroller.getMap().draw(g);
-
+		gamecontroller.getMap().draw(g);		
+	}
+	public void itsOver(){
+		if(gamecontroller.getWin()){
+			JOptionPane.showMessageDialog(frame,
+					"On nyert!","Nyert!",0);
+			return;
+		}
+		if(gamecontroller.getGameOver()){
+			JOptionPane.showMessageDialog(frame,
+					"On vesztett!","Vesztes!",0);
+			return;
+		}
 	}
 
 	/**
