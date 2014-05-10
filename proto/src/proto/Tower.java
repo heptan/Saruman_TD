@@ -91,6 +91,7 @@ public class Tower extends EnemyObserver {
 	 * a torony lovese
 	 */
 	public void shoot() {
+		List<Enemy> deadEnemies = new ArrayList<Enemy>();
 		for (int j = 0; j < frequency; j++) { // a frekvenciatol fugg, hanyszor
 												// kell loni
 			for (Enemy enemy : enemyList) { // minden ellensegre le kell adni
@@ -157,11 +158,17 @@ public class Tower extends EnemyObserver {
 				}
 				// A lovessorozatot lezaro fuggvenyhivas. Ebben valasztodik ki
 				// a megfelelo mennyisegu sebzes.
-				enemy.shotEnd();				
+				enemy.shotEnd();
+				if(enemy.getHealth()<=0){
+					deadEnemies.add(enemy);
+				}
 				// Vegul az ellenseg split-elesenek az kezelese
-				if (split  && enemy.getHealth() > 0){					
+				if (split && enemy.getHealth() > 0){					
 					enemy.split();
 				}
+			}
+			for(Enemy enemy : deadEnemies){
+				this.removeEnemy(enemy);
 			}
 		}
 	}
