@@ -25,9 +25,9 @@ public class AntiDwarf extends GemStone {
 		
 	}
 	
-	public DrawAntiDwarf getDrawer(){
-	 return this.dad;	
+	//public DrawAntiDwarf getDrawer(){
+	 //return this.dad;	
 		
 		
-	}
+	//}
 }
