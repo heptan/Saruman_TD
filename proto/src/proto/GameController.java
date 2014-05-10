@@ -13,6 +13,7 @@ import java.util.Random;
  * letrehozasa, inicializalasa, illetve a jatekvege feltetelek figyelese. 
  */
 public class GameController {
+	private int mana = 100;
 	private boolean gameover = false;
 	private boolean win = false;
 	private List<Enemy> enemies = new ArrayList<Enemy>(); // ellenseglista
@@ -100,6 +101,7 @@ public class GameController {
 		// vegul az "utakat"
 		path.clear();
 		enemyCounter = 0;
+		mana = 100;
 		gameover = true;
 	}
 
@@ -112,6 +114,7 @@ public class GameController {
 			// vegul az "utakat"
 			path.clear();
 			enemyCounter = 0;
+			mana = 100;
 
 			MapPrinter.printMap(this);
 
@@ -254,6 +257,8 @@ public class GameController {
 	 */
 	public void removeEnemy(Enemy enemy) {
 		enemies.remove(enemy);
+		mana += 5;
+		gametimer.getGUIManager().refreshVEPLabel();
 	}
 
 	/*
@@ -385,4 +390,13 @@ public class GameController {
 		}
 		return null;
 	}
+	
+	public int getMana() {
+		return mana;
+	}
+	
+	public void modifyMana(int m) {
+		mana += m;
+	}
+	
 }

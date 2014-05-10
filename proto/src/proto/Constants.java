@@ -24,7 +24,8 @@ public class Constants {
 	public static final int SPEED_HUMAN = 2;
 	
 	public static final int GUI_CONTROLLER_W = 300;
-	public static final int GUI_TILE_SIZE = 80;
+	//Ez inicializalaskor szamitodik!
+	public static int GUI_TILE_SIZE;
 	
 	public static final long TIMER_INTERVAL = 1000;
 }

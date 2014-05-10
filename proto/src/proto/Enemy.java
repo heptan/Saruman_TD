@@ -2,6 +2,7 @@ package proto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.Graphics;
 import java.lang.Integer;
 
 /*
@@ -232,5 +233,8 @@ public abstract class Enemy {
 	public GameController getGameController() {
 		return gamecontroller;
 	}
-
+	/*
+	 * kirajzolo fuggveny, az osszes enemy megvalositja
+	 */
+	public abstract void draw(Graphics g);
 }

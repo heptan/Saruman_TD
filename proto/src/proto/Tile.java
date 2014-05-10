@@ -52,6 +52,9 @@ public abstract class Tile {
 		map.addEnemyObserver(observer);
 	}
 	
+	public abstract Tower getTower();
+	public abstract Trap getTrap();
+	
 	/*
 	 * Uj varazsko hozzaadasahoz hasznalt metodusok
 	 */

@@ -57,6 +57,12 @@ public class Field extends Tile {
 	public Tower getTower() {
 		return tower;
 	}
+	
+	@Override
+	public Trap getTrap(){
+		// nem lehet rajta Trap
+		return null;
+	}
 
 	/*
 	 * A tower attributum inicializalasahoz hasznalt metodus
@@ -148,5 +154,8 @@ public class Field extends Tile {
 	
 	public void draw(Graphics g) {
 		fieldDrawer.draw(this, g);
+		if(tower != null){
+			tower.draw(g);
+		}
 	}
 }

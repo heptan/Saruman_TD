@@ -32,6 +32,7 @@ public class Road extends Tile {
 	 */
 	public Road() {
 		nextroad = new ArrayList<Road>();
+		trap = null;
 	}
 
 	/*
@@ -60,6 +61,12 @@ public class Road extends Tile {
 		for(Enemy e : map.getGameController().getEnemyList()) {
 			e.addObserver(trap);
 		}
+	}
+
+	@Override
+	public Tower getTower() {
+		// Nem lehet rajta torony
+		return null;
 	}
 
 	/*
@@ -212,5 +219,9 @@ public class Road extends Tile {
 	}
 	public void draw(Graphics g) {
 		roadDrawer.draw(this, g);
+		if(trap != null){
+			trap.draw(g);
+		}
 	}
+
 }

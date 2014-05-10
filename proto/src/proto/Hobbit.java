@@ -1,9 +1,12 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A hobbit ellenseget megvalosito osztaly.
  */
 public class Hobbit extends Enemy {
+	private DrawHobbit hobbitDrawer = new DrawHobbit();
 	
 	final int speed = Constants.SPEED_HOBBIT;
 	
@@ -63,5 +66,8 @@ public class Hobbit extends Enemy {
 	public void split() {
 		this.gamecontroller.splitHobbit(this);
 		
+	}
+	public void draw(Graphics g) {
+		hobbitDrawer.draw(this, g);
 	}
 }

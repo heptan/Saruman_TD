@@ -1,10 +1,12 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A tunde ellenseget megvalosito osztaly
  */
 public class Elf extends Enemy {
-	
+	private DrawElf elfDrawer = new DrawElf();
 	final int speed = Constants.SPEED_ELF;
 	
 	/*
@@ -64,5 +66,8 @@ public class Elf extends Enemy {
 	public void split() {
 		this.gamecontroller.splitElf(this);
 		
+	}
+	public void draw(Graphics g) {
+		elfDrawer.draw(this, g);
 	}
 }

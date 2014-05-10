@@ -1,10 +1,12 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * Az ember ellenseget megvalosito osztaly
  */
 public class Human extends Enemy {
-	
+	private DrawHuman humanDrawer = new DrawHuman();
 	final int speed = Constants.SPEED_HUMAN;
 	
 	/*
@@ -63,4 +65,7 @@ public class Human extends Enemy {
 		this.gamecontroller.splitHuman(this);
 	}
 	// Igen, ctrl+c, ctrl+v powa!
+	public void draw(Graphics g) {
+		humanDrawer.draw(this, g);
+	}
 }
