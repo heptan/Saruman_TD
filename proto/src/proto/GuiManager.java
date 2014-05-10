@@ -70,7 +70,7 @@ public class GuiManager {
 	String[] functionboxcontent = { "Add", "Remove" };
 	String[] typeboxcontent = { "Tower", "Trap", "GemStone" };
 	String[] gemstoneboxcontent = { "Dwarf elleni", "Elf elleni",
-			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+", "Hatotav+" };
+			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+", "Hatotav+","Hatoido+" };
 
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt gomb
 	private JButton actionbutton = new JButton("Go!");

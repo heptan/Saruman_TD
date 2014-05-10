@@ -23,7 +23,8 @@ public class DrawAntiHobbit {
 				int tilesize = Constants.GUI_TILE_SIZE;
 				
 				g.setColor(new Color(0xff, 0xff, 0x00));
-				g.fillPolygon(new int []{x+x,x+tilesize/4+x,x+tilesize/2+x,x+tilesize/4+x}, new int []{y+tilesize/2+y,y+tilesize/3+y,y+tilesize/2+y,y+tilesize*2/3+y},4);
+				g.fillPolygon(new int []{x*tilesize,x*tilesize+tilesize/4,x*tilesize+tilesize/2,x*tilesize+tilesize/4}, new int []{y*tilesize+tilesize/2,y*tilesize+tilesize/3,y*tilesize+tilesize/2,y*tilesize+tilesize*2/3},4);
+				
 			} 
 		}
 

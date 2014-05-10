@@ -26,7 +26,7 @@ public class DrawPlusRange {
 				int tilesize = Constants.GUI_TILE_SIZE;
 				
 				g.setColor(new Color(0x80, 0x80, 0x80));
-				g.fillPolygon(new int []{x+tilesize/2,x+tilesize*3/4,x+tilesize,x+tilesize*3/4}, new int []{y+tilesize*5/6,y+tilesize*2/3,y+tilesize*5/6,y+tilesize},4);
+				g.fillPolygon(new int []{x*tilesize+tilesize/2,x*tilesize+tilesize*3/4,x*tilesize+tilesize,x*tilesize+tilesize*3/4}, new int []{y*tilesize+tilesize*5/6,y*tilesize+tilesize*2/3,y*tilesize+tilesize*5/6,y*tilesize+tilesize},4);
 			} 
 		}
 

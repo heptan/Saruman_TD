@@ -24,7 +24,7 @@ public class DrawAntiElf {
 				int tilesize = Constants.GUI_TILE_SIZE;
 				
 				g.setColor(new Color(0xFF, 0x00, 0xFF));
-				g.fillPolygon(new int []{x+tilesize/2,x+tilesize*3/4,x+tilesize,x+tilesize*3/4}, new int []{y+tilesize/6,y,y+tilesize/6,y+tilesize/3},4);
+				g.fillPolygon(new int []{x*tilesize+tilesize/2,x*tilesize+tilesize*3/4,x*tilesize+tilesize,x*tilesize+tilesize*3/4}, new int []{y*tilesize+tilesize/6,y*tilesize,y*tilesize+tilesize/6,y*tilesize+tilesize/3},4);
 			} 
 		}
 
