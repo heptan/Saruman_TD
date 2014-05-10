@@ -70,8 +70,7 @@ public abstract class Enemy {
 		if(this.health <= 0) {
 			for(EnemyObserver enemyobserver : observers) {
 				enemyobserver.notifyFromEnemy(this);
-			}
-			
+			}			
 			gamecontroller.removeEnemy(this);
 		}
 	}

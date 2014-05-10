@@ -10,7 +10,7 @@ public class Constants {
 	public static final int ENEMY_COUNTER_MAX = 2;
 
 	public static final int TOWER_DEFAULT_RANGE = 2;
-	public static final int TOWER_SHOT = 50;
+	public static final int TOWER_SHOT = 10;
 	public static final int TOWER_DAMAGEDWARF = 100;
 	public static final int TOWER_DAMAGEELF = 100;
 	public static final int TOWER_DAMAGEHOBBIT = 100;

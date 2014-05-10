@@ -157,11 +157,11 @@ public class Tower extends EnemyObserver {
 				}
 				// A lovessorozatot lezaro fuggvenyhivas. Ebben valasztodik ki
 				// a megfelelo mennyisegu sebzes.
-				enemy.shotEnd();
-
+				enemy.shotEnd();				
 				// Vegul az ellenseg split-elesenek az kezelese
-				if (split)
+				if (split  && enemy.getHealth() > 0){					
 					enemy.split();
+				}
 			}
 		}
 	}
