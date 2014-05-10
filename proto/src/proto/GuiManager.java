@@ -78,6 +78,7 @@ public class GuiManager {
 	// Jateksebesseg modositasahoz hasznalt gombok
 	private JLabel veplabel = new JLabel("VEP: ");
 	private JButton playbutton = new JButton("Play");
+	private boolean paused = false;
 	private JButton pausebutton = new JButton("Pause");
 	private JButton ffwdbutton = new JButton("FFwd");
 
@@ -463,9 +464,14 @@ public class GuiManager {
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		// JOptionPane.showMessageDialog(frame,
-		// "Nem erunk ra szunetet tartani!");
-		this.gametimer.pause();
+		if(paused){
+			this.gametimer.resume();
+			paused = false;
+		}
+		else{
+			this.gametimer.pause();
+			paused = true;
+		}
 	}
 
 	/**

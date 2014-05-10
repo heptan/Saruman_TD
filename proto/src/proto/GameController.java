@@ -135,8 +135,8 @@ public class GameController {
 				}
 			}
 			// toroljuk ki az osszes palyaelemet a Map osztaly listajabol
-			map.clearTiles();
-
+			map.clearTiles();			
+			
 			System.out.println("A jatek megnyerve!");
 		}
 

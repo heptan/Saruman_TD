@@ -55,11 +55,15 @@ public class GameTimer {
 	 *   292 471 000 evet, igy ez kielegitonek tunik.
 	 */
 	public void pause() {
+		timer.cancel();
+	}
+	public void resume(){
+		this.timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				tickEvent();
 			}
-		}, 50000000, 1);
+		}, 0,  Constants.TIMER_INTERVAL);		
 	}
 }
