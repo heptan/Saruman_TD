@@ -26,7 +26,7 @@ public class DrawAntiDwarf {
 				int tilesize = Constants.GUI_TILE_SIZE;
 				
 				g.setColor(new Color(185, 122, 87));
-				g.fillRect(x*tilesize+x, y*tilesize+y, tilesize,tilesize);
+				g.fillPolygon(new int []{x,x+tilesize/4,x+tilesize/2,x+tilesize/4}, new int []{y+tilesize/6,y,y+tilesize/6,y+tilesize/3},4);
 			} 
 		}
 

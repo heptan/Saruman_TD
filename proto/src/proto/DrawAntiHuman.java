@@ -19,7 +19,7 @@ public class DrawAntiHuman {
 
 	negyzetracs jobb kozepso hatodaba.
 	 */
-	public void draw(AntiDwarf o, Graphics g) {
+	public void draw(AntiHuman o, Graphics g) {
 				Position pos = o.getPosition();
 				int x = (int) pos.getX();
 				int y = (int) pos.getY();
