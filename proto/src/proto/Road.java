@@ -63,6 +63,12 @@ public class Road extends Tile {
 		}
 	}
 
+	@Override
+	public Tower getTower() {
+		// Nem lehet rajta torony
+		return null;
+	}
+
 	/*
 	 * Az aktualis utelemet koveto utelem lekerdezese
 	 */
@@ -217,4 +223,5 @@ public class Road extends Tile {
 			trap.draw(g);
 		}
 	}
+
 }

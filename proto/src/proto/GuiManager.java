@@ -61,15 +61,16 @@ public class GuiManager {
 	// Hozzaadni, eltavolitani kivant terkepelem tipusanak kivalasztasahoz
 	// hasznalt legurdolista
 	private JComboBox<String> typebox;
-	
-	//Varazsko kivalasztasahoz hasznalt legordulo cimke es lista
+
+	// Varazsko kivalasztasahoz hasznalt legordulo cimke es lista
 	private JLabel gemstoneboxlabel = new JLabel("Varazsko tipusa:");
 	private JComboBox<String> gemstonebox;
 
 	// Legordulo listak tartalma
 	String[] functionboxcontent = { "Add", "Remove" };
 	String[] typeboxcontent = { "Tower", "Trap", "GemStone" };
-	String[] gemstoneboxcontent = { "Dwarf elleni", "Elf elleni", "Hobbit elleni", "Human elleni","Tuzelesi gyakorisag+","Hatotav+"};
+	String[] gemstoneboxcontent = { "Dwarf elleni", "Elf elleni",
+			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+", "Hatotav+" };
 
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt gomb
 	private JButton actionbutton = new JButton("Go!");
@@ -96,9 +97,9 @@ public class GuiManager {
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt komponenseket
 	// tartalmazo panel.
 	private JPanel functionpanel = new JPanel();
-	//Varazsko kivalasztasahoz hasznalt listat tarolo panel
+	// Varazsko kivalasztasahoz hasznalt listat tarolo panel
 	private JPanel gemstonepanel = new JPanel();
-	//Vezerloket osszefogo panel
+	// Vezerloket osszefogo panel
 	private JPanel functionmainpanel = new JPanel();
 	// Terkep panelje
 	private MapPanel mappanel = new MapPanel(this);
@@ -123,20 +124,20 @@ public class GuiManager {
 		this.gamecontroller = gamecontroller;
 
 		this.gametimer = gametimer;
-		
+
 		initGui();
 
 		setActionListeners();
 	}
 
 	/**
-	 * a mappanel lekeresehez hasznalt metodus, a terkep frissitese miatt
-	 * ra szukseg
+	 * a mappanel lekeresehez hasznalt metodus, a terkep frissitese miatt ra
+	 * szukseg
 	 */
-	public MapPanel getMapPanel(){
+	public MapPanel getMapPanel() {
 		return mappanel;
 	}
-	
+
 	/**
 	 * Tilesize inicializalas
 	 */
@@ -148,20 +149,20 @@ public class GuiManager {
 		double height = screenSize.getHeight();
 		width *= 0.85;
 		width -= Constants.GUI_CONTROLLER_W;
-		Constants.GUI_TILE_SIZE = (int)width/mapsizex;
-		
+		Constants.GUI_TILE_SIZE = (int) width / mapsizex;
+
 		height *= 0.85;
-		if((int)height/mapsizey < Constants.GUI_TILE_SIZE) {
-			Constants.GUI_TILE_SIZE = (int)height/mapsizey;
+		if ((int) height / mapsizey < Constants.GUI_TILE_SIZE) {
+			Constants.GUI_TILE_SIZE = (int) height / mapsizey;
 		}
-			
+
 		mapsizex *= Constants.GUI_TILE_SIZE;
 		mapsizey *= Constants.GUI_TILE_SIZE;
 	}
-	
+
 	/**
 	 * GUI inicializalasa
-	 */	
+	 */
 	private void initGui() {
 
 		initTileSize();
@@ -211,9 +212,9 @@ public class GuiManager {
 		functionpanel.add(ycoordfield);
 		functionpanel.add(actionbutton);
 		functionmainpanel.setLayout(new BorderLayout());
-		functionmainpanel.add(functionpanel,BorderLayout.NORTH);
+		functionmainpanel.add(functionpanel, BorderLayout.NORTH);
 		functionmainpanel.add(gemstonepanel, BorderLayout.SOUTH);
-		
+
 		controlpanel.setPreferredSize(new Dimension(Constants.GUI_CONTROLLER_W,
 				mapsizey));
 		frame.getContentPane().add(mainpanel);
@@ -232,7 +233,7 @@ public class GuiManager {
 				System.exit(0);
 			}
 		});
-		
+
 		refreshVEPLabel();
 	}
 
@@ -246,7 +247,7 @@ public class GuiManager {
 				changedSelectedFunction();
 			}
 		});
-		
+
 		typebox.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -302,7 +303,8 @@ public class GuiManager {
 				} else if (e.getClass() == Human.class) {
 					newelement = "|HUMAN|";
 				}
-				newelement += "(" + (int)e.getPosition().getX() + "," + (int)e.getPosition().getY() + ")|" + e.getHealth();
+				newelement += "(" + (int) e.getPosition().getX() + ","
+						+ (int) e.getPosition().getY() + ")|" + e.getHealth();
 				enemylistmodel.addElement(newelement);
 			}
 			enemylist.validate();
@@ -310,13 +312,15 @@ public class GuiManager {
 			enemylistmodel.removeAllElements();
 			enemylist.validate();
 		}
-		
+
 		List<Tower> towers = gamecontroller.getMap().getTowerList();
 		if (towers != null) {
 			towerlistmodel.removeAllElements();
 
 			for (Tower t : towers) {
-				String newelement = "(" + (int)t.getPosition().getX() + "," + (int)t.getPosition().getY() + ")|" + (int)t.getRange();
+				String newelement = "(" + (int) t.getPosition().getX() + ","
+						+ (int) t.getPosition().getY() + ")|"
+						+ (int) t.getRange();
 				towerlistmodel.addElement(newelement);
 			}
 			towerlist.validate();
@@ -324,13 +328,15 @@ public class GuiManager {
 			towerlistmodel.removeAllElements();
 			towerlist.validate();
 		}
-		
+
 		List<Trap> traps = gamecontroller.getMap().getTrapList();
 		if (traps != null) {
 			traplistmodel.removeAllElements();
 
 			for (Trap t : traps) {
-				String newelement = "(" + (int)t.getPosition().getX() + "," + (int)t.getPosition().getY() + ")|" + (int)t.getEndTime();
+				String newelement = "(" + (int) t.getPosition().getX() + ","
+						+ (int) t.getPosition().getY() + ")|"
+						+ (int) t.getEndTime();
 				traplistmodel.addElement(newelement);
 			}
 			traplist.validate();
@@ -352,31 +358,40 @@ public class GuiManager {
 	/**
 	 * Ezzel a metodussal tortenik a terkep ujrarajzolasa
 	 */
-	public void redrawMap(Graphics g) {
-		//Palyaelemek rajzolasa
+	public void redrawAll(Graphics g) {
+		// Palyaelemek rajzolasa
 		List<Tile> tileList = gamecontroller.getMap().getTileList();
-		for(Tile t : tileList){
-			//ez itt a trapeket es towereket is kirajzolja, ha vannak
+		for (Tile t : tileList) {
+			// ez itt a trapeket es towereket is kirajzolja, ha vannak
 			t.draw(g);
+			Tower tower = t.getTower();
+			if (tower != null) {
+				List<GemStone> gemStoneList = tower.getGemStoneList();
+				if (gemStoneList != null && gemStoneList.size() != 0) {
+					for (GemStone gem : gemStoneList) {
+						gem.draw(g);
+					}
+				}
+			}
 		}
-		//racs kirajzolasa
-		gamecontroller.getMap().draw(g);
-		
-		//az ellensegek kirajzolasa
+
+		// az ellensegek kirajzolasa
 		List<Enemy> enemyList = gamecontroller.getEnemyList();
-		for(Enemy e : enemyList){
+		for (Enemy e : enemyList) {
 			e.draw(g);
 		}
 		
-	}	
-		
-	
+		// racs kirajzolasa
+		gamecontroller.getMap().draw(g);
+
+	}
+
 	/**
 	 * Ezt a metodust azon osztalyok hivhatjak, akik nem ismerik a Graphics
-	 *   osztalyt, vagy amivel a redrawMap meghivhato.
+	 * osztalyt, vagy amivel a redrawMap meghivhato.
 	 */
 	public void redrawMapAuto() {
-		
+
 	}
 
 	/**
@@ -389,7 +404,7 @@ public class GuiManager {
 			typebox.setEnabled(false);
 		}
 	}
-	
+
 	/**
 	 * Megvaltozott a kivalasztott tipus
 	 */
@@ -401,44 +416,45 @@ public class GuiManager {
 		}
 	}
 
-
 	/**
 	 * Go! gombra kattintas
 	 */
 	private void clickedGoButton() {
-		if(!isValidCoordinates()) {
+		if (!isValidCoordinates()) {
 			return;
 		}
-		
+
 		int functionindex = functionbox.getSelectedIndex();
 		int typeindex = typebox.getSelectedIndex();
 		int posx = Integer.parseInt(xcoordfield.getText());
 		int posy = Integer.parseInt(ycoordfield.getText());
-		
-		//Uj terkepelem hozzaadas
-		if(functionindex == 0) {
-			//Torony
-			if(typeindex == 0) {
+
+		// Uj terkepelem hozzaadas
+		if (functionindex == 0) {
+			// Torony
+			if (typeindex == 0) {
 				addTower(posx, posy);
 			}
-			//Akadaly
-			else if(typeindex == 1) {
+			// Akadaly
+			else if (typeindex == 1) {
 				addTrap(posx, posy);
 			}
-			//Varazsko
-			else if(typeindex == 2) {
-				addGemStone(gemstonebox.getSelectedIndex(),posx,posy);
-			}
-			else {
-				JOptionPane.showMessageDialog(frame, "Itt van valami bibi, a kivalasztott type index ervenytelen!");
+			// Varazsko
+			else if (typeindex == 2) {
+				addGemStone(gemstonebox.getSelectedIndex(), posx, posy);
+			} else {
+				JOptionPane
+						.showMessageDialog(frame,
+								"Itt van valami bibi, a kivalasztott type index ervenytelen!");
 			}
 		}
-		//Meglevo terkepelem eltavolitas
-		else if(functionindex == 1) {
+		// Meglevo terkepelem eltavolitas
+		else if (functionindex == 1) {
 			removeTower(posx, posy);
-		}
-		else {
-			JOptionPane.showMessageDialog(frame, "Itt van valami bibi, a kivalasztott function index ervenytelen!");
+		} else {
+			JOptionPane
+					.showMessageDialog(frame,
+							"Itt van valami bibi, a kivalasztott function index ervenytelen!");
 		}
 	}
 
@@ -446,7 +462,8 @@ public class GuiManager {
 	 * Play gombra kattintas
 	 */
 	private void clickedPlayButton() {
-		//JOptionPane.showMessageDialog(frame, "Na majd ez lesz egyszer a play!");
+		// JOptionPane.showMessageDialog(frame,
+		// "Na majd ez lesz egyszer a play!");
 		this.gametimer.setNormalSpeed();
 	}
 
@@ -454,7 +471,8 @@ public class GuiManager {
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		//JOptionPane.showMessageDialog(frame, "Nem erunk ra szunetet tartani!");
+		// JOptionPane.showMessageDialog(frame,
+		// "Nem erunk ra szunetet tartani!");
 		this.gametimer.pause();
 	}
 
@@ -462,10 +480,10 @@ public class GuiManager {
 	 * FFDW gombra kattintas
 	 */
 	private void clickedFfwdButton() {
-		//JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
+		// JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
 		this.gametimer.setFastForward();
 	}
-	
+
 	/**
 	 * Megadott X, Y koordinataertekek ellenorzese
 	 */
@@ -473,142 +491,157 @@ public class GuiManager {
 		int posx, posy;
 		try {
 			posx = Integer.parseInt(xcoordfield.getText());
-		} catch(NumberFormatException e) {
-			JOptionPane.showMessageDialog(frame, "A megadott 'X' koordinata nem egesz tipus!");
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame,
+					"A megadott 'X' koordinata nem egesz tipus!");
 			return false;
-		} catch(Exception e) {
-			JOptionPane.showMessageDialog(frame, "Valami gond van a megadott 'X' koordinata kornyeken!");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(frame,
+					"Valami gond van a megadott 'X' koordinata kornyeken!");
 			return false;
 		}
-		
+
 		try {
 			posy = Integer.parseInt(ycoordfield.getText());
-		} catch(NumberFormatException e) {
-			JOptionPane.showMessageDialog(frame, "A megadott 'Y' koordinata nem egesz tipus!");
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(frame,
+					"A megadott 'Y' koordinata nem egesz tipus!");
 			return false;
-		} catch(Exception e) {
-			JOptionPane.showMessageDialog(frame, "Valami gond van a megadott 'Y' koordinata kornyeken!");
-			return false;
-		}
-		
-		if(posx > gamecontroller.getMap().getSize().getX()) {
-			JOptionPane.showMessageDialog(frame, "Az 'X' koordinata a terkepen kivulre esik!");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(frame,
+					"Valami gond van a megadott 'Y' koordinata kornyeken!");
 			return false;
 		}
-		
-		if(posy > gamecontroller.getMap().getSize().getY()) {
-			JOptionPane.showMessageDialog(frame, "Az 'Y' koordinata a terkepen kivulre esik!");
+
+		if (posx > gamecontroller.getMap().getSize().getX()) {
+			JOptionPane.showMessageDialog(frame,
+					"Az 'X' koordinata a terkepen kivulre esik!");
 			return false;
 		}
-		
+
+		if (posy > gamecontroller.getMap().getSize().getY()) {
+			JOptionPane.showMessageDialog(frame,
+					"Az 'Y' koordinata a terkepen kivulre esik!");
+			return false;
+		}
+
 		return true;
 	}
-	
+
 	/**
 	 * Uj torony hozzaadasa
 	 */
 	private void addTower(double posx, double posy) {
-		if (gamecontroller.getMana() < 20){
-			JOptionPane.showMessageDialog(frame, "A torony lerakasahoz legalabb 20 VEP kell.");
+		if (gamecontroller.getMana() < 20) {
+			JOptionPane.showMessageDialog(frame,
+					"A torony lerakasahoz legalabb 20 VEP kell.");
 			return;
 		}
 		Map map = gamecontroller.getMap();
-		
-		Tile tile = (map.getTile(posx,posy));
-		if(tile.getClass() == Road.class) {
-			JOptionPane.showMessageDialog(frame,"Uton nem helyeztheto el torony!");
+
+		Tile tile = (map.getTile(posx, posy));
+		if (tile.getClass() == Road.class) {
+			JOptionPane.showMessageDialog(frame,
+					"Uton nem helyeztheto el torony!");
 			return;
 		}
-		
-		Field field = (Field)map.getTile(posx, posy);
-		if(field.getTower() != null) {
-			JOptionPane.showMessageDialog(frame,"A mezon mar van torony!");
+
+		Field field = (Field) map.getTile(posx, posy);
+		if (field.getTower() != null) {
+			JOptionPane.showMessageDialog(frame, "A mezon mar van torony!");
 			return;
 		}
 		gamecontroller.modifyMana(-20);
 		field.setTower();
-		
+
 		refreshVEPLabel();
 		refreshLists();
-		
+
 		mappanel.repaint();
 	}
-	
+
 	/**
 	 * Meglevo torony torlese
 	 */
 	public void removeTower(double posx, double posy) {
 		Map map = gamecontroller.getMap();
-		Tile tile = (map.getTile(posx,posy));
-		
-		if(tile.getClass() == Road.class) {
-			JOptionPane.showMessageDialog(frame,"Uton alapbol nem lehet torony, igy nem nagyon lehet azt onnet eltavolitani!");
+		Tile tile = (map.getTile(posx, posy));
+
+		if (tile.getClass() == Road.class) {
+			JOptionPane
+					.showMessageDialog(frame,
+							"Uton alapbol nem lehet torony, igy nem nagyon lehet azt onnet eltavolitani!");
 			return;
 		}
-		
-		Field field = (Field)map.getTile(posx, posy);
-		if(field.getTower() == null) {
-			JOptionPane.showMessageDialog(frame,"A mezon nincs meg torony, nem lehet mit eltavolitani!");
+
+		Field field = (Field) map.getTile(posx, posy);
+		if (field.getTower() == null) {
+			JOptionPane.showMessageDialog(frame,
+					"A mezon nincs meg torony, nem lehet mit eltavolitani!");
 			return;
 		}
-		
+
 		field.resetTower();
-		
+
 		refreshLists();
-		
+
 		mappanel.repaint();
 	}
-	
+
 	/**
 	 * Uj csapda hozzaadasa
 	 */
 	public void addTrap(double posx, double posy) {
 		if (gamecontroller.getMana() < 10) {
-			JOptionPane.showMessageDialog(frame, "Akadaly lerakasahoz legalavv 10 VEP kell!");
+			JOptionPane.showMessageDialog(frame,
+					"Akadaly lerakasahoz legalavv 10 VEP kell!");
 			return;
 		}
 		Map map = gamecontroller.getMap();
-		
-		Tile tile = (map.getTile(posx,posy));
-		if(tile.getClass() == Field.class) {
-			JOptionPane.showMessageDialog(frame,"Mezon nem helyeztheto el akadaly!");
+
+		Tile tile = (map.getTile(posx, posy));
+		if (tile.getClass() == Field.class) {
+			JOptionPane.showMessageDialog(frame,
+					"Mezon nem helyeztheto el akadaly!");
 			return;
 		}
-		
-		Road road = (Road)map.getTile(posx, posy);
-		if(road.getTrap() != null) {
-			JOptionPane.showMessageDialog(frame,"Az uton mar van akadaly!");
+
+		Road road = (Road) map.getTile(posx, posy);
+		if (road.getTrap() != null) {
+			JOptionPane.showMessageDialog(frame, "Az uton mar van akadaly!");
 			return;
 		}
 		gamecontroller.modifyMana(-10);
 		road.setTrap();
-		
+
 		refreshVEPLabel();
 		refreshLists();
-		
+
 		mappanel.repaint();
-		
+
 	}
-	
+
 	/**
 	 * Uj varazsko hozzaadasa
 	 */
 	public void addGemStone(int type, double posx, double posy) {
-		if (gamecontroller.getMana() < 10){
-			JOptionPane.showMessageDialog(frame, "Varazsko hozzaadasahoz legalabb 10 VEP kell!");
+		if (gamecontroller.getMana() < 10) {
+			JOptionPane.showMessageDialog(frame,
+					"Varazsko hozzaadasahoz legalabb 10 VEP kell!");
 			return;
 		}
 		Map map = gamecontroller.getMap();
-		
-		Tile tile = (map.getTile(posx,posy));
-		if(tile.getClass() == Field.class) {
-			Field field = (Field)tile;
-			if(field.getTower() == null) {
-				JOptionPane.showMessageDialog(frame,"A mezon nincs torony, nem lehet mit varazskovezni!");
+
+		Tile tile = (map.getTile(posx, posy));
+		if (tile.getClass() == Field.class) {
+			Field field = (Field) tile;
+			if (field.getTower() == null) {
+				JOptionPane.showMessageDialog(frame,
+						"A mezon nincs torony, nem lehet mit varazskovezni!");
 				return;
 			}
-			
-			switch(type) {
+
+			switch (type) {
 			case 0:
 				field.addAntiDwarf();
 				break;
@@ -628,24 +661,24 @@ public class GuiManager {
 				field.addPlusRange();
 				break;
 			}
-		}
-		else {
-			Road road = (Road)tile;
-			if(road.getTrap() == null) {
-				JOptionPane.showMessageDialog(frame,"Az uton nincs akadaly, nem lehet mit varazskovezni!");
+		} else {
+			Road road = (Road) tile;
+			if (road.getTrap() == null) {
+				JOptionPane.showMessageDialog(frame,
+						"Az uton nincs akadaly, nem lehet mit varazskovezni!");
 				return;
 			}
-			
+
 			road.addPlusTime();
 		}
 		gamecontroller.modifyMana(-10);
-		
+
 		refreshVEPLabel();
 		refreshLists();
-		
+
 		mappanel.repaint();
 	}
-	
+
 	public void refreshVEPLabel() {
 		veplabel.setText("VEP: " + gamecontroller.getMana());
 	}

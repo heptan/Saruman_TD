@@ -9,13 +9,14 @@ public class DrawTrap {
 		int tilesize = Constants.GUI_TILE_SIZE;
 		int x = (int) o.getPosition().getX();
 		int y = (int) o.getPosition().getY();
-		Polygon p = new Polygon();
-		int width = tilesize/5;
+//		Polygon p = new Polygon();
+//		int width = tilesize/5;
 		g.setColor(new Color(66, 33, 0));
-		p.addPoint( x*tilesize + width*2, y*tilesize + tilesize/2);
-	    p.addPoint( x*tilesize + tilesize/2, y*tilesize + width*2);
-	    p.addPoint( x*tilesize + width*3, y*tilesize + tilesize/2);
-	    p.addPoint( x*tilesize + tilesize/2, y*tilesize + width*3);
-	    g.fillPolygon(p);
+//		p.addPoint( x*tilesize + width*2, y*tilesize + tilesize/2);
+//	    p.addPoint( x*tilesize + tilesize/2, y*tilesize + width*2);
+//	    p.addPoint( x*tilesize + width*3, y*tilesize + tilesize/2);
+//	    p.addPoint( x*tilesize + tilesize/2, y*tilesize + width*3);
+//	    g.fillPolygon(p);
+	    g.fillOval(x*tilesize+2,y*tilesize+2,tilesize-4,tilesize-4);
 	}
 }

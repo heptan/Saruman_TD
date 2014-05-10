@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Az AntiDwarf rajzolo objektuma, kirajzolja a köveket.
+ * Az AntiDwarf rajzolo objektuma, kirajzolja a kï¿½veket.
  * A torpok elleni varazskovek kirajzolasaert felelos osztaly.
  * 
  * @author Richard Czedli
@@ -26,7 +26,7 @@ public class DrawAntiDwarf {
 				int tilesize = Constants.GUI_TILE_SIZE;
 				
 				g.setColor(new Color(185, 122, 87));
-				g.fillRect(x*tilesize+x, y*tilesize+y, tilesize,tilesize);
+				g.fillRect(x*tilesize, y*tilesize, tilesize/2,tilesize/2);
 			} 
 		}
 
