@@ -146,11 +146,11 @@ public class GuiManager {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double width = screenSize.getWidth();
 		double height = screenSize.getHeight();
-		width *= 0.9;
+		width *= 0.85;
 		width -= Constants.GUI_CONTROLLER_W;
 		Constants.GUI_TILE_SIZE = (int)width/mapsizex;
 		
-		height *= 0.9;
+		height *= 0.85;
 		if((int)height/mapsizey < Constants.GUI_TILE_SIZE) {
 			Constants.GUI_TILE_SIZE = (int)height/mapsizey;
 		}
