@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -135,15 +136,35 @@ public class GuiManager {
 	public MapPanel getMapPanel(){
 		return mappanel;
 	}
+	
+	/**
+	 * Tilesize inicializalas
+	 */
+	private void initTileSize() {
+		mapsizex = ((int) gamecontroller.getMap().getSize().getX() + 1);
+		mapsizey = ((int) gamecontroller.getMap().getSize().getY() + 1);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		double width = screenSize.getWidth();
+		double height = screenSize.getHeight();
+		width *= 0.9;
+		width -= Constants.GUI_CONTROLLER_W;
+		Constants.GUI_TILE_SIZE = (int)width/mapsizex;
+		
+		height *= 0.9;
+		if((int)height/mapsizey < Constants.GUI_TILE_SIZE) {
+			Constants.GUI_TILE_SIZE = (int)height/mapsizey;
+		}
+			
+		mapsizex *= Constants.GUI_TILE_SIZE;
+		mapsizey *= Constants.GUI_TILE_SIZE;
+	}
+	
 	/**
 	 * GUI inicializalasa
 	 */	
 	private void initGui() {
 
-		mapsizex = ((int) gamecontroller.getMap().getSize().getX() + 1)
-				* Constants.GUI_TILE_SIZE;
-		mapsizey = ((int) gamecontroller.getMap().getSize().getY() + 1)
-				* Constants.GUI_TILE_SIZE;
+		initTileSize();
 
 		final JFrame frame = new JFrame("Super TD");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
