@@ -10,7 +10,7 @@ import java.awt.Graphics;
  * @author Richard Czedli
  * @since 2014-05-09
  */
-public class DrawAntiElf extends GemDrawer {
+public class DrawAntiElf {
 
 	/**
 	 * a parameterkent kapott g objektummal

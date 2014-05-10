@@ -1,9 +1,13 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A torony lovesi hatosugarat modosito varazskovet reprezentalo osztaly.
  */
 public class PlusRange extends GemStone {
+	private DrawPlusRange PlusRangeDrawer = new DrawPlusRange();
+	
 	/*
 	 *A metodus elkeri a parameterben kapott torony megfelelo erteket (range)
 	 * a torony megfelelo get metodusaval, 
@@ -22,5 +26,9 @@ public class PlusRange extends GemStone {
 	public void setEffect(Trap toSet) {
 		System.out.println("Ezt a kovet csak toronyra lehet tenni");;
 		
+	}
+	@Override
+	public void draw(Graphics g) {
+		PlusRangeDrawer.draw(this, g);
 	}
 }

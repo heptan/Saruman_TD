@@ -27,10 +27,5 @@ public abstract class GemStone {
 	 */
 	public abstract void setEffect(Tower toSet);
 	public abstract void setEffect(Trap toSet);
-<<<<<<< HEAD
-	public abstract GemDrawer getDrawer();
-=======
 	public abstract void draw(Graphics g);
-	
->>>>>>> d88a478f4a0ce56798429370e9d4f8ad61a82aa7
 }

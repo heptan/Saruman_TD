@@ -1,9 +1,12 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * Az akadalyra helyezheto varazskovet reprezentalo osztaly.
  */
 public class PlusTime extends GemStone {
+	private DrawPlusTime PlusTimeDrawer = new DrawPlusTime();
 	
 	/*
 	 * Konstruktor
@@ -28,5 +31,9 @@ public class PlusTime extends GemStone {
 	public void setEffect(Trap toSet) {
 		toSet.setEndTime(2*(toSet.getEndTime()));
 		
+	}
+	@Override
+	public void draw(Graphics g) {
+		PlusTimeDrawer.draw(this, g);
 	}
 }

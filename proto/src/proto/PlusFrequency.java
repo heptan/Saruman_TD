@@ -1,9 +1,12 @@
 package proto;
 
+import java.awt.Graphics;
+
 /*
  * A torony lovesi frekvenciajat modosito varazskovet reprezentalo osztaly.
  */
 public class PlusFrequency extends GemStone {
+	private DrawPlusFrequency PlusFrequencyDrawer = new DrawPlusFrequency();
 	/*
 	 *  A metodus elkeri a parameterben kapott torony megfelelo erteket (frequency)
 	 *   a torony megfelelo get metodusaval, modositja az erteket, 
@@ -22,5 +25,9 @@ public class PlusFrequency extends GemStone {
 	public void setEffect(Trap toSet) {
 		System.out.println("Ezt a kovet csak toronyra lehet tenni");;
 		
+	}
+	@Override
+	public void draw(Graphics g) {
+		PlusFrequencyDrawer.draw(this, g);
 	}
 }
