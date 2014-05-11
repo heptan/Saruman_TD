@@ -207,6 +207,7 @@ public class GuiManager {
 		listmainpanel.add(enemylist);
 		gemstonepanel.add(gemstoneboxlabel);
 		gemstonepanel.add(gemstonebox);
+		gemstonebox.setEnabled(false);
 		functionpanel.add(functionbox);
 		functionpanel.add(typebox);
 		functionpanel.add(xcoordfield);
@@ -421,6 +422,11 @@ public class GuiManager {
 	 * Megvaltozott a kivalasztott tipus
 	 */
 	private void changedSelectedType() {
+		if(typebox.getSelectedIndex() == 2) {
+			gemstonebox.setEnabled(true);
+		}  else {
+			gemstonebox.setEnabled(false);
+		}
 		try {
 			int x = Integer.parseInt(xcoordfield.getText());
 			int y = Integer.parseInt(ycoordfield.getText());
