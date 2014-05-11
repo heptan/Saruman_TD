@@ -10,7 +10,7 @@ public class Constants {
 	/**
 	 * A betoltendo terkepkepet tartalmazo fajl relativ el
 	 */
-	public static final String MAP_FILE_SRC = "map_l.test";
+	public static final String MAP_FILE_SRC = "map_s.test";
 
 	/**
 	 * A tornyok alapertelmezett hatosugara

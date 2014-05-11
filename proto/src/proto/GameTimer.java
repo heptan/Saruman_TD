@@ -59,7 +59,6 @@ public class GameTimer {
 		timer.cancel();
 	}
 	public void resume(){
-		this.timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
