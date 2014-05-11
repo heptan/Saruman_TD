@@ -46,7 +46,7 @@ public class GuiManager {
 	private JLabel towerlistlabel = new JLabel("Tower List:");
 	private JLabel traplistlabel = new JLabel("Trap List:");
 
-	// Enemy-kbol, Tower-ekbol, Trap-ekbol allo listak megjelenitesehez hasznalt
+	// Enemykbol, Towerekbol, Trapekbol allo listak megjelenitesehez hasznalt
 	// komponensek
 	private final DefaultListModel<String> enemylistmodel = new DefaultListModel<String>();
 	private final DefaultListModel<String> towerlistmodel = new DefaultListModel<String>();
@@ -67,7 +67,7 @@ public class GuiManager {
 	private JComboBox<String> type;
 
 	// Varazsko kivalasztasahoz hasznalt legordulo cimke es lista
-	private JLabel gemstoneboxlabel = new JLabel("Torony varazsko tipusa:");
+	private JLabel gemstoneboxlabel = new JLabel("Varazsko tipusa:");
 	private JComboBox<String> gemstonebox;
 
 	// Legordulo listak tartalma
@@ -433,11 +433,11 @@ public class GuiManager {
 
 	public void itsOver() {
 		if (gamecontroller.getWin()) {
-			JOptionPane.showMessageDialog(frame, "On nyert!", "Nyert!", 0);
+			JOptionPane.showMessageDialog(frame, "On nyert!", "Jatek vege", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 		if (gamecontroller.getGameOver()) {
-			JOptionPane.showMessageDialog(frame, "On vesztett!", "Vesztes!", 0);
+			JOptionPane.showMessageDialog(frame, "On vesztett!", "Jatek vege", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
 	}
@@ -512,7 +512,7 @@ public class GuiManager {
 						.showMessageDialog(
 								frame,
 								"Itt van valami bibi, a kivalasztott type index ervenytelen!",
-								"Hiba", 0);
+								"Hiba", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		// Meglevo terkepelem eltavolitas
@@ -523,7 +523,7 @@ public class GuiManager {
 					.showMessageDialog(
 							frame,
 							"Itt van valami bibi, a kivalasztott function index ervenytelen!",
-							"Hiba", 0);
+							"Hiba", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 
@@ -531,8 +531,6 @@ public class GuiManager {
 	 * Play gombra kattintas
 	 */
 	private void clickedPlayButton() {
-		// JOptionPane.showMessageDialog(frame,
-		// "Na majd ez lesz egyszer a play!");
 		if (paused) {
 			this.gametimer.resume();
 			paused = false;
@@ -558,7 +556,6 @@ public class GuiManager {
 	 * FFDW gombra kattintas
 	 */
 	private void clickedFfwdButton() {
-		// JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
 		if (paused) {
 			this.gametimer.resume();
 			this.gametimer.setFastForward();
@@ -577,12 +574,12 @@ public class GuiManager {
 			xcoord = Integer.parseInt(posx.getText());
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(frame,
-					"A megadott 'X' koordinata nem egesz tipus!", "Hiba", 0);
+					"A megadott 'X' koordinata nem egesz szam!", "Hiba", JOptionPane.ERROR_MESSAGE);
 			return false;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(frame,
 					"Valami gond van a megadott 'X' koordinata kornyeken!",
-					"Hiba", 0);
+					"Hiba", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
@@ -590,24 +587,24 @@ public class GuiManager {
 			ycoord = Integer.parseInt(posy.getText());
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(frame,
-					"A megadott 'Y' koordinata nem egesz tipus!", "Hiba", 0);
+					"A megadott 'Y' koordinata nem egesz szam!", "Hiba", JOptionPane.ERROR_MESSAGE);
 			return false;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(frame,
 					"Valami gond van a megadott 'Y' koordinata kornyeken!",
-					"Hiba", 0);
+					"Hiba", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
 		if (xcoord > gamecontroller.getMap().getSize().getX()) {
 			JOptionPane.showMessageDialog(frame,
-					"Az 'X' koordinata a terkepen kivulre esik!", "Hiba", 0);
+					"Az 'X' koordinata a terkepen kivulre esik!", "Hiba", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
 		if (ycoord > gamecontroller.getMap().getSize().getY()) {
 			JOptionPane.showMessageDialog(frame,
-					"Az 'Y' koordinata a terkepen kivulre esik!", "Hiba", 0);
+					"Az 'Y' koordinata a terkepen kivulre esik!", "Hiba", JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
@@ -620,7 +617,7 @@ public class GuiManager {
 	private void addTower(double xcoord, double ycoord) {
 		if (gamecontroller.getMana() < 20) {
 			JOptionPane.showMessageDialog(frame,
-					"A torony lerakasahoz legalabb 20 VEP kell.", "Hiba", 0);
+					"A torony lerakasahoz legalabb 20 VEP kell.", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		Map map = gamecontroller.getMap();
@@ -628,14 +625,14 @@ public class GuiManager {
 		Tile tile = (map.getTile(xcoord, ycoord));
 		if (tile.getClass() == Road.class) {
 			JOptionPane.showMessageDialog(frame,
-					"Uton nem helyeztheto el torony!", "Hiba", 0);
+					"Uton nem helyeztheto el torony!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
 		Field field = (Field) map.getTile(xcoord, ycoord);
 		if (field.getTower() != null) {
 			JOptionPane.showMessageDialog(frame, "A mezon mar van torony!",
-					"Hiba", 0);
+					"Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		gamecontroller.modifyMana(-20);
@@ -659,7 +656,7 @@ public class GuiManager {
 					.showMessageDialog(
 							frame,
 							"Uton alapbol nem lehet torony, igy nem nagyon lehet azt onnet eltavolitani!",
-							"Hiba", 0);
+							"Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
@@ -667,7 +664,7 @@ public class GuiManager {
 		if (field.getTower() == null) {
 			JOptionPane.showMessageDialog(frame,
 					"A mezon nincs meg torony, nem lehet mit eltavolitani!",
-					"Hiba", 0);
+					"Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
@@ -684,7 +681,7 @@ public class GuiManager {
 	public void addTrap(double xcoord, double ycoord) {
 		if (gamecontroller.getMana() < 10) {
 			JOptionPane.showMessageDialog(frame,
-					"Akadaly lerakasahoz legalavv 10 VEP kell!", "Hiba", 0);
+					"Akadaly lerakasahoz legalavv 10 VEP kell!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		Map map = gamecontroller.getMap();
@@ -692,14 +689,14 @@ public class GuiManager {
 		Tile tile = (map.getTile(xcoord, ycoord));
 		if (tile.getClass() == Field.class) {
 			JOptionPane.showMessageDialog(frame,
-					"Mezon nem helyeztheto el akadaly!", "Hiba", 0);
+					"Mezon nem helyeztheto el akadaly!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
 		Road road = (Road) map.getTile(xcoord, ycoord);
 		if (road.getTrap() != null) {
 			JOptionPane.showMessageDialog(frame, "Az uton mar van akadaly!",
-					"Hiba", 0);
+					"Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		gamecontroller.modifyMana(-10);
@@ -718,7 +715,7 @@ public class GuiManager {
 	public void addGemStone(int type, double xcoord, double ycoord) {
 		if (gamecontroller.getMana() < 10) {
 			JOptionPane.showMessageDialog(frame,
-					"Varazsko hozzaadasahoz legalabb 10 VEP kell!", "Hiba", 0);
+					"Varazsko hozzaadasahoz legalabb 10 VEP kell!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		Map map = gamecontroller.getMap();
@@ -729,13 +726,13 @@ public class GuiManager {
 			if (field.getTower() == null) {
 				JOptionPane.showMessageDialog(frame,
 						"A mezon nincs torony, nem lehet mit varazskovezni!",
-						"Hiba", 0);
+						"Figyelem!", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 
 			if (field.getTower().getGemStoneList().size() >= 4) {
 				JOptionPane.showMessageDialog(frame,
-						"Erre a toronyra nem teheto tobb varazsko!", "Hiba", 0);
+						"Erre a toronyra nem teheto tobb varazsko!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 
@@ -764,13 +761,13 @@ public class GuiManager {
 			if (road.getTrap() == null) {
 				JOptionPane.showMessageDialog(frame,
 						"Az uton nincs akadaly, nem lehet mit varazskovezni!",
-						"Hiba", 0);
+						"Figyelem!", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 
 			if (road.getTrap().isGemStoned()) {
 				JOptionPane.showMessageDialog(frame,
-						"Ezen az akadalyon mar van varazsko!", "Hiba", 0);
+						"Ezen az akadalyon mar van varazsko!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 			road.addPlusTime();
