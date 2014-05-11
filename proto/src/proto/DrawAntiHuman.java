@@ -25,7 +25,7 @@ public class DrawAntiHuman {
 				int y = (int) pos.getY();
 				int tilesize = Constants.GUI_TILE_SIZE;
 				
-				g.setColor(new Color(0xff, 0x00, 0x00));
+				g.setColor(new Color(237, 28, 36));
 				g.fillPolygon(new int []{x*tilesize+tilesize/2,x*tilesize+tilesize*3/4,x*tilesize+tilesize,x*tilesize+tilesize*3/4}, new int []{y*tilesize+tilesize/2,y*tilesize+tilesize/3,y*tilesize+tilesize/2,y*tilesize+tilesize*2/3},4);
 			} 
 		}
