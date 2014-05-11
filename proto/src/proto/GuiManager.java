@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,6 +26,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  * Ez az osztaly felelos a felhasznaloi feluleten levo vezerlok es egyeb
@@ -71,7 +74,8 @@ public class GuiManager {
 	String[] functionboxcontent = { "Add", "Remove" };
 	String[] typeboxcontent = { "Tower", "Trap", "GemStone" };
 	String[] gemstoneboxcontent = { "Dwarf elleni", "Elf elleni",
-			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+", "Hatotav+","Hatoido+" };
+			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+",
+			"Hatotav+", "Hatoido+" };
 
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt gomb
 	private JButton actionbutton = new JButton("Go!");
@@ -284,6 +288,40 @@ public class GuiManager {
 				clickedFfwdButton();
 			}
 		});
+		
+		DocumentListener coorlistener = new DocumentListener() {
+			public void changedUpdate(DocumentEvent e) {
+				changed();
+			}
+
+			public void removeUpdate(DocumentEvent e) {
+				changed();
+			}
+
+			public void insertUpdate(DocumentEvent e) {
+				changed();
+			}
+
+			public void changed() {
+				try {
+					int x = Integer.parseInt(xcoordfield.getText());
+					int y = Integer.parseInt(ycoordfield.getText());
+					if (gamecontroller.getMap().getTile((double) x, (double) y)
+							.getClass() == Road.class) {
+						gemstonebox.setSelectedIndex(6);
+						return;
+					} else {
+						gemstonebox.setSelectedIndex(0);
+						return;
+					}
+				} catch (Exception e) {
+					gemstonebox.setSelectedIndex(0);
+				}
+			}
+		};
+
+		xcoordfield.getDocument().addDocumentListener(coorlistener);
+		ycoordfield.getDocument().addDocumentListener(coorlistener);
 	}
 
 	/**
@@ -422,9 +460,9 @@ public class GuiManager {
 	 * Megvaltozott a kivalasztott tipus
 	 */
 	private void changedSelectedType() {
-		if(typebox.getSelectedIndex() == 2) {
+		if (typebox.getSelectedIndex() == 2) {
 			gemstonebox.setEnabled(true);
-		}  else {
+		} else {
 			gemstonebox.setEnabled(false);
 		}
 		try {
@@ -495,7 +533,7 @@ public class GuiManager {
 	private void clickedPlayButton() {
 		// JOptionPane.showMessageDialog(frame,
 		// "Na majd ez lesz egyszer a play!");
-		if(paused){
+		if (paused) {
 			this.gametimer.resume();
 			paused = false;
 		} else {
@@ -507,11 +545,10 @@ public class GuiManager {
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		if(paused){
+		if (paused) {
 			this.gametimer.resume();
 			paused = false;
-		}
-		else{
+		} else {
 			this.gametimer.pause();
 			paused = true;
 		}
@@ -522,7 +559,7 @@ public class GuiManager {
 	 */
 	private void clickedFfwdButton() {
 		// JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
-		if(paused){
+		if (paused) {
 			this.gametimer.resume();
 			this.gametimer.setFastForward();
 			paused = false;
