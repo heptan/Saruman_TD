@@ -58,8 +58,8 @@ public class GameTimer {
 	public void pause() {
 		timer.cancel();
 	}
+	
 	public void resume(){
-		this.timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
