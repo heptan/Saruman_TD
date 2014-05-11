@@ -489,17 +489,23 @@ public class GuiManager {
 	private void clickedPlayButton() {
 		// JOptionPane.showMessageDialog(frame,
 		// "Na majd ez lesz egyszer a play!");
-		this.gametimer.setNormalSpeed();
+		if(paused){
+			this.gametimer.resume();
+			paused = false;
+		} else {
+			this.gametimer.setNormalSpeed();
+		}
 	}
 
 	/**
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		if (paused) {
+		if(paused){
 			this.gametimer.resume();
 			paused = false;
-		} else {
+		}
+		else{
 			this.gametimer.pause();
 			paused = true;
 		}
@@ -510,7 +516,13 @@ public class GuiManager {
 	 */
 	private void clickedFfwdButton() {
 		// JOptionPane.showMessageDialog(frame, "Csak ne olyan gyorsan!");
-		this.gametimer.setFastForward();
+		if(paused){
+			this.gametimer.resume();
+			this.gametimer.setFastForward();
+			paused = false;
+		} else {
+			this.gametimer.setFastForward();
+		}
 	}
 
 	/**
