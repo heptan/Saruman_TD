@@ -13,12 +13,14 @@ import java.awt.Graphics;
 public class DrawPlusFrequency {
 
 	/**
-	 * a parameterkent kapott g objektummal
+	 * A parameterkent kapott g objektummal kirajzoltat egy fehï¿½r szinu rombuszt
+	 * a megkapott o objektum poziciojanak megfelelo negyzetracs bal also
+	 * hatodaba.
 	 * 
-	 * kirajzoltat egy fehér szinu rombuszt a megkapott o objektum poziciojanak
-	 * megfelelo
-	 * 
-	 * negyzetracs bal also hatodaba.
+	 * @param o
+	 *            A kirajzolando tuzelesi gyakorisagot modosito varazsko
+	 * @param g
+	 *            A graphics objektum, amire rajzolni kell
 	 */
 	public void draw(PlusFrequency o, Graphics g) {
 		Position pos = o.getPosition();
