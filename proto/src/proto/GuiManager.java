@@ -3,7 +3,6 @@ package proto;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -11,7 +10,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -66,7 +64,7 @@ public class GuiManager {
 	private JComboBox<String> typebox;
 
 	// Varazsko kivalasztasahoz hasznalt legordulo cimke es lista
-	private JLabel gemstoneboxlabel = new JLabel("Varazsko tipusa:");
+	private JLabel gemstoneboxlabel = new JLabel("Torony varazsko tipusa:");
 	private JComboBox<String> gemstonebox;
 
 	// Legordulo listak tartalma
@@ -296,7 +294,7 @@ public class GuiManager {
 		List<Enemy> enemies = gamecontroller.getEnemyList();
 		if (enemies != null) {
 			enemylistmodel.removeAllElements();
-			
+
 			List<String> enemylistlabel = new ArrayList<String>();
 
 			for (Enemy e : enemies) {
@@ -315,7 +313,7 @@ public class GuiManager {
 				enemylistlabel.add(newelement);
 			}
 			Collections.sort(enemylistlabel);
-			for(String actlabel : enemylistlabel) {
+			for (String actlabel : enemylistlabel) {
 				enemylistmodel.addElement(actlabel);
 			}
 			enemylist.validate();
@@ -670,6 +668,12 @@ public class GuiManager {
 				return;
 			}
 
+			if (field.getTower().getGemStoneList().size() >= 4) {
+				JOptionPane.showMessageDialog(frame,
+						"Erre a toronyra nem teheto tobb varazsko!", "Hiba", 0);
+				return;
+			}
+
 			switch (type) {
 			case 0:
 				field.addAntiDwarf();
@@ -699,6 +703,11 @@ public class GuiManager {
 				return;
 			}
 
+			if (road.getTrap().isGemStoned()) {
+				JOptionPane.showMessageDialog(frame,
+						"Ezen az akadalyon mar van varazsko!", "Hiba", 0);
+				return;
+			}
 			road.addPlusTime();
 		}
 		gamecontroller.modifyMana(-10);
