@@ -127,9 +127,11 @@ public class Trap extends EnemyObserver {
 	 * Varazsko hozzaadasa
 	 */
 	public void addPlusTime() {
-		gem = new PlusTime();
-		gem.setEffect(this);
-		gem.setPosition(position);// beallitjuk a poziciojat
+		if(gem == null){
+			gem = new PlusTime();
+			gem.setEffect(this);
+			gem.setPosition(position);// beallitjuk a poziciojat
+		}
 	}
 
 	/*
@@ -144,5 +146,8 @@ public class Trap extends EnemyObserver {
 	}
 	public void draw(Graphics g) {
 		trapDrawer.draw(this, g);
+		if(gem!= null){
+			gem.draw(g);
+		}
 	}
 }

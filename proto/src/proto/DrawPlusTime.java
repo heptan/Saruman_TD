@@ -2,6 +2,7 @@ package proto;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Polygon;
 
 /**
  * Az PlusTime rajzolo objektuma, kirajzolja a köveket.
@@ -24,9 +25,13 @@ public class DrawPlusTime {
 				int x = (int) pos.getX();
 				int y = (int) pos.getY();
 				int tilesize = Constants.GUI_TILE_SIZE;
-				
-				g.setColor(new Color(0x99, 0x66, 0x00));
-				g.fillPolygon(new int []{x*tilesize+tilesize/4,x*tilesize+tilesize/2,x*tilesize+tilesize*3/4,x*tilesize+tilesize/2}, new int []{y*tilesize+tilesize/2,y*tilesize+tilesize/3,y*tilesize+tilesize/3,y*tilesize+tilesize*4/6},4);
+				g.setColor(new Color(44, 33, 0));				
+				Polygon p = new Polygon();				
+				p.addPoint( x*tilesize+tilesize/3, y*tilesize + tilesize/2);
+			    p.addPoint( x*tilesize+tilesize/2, y*tilesize+tilesize/3);
+			    p.addPoint( x*tilesize + (tilesize/3)*2, y*tilesize + tilesize/2);
+			    p.addPoint( x*tilesize + tilesize/2, y*tilesize + (tilesize/3)*2);
+			    g.fillPolygon(p);
 			} 
 		}
 

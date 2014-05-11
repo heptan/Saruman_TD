@@ -668,7 +668,7 @@ public class GuiManager {
 				break;
 			case 5:
 				field.addPlusRange();
-				break;
+				break;			
 			}
 		} else {
 			Road road = (Road) tile;
