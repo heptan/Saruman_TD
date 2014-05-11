@@ -32,17 +32,20 @@ public class GameController {
 	private boolean israndomized = true;
 
 	private GameTimer gametimer;
+
 	public void setGameTimer(GameTimer gt) {
 		this.gametimer = gt;
 	}
-	
+
 	public GameController() {
 		// Igy ezt csak a getInstance es csak egyszer tudja meghivni.
 	}
-	public boolean getWin(){
+
+	public boolean getWin() {
 		return win;
 	}
-	public boolean getGameOver(){
+
+	public boolean getGameOver() {
 		return gameover;
 	}
 
@@ -141,8 +144,8 @@ public class GameController {
 				}
 			}
 			// toroljuk ki az osszes palyaelemet a Map osztaly listajabol
-			map.clearTiles();			
-			
+			map.clearTiles();
+
 			System.out.println("A jatek megnyerve!");
 		}
 
@@ -197,7 +200,7 @@ public class GameController {
 				}
 			}
 		}
-		++enemyCounter;
+		enemyCounter++;
 	}
 
 	/*
@@ -287,16 +290,15 @@ public class GameController {
 	 * Egyet lep a jatekbeli kor szamlalo.
 	 */
 	void nextStep() {
-		if(gameover == true || win == true) {
+		if (gameover == true || win == true) {
 			return;
 		}
 		// Ellensegek automatikus letrehozasa
 		if (enemies.size() < 2) {
-			for (int i = 0;i < (enemyCounter/2 + 1) && 
-						   enemyCounter	< Constants.ENEMY_COUNTER_MAX; ++i){
+			for (int i = 0; enemyCounter < Constants.ENEMY_COUNTER_MAX; i++) {
 				Random rndGen = new Random();
 				int rndType = rndGen.nextInt(4);
-				String type[] = {"dwarf", "elf", "hobbit", "human"};
+				String type[] = { "dwarf", "elf", "hobbit", "human" };
 				this.startNewEnemy(0, 0, type[rndType]);
 			}
 		}
@@ -396,13 +398,13 @@ public class GameController {
 		}
 		return null;
 	}
-	
+
 	public int getMana() {
 		return mana;
 	}
-	
+
 	public void modifyMana(int m) {
 		mana += m;
 	}
-	
+
 }

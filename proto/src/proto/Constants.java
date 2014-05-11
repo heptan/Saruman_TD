@@ -7,7 +7,7 @@ public class Constants {
 	public static final int MIST_RANGE = 0;
 	
 	public static final int ENEMY_MAX_HEALTH = 100;
-	public static final int ENEMY_COUNTER_MAX = 2;
+	public static final int ENEMY_COUNTER_MAX = 10;
 
 	public static final int TOWER_DEFAULT_RANGE = 2;
 	public static final int TOWER_SHOT = 20;
