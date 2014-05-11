@@ -32,6 +32,7 @@ public class GameTimer {
 	}
 	
 	public void setFastForward() {
+		timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
@@ -41,6 +42,7 @@ public class GameTimer {
 	}
 	
 	public void setNormalSpeed() {
+		timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
@@ -55,11 +57,13 @@ public class GameTimer {
 	 *   program varakozasban toltott ideje valoszinuleg nem haladja meg a
 	 *   292 471 000 evet, igy ez kielegitonek tunik.
 	 */
-	public void pause() {
+	public void pause() { 
 		timer.cancel();
+		timer.purge();
 	}
 	
 	public void resume(){
+		timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {

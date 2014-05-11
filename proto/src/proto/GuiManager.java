@@ -83,7 +83,6 @@ public class GuiManager {
 	// Jateksebesseg modositasahoz hasznalt gombok
 	private JLabel veplabel = new JLabel("VEP: ");
 	private JButton playbutton = new JButton("Play");
-	private boolean paused = false;
 	private JButton stopbutton = new JButton("Pause");
 	private JButton speedplusbutton = new JButton("FFwd");
 
@@ -114,6 +113,10 @@ public class GuiManager {
 	private GameController gamecontroller;
 	// GameTimer-re mutato referencia
 	private GameTimer gametimer;
+	private SpeedStatus actspeedstatus;
+	private enum SpeedStatus {
+		NORMAL, FAST, PAUSED
+	}
 
 	// Terkep merete
 	int mapsizex = 0, mapsizey = 0;
@@ -126,13 +129,10 @@ public class GuiManager {
 	 *            A jatekteret tartalmazo GameController
 	 */
 	public GuiManager(GameController gamecontroller, GameTimer gametimer) {
-
 		this.gamecontroller = gamecontroller;
-
 		this.gametimer = gametimer;
-
+		actspeedstatus = SpeedStatus.PAUSED;
 		initGui();
-
 		setActionListeners();
 	}
 
@@ -531,24 +531,22 @@ public class GuiManager {
 	 * Play gombra kattintas
 	 */
 	private void clickedPlayButton() {
-		if (paused) {
+		if (actspeedstatus == SpeedStatus.PAUSED) {
 			this.gametimer.resume();
-			paused = false;
-		} else {
+		}
+		else if (actspeedstatus == SpeedStatus.FAST) {
 			this.gametimer.setNormalSpeed();
 		}
+		actspeedstatus = SpeedStatus.NORMAL;
 	}
 
 	/**
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		if (paused) {
-			this.gametimer.resume();
-			paused = false;
-		} else {
+		if (actspeedstatus == SpeedStatus.NORMAL || actspeedstatus == SpeedStatus.FAST){
 			this.gametimer.pause();
-			paused = true;
+			actspeedstatus = SpeedStatus.PAUSED;
 		}
 	}
 
@@ -556,13 +554,14 @@ public class GuiManager {
 	 * FFDW gombra kattintas
 	 */
 	private void clickedFfwdButton() {
-		if (paused) {
-			this.gametimer.resume();
-			this.gametimer.setFastForward();
-			paused = false;
-		} else {
+		if (actspeedstatus == SpeedStatus.PAUSED) {
+//			this.gametimer.resume();
 			this.gametimer.setFastForward();
 		}
+		else if(actspeedstatus == SpeedStatus.NORMAL) {
+			this.gametimer.setFastForward();
+		}
+		actspeedstatus = SpeedStatus.FAST;
 	}
 
 	/**
