@@ -364,10 +364,11 @@ public class GameController {
 		}
 		if (enemies.size() == 0 && enemyCounter >= Constants.ENEMY_COUNTER_MAX) {
 			win();
+			return;
 		}
 		
 		// Ellensegek automatikus letrehozasa
-		if (enemies.size() < 2) {
+		if (enemies.size() < 2 && !gameover && !win) {
 			for (int i = 0; enemyCounter <= Constants.ENEMY_COUNTER_MAX; i++) {
 				Random rndGen = new Random();
 				int rndType = rndGen.nextInt(4);
