@@ -71,8 +71,7 @@ public class GuiManager {
 	String[] functionboxcontent = { "Add", "Remove" };
 	String[] typeboxcontent = { "Tower", "Trap", "GemStone" };
 	String[] gemstoneboxcontent = { "Dwarf elleni", "Elf elleni",
-			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+",
-			"Hatotav+" };
+			"Hobbit elleni", "Human elleni", "Tuzelesi gyakorisag+", "Hatotav+","Hatoido+" };
 
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt gomb
 	private JButton actionbutton = new JButton("Go!");
@@ -207,7 +206,6 @@ public class GuiManager {
 		listmainpanel.add(traplist);
 		listmainpanel.add(enemylist);
 		gemstonepanel.add(gemstoneboxlabel);
-		gemstonebox.setEnabled(false);
 		gemstonepanel.add(gemstonebox);
 		functionpanel.add(functionbox);
 		functionpanel.add(typebox);
@@ -411,7 +409,10 @@ public class GuiManager {
 	private void changedSelectedFunction() {
 		if (functionbox.getSelectedIndex() == 0) {
 			typebox.setEnabled(true);
+			gemstonebox.setEnabled(true);
 		} else {
+			typebox.setSelectedIndex(0);
+			gemstonebox.setEnabled(false);
 			typebox.setEnabled(false);
 		}
 	}
@@ -420,10 +421,19 @@ public class GuiManager {
 	 * Megvaltozott a kivalasztott tipus
 	 */
 	private void changedSelectedType() {
-		if (typebox.getSelectedIndex() == 2) {
-			gemstonebox.setEnabled(true);
-		} else {
-			gemstonebox.setEnabled(false);
+		try {
+			int x = Integer.parseInt(xcoordfield.getText());
+			int y = Integer.parseInt(ycoordfield.getText());
+			if (gamecontroller.getMap().getTile((double) x, (double) y)
+					.getClass() == Road.class) {
+				gemstonebox.setSelectedIndex(6);
+				return;
+			} else {
+				gemstonebox.setSelectedIndex(0);
+				return;
+			}
+		} catch (NumberFormatException e) {
+			gemstonebox.setSelectedIndex(0);
 		}
 	}
 
