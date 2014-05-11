@@ -9,7 +9,7 @@ import java.awt.Graphics;
 public class DrawHobbit {
 
 	/**
-	 * A rajzolast megvalosito metodus
+	 * A hobbit rajzolasat megvalosito metodus.
 	 * 
 	 * @param o
 	 *            A kirajzolando Hobbit ellenseg
