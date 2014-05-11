@@ -71,19 +71,19 @@ public class Constants {
 	 * sebesseggel, egy palyaelemen valo tartozkodas idejet adja meg
 	 */
 	public static final int SPEED_DWARF = 4;
-	
+
 	/**
 	 * Elf ellenseg sebessegerteke, forditottan aranyos a lathato mozgasi
 	 * sebesseggel, egy palyaelemen valo tartozkodas idejet adja meg
 	 */
 	public static final int SPEED_ELF = 0;
-	
+
 	/**
 	 * Hobbit ellenseg sebessegerteke, forditottan aranyos a lathato mozgasi
 	 * sebesseggel, egy palyaelemen valo tartozkodas idejet adja meg
 	 */
 	public static final int SPEED_HOBBIT = 3;
-	
+
 	/**
 	 * Human ellenseg sebessegerteke, forditottan aranyos a lathato mozgasi
 	 * sebesseggel, egy palyaelemen valo tartozkodas idejet adja meg
@@ -94,10 +94,10 @@ public class Constants {
 	 * A GUI-n levo, vezerloket tartalmazo sav szelessege
 	 */
 	public static final int GUI_CONTROLLER_W = 300;
-	
+
 	/**
-	 * A palyaelemek meretet tarolo konstans
-	 * inicializalaskor szamitodik a kepernyofelbontas fuggvenyeben
+	 * A palyaelemek meretet tarolo konstans inicializalaskor szamitodik a
+	 * kepernyofelbontas fuggvenyeben
 	 */
 	public static int GUI_TILE_SIZE;
 

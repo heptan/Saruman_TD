@@ -13,12 +13,14 @@ import java.awt.Graphics;
 public class DrawAntiDwarf {
 
 	/**
-	 * a parameterkent kapott g objektummal
+	 * A parameterkent kapott g objektummal kirajzoltat egy hupikek szinu
+	 * rombuszt a megkapott o objektum poziciojanak megfelelo negyzetracs bal
+	 * felso hatodaba.
 	 * 
-	 * kirajzoltat egy hupikek szinu rombuszt a megkapott o objektum
-	 * poziciojanak megfelelo
-	 * 
-	 * negyzetracs bal felso hatodaba.
+	 * @param o
+	 *            A kirajzolando Dwarf elleni varazsko
+	 * @param g
+	 *            A graphics objektum, amire rajzolni kell
 	 */
 	public void draw(AntiDwarf o, Graphics g) {
 		Position pos = o.getPosition();

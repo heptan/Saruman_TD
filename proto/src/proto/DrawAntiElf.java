@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Az AntiElf rajzolo objektuma, kirajzolja a köveket. A elfek elleni
+ * Az AntiElf rajzolo objektuma, kirajzolja a kï¿½veket. A elfek elleni
  * varazskovek kirajzolasaert felelos osztaly.
  * 
  * @author Richard Czedli
@@ -13,9 +13,14 @@ import java.awt.Graphics;
 public class DrawAntiElf {
 
 	/**
-	 * a parameterkent kapott g objektummal kirajzoltat egy magenta szinu
+	 * A parameterkent kapott g objektummal kirajzoltat egy magenta szinu
 	 * rombuszt a megkapott o objektum poziciojanak megfelelo negyzetracs jobb
 	 * felso hatodaba.
+	 * 
+	 * @param o
+	 *            A kirajzolando Elf elleni varazsko
+	 * @param g
+	 *            A graphics objektum, amire rajzolni kell
 	 */
 	public void draw(AntiElf o, Graphics g) {
 		Position pos = o.getPosition();
@@ -26,8 +31,8 @@ public class DrawAntiElf {
 		g.setColor(new Color(0xFF, 0x00, 0xFF));
 		g.fillPolygon(new int[] { x * tilesize + tilesize / 2,
 				x * tilesize + tilesize * 3 / 4, x * tilesize + tilesize,
-				x * tilesize + tilesize * 3 / 4 },
-				new int[] { y * tilesize + tilesize / 6, y * tilesize,
+				x * tilesize + tilesize * 3 / 4 }, new int[] {
+				y * tilesize + tilesize / 6, y * tilesize,
 				y * tilesize + tilesize / 6, y * tilesize + tilesize / 3 }, 4);
 	}
 }

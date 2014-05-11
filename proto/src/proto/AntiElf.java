@@ -20,7 +20,8 @@ public class AntiElf extends GemStone {
 	 * kiszamolt erteket.
 	 * 
 	 * @see proto.GemStone#setEffect(proto.Tower)
-	 * @param toSet A torony, amire a user a varazskovet elhelyezte.
+	 * @param toSet
+	 *            A torony, amire a user a varazskovet elhelyezte.
 	 */
 	@Override
 	public void setEffect(Tower toSet) {
@@ -33,7 +34,9 @@ public class AntiElf extends GemStone {
 	 * uzenetet kuldok.
 	 * 
 	 * @see proto.GemStone#setEffect(proto.Trap)
-	 * @param toSet Az akadaly, amire probalta volna a user a varazskovet rahelyezni.
+	 * @param toSet
+	 *            Az akadaly, amire probalta volna a user a varazskovet
+	 *            rahelyezni.
 	 */
 	@Override
 	public void setEffect(Trap toSet) {
@@ -46,7 +49,8 @@ public class AntiElf extends GemStone {
 	 * A varazsko rajzolasahoz hasznalt metodus
 	 * 
 	 * @see proto.GemStone#draw(java.awt.Graphics)
-	 * @param g Az a graphics objektum, amire rajzolni kell.
+	 * @param g
+	 *            Az a graphics objektum, amire rajzolni kell.
 	 */
 	@Override
 	public void draw(Graphics g) {

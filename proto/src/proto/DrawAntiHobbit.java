@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- * Az AntiHobbit rajzolo objektuma, kirajzolja a köveket. A hobbitok elleni
+ * Az AntiHobbit rajzolo objektuma, kirajzolja a kï¿½veket. A hobbitok elleni
  * varazskovek kirajzolasaert felelos osztaly.
  * 
  * @author Richard Czedli
@@ -13,9 +13,15 @@ import java.awt.Graphics;
 public class DrawAntiHobbit {
 
 	/**
-	 * a parameterkent kapott g objektummal kirajzoltat egy sarga szinu rombuszt
+	 * A parameterkent kapott g objektummal kirajzoltat egy sarga szinu rombuszt
 	 * a megkapott o objektum poziciojanak megfelelo negyzetracs bal kozepso
 	 * hatodaba.
+	 * 
+	 * @param o
+	 *            A kirajzolando Hobbit elleni varazsko
+	 * 
+	 * @param g
+	 *            A graphics objektum, amire rajzolni kell
 	 */
 	public void draw(AntiHobbit o, Graphics g) {
 		Position pos = o.getPosition();
