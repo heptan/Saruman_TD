@@ -179,8 +179,8 @@ public abstract class Enemy {
 	/**
 	 * Feliratkozott observer kiregisztralasahoz hasznalt metodus.
 	 * 
-	 * @param Az
-	 *            eltavolitani kivant observer
+	 * @param observer
+	 *            Az eltavolitani kivant observer
 	 */
 	public void removeObserver(EnemyObserver observer) {
 		if (observer != null && observers.contains(observer)) {
