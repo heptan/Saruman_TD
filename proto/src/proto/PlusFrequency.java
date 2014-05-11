@@ -26,6 +26,13 @@ public class PlusFrequency extends GemStone {
 		System.out.println("Ezt a kovet csak toronyra lehet tenni");;
 		
 	}
+	/**
+	 * A varazsko rajzolo metodusat hivja
+	 * 
+	 * @see proto.GemStone#draw(java.awt.Graphics)
+	 * @param g
+	 *            Az a graphics objektum, amire rajzolni kell.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		PlusFrequencyDrawer.draw(this, g);

@@ -32,6 +32,13 @@ public class PlusTime extends GemStone {
 		toSet.setEndTime(2*(toSet.getEndTime()));
 		
 	}
+	/**
+	 * A varazsko rajzolo metodusat hivja
+	 * 
+	 * @see proto.GemStone#draw(java.awt.Graphics)
+	 * @param g
+	 *            Az a graphics objektum, amire rajzolni kell.
+	 */
 	@Override
 	public void draw(Graphics g) {
 		PlusTimeDrawer.draw(this, g);
