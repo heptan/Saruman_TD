@@ -24,11 +24,12 @@ public class GameTimer {
 	}
 	
 	private void tickEvent() {
+		if(!gamecontroller.getWin() && !gamecontroller.getGameOver()){
 		this.gamecontroller.nextStep();
 		this.guiManager.refreshLists();	
 		this.guiManager.getMapPanel().repaint();
 		this.guiManager.itsOver();
-		
+		}
 	}
 	
 	public void setFastForward() {

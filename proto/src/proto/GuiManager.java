@@ -433,11 +433,17 @@ public class GuiManager {
 
 	public void itsOver() {
 		if (gamecontroller.getWin()) {
+			gametimer.pause();			
 			JOptionPane.showMessageDialog(frame, "On nyert!", "Jatek vege", JOptionPane.INFORMATION_MESSAGE);
+			gamecontroller.win();
+			System.exit(0);
 			return;
 		}
 		if (gamecontroller.getGameOver()) {
+			gametimer.pause();
 			JOptionPane.showMessageDialog(frame, "On vesztett!", "Jatek vege", JOptionPane.INFORMATION_MESSAGE);
+			gamecontroller.gameOver();
+			System.exit(0);
 			return;
 		}
 	}
