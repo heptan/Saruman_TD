@@ -8,54 +8,54 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
  * A tornyot megvalosito osztaly. 
  */
 public class Tower extends EnemyObserver {
 	private DrawTower towerDrawer = new DrawTower();
 	
-	/*
+	/**
 	 * a torony pozicioja
 	 */
 	private Position position;
-	/*
-	 * A torony hatotavolsaga.
+	/**
+	 * A torony hatotavolsaga
 	 */
 	private double range;
-	/*
+	/**
 	 * A toronyhoz tartozo mezo referenciaja
 	 */
 	private Field field;
-	/*
+	/**
 	 * A toronyhoz tartozo varazskovek
 	 */
 	private List<GemStone> gemList;
-	/*
+	/**
 	 * A torony hatosugaraban levo ellensegek
 	 */
 	private List<Enemy> enemyList;
-	/*
+	/**
 	 * A torony tundek elleni sebzese
 	 */
 	private int damageElf;
-	/*
+	/**
 	 * A torony emberek elleni sebzese
 	 */
 	private int damageHuman;
-	/*
+	/**
 	 * A torony torpok elleni sebzese
 	 */
 	private int damageDwarf;
-	/*
+	/**
 	 * A torony hobbitok elleni sebzese
 	 */
 	private int damageHobbit;
-	/*
+	/**
 	 * A torony lovesi frekvenciaja
 	 */
 	private int frequency;
 
-	/*
+	/**
 	 * Konstruktor, parametere a mezo, ami a torony van
 	 */
 	public Tower(Field place) {
@@ -71,8 +71,9 @@ public class Tower extends EnemyObserver {
 		position = place.getPosition();
 	}
 
-	/*
-	 * ez a fuggveny hivodik meg amikor az ellenseg lep
+	/**
+	 * ez a fuggveny hivodik meg amikor, az ellenseg lep
+	 * @see proto.EnemyObserver#notifyFromEnemy(proto.Enemy)
 	 */
 	@Override
 	public void notifyFromEnemy(Enemy enemy) {
@@ -87,7 +88,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * a torony lovese
 	 */
 	public void shoot() {
@@ -127,16 +128,20 @@ public class Tower extends EnemyObserver {
 					}
 				}
 
-				// ez mi a szosz??????? --> enemy.hit(split, this); //az enemy-t
-				// talalat eri ettol a toronytol
-				// segedvaltozo, figyeli, hogy volt-e loves, ha nem, akkor
-				// meghivja a default shot fuggvenyet az ellensegnek
-				// ezzel biztositva, hogy ne fordulhasson elo az, hogy az
-				// ellenseget nem eri talalat, mikor a hatosugaron belul van.
+				/*
+				* az enemyt
+				* talalat eri ettol a toronytol
+				* segedvaltozo, figyeli, hogy volt-e loves, ha nem, akkor
+				* meghivja a default shot fuggvenyet az ellensegnek
+				* ezzel biztositva, hogy ne fordulhasson elo az, hogy az
+				* ellenseget nem eri talalat, mikor a hatosugaron belul van.
+				*/
 				boolean wasHit = false;
-				// Ellenorizzuk, hogy mely kovekkel rendelkezik a torony, majd
-				// meghivjuk a megfelelo sebzo fuggvenyeket. Ha semmilyennel,
-				// akkor default 10-et fog sebezni.
+				/*
+				* Ellenorizzuk, hogy mely kovekkel rendelkezik a torony, majd
+				* meghivjuk a megfelelo sebzo fuggvenyeket. Ha semmilyennel,
+				* akkor default 10-et fog sebezni.
+				*/
 				if (gemListHas(AntiDwarf.class)) {
 					enemy.getShotWithAntiDwarf(damageDwarf);
 					wasHit = true;
@@ -173,7 +178,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Segedfuggveny a torony lovesehez. Visszaadja, hogy a parameterben atadott
 	 * objektum osztalyaval megegyezo objektum van-e a gemList listaban. Egesz
 	 * pontosan ez ahhoz kell, hogy megtudjuk milyen tipusu lovest kell
@@ -188,7 +193,7 @@ public class Tower extends EnemyObserver {
 		return false;
 	}
 
-	/*
+	/**
 	 * A tundek elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageElf() {
@@ -199,7 +204,7 @@ public class Tower extends EnemyObserver {
 		damageElf = dElf;
 	}
 
-	/*
+	/**
 	 * A emberek elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageHuman() {
@@ -210,7 +215,7 @@ public class Tower extends EnemyObserver {
 		damageHuman = dHuman;
 	}
 
-	/*
+	/**
 	 * A torpok elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageDwarf() {
@@ -221,7 +226,7 @@ public class Tower extends EnemyObserver {
 		damageDwarf = dDwarf;
 	}
 
-	/*
+	/**
 	 * A hobbitok elleni sebzodes lekerdezese es beallitasa
 	 */
 	public int getDamageHobbit() {
@@ -232,50 +237,56 @@ public class Tower extends EnemyObserver {
 		damageHobbit = dHobbit;
 	}
 
-	/*
-	 * A lovesi frekvencia lekerdezese es beallitasa
+	/**
+	 * A lovesi frekvencia lekerdezese
 	 */
 	public int getFrequency() {
 		return frequency;
 	}
 
+	/**
+	 * A lovesi frekvencia beallitasa
+	 */
 	public void setFrequency(int freq) {
 		frequency = freq;
 	}
 
-	/*
-	 * a torony poziciojanak lekerdezese es beallitasa
+	/**
+	 * a torony poziciojanak lekerdezese
 	 */
 	public Position getPosition() {
 		return position;
 	}
 
+	/**
+	 * a torony poziciojanak beallitasa
+	 */
 	public void setPosition(Position pos) {
 		position = pos;
 	}
 
-	/*
+	/**
 	 * A torony hatosugaranak lekerdezese
 	 */
 	public double getRange() {
 		return range;
 	}
 
-	/*
+	/**
 	 * A torony hatosugaranak novelese a kapott ertekkel
 	 */
 	public void setRange(double ran) {
 		range += ran;
 	}
 
-	/*
+	/**
 	 * A mezo beallitasa amin a torony van
 	 */
 	public void setField(Field f) {
 		field = f;
 	}
 
-	/*
+	/**
 	 * Ember elleni ko hozzaadasa
 	 */
 	public void addAntiHuman() {
@@ -288,7 +299,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Tunde elleni ko hozzaadasa
 	 */
 	public void addAntiElf() {
@@ -300,7 +311,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Torp elleni ko hozzaadasa
 	 */
 	public void addAntiDwarf() {
@@ -312,7 +323,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Hobbit elleni ko hozzaadasa
 	 */
 	public void addAntiHobbit() {
@@ -324,7 +335,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Frekvencianovelo ko hozzaadasa
 	 */
 	public void addPlusFrequency() {
@@ -336,7 +347,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Hatosugarnovelo ko hozzaadasa
 	 */
 	public void addPlusRange() {
@@ -348,14 +359,14 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * A varazsko listajanak lekerdezese
 	 */
 	public List<GemStone> getGemStoneList() {
 		return gemList;
 	}
 
-	/*
+	/**
 	 * ellenseg hozzaadasa a listahoz
 	 */
 	public void addEnemy(Enemy e) {
@@ -364,7 +375,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * ellenseg eltavolitasa a listabol
 	 */
 	public void removeEnemy(Enemy e) {
@@ -373,7 +384,7 @@ public class Tower extends EnemyObserver {
 		}
 	}
 
-	/*
+	/**
 	 * Torony torlese
 	 */
 	public void wipe() {
@@ -381,6 +392,9 @@ public class Tower extends EnemyObserver {
 			enemy.removeObserver(this);
 		}
 	}
+	/**
+	 * Rajzolas kezdemenyezese
+	 */
 	public void draw(Graphics g) {
 		towerDrawer.draw(this, g);
 	}
