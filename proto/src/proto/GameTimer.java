@@ -11,19 +11,31 @@ public class GameTimer {
 	private Timer timer;
 	private GuiManager guiManager;
 
-	public void setGUIManager(GuiManager gm) {
-		this.guiManager = gm;
-	}
-
-	public GuiManager getGUIManager() {
-		return this.guiManager;
-	}
-
+	/**
+	 * Konstruktor
+	 */
 	public GameTimer(GameController gc) {
 		this.gamecontroller = gc;
 		timer = new Timer(true);
 	}
 
+	/**
+	 * GuiManager referenciajanak beallitasa
+	 */
+	public void setGUIManager(GuiManager gm) {
+		this.guiManager = gm;
+	}
+
+	/**
+	 * GuiManager referenciajanak lekerdezese
+	 */
+	public GuiManager getGUIManager() {
+		return this.guiManager;
+	}
+
+	/**
+	 * Meghatarozott idokozonkent mukodo funkciok
+	 */
 	private void tickEvent() {
 		if (!gamecontroller.getWin() && !gamecontroller.getGameOver()) {
 			this.gamecontroller.nextStep();
@@ -33,16 +45,9 @@ public class GameTimer {
 		}
 	}
 
-	public void setFastForward() {
-		timer = new Timer();
-		timer.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				tickEvent();
-			}
-		}, 0, Constants.TIMER_INTERVAL / 2);
-	}
-
+	/**
+	 * Normal jateksebesseg beallitasa
+	 */
 	public void setNormalSpeed() {
 		timer = new Timer();
 		timer.schedule(new TimerTask() {
@@ -53,18 +58,31 @@ public class GameTimer {
 		}, 0, Constants.TIMER_INTERVAL);
 	}
 
-	public void wait5sec() {
-		// ide kell valami hogy varjon 5 mp-t
+	/**
+	 * Gyorsitott jateksebesseg beallitasa
+	 */
+	public void setFastForward() {
+		timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				tickEvent();
+			}
+		}, 0, Constants.TIMER_INTERVAL / 2);
 	}
 
 	/**
-	 * Ez csak egy pszeudo-pause funkcio, mert nem leallitja a szamlalot, hanem
-	 * a varakozasi idot 9223372036854775807 ms-ra allitja. A program
-	 * varakozasban toltott ideje valoszinuleg nem haladja meg a 292 471 000
-	 * evet, igy ez kielegitonek tunik.
+	 * Jatek megallitasa
 	 */
 	public void pause() {
 		timer.cancel();
 		timer.purge();
 	}
+
+	/**
+	 * ide kell valami hogy varjon 5 mp-et
+	 */
+	public void wait5sec() {
+	}
+
 }
