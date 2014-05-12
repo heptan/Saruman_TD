@@ -193,9 +193,6 @@ public class GuiManager {
 		enemylist.setModel(enemylistmodel);
 		towerlist.setModel(towerlistmodel);
 		traplist.setModel(traplistmodel);
-		enemylist.setEnabled(false);
-		towerlist.setEnabled(false);
-		traplist.setEnabled(false);
 		action = new JComboBox<String>(functionboxcontent);
 		type = new JComboBox<String>(typeboxcontent);
 		gemstonebox = new JComboBox<String>(gemstoneboxcontent);
