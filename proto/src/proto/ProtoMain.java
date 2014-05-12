@@ -26,8 +26,8 @@ public class ProtoMain {
 		timer.setGUIManager(maingui);
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
-		System.out.println("Adja meg a kivant parancsot es nyomja meg az 'Enter' billentyut!\n");
+//		System.out.println("Megettuk a kenyerunk JAVAt csapat - prototipus parancsertelmezo.");
+//		System.out.println("Adja meg a kivant parancsot es nyomja meg az 'Enter' billentyut!\n");
 		String actcommand = "";
 		
 		while(!(actcommand.trim().equals("quit") || actcommand.trim().equals("exit"))) {
