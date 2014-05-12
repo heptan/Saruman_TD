@@ -8,7 +8,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -114,6 +113,7 @@ public class GuiManager {
 	// GameTimer-re mutato referencia
 	private GameTimer gametimer;
 	private SpeedStatus actspeedstatus;
+
 	private enum SpeedStatus {
 		NORMAL, FAST, PAUSED
 	}
@@ -288,7 +288,7 @@ public class GuiManager {
 				clickedFfwdButton();
 			}
 		});
-		
+
 		DocumentListener coorlistener = new DocumentListener() {
 			public void changedUpdate(DocumentEvent e) {
 				changed();
@@ -433,15 +433,17 @@ public class GuiManager {
 
 	public void itsOver() {
 		if (gamecontroller.getWin()) {
-			gametimer.pause();			
-			JOptionPane.showMessageDialog(frame, "On nyert!", "Jatek vege", JOptionPane.INFORMATION_MESSAGE);
+			gametimer.pause();
+			JOptionPane.showMessageDialog(frame, "On nyert!", "Jatek vege",
+					JOptionPane.INFORMATION_MESSAGE);
 			gamecontroller.win();
 			System.exit(0);
 			return;
 		}
 		if (gamecontroller.getGameOver()) {
 			gametimer.pause();
-			JOptionPane.showMessageDialog(frame, "On vesztett!", "Jatek vege", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(frame, "On vesztett!", "Jatek vege",
+					JOptionPane.INFORMATION_MESSAGE);
 			gamecontroller.gameOver();
 			System.exit(0);
 			return;
@@ -466,7 +468,7 @@ public class GuiManager {
 	 * Megvaltozott a kivalasztott tipus
 	 */
 	private void changedSelectedType() {
-		
+
 		if (type.getSelectedIndex() == 2) {
 			gemstonebox.setEnabled(true);
 		} else {
@@ -539,14 +541,14 @@ public class GuiManager {
 	 */
 	private void clickedPlayButton() {
 		if (actspeedstatus == SpeedStatus.PAUSED) {
-			this.gametimer.resume();
+			this.gametimer.setNormalSpeed();
 			gemstonebox.setEnabled(true);
 			action.setEnabled(true);
 			type.setEnabled(true);
 			actionbutton.setEnabled(true);
 			veplabel.setEnabled(true);
-		}
-		else if (actspeedstatus == SpeedStatus.FAST) {
+		} else if (actspeedstatus == SpeedStatus.FAST) {
+			this.gametimer.pause();
 			this.gametimer.setNormalSpeed();
 		}
 		actspeedstatus = SpeedStatus.NORMAL;
@@ -556,7 +558,8 @@ public class GuiManager {
 	 * Pause gombra kattintas
 	 */
 	private void clickedPauseButton() {
-		if (actspeedstatus == SpeedStatus.NORMAL || actspeedstatus == SpeedStatus.FAST){
+		if (actspeedstatus == SpeedStatus.NORMAL
+				|| actspeedstatus == SpeedStatus.FAST) {
 			this.gametimer.pause();
 			actspeedstatus = SpeedStatus.PAUSED;
 			gemstonebox.setEnabled(false);
@@ -572,15 +575,14 @@ public class GuiManager {
 	 */
 	private void clickedFfwdButton() {
 		if (actspeedstatus == SpeedStatus.PAUSED) {
-//			this.gametimer.resume();
 			this.gametimer.setFastForward();
 			gemstonebox.setEnabled(true);
 			action.setEnabled(true);
 			type.setEnabled(true);
 			actionbutton.setEnabled(true);
 			veplabel.setEnabled(true);
-		}
-		else if(actspeedstatus == SpeedStatus.NORMAL) {
+		} else if (actspeedstatus == SpeedStatus.NORMAL) {
+			this.gametimer.pause();
 			this.gametimer.setFastForward();
 		}
 		actspeedstatus = SpeedStatus.FAST;
@@ -595,7 +597,8 @@ public class GuiManager {
 			xcoord = Integer.parseInt(posx.getText());
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(frame,
-					"A megadott 'X' koordinata nem egesz szam!", "Hiba", JOptionPane.ERROR_MESSAGE);
+					"A megadott 'X' koordinata nem egesz szam!", "Hiba",
+					JOptionPane.ERROR_MESSAGE);
 			return false;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(frame,
@@ -608,7 +611,8 @@ public class GuiManager {
 			ycoord = Integer.parseInt(posy.getText());
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(frame,
-					"A megadott 'Y' koordinata nem egesz szam!", "Hiba", JOptionPane.ERROR_MESSAGE);
+					"A megadott 'Y' koordinata nem egesz szam!", "Hiba",
+					JOptionPane.ERROR_MESSAGE);
 			return false;
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(frame,
@@ -619,13 +623,15 @@ public class GuiManager {
 
 		if (xcoord > gamecontroller.getMap().getSize().getX()) {
 			JOptionPane.showMessageDialog(frame,
-					"Az 'X' koordinata a terkepen kivulre esik!", "Hiba", JOptionPane.ERROR_MESSAGE);
+					"Az 'X' koordinata a terkepen kivulre esik!", "Hiba",
+					JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
 		if (ycoord > gamecontroller.getMap().getSize().getY()) {
 			JOptionPane.showMessageDialog(frame,
-					"Az 'Y' koordinata a terkepen kivulre esik!", "Hiba", JOptionPane.ERROR_MESSAGE);
+					"Az 'Y' koordinata a terkepen kivulre esik!", "Hiba",
+					JOptionPane.ERROR_MESSAGE);
 			return false;
 		}
 
@@ -638,7 +644,8 @@ public class GuiManager {
 	private void addTower(double xcoord, double ycoord) {
 		if (gamecontroller.getMana() < 20) {
 			JOptionPane.showMessageDialog(frame,
-					"A torony lerakasahoz legalabb 20 VEP kell.", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+					"A torony lerakasahoz legalabb 20 VEP kell.", "Figyelem!",
+					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		Map map = gamecontroller.getMap();
@@ -646,7 +653,8 @@ public class GuiManager {
 		Tile tile = (map.getTile(xcoord, ycoord));
 		if (tile.getClass() == Road.class) {
 			JOptionPane.showMessageDialog(frame,
-					"Uton nem helyeztheto el torony!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+					"Uton nem helyeztheto el torony!", "Figyelem!",
+					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
@@ -702,7 +710,8 @@ public class GuiManager {
 	public void addTrap(double xcoord, double ycoord) {
 		if (gamecontroller.getMana() < 10) {
 			JOptionPane.showMessageDialog(frame,
-					"Akadaly lerakasahoz legalavv 10 VEP kell!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+					"Akadaly lerakasahoz legalavv 10 VEP kell!", "Figyelem!",
+					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		Map map = gamecontroller.getMap();
@@ -710,7 +719,8 @@ public class GuiManager {
 		Tile tile = (map.getTile(xcoord, ycoord));
 		if (tile.getClass() == Field.class) {
 			JOptionPane.showMessageDialog(frame,
-					"Mezon nem helyeztheto el akadaly!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+					"Mezon nem helyeztheto el akadaly!", "Figyelem!",
+					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 
@@ -736,7 +746,8 @@ public class GuiManager {
 	public void addGemStone(int type, double xcoord, double ycoord) {
 		if (gamecontroller.getMana() < 10) {
 			JOptionPane.showMessageDialog(frame,
-					"Varazsko hozzaadasahoz legalabb 10 VEP kell!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+					"Varazsko hozzaadasahoz legalabb 10 VEP kell!",
+					"Figyelem!", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		Map map = gamecontroller.getMap();
@@ -753,7 +764,8 @@ public class GuiManager {
 
 			if (field.getTower().getGemStoneList().size() >= 4) {
 				JOptionPane.showMessageDialog(frame,
-						"Erre a toronyra nem teheto tobb varazsko!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+						"Erre a toronyra nem teheto tobb varazsko!",
+						"Figyelem!", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 
@@ -788,7 +800,8 @@ public class GuiManager {
 
 			if (road.getTrap().isGemStoned()) {
 				JOptionPane.showMessageDialog(frame,
-						"Ezen az akadalyon mar van varazsko!", "Figyelem!", JOptionPane.WARNING_MESSAGE);
+						"Ezen az akadalyon mar van varazsko!", "Figyelem!",
+						JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 			road.addPlusTime();
