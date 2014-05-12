@@ -67,6 +67,9 @@ public class Hobbit extends Enemy {
 		this.gamecontroller.splitHobbit(this);
 		
 	}
+	/**
+	 * Rajzolas kezdemenyezese
+	 */
 	public void draw(Graphics g) {
 		hobbitDrawer.draw(this, g);
 	}

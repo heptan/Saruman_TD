@@ -64,7 +64,9 @@ public class Human extends Enemy {
 	public void split() {
 		this.gamecontroller.splitHuman(this);
 	}
-	// Igen, ctrl+c, ctrl+v powa!
+	/**
+	 * Rajzolas kezdemenyezese
+	 */
 	public void draw(Graphics g) {
 		humanDrawer.draw(this, g);
 	}
