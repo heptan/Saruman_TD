@@ -59,8 +59,6 @@ public class Position {
 	 *  valo tavolsagat az aktualis Position objektumnak.
 	 */
 	public double getDistance(Position a) {
-		
-	
 		return Math.sqrt((x-a.x)*(x-a.x) + (y-a.y)*(y-a.y));
 	}
 }

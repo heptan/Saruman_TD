@@ -52,7 +52,13 @@ public abstract class Tile {
 		map.addEnemyObserver(observer);
 	}
 	
+	/**
+	 * A palyaelemen levo torony lekrdezese
+	 */
 	public abstract Tower getTower();
+	/**
+	 * A palyaelemen levo akadaly lekrdezese
+	 */
 	public abstract Trap getTrap();
 	
 	/*

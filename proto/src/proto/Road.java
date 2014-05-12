@@ -63,9 +63,9 @@ public class Road extends Tile {
 		}
 	}
 
+	// Nem lehet rajta torony
 	@Override
 	public Tower getTower() {
-		// Nem lehet rajta torony
 		return null;
 	}
 
@@ -217,6 +217,10 @@ public class Road extends Tile {
 	public void addPlusRange() {
 		System.out.println("Ezt a kovet csak toronyra lehet tenni");
 	}
+	
+	/**
+	 * Rajzolas kezdemenyezzese
+	 */
 	public void draw(Graphics g) {
 		roadDrawer.draw(this, g);
 		if(trap != null){
