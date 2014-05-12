@@ -79,10 +79,4 @@ public class GameTimer {
 		timer.purge();
 	}
 
-	/**
-	 * ide kell valami hogy varjon 5 mp-et
-	 */
-	public void wait5sec() {
-	}
-
 }

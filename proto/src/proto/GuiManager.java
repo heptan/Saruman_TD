@@ -217,6 +217,7 @@ public class GuiManager {
 		functionpanel.add(posx);
 		functionpanel.add(posy);
 		functionpanel.add(actionbutton);
+		actionbutton.setEnabled(false);
 		functionmainpanel.setLayout(new BorderLayout());
 		functionmainpanel.add(functionpanel, BorderLayout.NORTH);
 		functionmainpanel.add(gemstonepanel, BorderLayout.SOUTH);
@@ -542,11 +543,7 @@ public class GuiManager {
 	private void clickedPlayButton() {
 		if (actspeedstatus == SpeedStatus.PAUSED) {
 			this.gametimer.setNormalSpeed();
-			gemstonebox.setEnabled(true);
-			action.setEnabled(true);
-			type.setEnabled(true);
 			actionbutton.setEnabled(true);
-			veplabel.setEnabled(true);
 		} else if (actspeedstatus == SpeedStatus.FAST) {
 			this.gametimer.pause();
 			this.gametimer.setNormalSpeed();
@@ -562,11 +559,7 @@ public class GuiManager {
 				|| actspeedstatus == SpeedStatus.FAST) {
 			this.gametimer.pause();
 			actspeedstatus = SpeedStatus.PAUSED;
-			gemstonebox.setEnabled(false);
-			action.setEnabled(false);
-			type.setEnabled(false);
 			actionbutton.setEnabled(false);
-			veplabel.setEnabled(false);
 		}
 	}
 
@@ -576,11 +569,7 @@ public class GuiManager {
 	private void clickedFfwdButton() {
 		if (actspeedstatus == SpeedStatus.PAUSED) {
 			this.gametimer.setFastForward();
-			gemstonebox.setEnabled(true);
-			action.setEnabled(true);
-			type.setEnabled(true);
 			actionbutton.setEnabled(true);
-			veplabel.setEnabled(true);
 		} else if (actspeedstatus == SpeedStatus.NORMAL) {
 			this.gametimer.pause();
 			this.gametimer.setFastForward();

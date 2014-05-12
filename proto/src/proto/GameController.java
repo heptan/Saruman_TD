@@ -33,6 +33,16 @@ public class GameController {
 
 	private GameTimer gametimer;
 
+	/**
+	 * Ellensegek szama, ellenseg hullamok generalasahoz
+	 */
+	int act_enemy_counter = 0;
+	
+	/**
+	 * Ha igaz, akkor a  kovetkezo lepeseben letrejon ellenseg
+	 */
+	boolean addenemy = true;
+
 	public void setGameTimer(GameTimer gt) {
 		this.gametimer = gt;
 	}
@@ -86,7 +96,6 @@ public class GameController {
 		System.out.println("A jatek elveszitve!");
 		// akadalyok megszuntetese: az endTime valtozo modositasa ugy, hogy
 		// azonnal megszunjenek
-		// TODO
 		// lekerjuk a palyaelemeket tartalmazo listat
 		List<Tile> temp = map.getTileList();
 		// Vegigiteralunk rajta es minden elemnel megnezzuk, hogy ut, vagy
@@ -368,15 +377,19 @@ public class GameController {
 		}
 
 		// Ellensegek automatikus letrehozasa
-		if (enemies.size() < 2 && !gameover && !win) {
-			for (int i = 0; i < 5; i++) {
-				gametimer.wait5sec();
-				for (int j = 0; j < Constants.ENEMY_COUNTER_MAX / 5; j++) {
+		if (!gameover && !win) {
+			if (addenemy) {
+				int old_enemy_pcs = act_enemy_counter;
+				for (; act_enemy_counter < Constants.ENEMY_COUNTER_MAX
+						&& act_enemy_counter < old_enemy_pcs + 1; act_enemy_counter++) {
 					Random rndGen = new Random();
 					int rndType = rndGen.nextInt(4);
 					String type[] = { "dwarf", "elf", "hobbit", "human" };
 					this.startNewEnemy(0, 0, type[rndType]);
+					addenemy = false;
 				}
+			} else {
+				addenemy = true;
 			}
 		}
 	}
