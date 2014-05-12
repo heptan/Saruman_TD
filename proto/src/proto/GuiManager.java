@@ -460,6 +460,7 @@ public class GuiManager {
 	 * Megvaltozott a kivalasztott tipus
 	 */
 	private void changedSelectedType() {
+		
 		if (type.getSelectedIndex() == 2) {
 			gemstonebox.setEnabled(true);
 		} else {
@@ -533,6 +534,11 @@ public class GuiManager {
 	private void clickedPlayButton() {
 		if (actspeedstatus == SpeedStatus.PAUSED) {
 			this.gametimer.resume();
+			gemstonebox.setEnabled(true);
+			action.setEnabled(true);
+			type.setEnabled(true);
+			actionbutton.setEnabled(true);
+			veplabel.setEnabled(true);
 		}
 		else if (actspeedstatus == SpeedStatus.FAST) {
 			this.gametimer.setNormalSpeed();
@@ -547,6 +553,11 @@ public class GuiManager {
 		if (actspeedstatus == SpeedStatus.NORMAL || actspeedstatus == SpeedStatus.FAST){
 			this.gametimer.pause();
 			actspeedstatus = SpeedStatus.PAUSED;
+			gemstonebox.setEnabled(false);
+			action.setEnabled(false);
+			type.setEnabled(false);
+			actionbutton.setEnabled(false);
+			veplabel.setEnabled(false);
 		}
 	}
 
@@ -557,6 +568,11 @@ public class GuiManager {
 		if (actspeedstatus == SpeedStatus.PAUSED) {
 //			this.gametimer.resume();
 			this.gametimer.setFastForward();
+			gemstonebox.setEnabled(true);
+			action.setEnabled(true);
+			type.setEnabled(true);
+			actionbutton.setEnabled(true);
+			veplabel.setEnabled(true);
 		}
 		else if(actspeedstatus == SpeedStatus.NORMAL) {
 			this.gametimer.setFastForward();
