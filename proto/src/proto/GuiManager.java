@@ -113,6 +113,8 @@ public class GuiManager {
 	// GameTimer-re mutato referencia
 	private GameTimer gametimer;
 	private SpeedStatus actspeedstatus;
+	
+	private Dimension windowsize;
 
 	private enum SpeedStatus {
 		NORMAL, FAST, PAUSED
@@ -231,6 +233,8 @@ public class GuiManager {
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		
+		windowsize = frame.getSize();
 
 		// ESC gombra kilep
 		frame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
@@ -806,4 +810,13 @@ public class GuiManager {
 	public void refreshVEPLabel() {
 		veplabel.setText("VEP: " + gamecontroller.getMana());
 	}
+	
+	/**
+	 * Ablak  meretenek lekeredzesehez
+	 * @return Ablak aktualis merete Dimension objektumkent
+	 */
+	public Dimension getFrameSize() {
+		return windowsize;
+	}
+
 }
