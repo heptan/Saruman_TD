@@ -12,7 +12,7 @@ import javax.swing.JPanel;
  * @since 2014-05-02
  */
 public class MapPanel extends JPanel {
-	
+
 	/**
 	 * GuiManager-re mutato referencia
 	 */
@@ -24,24 +24,30 @@ public class MapPanel extends JPanel {
 	public MapPanel(GuiManager guimanager) {
 		this.guimanager = guimanager;
 	}
-	
+
 	/**
 	 * Ezzel a metodussal tortenik a terkep ujrarajzolasa
+	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
-	public void paintComponent(Graphics g){
-		
-		//Alap magenta szinu vaszon kirajzolasa
+	public void paintComponent(Graphics g) {
+
 		Position mapsize = guimanager.getGameController().getMapSize();
-		if(mapsize == new Position(0, 0)) {
-			return;
+
+		if (guimanager.getGameController().getWin()
+				|| guimanager.getGameController().getGameOver()
+				|| mapsize == new Position(0, 0)) {
+			int w = guimanager.getFrameSize().width;
+			int h = guimanager.getFrameSize().height;
+
+			g.setColor(Color.GRAY);
+			g.fillRect(0, 0, w, h);
+		} else {
+
+			// Terkep kirajzolasa
+			guimanager.redrawAll(g);
 		}
-//		g.setColor(new Color(255, 53, 197));
-		g.fillRect(0, 0, ((int)mapsize.getX() + 1) * Constants.GUI_TILE_SIZE, ((int)mapsize.getY() + 1) * Constants.GUI_TILE_SIZE);
-		
-		//Terkep kirajzolasa
-		guimanager.redrawAll(g);	
-		
+
 	}
 
 }
