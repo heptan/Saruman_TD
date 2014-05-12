@@ -51,6 +51,9 @@ public class GameTimer {
 			}
 		}, 0,  Constants.TIMER_INTERVAL);
 	}
+	public void wait5sec(){
+		//ide kell valami hogy varjon 5 mp-t		
+	}
 	
 	/*
 	 * Ez csak egy pszeudo-pause funkcio, mert nem leallitja a szamlalot,

@@ -366,14 +366,17 @@ public class GameController {
 			win();
 			return;
 		}
-		
+
 		// Ellensegek automatikus letrehozasa
 		if (enemies.size() < 2 && !gameover && !win) {
-			for (int i = 0; enemyCounter <= Constants.ENEMY_COUNTER_MAX; i++) {
-				Random rndGen = new Random();
-				int rndType = rndGen.nextInt(4);
-				String type[] = { "dwarf", "elf", "hobbit", "human" };
-				this.startNewEnemy(0, 0, type[rndType]);
+			for (int i = 0; i < 5; i++) {
+				gametimer.wait5sec();
+				for (int j = 0; j < Constants.ENEMY_COUNTER_MAX / 5; j++) {
+					Random rndGen = new Random();
+					int rndType = rndGen.nextInt(4);
+					String type[] = { "dwarf", "elf", "hobbit", "human" };
+					this.startNewEnemy(0, 0, type[rndType]);
+				}
 			}
 		}
 	}
