@@ -236,8 +236,8 @@ public class GuiManager {
 
 		// ESC gombra kilep
 		frame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
-				.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "Cancel");
-		frame.getRootPane().getActionMap().put("Cancel", new AbstractAction() {
+				.put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "ESC");
+		frame.getRootPane().getActionMap().put("ESC", new AbstractAction() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
@@ -245,8 +245,8 @@ public class GuiManager {
 
 		//G gombra Go!
 		frame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
-				.put(KeyStroke.getKeyStroke(KeyEvent.VK_G, 0), "Cancel");
-		frame.getRootPane().getActionMap().put("Cancel", new AbstractAction() {
+				.put(KeyStroke.getKeyStroke(KeyEvent.VK_G, 0), "GO");
+		frame.getRootPane().getActionMap().put("GO", new AbstractAction() {
 			public void actionPerformed(ActionEvent e) {
 				clickedGoButton();
 			}
