@@ -2,6 +2,10 @@ package proto;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+
+import javax.swing.ImageIcon;
 
 /**
  * Mezo palyaelem rajzolasahoz hasznalt objektum
@@ -22,7 +26,11 @@ public class DrawField {
 		int y = (int) pos.getY();
 		int tilesize = Constants.GUI_TILE_SIZE;
 
-		g.setColor(new Color(118, 147, 60));
-		g.fillRect(x * tilesize, y * tilesize , tilesize, tilesize);
+		// g.setColor(new Color(118, 147, 60));
+		// g.fillRect(x * tilesize, y * tilesize , tilesize, tilesize);
+
+		Image im = new ImageIcon("textures/field.png").getImage();
+		g.drawImage(im,x * tilesize, y * tilesize, x * tilesize + tilesize, y * tilesize + tilesize,
+				0, 0, im.getWidth(null), im.getHeight(null), null);
 	}
 }

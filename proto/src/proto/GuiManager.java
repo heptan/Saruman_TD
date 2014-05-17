@@ -1,6 +1,7 @@
 package proto;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -99,7 +100,7 @@ public class GuiManager {
 	// Listakomponenseket tartalmazo panel
 	private JPanel listmainpanel = new JPanel();
 	// Uj terkepelem hozzaadasahoz, eltavolitasahoz hasznalt komponenseket
-	// tartalmazo panel.
+	// tartalmazo panel
 	private JPanel functionpanel = new JPanel();
 	// Varazsko kivalasztasahoz hasznalt listat tarolo panel
 	private JPanel gemstonepanel = new JPanel();
@@ -113,7 +114,7 @@ public class GuiManager {
 	// GameTimer-re mutato referencia
 	private GameTimer gametimer;
 	private SpeedStatus actspeedstatus;
-	
+
 	private Dimension windowsize;
 
 	private enum SpeedStatus {
@@ -230,7 +231,7 @@ public class GuiManager {
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		
+
 		windowsize = frame.getSize();
 
 		// ESC gombra kilep
@@ -239,6 +240,15 @@ public class GuiManager {
 		frame.getRootPane().getActionMap().put("Cancel", new AbstractAction() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
+			}
+		});
+
+		//G gombra Go!
+		frame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW)
+				.put(KeyStroke.getKeyStroke(KeyEvent.VK_G, 0), "Cancel");
+		frame.getRootPane().getActionMap().put("Cancel", new AbstractAction() {
+			public void actionPerformed(ActionEvent e) {
+				clickedGoButton();
 			}
 		});
 
@@ -407,6 +417,12 @@ public class GuiManager {
 	 * Ezzel a metodussal tortenik a terkep ujrarajzolasa
 	 */
 	public void redrawAll(Graphics g) {
+		g.setColor(Color.MAGENTA);
+		g.fillRect(0, 0, (int) gamecontroller.getMap().getSize().getX()
+				* Constants.GUI_TILE_SIZE + Constants.GUI_TILE_SIZE,
+				(int) gamecontroller.getMap().getSize().getY()
+						* Constants.GUI_TILE_SIZE + Constants.GUI_TILE_SIZE);
+
 		// Palyaelemek rajzolasa
 		List<Tile> tileList = gamecontroller.getMap().getTileList();
 		for (Tile t : tileList) {
@@ -807,9 +823,10 @@ public class GuiManager {
 	public void refreshVEPLabel() {
 		veplabel.setText("VEP: " + gamecontroller.getMana());
 	}
-	
+
 	/**
-	 * Ablak  meretenek lekeredzesehez
+	 * Ablak meretenek lekeredzesehez
+	 * 
 	 * @return Ablak aktualis merete Dimension objektumkent
 	 */
 	public Dimension getFrameSize() {
