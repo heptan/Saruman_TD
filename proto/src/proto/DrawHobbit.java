@@ -2,6 +2,9 @@ package proto;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 /**
  * Dwarf ellenseg rajzolasahoz hasznalt objektum
@@ -20,8 +23,14 @@ public class DrawHobbit {
 		int tilesize = Constants.GUI_TILE_SIZE;
 		int x = (int) o.getPosition().getX();
 		int y = (int) o.getPosition().getY();
-		g.setColor(new Color(255, 201, 14));
-		g.fillOval(x * tilesize + 2, y * tilesize + tilesize / 2 + 2,
-				tilesize / 2 - 4, tilesize / 2 - 4);
+		
+//		g.setColor(new Color(255, 201, 14));
+//		g.fillOval(x * tilesize + 2, y * tilesize + tilesize / 2 + 2,
+//				tilesize / 2 - 4, tilesize / 2 - 4);
+		
+		Image im = new ImageIcon("textures/hobbit.png").getImage();
+		g.drawImage(im, x * tilesize, y * tilesize + tilesize / 2, x * tilesize
+				+ tilesize / 2, y * tilesize + tilesize, 0, 0, im.getWidth(null),
+				im.getHeight(null), null);
 	}
 }
